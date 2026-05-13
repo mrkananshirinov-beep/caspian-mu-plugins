@@ -77,8 +77,8 @@ function caspian_washer_render($content) {
 .csw-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
 .csw-btn-call { background: #16a34a; color: #fff !important; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 17px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
 .csw-btn-call:hover { background: #15803d; }
-.csw-btn-book { background: #F4B942; color: #062963 !important; padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; transition: background 0.2s; }
-.csw-btn-book:hover { background: #ecae2d; }
+.csw-btn-book { background: #D52B1E; color: #fff !important; padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; transition: background 0.2s; }
+.csw-btn-book:hover { background: #a01f15; }
 .csw-hero-photo img { width: 100%; height: auto; max-height: 560px; object-fit: cover; border-radius: 14px; box-shadow: 0 22px 60px rgba(0,0,0,0.4); }
 
 /* SECTIONS */
@@ -188,7 +188,7 @@ function caspian_washer_render($content) {
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
             <div class="csw-hero-cta">
-                <a href="tel:+14167325905" class="csw-btn-call">Call (416) 732-5905</a>
+                <a href="tel:+14167325905" class="csw-btn-call">Call Now</a>
                 <a href="#book" class="csw-btn-book">Book Online</a>
             </div>
         </div>
@@ -242,7 +242,7 @@ function caspian_washer_render($content) {
     <div class="csw-section-inner">
         <p class="kicker">Washer specialty #2</p>
         <h2>Drive System, Motor &amp; Transmission</h2>
-        <p class="intro">When a washer will not spin, will not agitate, or makes a loud grinding noise during the spin cycle, the failure is almost always in the drive system. On older Kenmore and Whirlpool top-loaders this is usually the motor coupling — a $20 part that fails predictably after 8 to 12 years of use. On larger or front-load units, the failure may sit deeper: transmission, drum bearing, or motor itself.</p>
+        <p class="intro">When a washer will not spin, will not agitate, or makes a loud grinding noise during the spin cycle, the failure is almost always in the drive system. On older Kenmore and Whirlpool top-loaders this is usually the motor coupling — a common rubber wear part that fails predictably after 8 to 12 years of use. On larger or front-load units, the failure may sit deeper: transmission, drum bearing, or motor itself.</p>
 
         <div class="csw-grid-2">
             <figure>
@@ -277,7 +277,7 @@ function caspian_washer_render($content) {
     <div class="csw-section-inner">
         <p class="kicker">Washer specialty #3</p>
         <h2>Electronic Diagnostics &amp; Control Board</h2>
-        <p class="intro">Modern washers from Samsung, LG, Whirlpool, and Bosch are full of sensors, relays, and a main control board that talks to every component. When the washer will not start, displays an error code, or behaves erratically, the cause is usually electronic — but rarely is the control board itself the failure. Most of the time a relay, sensor, or wiring harness is at fault, and replacing a $400 control board when the real cause is a $30 sensor is exactly the kind of mistake we avoid.</p>
+        <p class="intro">Modern washers from Samsung, LG, Whirlpool, and Bosch are full of sensors, relays, and a main control board that talks to every component. When the washer will not start, displays an error code, or behaves erratically, the cause is usually electronic — but rarely is the control board itself the failure. Most of the time a relay, sensor, or wiring harness is at fault, and replacing the entire control board when the real cause is a single sensor is exactly the kind of misdiagnosis we avoid.</p>
 
         <div class="csw-grid-1">
             <figure>
@@ -386,7 +386,7 @@ function caspian_washer_render($content) {
     <h2>Get same-day washing machine repair in Hamilton</h2>
     <p>Serving Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Flamborough, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and the wider Ontario region.</p>
     <div class="csw-cta-btns">
-        <a href="tel:+14167325905" class="csw-btn-call">Call (416) 732-5905</a>
+        <a href="tel:+14167325905" class="csw-btn-call">Call Now</a>
         <a href="/contact/" class="csw-btn-book">Book Online</a>
     </div>
 </section>
