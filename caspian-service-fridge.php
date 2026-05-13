@@ -163,7 +163,7 @@ function caspian_fridge_render($content) {
             <p class="lead">Same-day service since 2009. 90-day parts &amp; labour warranty. Live agents 7am–11pm, never voicemail.</p>
             <div class="csf-hero-trust">
                 <span><strong>★4.8</strong> / 220+ Reviews</span>
-                <span><strong>BBB A+</strong> Accredited</span>
+                <span><strong>BBB A</strong> Accredited</span>
                 <span><strong>Since 2009</strong> · 15+ years</span>
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
@@ -259,11 +259,11 @@ function caspian_fridge_render($content) {
     <div class="csf-section-inner">
         <p class="kicker">Why Caspian</p>
         <h2>15+ Years of Refrigerator Repair Across Ontario</h2>
-        <p class="intro">Hamilton-headquartered since September 2009. BBB A+ Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail when your food is at risk.</p>
+        <p class="intro">Hamilton-headquartered since September 2009. BBB A Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail when your food is at risk.</p>
 
         <div class="csf-trust-grid">
             <div class="csf-trust-card"><span class="num">★4.8</span><span class="lbl">220+ Google Reviews</span></div>
-            <div class="csf-trust-card"><span class="num">A+</span><span class="lbl">BBB Accredited</span></div>
+            <div class="csf-trust-card"><span class="num">A</span><span class="lbl">BBB Accredited</span></div>
             <div class="csf-trust-card"><span class="num">2009</span><span class="lbl">Serving Hamilton since</span></div>
             <div class="csf-trust-card"><span class="num">90-Day</span><span class="lbl">Parts &amp; Labour Warranty</span></div>
         </div>

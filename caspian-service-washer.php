@@ -184,7 +184,7 @@ function caspian_washer_render($content) {
             <p class="lead">Same-day washer service since 2009. 90-day parts &amp; labour warranty. Live agents 7am–11pm, never voicemail.</p>
             <div class="csw-hero-trust">
                 <span><strong>★4.8</strong> / 220+ Reviews</span>
-                <span><strong>BBB A+</strong> Accredited</span>
+                <span><strong>BBB A</strong> Accredited</span>
                 <span><strong>Since 2009</strong> · 15+ years</span>
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
@@ -328,11 +328,11 @@ function caspian_washer_render($content) {
     <div class="csw-section-inner">
         <p class="kicker">Why Caspian</p>
         <h2>15+ Years of Washing Machine Repair Across Ontario</h2>
-        <p class="intro">Hamilton-headquartered since September 2009. BBB A+ Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and the wider Ontario region.</p>
+        <p class="intro">Hamilton-headquartered since September 2009. BBB A Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and the wider Ontario region.</p>
 
         <div class="csw-trust-grid">
             <div class="csw-trust-card"><span class="num">★4.8</span><span class="lbl">220+ Google Reviews</span></div>
-            <div class="csw-trust-card"><span class="num">A+</span><span class="lbl">BBB Accredited</span></div>
+            <div class="csw-trust-card"><span class="num">A</span><span class="lbl">BBB Accredited</span></div>
             <div class="csw-trust-card"><span class="num">2009</span><span class="lbl">Serving Hamilton since</span></div>
             <div class="csw-trust-card"><span class="num">90-Day</span><span class="lbl">Parts &amp; Labour Warranty</span></div>
         </div>

@@ -176,7 +176,7 @@ function caspian_dryer_render($content) {
             <p class="lead">Same-day service for electric and gas dryers. 90-day parts &amp; labour warranty. Live agents 7am&ndash;11pm, never voicemail.</p>
             <div class="csd-hero-trust">
                 <span><strong>&#9733;4.8</strong> / 220+ Reviews</span>
-                <span><strong>BBB A+</strong> Accredited</span>
+                <span><strong>BBB A</strong> Accredited</span>
                 <span><strong>Since 2009</strong> &middot; 15+ years</span>
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
@@ -342,7 +342,7 @@ function caspian_dryer_render($content) {
     <div class="csd-section-inner">
         <p class="kicker">Why Caspian</p>
         <h2>Local trust, transparent process</h2>
-        <p class="intro">Caspian Appliance Repair has been serving Hamilton households since 2009. We focus on out-of-warranty repair work for homeowners who want their existing appliance fixed properly and quickly.</p>
+        <p class="intro">Caspian Appliance Repair has been a trusted name in the appliance repair industry since 2009. We focus on out-of-warranty repair work for homeowners who want their existing appliance fixed properly and quickly.</p>
 
         <div class="csd-trust-grid">
             <div class="csd-trust-card">
@@ -350,7 +350,7 @@ function caspian_dryer_render($content) {
                 <span class="lbl">15+ years experience</span>
             </div>
             <div class="csd-trust-card">
-                <span class="num">BBB A+</span>
+                <span class="num">BBB A</span>
                 <span class="lbl">Accredited Business</span>
             </div>
             <div class="csd-trust-card">
