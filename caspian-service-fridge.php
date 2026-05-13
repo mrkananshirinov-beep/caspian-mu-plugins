@@ -73,9 +73,10 @@ function caspian_fridge_render($content) {
 .csf-hero-trust span { display: inline-flex; align-items: center; gap: 6px; opacity: 0.95; }
 .csf-hero-trust strong { color: #F4B942; }
 .csf-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.csf-btn-call { background: #16a34a; color: #fff !important; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 17px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+.csf-btn-call, .csf-btn-book { padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; min-width: 180px; transition: background 0.2s; color: #fff !important; box-sizing: border-box; }
+.csf-btn-call { background: #16a34a; }
 .csf-btn-call:hover { background: #15803d; }
-.csf-btn-book { background: #D52B1E; color: #fff !important; padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; transition: background 0.2s; }
+.csf-btn-book { background: #D52B1E; }
 .csf-btn-book:hover { background: #a01f15; }
 .csf-hero-photo img { width: 100%; height: 100%; max-height: 520px; object-fit: cover; border-radius: 14px; box-shadow: 0 22px 60px rgba(0,0,0,0.4); }
 

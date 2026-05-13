@@ -75,9 +75,10 @@ function caspian_washer_render($content) {
 .csw-hero-trust span { display: inline-flex; align-items: center; gap: 6px; opacity: 0.95; }
 .csw-hero-trust strong { color: #F4B942; }
 .csw-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
-.csw-btn-call { background: #16a34a; color: #fff !important; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 17px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+.csw-btn-call, .csw-btn-book { padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; min-width: 180px; transition: background 0.2s; color: #fff !important; box-sizing: border-box; }
+.csw-btn-call { background: #16a34a; }
 .csw-btn-call:hover { background: #15803d; }
-.csw-btn-book { background: #D52B1E; color: #fff !important; padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; transition: background 0.2s; }
+.csw-btn-book { background: #D52B1E; }
 .csw-btn-book:hover { background: #a01f15; }
 .csw-hero-photo img { width: 100%; height: auto; max-height: 560px; object-fit: cover; border-radius: 14px; box-shadow: 0 22px 60px rgba(0,0,0,0.4); }
 
