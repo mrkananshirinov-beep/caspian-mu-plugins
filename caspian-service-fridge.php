@@ -75,8 +75,8 @@ function caspian_fridge_render($content) {
 .csf-hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
 .csf-btn-call { background: #16a34a; color: #fff !important; padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 17px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
 .csf-btn-call:hover { background: #15803d; }
-.csf-btn-book { background: #F4B942; color: #062963 !important; padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; transition: background 0.2s; }
-.csf-btn-book:hover { background: #ecae2d; }
+.csf-btn-book { background: #D52B1E; color: #fff !important; padding: 14px 26px; border-radius: 8px; font-weight: 700; font-size: 17px; text-decoration: none; transition: background 0.2s; }
+.csf-btn-book:hover { background: #a01f15; }
 .csf-hero-photo img { width: 100%; height: 100%; max-height: 520px; object-fit: cover; border-radius: 14px; box-shadow: 0 22px 60px rgba(0,0,0,0.4); }
 
 /* SECTIONS */
@@ -167,7 +167,7 @@ function caspian_fridge_render($content) {
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
             <div class="csf-hero-cta">
-                <a href="tel:+14167325905" class="csf-btn-call">Call (416) 732-5905</a>
+                <a href="tel:+14167325905" class="csf-btn-call">Call Now</a>
                 <a href="#book" class="csf-btn-book">Book Online</a>
             </div>
         </div>
@@ -313,7 +313,7 @@ function caspian_fridge_render($content) {
     <h2>Get same-day refrigerator repair in Hamilton</h2>
     <p>Serving Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and more across Ontario.</p>
     <div class="csf-cta-btns">
-        <a href="tel:+14167325905" class="csf-btn-call">Call (416) 732-5905</a>
+        <a href="tel:+14167325905" class="csf-btn-call">Call Now</a>
         <a href="/contact/" class="csf-btn-book">Book Online</a>
     </div>
 </section>
