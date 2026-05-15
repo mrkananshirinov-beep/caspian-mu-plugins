@@ -1,0 +1,624 @@
+<?php
+/**
+ * Plugin Name: Caspian Brand - Samsung Appliance Repair
+ * Description: Renders /samsung-appliance-repair/ page with brand-specific content, factory-not-authorized disclaimer, FAQ schema, locked design system.
+ * Version: 1.0
+ * Author: Caspian Build
+ */
+
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+add_filter( 'the_content', function( $content ) {
+	if ( ! is_page( 'samsung-appliance-repair' ) ) {
+		return $content;
+	}
+
+	ob_start();
+	?>
+	<style>
+	.caspian-brand-page * { box-sizing: border-box; }
+	.caspian-brand-page { color: #333; line-height: 1.65; font-size: 17px; }
+	.caspian-brand-page h1,
+	.caspian-brand-page h2,
+	.caspian-brand-page h3,
+	.caspian-brand-page h4 { color: #062963; line-height: 1.25; margin-top: 0; }
+	.caspian-brand-page p { margin: 0 0 1em; }
+	.caspian-brand-page a { color: #0B3D91; }
+	.caspian-brand-page ul { padding-left: 22px; margin: 0 0 1em; }
+	.caspian-brand-page ul li { margin-bottom: 6px; }
+
+	.cb-hero {
+		background: linear-gradient(135deg, #2E80D1 0%, #0B3D91 100%);
+		padding: 70px 24px 80px;
+		text-align: center;
+		color: #fff;
+	}
+	.cb-hero h1 {
+		color: #fff !important;
+		font-size: 42px;
+		font-weight: 800;
+		margin: 0 0 14px;
+		max-width: 880px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.cb-hero .subtitle {
+		color: #b8d0eb !important;
+		font-size: 19px;
+		margin: 0 auto 28px;
+		max-width: 740px;
+	}
+	.cb-hero-bullets {
+		list-style: none;
+		padding: 0;
+		margin: 0 auto 32px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 8px 22px;
+		max-width: 920px;
+	}
+	.cb-hero-bullets li {
+		color: #7BC4F0 !important;
+		font-weight: 600;
+		font-size: 15px;
+		white-space: nowrap;
+	}
+	.cb-hero-bullets li::before {
+		content: "✓ ";
+		color: #F4B942;
+		font-weight: 700;
+	}
+	.cb-hero-ctas {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 14px;
+	}
+	.cb-btn {
+		display: inline-block;
+		min-width: 180px;
+		padding: 14px 28px;
+		font-weight: 700;
+		font-size: 16px;
+		text-align: center;
+		text-decoration: none !important;
+		border-radius: 6px;
+		border: none;
+		cursor: pointer;
+		transition: background 0.18s;
+		color: #fff !important;
+	}
+	.cb-btn-call { background: #16a34a; }
+	.cb-btn-call:hover { background: #15803d; }
+	.cb-btn-book { background: #D52B1E; }
+	.cb-btn-book:hover { background: #b91c1c; }
+
+	.cb-section { padding: 60px 24px; }
+	.cb-section .cb-inner { max-width: 1100px; margin: 0 auto; }
+	.cb-section h2 {
+		font-size: 30px;
+		text-align: center;
+		margin-bottom: 12px;
+	}
+	.cb-section .cb-section-lead {
+		text-align: center;
+		max-width: 760px;
+		margin: 0 auto 36px;
+		color: #555;
+		font-size: 17px;
+	}
+
+	/* INDEPENDENT DISCLOSURE — prominent top */
+	.cb-indep-banner {
+		background: #EBF1FA;
+		border-top: 3px solid #0B3D91;
+		border-bottom: 3px solid #0B3D91;
+		padding: 22px 24px;
+		text-align: center;
+	}
+	.cb-indep-banner-inner {
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+	.cb-indep-banner p {
+		font-size: 15px;
+		color: #444;
+		margin: 0;
+	}
+	.cb-indep-banner strong { color: #062963; }
+
+	/* APPLIANCES GRID */
+	.cb-appliance-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 18px;
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+	.cb-appliance-card {
+		background: #fff;
+		padding: 22px;
+		border-radius: 8px;
+		border: 1px solid #e2e8f0;
+		text-align: center;
+		transition: border-color 0.18s, transform 0.18s;
+	}
+	.cb-appliance-card:hover {
+		border-color: #0B3D91;
+		transform: translateY(-2px);
+	}
+	.cb-appliance-card .cb-emoji {
+		font-size: 32px;
+		display: block;
+		margin-bottom: 10px;
+	}
+	.cb-appliance-card h3 {
+		font-size: 16px;
+		margin-bottom: 4px;
+	}
+	.cb-appliance-card a {
+		display: block;
+		font-weight: 700;
+		color: #0B3D91;
+		text-decoration: none;
+		margin-top: 8px;
+		font-size: 14px;
+	}
+	.cb-appliance-card a:hover { text-decoration: underline; }
+
+	/* ISSUE GRID */
+	.cb-issue-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 22px;
+	}
+	.cb-issue-card {
+		background: #fff;
+		padding: 26px;
+		border-radius: 8px;
+		border: 1px solid #e2e8f0;
+		box-shadow: 0 2px 6px rgba(11, 61, 145, 0.04);
+	}
+	.cb-issue-card .cb-icon {
+		display: inline-flex;
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		background: #EBF1FA;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 14px;
+		color: #0B3D91;
+		font-size: 24px;
+		font-weight: 800;
+	}
+	.cb-issue-card h3 { font-size: 18px; margin-bottom: 8px; }
+	.cb-issue-card p { font-size: 15px; color: #555; margin-bottom: 0; }
+
+	/* MODELS */
+	.cb-models { background: #EBF1FA; }
+	.cb-models-box {
+		max-width: 900px;
+		margin: 0 auto;
+		background: #fff;
+		border-radius: 8px;
+		padding: 30px;
+	}
+	.cb-models-box h3 {
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+	.cb-models-box ul {
+		columns: 2;
+		column-gap: 30px;
+	}
+	.cb-models-box li {
+		break-inside: avoid;
+		font-size: 15px;
+		color: #444;
+	}
+
+	/* TRUST */
+	.cb-trust { background: #fff; text-align: center; }
+	.cb-trust-badges {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 28px;
+		margin: 0 auto 28px;
+	}
+	.cb-trust-badge { min-width: 160px; }
+	.cb-trust-badge .label {
+		display: block;
+		color: #0B3D91;
+		font-size: 13px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.6px;
+		margin-bottom: 4px;
+	}
+	.cb-trust-badge .value {
+		display: block;
+		color: #062963;
+		font-size: 22px;
+		font-weight: 800;
+	}
+	.cb-disclaimer {
+		max-width: 800px;
+		margin: 0 auto;
+		font-size: 14px;
+		color: #555;
+		font-style: italic;
+	}
+	.cb-disclaimer strong { color: #062963; font-style: normal; }
+
+	/* FAQ */
+	.cb-faq-list { max-width: 860px; margin: 0 auto; }
+	.cb-faq-item {
+		background: #fff;
+		border: 1px solid #e2e8f0;
+		border-radius: 6px;
+		margin-bottom: 12px;
+		overflow: hidden;
+	}
+	.cb-faq-q {
+		padding: 18px 22px;
+		font-weight: 700;
+		font-size: 17px;
+		color: #062963;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 14px;
+	}
+	.cb-faq-q::after {
+		content: "+";
+		font-size: 24px;
+		color: #0B3D91;
+		font-weight: 300;
+		flex-shrink: 0;
+	}
+	.cb-faq-item.open .cb-faq-q::after { content: "−"; }
+	.cb-faq-a {
+		padding: 0 22px 18px;
+		font-size: 16px;
+		color: #444;
+		display: none;
+	}
+	.cb-faq-item.open .cb-faq-a { display: block; }
+
+	/* CTA FINAL */
+	.cb-cta-final {
+		background: linear-gradient(135deg, #0B3D91 0%, #062963 100%);
+		padding: 60px 24px;
+		text-align: center;
+	}
+	.cb-cta-final h3 {
+		color: #fff !important;
+		font-size: 28px;
+		margin-bottom: 12px;
+	}
+	.cb-cta-final p {
+		color: #b8d0eb !important;
+		font-size: 17px;
+		margin-bottom: 26px;
+		max-width: 620px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.cb-cta-final .cb-cta-row {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 14px;
+	}
+
+	@media (max-width: 900px) {
+		.cb-hero h1 { font-size: 32px; }
+		.cb-hero .subtitle { font-size: 17px; }
+		.cb-section h2 { font-size: 26px; }
+		.cb-appliance-grid { grid-template-columns: repeat(2, 1fr); }
+		.cb-issue-grid { grid-template-columns: 1fr; }
+		.cb-models-box ul { columns: 1; }
+		.cb-trust-badges { gap: 18px; }
+		.cb-trust-badge { min-width: 130px; }
+	}
+	@media (max-width: 520px) {
+		.cb-hero { padding: 50px 18px 60px; }
+		.cb-section { padding: 44px 18px; }
+		.cb-hero h1 { font-size: 26px; }
+		.cb-btn { width: 100%; }
+		.cb-appliance-grid { grid-template-columns: 1fr; }
+	}
+	</style>
+
+	<div class="caspian-brand-page">
+
+		<!-- ============ HERO ============ -->
+		<section class="cb-hero">
+			<h1>Samsung Appliance Repair in Hamilton — Same-Day Service</h1>
+			<p class="subtitle">French door fridges, Family Hub displays, Powerfoam washers, FlexZone freezers. We fix the smart features other shops avoid. 90-day warranty.</p>
+			<ul class="cb-hero-bullets">
+				<li>★4.8 / 220+ Google Reviews</li>
+				<li>BBB A Accredited</li>
+				<li>Since 2009 (15+ years)</li>
+				<li>90-Day Parts &amp; Labour Warranty</li>
+				<li>Independent — Not Factory-Authorized</li>
+			</ul>
+			<div class="cb-hero-ctas">
+				<a class="cb-btn cb-btn-call" href="tel:+14167325905">Call Now</a>
+				<a class="cb-btn cb-btn-book" href="/contact/">Book Online</a>
+			</div>
+		</section>
+
+		<!-- ============ INDEPENDENT DISCLOSURE ============ -->
+		<section class="cb-indep-banner">
+			<div class="cb-indep-banner-inner">
+				<p><strong>Important:</strong> Caspian Appliance Repair is an independent service provider, not affiliated with Samsung Electronics or Samsung Canada. We are <strong>not factory-authorized for warranty work</strong> — we provide quality out-of-warranty repairs on Samsung appliances. If your unit is still under manufacturer warranty, contact Samsung directly to preserve coverage.</p>
+			</div>
+		</section>
+
+		<!-- ============ INTRO ============ -->
+		<section class="cb-section">
+			<div class="cb-inner">
+				<h2>Samsung Repairs — Smart Features Included</h2>
+				<p class="cb-section-lead">Samsung leads smart-appliance innovation in North America. Family Hub fridges with touchscreen displays, FlexZone freezers, Powerfoam washers, Smart Oven systems — modern Samsung appliances pack more electronics than any other brand. We have the diagnostic tools and platform knowledge to fix them properly.</p>
+			</div>
+		</section>
+
+		<!-- ============ APPLIANCES WE SERVICE ============ -->
+		<section class="cb-section" style="background:#EBF1FA;">
+			<div class="cb-inner">
+				<h2>Samsung Appliances We Service</h2>
+				<p class="cb-section-lead">Click any appliance below to see our full repair details for that category.</p>
+				<div class="cb-appliance-grid">
+					<div class="cb-appliance-card">
+						<span class="cb-emoji">🧊</span>
+						<h3>Refrigerators</h3>
+						<a href="/refrigerator-repair/">Fridge Repair →</a>
+					</div>
+					<div class="cb-appliance-card">
+						<span class="cb-emoji">🧺</span>
+						<h3>Washing Machines</h3>
+						<a href="/washing-machine-repair/">Washer Repair →</a>
+					</div>
+					<div class="cb-appliance-card">
+						<span class="cb-emoji">🌀</span>
+						<h3>Dryers</h3>
+						<a href="/dryer-repair/">Dryer Repair →</a>
+					</div>
+					<div class="cb-appliance-card">
+						<span class="cb-emoji">🍽</span>
+						<h3>Dishwashers</h3>
+						<a href="/dishwasher-repair/">Dishwasher Repair →</a>
+					</div>
+					<div class="cb-appliance-card">
+						<span class="cb-emoji">🔥</span>
+						<h3>Ovens &amp; Ranges</h3>
+						<a href="/oven-repair/">Oven Repair →</a>
+					</div>
+					<div class="cb-appliance-card">
+						<span class="cb-emoji">🍳</span>
+						<h3>Cooktops</h3>
+						<a href="/stove-cooktop-repair/">Cooktop Repair →</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ COMMON ISSUES ============ -->
+		<section class="cb-section" style="background:#fff;">
+			<div class="cb-inner">
+				<h2>Common Samsung Issues We Diagnose Daily</h2>
+				<p class="cb-section-lead">Sixteen years of Samsung repairs gives us pattern recognition. These three problems account for the majority of Samsung service calls in Hamilton.</p>
+				<div class="cb-issue-grid">
+					<div class="cb-issue-card">
+						<div class="cb-icon">❄</div>
+						<h3>Ice Maker Failures (RF Series)</h3>
+						<p>Samsung French door fridges (RF22, RF23, RF28 lines) are notorious for ice maker freeze-ups. Symptoms: ice maker stops producing, freezes solid, or leaks water into the fridge cavity. Often a defrost mechanism or auger motor issue. We diagnose without guesswork.</p>
+					</div>
+					<div class="cb-issue-card">
+						<div class="cb-icon">⚠</div>
+						<h3>Error Codes (5E, OE, 1E, 4E, LE)</h3>
+						<p>Samsung's error code system is precise but cryptic. 5E often means water temperature sensor, OE means drain issue, 4E points to inlet valve. We decode codes on-site and quote the repair before any work begins — never guess on a control board swap.</p>
+					</div>
+					<div class="cb-issue-card">
+						<div class="cb-icon">📱</div>
+						<h3>Touch Panels &amp; Family Hub Display</h3>
+						<p>Family Hub fridge display goes blank, freezes, or shows error screens. Capacitive touch panels on ranges and dishwashers become unresponsive. Most other shops decline these — we don't.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ MODELS ============ -->
+		<section class="cb-section cb-models">
+			<div class="cb-inner">
+				<h2>Samsung Model Lines We Service</h2>
+				<p class="cb-section-lead">We repair all current and most legacy Samsung appliance lines. Below is a representative — not exhaustive — sample of models we routinely fix.</p>
+				<div class="cb-models-box">
+					<h3>Refrigerators</h3>
+					<ul>
+						<li>RF22 / RF23 / RF28 French door series</li>
+						<li>RS22 / RS25 / RS27 Side-by-side</li>
+						<li>RT18 / RT21 Top-freezer</li>
+						<li>RF65 / RF85 Multidoor (Family Hub)</li>
+					</ul>
+					<h3 style="margin-top:18px;">Laundry</h3>
+					<ul>
+						<li>WF42 / WF45 / WF50 Front-load washers</li>
+						<li>WA40 / WA50 / WA55 Top-load washers</li>
+						<li>DV42 / DV45 / DVE45 Electric dryers</li>
+						<li>DVG45 / DVG50 Gas dryers (TSSA-licensed)</li>
+					</ul>
+					<h3 style="margin-top:18px;">Cooking &amp; Dishwashing</h3>
+					<ul>
+						<li>NE58 / NE59 / NE63 Electric ranges</li>
+						<li>NX58 / NX60 Gas ranges (TSSA-licensed)</li>
+						<li>DW80 / DW60 dishwashers</li>
+						<li>NQ70 Wall ovens</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ TRUST ============ -->
+		<section class="cb-section cb-trust">
+			<div class="cb-inner">
+				<h2>Why Hamilton Trusts Caspian for Samsung Repairs</h2>
+				<div class="cb-trust-badges">
+					<div class="cb-trust-badge">
+						<span class="label">Google Reviews</span>
+						<span class="value">★4.8 / 220+</span>
+					</div>
+					<div class="cb-trust-badge">
+						<span class="label">BBB</span>
+						<span class="value">A Accredited</span>
+					</div>
+					<div class="cb-trust-badge">
+						<span class="label">Established</span>
+						<span class="value">Since 2009</span>
+					</div>
+					<div class="cb-trust-badge">
+						<span class="label">Warranty</span>
+						<span class="value">90 Days</span>
+					</div>
+				</div>
+				<p class="cb-disclaimer"><strong>Independent service provider.</strong> Caspian Appliance Repair is not affiliated with Samsung Electronics, Samsung Canada, or any other manufacturer. We are not factory-authorized for warranty work — we provide quality out-of-warranty repairs across Hamilton and 20+ Ontario cities. Gas appliance repairs performed by certified TSSA-licensed partner technicians.</p>
+			</div>
+		</section>
+
+		<!-- ============ FAQ ============ -->
+		<section class="cb-section" style="background:#EBF1FA;">
+			<div class="cb-inner">
+				<h2>Samsung Repair — Frequently Asked Questions</h2>
+				<div class="cb-faq-list">
+
+					<div class="cb-faq-item">
+						<div class="cb-faq-q">Why does my Samsung ice maker keep freezing up?</div>
+						<div class="cb-faq-a">Samsung French door fridges (especially the RF22, RF23, and RF28 lines) have a well-documented ice maker design issue where the defrost cycle isn't always sufficient and the ice maker compartment freezes solid. We diagnose the specific failure point — often a defrost heater, fill tube, or auger motor — and repair without unnecessary part swaps.</div>
+					</div>
+
+					<div class="cb-faq-item">
+						<div class="cb-faq-q">What does Samsung error code 4E (or 4C) mean?</div>
+						<div class="cb-faq-a">On Samsung washers, 4E and 4C indicate a water supply issue — usually the inlet valve, a kinked hose, or low household water pressure. On dishwashers, similar codes point to inlet valve problems. We test each component on-site before recommending replacement parts.</div>
+					</div>
+
+					<div class="cb-faq-item">
+						<div class="cb-faq-q">Can you fix my Samsung Family Hub fridge display?</div>
+						<div class="cb-faq-a">Yes. Most shops decline Family Hub repairs because the touchscreen display is platform-specific. We diagnose display failures, capacitive touch issues, and underlying control board problems. If a part needs to be ordered, we provide a clear timeline.</div>
+					</div>
+
+					<div class="cb-faq-item">
+						<div class="cb-faq-q">Does my Samsung repair preserve the manufacturer warranty?</div>
+						<div class="cb-faq-a">If your appliance is still under Samsung's manufacturer warranty, you should contact Samsung Canada or an authorized service centre to preserve coverage. We are not factory-authorized — we handle out-of-warranty repairs. We will tell you honestly if your unit appears to still be under warranty.</div>
+					</div>
+
+					<div class="cb-faq-item">
+						<div class="cb-faq-q">Do you service all Samsung appliance types?</div>
+						<div class="cb-faq-a">We service Samsung refrigerators, washing machines, dryers, dishwashers, ranges (electric and gas), cooktops, ovens, and over-the-range microwaves. Gas appliance work is performed by our certified TSSA-licensed partner technicians.</div>
+					</div>
+
+					<div class="cb-faq-item">
+						<div class="cb-faq-q">Are Samsung parts hard to source in Ontario?</div>
+						<div class="cb-faq-a">Most common Samsung parts are available through Canadian distributors with 1–3 day delivery. For specialty parts (Family Hub display modules, rare control boards), lead times can stretch — we communicate timelines clearly and never start work without your approval.</div>
+					</div>
+
+					<div class="cb-faq-item">
+						<div class="cb-faq-q">Is the repair warrantied? Same-day service?</div>
+						<div class="cb-faq-a">Every Caspian repair comes with a 90-day parts and labour warranty. Same-day service is available in most cases — call during business hours (7AM–11PM, 7 days a week) and our live agents will confirm the earliest available window.</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ CTA FINAL ============ -->
+		<section class="cb-cta-final">
+			<h3>Samsung Appliance Repair Across Hamilton &amp; Ontario</h3>
+			<p>Live agents 7AM–11PM. 90-day warranty. TSSA-licensed for gas. Independent service — never factory-authorized claims, never inflated repair scopes.</p>
+			<div class="cb-cta-row">
+				<a class="cb-btn cb-btn-call" href="tel:+14167325905">Call Now</a>
+				<a class="cb-btn cb-btn-book" href="/contact/">Book Online</a>
+			</div>
+		</section>
+
+	</div>
+
+	<script>
+	(function(){
+		var items = document.querySelectorAll('.caspian-brand-page .cb-faq-item');
+		items.forEach(function(item){
+			var q = item.querySelector('.cb-faq-q');
+			if (!q) return;
+			q.addEventListener('click', function(){
+				item.classList.toggle('open');
+			});
+		});
+	})();
+	</script>
+	<?php
+
+	return ob_get_clean();
+}, 20 );
+
+add_action( 'wp_head', function() {
+	if ( ! is_page( 'samsung-appliance-repair' ) ) {
+		return;
+	}
+
+	$faqs = array(
+		array(
+			'q' => 'Why does my Samsung ice maker keep freezing up?',
+			'a' => 'Samsung French door fridges (especially the RF22, RF23, and RF28 lines) have a well-documented ice maker design issue where the defrost cycle is not always sufficient and the ice maker compartment freezes solid. We diagnose the specific failure point — often a defrost heater, fill tube, or auger motor — and repair without unnecessary part swaps.',
+		),
+		array(
+			'q' => 'What does Samsung error code 4E (or 4C) mean?',
+			'a' => 'On Samsung washers, 4E and 4C indicate a water supply issue — usually the inlet valve, a kinked hose, or low household water pressure. On dishwashers, similar codes point to inlet valve problems. We test each component on-site before recommending replacement parts.',
+		),
+		array(
+			'q' => 'Can you fix my Samsung Family Hub fridge display?',
+			'a' => 'Yes. Most shops decline Family Hub repairs because the touchscreen display is platform-specific. We diagnose display failures, capacitive touch issues, and underlying control board problems. If a part needs to be ordered, we provide a clear timeline.',
+		),
+		array(
+			'q' => 'Does my Samsung repair preserve the manufacturer warranty?',
+			'a' => "If your appliance is still under Samsung's manufacturer warranty, you should contact Samsung Canada or an authorized service centre to preserve coverage. We are not factory-authorized — we handle out-of-warranty repairs. We will tell you honestly if your unit appears to still be under warranty.",
+		),
+		array(
+			'q' => 'Do you service all Samsung appliance types?',
+			'a' => 'We service Samsung refrigerators, washing machines, dryers, dishwashers, ranges (electric and gas), cooktops, ovens, and over-the-range microwaves. Gas appliance work is performed by our certified TSSA-licensed partner technicians.',
+		),
+		array(
+			'q' => 'Are Samsung parts hard to source in Ontario?',
+			'a' => 'Most common Samsung parts are available through Canadian distributors with 1 to 3 day delivery. For specialty parts (Family Hub display modules, rare control boards), lead times can stretch — we communicate timelines clearly and never start work without your approval.',
+		),
+		array(
+			'q' => 'Is the repair warrantied? Same-day service?',
+			'a' => 'Every Caspian repair comes with a 90-day parts and labour warranty. Same-day service is available in most cases — call during business hours (7AM-11PM, 7 days a week) and our live agents will confirm the earliest available window.',
+		),
+	);
+
+	$main_entity = array();
+	foreach ( $faqs as $f ) {
+		$main_entity[] = array(
+			'@type'          => 'Question',
+			'name'           => $f['q'],
+			'acceptedAnswer' => array(
+				'@type' => 'Answer',
+				'text'  => $f['a'],
+			),
+		);
+	}
+
+	$schema = array(
+		'@context'   => 'https://schema.org',
+		'@type'      => 'FAQPage',
+		'mainEntity' => $main_entity,
+	);
+
+	echo "\n<script type=\"application/ld+json\">\n";
+	echo wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
+	echo "\n</script>\n";
+}, 50 );
