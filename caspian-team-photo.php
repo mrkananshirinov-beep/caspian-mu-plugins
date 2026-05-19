@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian — Team Photo Placements
  * Description: Homepage team block (priority 25, replaces picker) + clean footer strip (priority 9).
- * Version: 2.0
+ * Version: 2.1
  * Author: Caspian Appliance Repair
  */
 
@@ -10,7 +10,8 @@ if (!defined('ABSPATH')) exit;
 
 // ============================================================
 // HOMEPAGE — Team block at priority 25 (replaces caspian-picker)
-// 2-column hybrid: photo left + headline/bullets right + 3 trust stats row below
+// 2-column hybrid: photo left + headline/intro/bullets/closing right + 3 trust stats row below
+// v2.1: Added intro + closing paragraphs for visual balance with large photo
 // ============================================================
 
 add_action('astra_header_after', 'caspian_team_homepage_block', 25);
@@ -23,14 +24,22 @@ function caspian_team_homepage_block() {
     .csteam-block * { box-sizing: border-box; }
     .csteam-block { background:#fff; padding:64px 24px; font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; color:#222; }
     .csteam-block-inner { max-width:1180px; margin:0 auto; }
-    .csteam-grid { display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:center; margin-bottom:32px; }
+    .csteam-grid { display:grid; grid-template-columns:1.25fr 1fr; gap:44px; align-items:center; margin-bottom:32px; }
     .csteam-photo img { width:100%; height:auto; border-radius:14px; box-shadow:0 22px 60px rgba(11,61,145,0.20); display:block; }
-    .csteam-text h2 { font-size:30px; font-weight:700; color:#062963; margin:0 0 20px; line-height:1.22; letter-spacing:-0.3px; }
+    .csteam-text h2 { font-size:30px; font-weight:700; color:#062963; margin:0 0 18px; line-height:1.22; letter-spacing:-0.3px; }
+    .csteam-text p.csteam-intro,
+    .csteam-text p.csteam-close {
+        font-size:15.5px !important;
+        line-height:1.65 !important;
+        color:#444 !important;
+        margin:0 0 18px !important;
+    }
+    .csteam-text p.csteam-close { margin:18px 0 0 !important; }
     .csteam-bullets { list-style:none; padding:0; margin:0; }
     .csteam-bullets li {
         display:flex; align-items:flex-start; gap:10px;
-        font-size:16px; color:#333; line-height:1.5;
-        margin:0 0 12px;
+        font-size:16px; color:#222; line-height:1.5;
+        margin:0 0 12px; font-weight:500;
     }
     .csteam-bullets li:last-child { margin-bottom:0; }
     .csteam-bullet-check {
@@ -54,6 +63,8 @@ function caspian_team_homepage_block() {
     @media (max-width: 600px) {
         .csteam-block { padding:48px 16px; }
         .csteam-text h2 { font-size:22px; }
+        .csteam-text p.csteam-intro,
+        .csteam-text p.csteam-close { font-size:14.5px !important; line-height:1.6 !important; }
         .csteam-bullets li { font-size:15px; }
         .csteam-stats { grid-template-columns:1fr; gap:14px; padding-top:20px; }
         .csteam-stat { text-align:left; display:flex; align-items:center; gap:12px; }
@@ -69,11 +80,13 @@ function caspian_team_homepage_block() {
                 </div>
                 <div class="csteam-text">
                     <h2>Real Caspian Technicians</h2>
+                    <p class="csteam-intro">The team that shows up at your door &mdash; not a dispatcher, not a subcontractor. Caspian has trained and dispatched its own in-house technicians since 2009, with crews living and working in every Ontario city we serve.</p>
                     <ul class="csteam-bullets">
                         <li><span class="csteam-bullet-check">&#10003;</span> Local technicians in every city we serve</li>
                         <li><span class="csteam-bullet-check">&#10003;</span> In-house appliance technicians + TSSA-licensed gas partners</li>
                         <li><span class="csteam-bullet-check">&#10003;</span> Hamilton HQ &middot; 15+ years in the market</li>
                     </ul>
+                    <p class="csteam-close">Every visit starts with a clear diagnosis and a flat repair quote you approve before any work begins. Our vans carry common parts for Samsung, LG, Whirlpool, KitchenAid, Bosch, GE, Maytag, and Frigidaire &mdash; so most repairs are completed on the same call.</p>
                 </div>
             </div>
             <div class="csteam-stats">
