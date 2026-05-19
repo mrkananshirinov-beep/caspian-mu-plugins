@@ -6,8 +6,16 @@
  */
 if (!defined('ABSPATH')) exit;
 
+function caspian_brand_slug($name) {
+    $slug = strtolower($name);
+    $slug = str_replace('&amp;', '', $slug);
+    $slug = preg_replace('/[^a-z0-9-]+/', '-', $slug);
+    $slug = trim($slug, '-');
+    return $slug;
+}
+
 function caspian_all_brands_data() {
-    // 19 brands alphabetical. URL = null means no dedicated page (display only).
+    // 19 brands alphabetical. URL = null means no dedicated brand page.
     return [
         ['name' => 'Amana',          'url' => null, 'desc' => 'Amana is a Whirlpool-owned American value brand making refrigerators, washers, dryers, and ranges. Caspian services all Amana models. Common Amana repairs include ice maker failures, drain pump issues, and thermostat replacements.'],
         ['name' => 'Bosch',          'url' => '/bosch-appliance-repair/', 'desc' => 'Bosch is a German premium brand known for ultra-quiet dishwashers and high-end cooking appliances. We repair Bosch 800, 500, and 300 series dishwashers, plus Bosch washers, dryers, and refrigerators. Common Bosch issues: E15 leak errors, drainage problems, and electronic control board diagnostics.'],
@@ -62,6 +70,12 @@ add_filter('the_content', function($content) {
         background:#fff; border:1px solid #EBF1FA; border-radius:10px;
         padding:24px 22px;
         transition:all 0.2s ease;
+        scroll-margin-top:120px;
+    }
+    .caspian-allbrands-item:target {
+        border-color:#F4B942;
+        box-shadow:0 0 0 3px rgba(244,185,66,0.18);
+        background:#fffbf0;
     }
     .caspian-allbrands-item:hover {
         border-color:#2E80D1;
@@ -131,8 +145,10 @@ add_filter('the_content', function($content) {
         </div>
 
         <div class="caspian-allbrands-list">
-            <?php foreach ($brands as $b): ?>
-            <div class="caspian-allbrands-item">
+            <?php foreach ($brands as $b):
+                $slug = caspian_brand_slug($b['name']);
+            ?>
+            <div class="caspian-allbrands-item" id="<?php echo esc_attr($slug); ?>">
                 <h3><?php echo $b['name']; ?></h3>
                 <p><?php echo $b['desc']; ?></p>
                 <?php if (!empty($b['url'])): ?>

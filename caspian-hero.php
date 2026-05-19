@@ -11,7 +11,7 @@ add_action('astra_header_after', function() {
 <section class="caspian-hero">
     <div class="caspian-hero-inner">
         <div class="caspian-hero-content">
-            <h1 class="caspian-hero-h1">Same-day appliance repair in Hamilton &mdash; and across 20+ Ontario cities</h1>
+            <h1 class="caspian-hero-h1">Same-day appliance repair in Hamilton &mdash; and across 30+ Ontario cities</h1>
             <ul class="caspian-hero-bullets">
                 <li><span class="caspian-hero-bullet-icon">&#9733;</span> 4.8 / 220+ Google Reviews</li>
                 <li><span class="caspian-hero-bullet-icon">&#10003;</span> BBB A Accredited</li>

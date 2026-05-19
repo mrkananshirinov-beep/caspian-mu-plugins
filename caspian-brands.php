@@ -19,13 +19,13 @@ add_action('astra_header_after', function() {
         ['name' => 'Maytag',     'url' => '/maytag-appliance-repair/'],
         ['name' => 'Frigidaire', 'url' => '/frigidaire-appliance-repair/'],
         ['name' => 'GE',         'url' => '/ge-appliance-repair/'],
-        // 6 new (non-clickable display)
-        ['name' => 'Kenmore',    'url' => null],
-        ['name' => 'Inglis',     'url' => null],
-        ['name' => 'Jenn-Air',   'url' => null],
-        ['name' => 'Wolf',       'url' => null],
-        ['name' => 'Viking',     'url' => null],
-        ['name' => 'Thermador',  'url' => null],
+        // 6 new (link to /all-brands/ section anchors)
+        ['name' => 'Kenmore',    'url' => '/all-brands/#kenmore'],
+        ['name' => 'Inglis',     'url' => '/all-brands/#inglis'],
+        ['name' => 'Jenn-Air',   'url' => '/all-brands/#jenn-air'],
+        ['name' => 'Wolf',       'url' => '/all-brands/#wolf'],
+        ['name' => 'Viking',     'url' => '/all-brands/#viking'],
+        ['name' => 'Thermador',  'url' => '/all-brands/#thermador'],
         // More card (links to /all-brands/)
         ['name' => '+ More brands', 'url' => '/all-brands/', 'special' => 'more'],
     ];
@@ -56,16 +56,6 @@ add_action('astra_header_after', function() {
         border-color:#F4B942; transform:translateY(-3px);
         box-shadow:0 6px 16px rgba(11, 61, 145, 0.12);
     }
-    .caspian-brand-card.no-link {
-        cursor:default;
-        background:#f5f9fd;
-        border-color:#f5f9fd;
-    }
-    .caspian-brand-card.no-link:hover {
-        transform:none;
-        border-color:#f5f9fd;
-        box-shadow:0 2px 6px rgba(11, 61, 145, 0.05);
-    }
     .caspian-brand-card.more {
         background:#F4B942;
         border-color:#F4B942;
@@ -81,7 +71,6 @@ add_action('astra_header_after', function() {
         letter-spacing:0.3px; transition:color 0.2s ease;
     }
     .caspian-brand-card:hover .caspian-brand-name { color:#0B3D91; }
-    .caspian-brand-card.no-link:hover .caspian-brand-name { color:#062963; }
     .caspian-brand-card.more .caspian-brand-name { color:#062963; font-size:16px; }
     .caspian-brands-disclaimer {
         text-align:center; font-size:13px; color:#777;
@@ -107,20 +96,11 @@ add_action('astra_header_after', function() {
             <div class="caspian-brands-grid">
                 <?php foreach ($brands as $b):
                     $is_more = !empty($b['special']) && $b['special'] === 'more';
-                    $has_link = !empty($b['url']);
-                    $classes = 'caspian-brand-card';
-                    if ($is_more) $classes .= ' more';
-                    elseif (!$has_link) $classes .= ' no-link';
+                    $classes = 'caspian-brand-card' . ($is_more ? ' more' : '');
                 ?>
-                    <?php if ($has_link): ?>
-                        <a href="<?php echo esc_url($b['url']); ?>" class="<?php echo esc_attr($classes); ?>">
-                            <span class="caspian-brand-name"><?php echo esc_html($b['name']); ?></span>
-                        </a>
-                    <?php else: ?>
-                        <div class="<?php echo esc_attr($classes); ?>">
-                            <span class="caspian-brand-name"><?php echo esc_html($b['name']); ?></span>
-                        </div>
-                    <?php endif; ?>
+                    <a href="<?php echo esc_url($b['url']); ?>" class="<?php echo esc_attr($classes); ?>">
+                        <span class="caspian-brand-name"><?php echo esc_html($b['name']); ?></span>
+                    </a>
                 <?php endforeach; ?>
             </div>
             <p class="caspian-brands-disclaimer">We are not factory-authorized for warranty work &mdash; we provide quality out-of-warranty repairs with a 90-day parts and labour warranty.</p>
