@@ -2,7 +2,9 @@
 /**
  * Plugin Name: Caspian — Services Landing Page
  * Description: Renders /services/ (ID 58) overview page: hero + 8 service cards + why + CTA. Replaces the placeholder content. Hides the theme entry title so only the hero H1 shows.
- * Version: 1.0
+ * Version: 1.1
+ * Changes in v1.1:
+ *   - "Why" section heading: "Why Hamilton Chooses Caspian" -> "Why Customers Choose Caspian".
  * Author: Caspian Appliance Repair
  * Notes:
  *   - Button standard LOCKED: green "Call Now" (tel: in href only) + red "Book Online" (/contact/), min-width 180px.
@@ -190,7 +192,7 @@ function caspian_services_page_render($content) {
 
     <section class="svp-why">
         <div class="svp-why-inner">
-            <h2>Why Hamilton Chooses Caspian</h2>
+            <h2>Why Customers Choose Caspian</h2>
             <div class="svp-why-grid">
                 <div class="svp-why-card">
                     <h4>Local Technicians</h4>
