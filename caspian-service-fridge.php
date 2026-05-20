@@ -2,8 +2,12 @@
 /**
  * Plugin Name: Caspian — Service: Refrigerator Repair
  * Description: Renders /refrigerator-repair/ page content + FAQPage JSON-LD schema
- * Version: 1.2
+ * Version: 1.3
  * Author: Caspian Appliance Repair
+ *
+ * Changes in v1.3 (owner review 2026-05-20):
+ *   - Hero photo swapped to french-door-refrigerator-repair-hamilton (clean repair-in-progress
+ *     shot; replaces the previous photo that showed personal papers/magnets)
  *
  * Changes in v1.2 (owner review 2026-05-20):
  *   - Why stat box: "Serving Ontario since" -> "In appliance repair market since" (2009)
@@ -43,6 +47,7 @@ function caspian_fridge_img_url($slug) {
 
 function caspian_fridge_alt($slug) {
     $map = [
+        'french-door-refrigerator-repair-hamilton' => 'Caspian technician repairing a French-door refrigerator with the freezer drawer removed in a Hamilton, Ontario kitchen',
         'whirlpool-refrigerator-repair-hamilton-kitchen' => 'Whirlpool top-freezer refrigerator in a Hamilton, Ontario home kitchen serviced by Caspian Appliance Repair',
         'refrigerator-sealed-system-vacuum-pump-hamilton' => 'Caspian technician performing refrigerator sealed-system service with professional vacuum pump and manifold gauges in Hamilton, Ontario',
         'refrigerator-compressor-r134a-recharge-hamilton' => 'Close-up of R134a refrigerant line recharge on refrigerator compressor by Caspian Appliance Repair Hamilton',
@@ -189,7 +194,7 @@ function caspian_fridge_render($content) {
             </div>
         </div>
         <div class="csf-hero-photo">
-            <?php echo caspian_fridge_pic('whirlpool-refrigerator-repair-hamilton-kitchen'); ?>
+            <?php echo caspian_fridge_pic('french-door-refrigerator-repair-hamilton'); ?>
         </div>
     </div>
 </section>
