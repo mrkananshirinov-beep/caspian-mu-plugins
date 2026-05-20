@@ -1,20 +1,20 @@
 <?php
 /**
  * Plugin Name: Caspian Header CTA + Search + Sticky + Mobile Bottom Bar
- * Version: 2.3
+ * Version: 2.4
  * Date: 2026-05-19
  * Build history:
  *   v1.9 - Desktop 3-column sticky header (logo | postal+menu | Call/Book stack)
  *   v2.0 - Mobile sticky bottom CTA bar (Book Online left red + Call Now right green)
- *   v2.1 - Mobile rating chip (REMOVED v2.2)
- *   v2.2 - Inline live indicator injected into header row (REMOVED v2.3 - Astra's
- *          mobile hamburger is absolutely/grid positioned, so the injected element
- *          overlapped the hamburger bars, looking like strikethrough text)
- *   v2.3 - ROBUST: live indicator is now a full-width RIBBON rendered BELOW the header
- *          (astra_header_after, priority 1). Zero conflict with Astra's hamburger.
- *          Header itself is fixed by CSS only: logo left, hamburger right (no DOM
- *          injection). Ribbon: pulsing green dot + "Technicians available in your
- *          area now". Mobile only.
+ *   v2.3 - Live ribbon BELOW the header (no hamburger conflict)
+ *   v2.4 - Ribbon moved to the VERY TOP and made STICKY (stays visible while scrolling,
+ *          like a top announcement bar). Time-aware text:
+ *            open hours  -> green pulsing dot + "Technicians available in your area now"
+ *            closed      -> amber dot + "Closed now - call from 7 AM [tomorrow] to book
+ *                           your technician" (next-open hour auto-computed; Sun = 9 AM,
+ *                           Mon-Sat = 7 AM; America/Toronto)
+ *          Header tweaks: hamburger absolutely pinned to the right edge + larger/bolder
+ *          icon; logo enlarged. JS keeps the sticky header offset = ribbon height.
  *   Desktop (>=922px) behaviour is 100% unchanged across all versions.
  */
 if (!defined('ABSPATH')) exit;
@@ -39,23 +39,26 @@ add_filter('wp_nav_menu_items', function($items, $args) {
 }, 10, 2);
 
 // ========================================================================
-// v2.3 NEW: Live availability ribbon, rendered right below the header (mobile)
+// v2.4: Live availability ribbon at the very top (sticky). Default text =
+// open state; JS rewrites to closed text after hours (client Toronto time).
 // ========================================================================
-add_action('astra_header_after', function() {
+add_action('astra_header_before', function() {
     if (is_admin()) return;
-    echo '<div class="caspian-live-ribbon" role="status" aria-label="Technicians available in your area now">'
+    echo '<div class="caspian-live-ribbon is-open" role="status" aria-label="Technicians available in your area now">'
        . '<span class="clr-dot" aria-hidden="true"></span>'
        . '<span class="clr-text">Technicians available in your area now</span>'
        . '</div>';
-}, 1);
+}, 5);
 
 // ========================================================================
-// v1.9 PRESERVED desktop restructure JS + v2.0 mobile sticky bottom bar HTML
+// JS: v1.9 desktop restructure + v2.4 ribbon time-aware + sticky offset
+//     + v2.0 mobile sticky bottom bar HTML
 // ========================================================================
 add_action('wp_footer', function() {
     ?>
     <script>
     (function() {
+
         /* --- v1.9 DESKTOP: restructure menu into center column (>=922px) --- */
         function restructureHeader() {
             if (window.innerWidth < 922) return;
@@ -85,15 +88,94 @@ add_action('wp_footer', function() {
                 menuUl.appendChild(centerCol);
             }
         }
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', restructureHeader);
-        } else {
-            restructureHeader();
+
+        /* --- Time-aware ribbon text (America/Toronto)
+               Hours: Mon-Sat 07:00-23:00, Sun 09:00-17:00 --- */
+        function caspianRibbonState() {
+            var openText = 'Technicians available in your area now';
+            var map = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
+            try {
+                var parts = new Intl.DateTimeFormat('en-US', {
+                    timeZone: 'America/Toronto',
+                    weekday: 'short',
+                    hour: 'numeric',
+                    hour12: false
+                }).formatToParts(new Date());
+                var wd = '', hr = 0;
+                parts.forEach(function(p) {
+                    if (p.type === 'weekday') wd = p.value;
+                    if (p.type === 'hour') hr = parseInt(p.value, 10);
+                });
+                if (hr === 24) hr = 0;
+                var day = map[wd];
+                if (day === undefined) day = 1;
+
+                var openH  = (day === 0) ? 9  : 7;
+                var closeH = (day === 0) ? 17 : 23;
+
+                if (hr >= openH && hr < closeH) {
+                    return { open: true, text: openText };
+                }
+
+                /* Closed: compute the next opening hour */
+                var nextOpenH, tomorrow;
+                if (hr < openH) {
+                    nextOpenH = openH;          /* opens later the same day */
+                    tomorrow = false;
+                } else {
+                    var nd = (day + 1) % 7;      /* opens next day */
+                    nextOpenH = (nd === 0) ? 9 : 7;
+                    tomorrow = true;
+                }
+                var hourLabel = nextOpenH + ' AM';
+                var txt = 'Closed now \u2014 call from ' + hourLabel
+                        + (tomorrow ? ' tomorrow' : '')
+                        + ' to book your technician';
+                return { open: false, text: txt };
+            } catch (e) {
+                return { open: true, text: openText };
+            }
         }
+
+        function applyRibbon() {
+            var ribbon = document.querySelector('.caspian-live-ribbon');
+            if (!ribbon) return;
+            var st = caspianRibbonState();
+            var txt = ribbon.querySelector('.clr-text');
+            if (txt) txt.textContent = st.text;
+            ribbon.classList.toggle('is-open', st.open);
+            ribbon.classList.toggle('is-closed', !st.open);
+            ribbon.setAttribute('aria-label', st.text);
+        }
+
+        /* Keep the sticky header pinned just below the sticky ribbon */
+        function syncRibbonOffset() {
+            var header = document.querySelector('#masthead') || document.querySelector('.site-header');
+            var ribbon = document.querySelector('.caspian-live-ribbon');
+            if (!header) return;
+            if (window.innerWidth < 922 && ribbon) {
+                header.style.setProperty('top', ribbon.offsetHeight + 'px', 'important');
+            } else {
+                header.style.setProperty('top', '0px', 'important');
+            }
+        }
+
+        function init() {
+            restructureHeader();
+            applyRibbon();
+            syncRibbonOffset();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+        window.addEventListener('load', syncRibbonOffset);
         var caspianResizeTimer;
         window.addEventListener('resize', function() {
             clearTimeout(caspianResizeTimer);
-            caspianResizeTimer = setTimeout(restructureHeader, 200);
+            caspianResizeTimer = setTimeout(init, 200);
         });
     })();
     </script>
@@ -117,7 +199,7 @@ add_action('wp_footer', function() {
 });
 
 // ========================================================================
-// CSS: v1.9 desktop preserved + v2.3 mobile header fix + ribbon + sticky bar
+// CSS: v1.9 desktop preserved + v2.4 sticky ribbon/header + sticky bottom bar
 // ========================================================================
 add_action('wp_head', function() {
     ?>
@@ -254,7 +336,7 @@ add_action('wp_head', function() {
 }
 
 /* ============================================================== */
-/* === v2.3 LIVE RIBBON (hidden on desktop) =================== */
+/* === v2.4 STICKY TOP RIBBON (hidden on desktop) ============= */
 /* ============================================================== */
 .caspian-live-ribbon { display: none; }
 
@@ -270,11 +352,49 @@ add_action('wp_head', function() {
     .caspian-cta-large { min-width: 100%; }
 
     /* ========================================================== */
-    /* === MOBILE HEADER: Logo LEFT, Hamburger RIGHT (CSS only) = */
-    /* === No DOM injection -> no conflict with the hamburger === */
+    /* === STICKY TOP RIBBON (always visible, above header) ===== */
     /* ========================================================== */
+    .caspian-live-ribbon {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 9px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 8px 14px !important;
+        box-sizing: border-box !important;
+        background: #EBF1FA !important;
+        border-bottom: 1px solid #d6e2f3 !important;
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 10000 !important;
+    }
+    .caspian-live-ribbon .clr-dot {
+        width: 9px !important;
+        height: 9px !important;
+        border-radius: 50% !important;
+        flex-shrink: 0 !important;
+    }
+    .caspian-live-ribbon.is-open .clr-dot {
+        background: #16a34a !important;
+        animation: caspianPulse 1.5s infinite !important;
+    }
+    .caspian-live-ribbon.is-closed .clr-dot {
+        background: #F4B942 !important;
+    }
+    .caspian-live-ribbon .clr-text {
+        color: #062963 !important;
+        font-weight: 700 !important;
+        font-size: 13.5px !important;
+        line-height: 1.25 !important;
+        letter-spacing: 0.1px !important;
+        text-decoration: none !important;
+        text-align: center !important;
+    }
 
-    /* Break any Astra grid on the mobile header row, force flex space-between */
+    /* ========================================================== */
+    /* === MOBILE HEADER: Logo LEFT, Hamburger pinned RIGHT ===== */
+    /* ========================================================== */
     .ast-mobile-header-wrap .main-header-container,
     .ast-mobile-header-wrap .ast-flex.main-header-container,
     .ast-mobile-header-wrap .main-header-bar .ast-container,
@@ -283,14 +403,21 @@ add_action('wp_head', function() {
         display: flex !important;
         grid-template-columns: none !important;
         grid-template: none !important;
-        justify-content: space-between !important;
+        justify-content: flex-start !important;
         align-items: center !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         width: 100% !important;
     }
 
-    /* Logo: visible, left */
+    /* Header bar relative so the hamburger can pin to its right edge */
+    .ast-mobile-header-wrap .main-header-bar,
+    .main-header-bar.main-header-bar-wrap {
+        position: relative !important;
+        padding: 10px 14px !important;
+    }
+
+    /* Logo: visible, left, ENLARGED */
     .ast-mobile-header-wrap .site-branding,
     .ast-mobile-header-wrap .ast-site-identity,
     .main-header-bar .site-branding,
@@ -299,7 +426,6 @@ add_action('wp_head', function() {
         display: flex !important;
         align-items: center !important;
         flex: 0 1 auto !important;
-        order: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
         text-align: left !important;
@@ -311,67 +437,42 @@ add_action('wp_head', function() {
     .custom-logo-link,
     .site-logo-img a {
         display: inline-block !important;
-        max-width: 220px !important;
+        max-width: 250px !important;
         line-height: 1 !important;
     }
     .ast-mobile-header-wrap .custom-logo-link img,
     .custom-logo-link img,
     .site-logo-img img {
         display: block !important;
-        max-height: 44px !important;
+        max-height: 52px !important;
         width: auto !important;
         height: auto !important;
         max-width: 100% !important;
     }
 
-    /* Hamburger: pushed to the right edge */
+    /* Hamburger: absolutely pinned to the right edge + larger/bolder icon */
     .ast-mobile-header-wrap .ast-mobile-menu-buttons,
     .main-header-bar .ast-mobile-menu-buttons,
     .ast-mobile-menu-buttons {
-        flex: 0 0 auto !important;
-        order: 99 !important;
-        margin-left: auto !important;
-        margin-right: 0 !important;
-        position: static !important;
-    }
-
-    /* Header inner padding */
-    .ast-mobile-header-wrap .main-header-bar,
-    .main-header-bar.main-header-bar-wrap {
-        padding: 8px 16px !important;
-    }
-
-    /* ========================================================== */
-    /* === LIVE RIBBON (full-width strip below the header) ====== */
-    /* ========================================================== */
-    .caspian-live-ribbon {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 9px !important;
-        width: 100% !important;
+        position: absolute !important;
+        right: 12px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
         margin: 0 !important;
-        padding: 9px 14px !important;
-        background: #EBF1FA !important;
-        border-bottom: 1px solid #d6e2f3 !important;
-        box-sizing: border-box !important;
+        flex: 0 0 auto !important;
+        z-index: 5 !important;
     }
-    .caspian-live-ribbon .clr-dot {
-        width: 9px !important;
-        height: 9px !important;
-        border-radius: 50% !important;
-        background: #16a34a !important;
-        flex-shrink: 0 !important;
-        animation: caspianPulse 1.5s infinite !important;
-    }
-    .caspian-live-ribbon .clr-text {
+    .ast-mobile-header-wrap .menu-toggle,
+    .menu-toggle {
         color: #062963 !important;
-        font-weight: 700 !important;
-        font-size: 13.5px !important;
-        line-height: 1.2 !important;
-        letter-spacing: 0.1px !important;
-        text-decoration: none !important;
-        white-space: nowrap !important;
+        padding: 4px !important;
+    }
+    .ast-mobile-menu-buttons svg,
+    .menu-toggle svg,
+    .menu-toggle .ast-mobile-svg {
+        width: 32px !important;
+        height: 32px !important;
+        fill: #062963 !important;
     }
 
     /* ========================================================== */
@@ -421,10 +522,12 @@ add_action('wp_head', function() {
     body { padding-bottom: 72px !important; }
 }
 
-/* Very narrow phones: shrink ribbon text so it stays on one line */
+/* Very narrow phones: shrink ribbon + logo a touch */
 @media (max-width: 360px) {
     .caspian-live-ribbon .clr-text { font-size: 12px !important; }
-    .caspian-live-ribbon { gap: 7px !important; padding: 8px 10px !important; }
+    .caspian-live-ribbon { gap: 7px !important; padding: 7px 10px !important; }
+    .ast-mobile-header-wrap .custom-logo-link img,
+    .custom-logo-link img { max-height: 46px !important; }
 }
 
 /* Pulsing ring animation for the live dot */
