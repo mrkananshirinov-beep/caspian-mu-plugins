@@ -2,7 +2,12 @@
 /**
  * Plugin Name: Caspian — Services Landing Page
  * Description: Renders /services/ (ID 58) overview page: hero + 8 service cards + why + CTA. Replaces the placeholder content. Hides the theme entry title so only the hero H1 shows.
- * Version: 1.2
+ * Version: 1.3
+ * Changes in v1.3:
+ *   - Made the page full-bleed (edge-to-edge) so section backgrounds span the full viewport
+ *     like the homepage hero. The .svp-page wrapper breaks out of the boxed content area
+ *     via width:100vw + calc(50% - 50vw) margins; body.page-id-58 overflow-x:hidden guards
+ *     against any horizontal scroll. Inner containers stay centered with max-width.
  * Changes in v1.2:
  *   - Hero gradient changed to match the homepage hero exactly:
  *     linear-gradient(135deg, #0B3D91 0%, #062963 100%). Keeps the whole site harmonious.
@@ -84,7 +89,8 @@ function caspian_services_page_render($content) {
 .page-id-58 .entry-title { display:none !important; }
 
 .svp-page * { box-sizing:border-box; }
-.svp-page { font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; color:#222; line-height:1.6; }
+body.page-id-58 { overflow-x:hidden; }
+.svp-page { font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; color:#222; line-height:1.6; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); }
 
 /* HERO */
 .svp-hero { background:linear-gradient(135deg, #0B3D91 0%, #062963 100%); color:#fff; padding:66px 24px; }
