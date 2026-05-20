@@ -2,7 +2,10 @@
 /**
  * Plugin Name: Caspian — Services Landing Page
  * Description: Renders /services/ (ID 58) overview page: hero + 8 service cards + why + CTA. Replaces the placeholder content. Hides the theme entry title so only the hero H1 shows.
- * Version: 1.1
+ * Version: 1.2
+ * Changes in v1.2:
+ *   - Hero gradient changed to match the homepage hero exactly:
+ *     linear-gradient(135deg, #0B3D91 0%, #062963 100%). Keeps the whole site harmonious.
  * Changes in v1.1:
  *   - "Why" section heading: "Why Hamilton Chooses Caspian" -> "Why Customers Choose Caspian".
  * Author: Caspian Appliance Repair
@@ -84,7 +87,7 @@ function caspian_services_page_render($content) {
 .svp-page { font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; color:#222; line-height:1.6; }
 
 /* HERO */
-.svp-hero { background:linear-gradient(135deg, #041d44 0%, #062963 45%, #0B3D91 100%); color:#fff; padding:66px 24px; }
+.svp-hero { background:linear-gradient(135deg, #0B3D91 0%, #062963 100%); color:#fff; padding:66px 24px; }
 .svp-hero-inner { max-width:840px; margin:0 auto; text-align:center; }
 .svp-hero h1 { font-size:44px; font-weight:700; line-height:1.15; margin:0 0 18px; color:#fff !important; }
 .svp-hero p.lead { font-size:19px; opacity:0.95; margin:0 auto 26px; max-width:700px; color:#fff !important; }
