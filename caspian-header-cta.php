@@ -1,19 +1,22 @@
 <?php
 /**
  * Plugin Name: Caspian Header CTA + Search + Sticky + Mobile Bottom Bar
- * Version: 2.0
+ * Version: 2.1
  * Date: 2026-05-19
- * Changes from v1.9:
- *   - Mobile header: force logo left + hamburger right (flex layout)
- *   - NEW: Mobile-only sticky bottom CTA bar (Book Online left red + Call Now right green)
- *   - Body padding-bottom on mobile so sticky bar doesn't cover content
- *   - iOS safe-area-inset-bottom support (iPhone notch / home indicator)
- *   - Desktop (>=922px) behaviour 100% unchanged
+ * Build history:
+ *   v1.9 - Desktop 3-column sticky header (logo | postal+menu | Call/Book stack)
+ *   v2.0 - Mobile sticky bottom CTA bar (Book Online left red + Call Now right green)
+ *        - Mobile header: logo left, hamburger right; body padding-bottom; iOS safe-area
+ *   v2.1 - Mobile header gap fix: inject "star 4.8 / 220+ reviews" trust chip between
+ *          logo and hamburger; force header row to flex space-between so the three
+ *          items (logo | chip | hamburger) distribute evenly. Persistent social proof
+ *          that stays visible while the sticky header is scrolled.
+ *   Desktop (>=922px) behaviour is 100% unchanged across all versions.
  */
 if (!defined('ABSPATH')) exit;
 
 // ========================================================================
-// v1.9 PRESERVED: Inject postal search + CTA stack into Primary menu
+// v1.9 PRESERVED: Inject postal search + CTA stack into Primary menu (desktop)
 // ========================================================================
 add_filter('wp_nav_menu_items', function($items, $args) {
     if (isset($args->theme_location) && $args->theme_location === 'primary') {
@@ -32,12 +35,15 @@ add_filter('wp_nav_menu_items', function($items, $args) {
 }, 10, 2);
 
 // ========================================================================
-// v1.9 PRESERVED desktop restructure JS + NEW v2.0 mobile sticky bottom bar HTML
+// JS: v1.9 desktop restructure + v2.1 mobile header chip
+//     + v2.0 mobile sticky bottom bar HTML
 // ========================================================================
 add_action('wp_footer', function() {
     ?>
     <script>
     (function() {
+
+        /* --- v1.9 DESKTOP: restructure menu into center column (>=922px) --- */
         function restructureHeader() {
             if (window.innerWidth < 922) return;
             var menuUl = document.querySelector('.main-header-bar .main-header-menu')
@@ -66,15 +72,70 @@ add_action('wp_footer', function() {
                 menuUl.appendChild(centerCol);
             }
         }
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', restructureHeader);
-        } else {
-            restructureHeader();
+
+        /* --- v2.1 MOBILE (<922px): inject rating chip between logo + hamburger --- */
+        function setupMobileHeader() {
+            if (window.innerWidth >= 922) return;
+
+            var toggle = document.querySelector('.ast-mobile-header-wrap .ast-mobile-menu-buttons')
+                      || document.querySelector('.main-header-bar .ast-mobile-menu-buttons')
+                      || document.querySelector('.ast-mobile-menu-buttons')
+                      || document.querySelector('.menu-toggle');
+            var branding = document.querySelector('.ast-mobile-header-wrap .site-branding')
+                        || document.querySelector('.site-branding')
+                        || document.querySelector('.ast-site-identity');
+            if (!toggle || !branding) return;
+
+            /* Find the row element that contains BOTH the branding and the toggle */
+            var row = toggle.parentElement;
+            var guard = 0;
+            while (row && !row.contains(branding) && guard++ < 8) {
+                row = row.parentElement;
+            }
+            if (!row) row = toggle.parentElement;
+
+            /* Force that row to flex space-between (logo | chip | hamburger) */
+            row.style.setProperty('display', 'flex', 'important');
+            row.style.setProperty('flex-direction', 'row', 'important');
+            row.style.setProperty('align-items', 'center', 'important');
+            row.style.setProperty('justify-content', 'space-between', 'important');
+            row.style.setProperty('width', '100%', 'important');
+            row.style.setProperty('flex-wrap', 'nowrap', 'important');
+
+            /* Inject the rating chip once, immediately before the hamburger */
+            if (!document.querySelector('.caspian-mobile-rating-chip')) {
+                var chip = document.createElement('div');
+                chip.className = 'caspian-mobile-rating-chip';
+                chip.setAttribute('aria-label', '4.8 stars from 220 plus Google reviews');
+                chip.innerHTML =
+                    '<span class="cmr-star" aria-hidden="true">\u2605</span>'
+                  + '<span class="cmr-text"><span class="cmr-score">4.8</span>'
+                  + '<span class="cmr-count">220+ reviews</span></span>';
+                toggle.parentNode.insertBefore(chip, toggle);
+            }
         }
+
+        function initCaspianHeader() {
+            restructureHeader();
+            setupMobileHeader();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCaspianHeader);
+        } else {
+            initCaspianHeader();
+        }
+
+        /* Re-run on orientation change / resize (debounced) */
+        var caspianResizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(caspianResizeTimer);
+            caspianResizeTimer = setTimeout(initCaspianHeader, 200);
+        });
     })();
     </script>
 
-    <?php /* === NEW v2.0: Mobile-only sticky bottom CTA bar === */ ?>
+    <?php /* === v2.0: Mobile-only sticky bottom CTA bar (Book left red, Call right green) === */ ?>
     <div class="caspian-mobile-sticky-cta" role="region" aria-label="Quick contact actions">
         <a href="/contact/" class="caspian-mobile-cta caspian-mobile-book" aria-label="Book Online">
             <svg class="caspian-mobile-cta-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
@@ -93,7 +154,7 @@ add_action('wp_footer', function() {
 });
 
 // ========================================================================
-// CSS: v1.9 desktop preserved + v2.0 mobile header fix + mobile sticky bar
+// CSS: v1.9 desktop preserved + v2.1 mobile header chip + v2.0 sticky bar
 // ========================================================================
 add_action('wp_head', function() {
     ?>
@@ -241,7 +302,12 @@ add_action('wp_head', function() {
 }
 
 /* ============================================================== */
-/* === NEW v2.0: MOBILE STICKY BOTTOM CTA BAR (hidden on desktop) */
+/* === v2.1 MOBILE RATING CHIP (hidden on desktop) ============= */
+/* ============================================================== */
+.caspian-mobile-rating-chip { display: none; }
+
+/* ============================================================== */
+/* === v2.0 MOBILE STICKY BOTTOM CTA BAR (hidden on desktop) === */
 /* ============================================================== */
 .caspian-mobile-sticky-cta { display: none; }
 
@@ -252,24 +318,23 @@ add_action('wp_head', function() {
     .caspian-cta-large { min-width: 100%; }
 
     /* ========================================================== */
-    /* === MOBILE HEADER FIX: Logo left + Hamburger right ====== */
+    /* === MOBILE HEADER: Logo left | chip center | burger right  */
     /* ========================================================== */
 
-    /* Force Astra mobile header containers to flex layout */
+    /* Astra mobile header containers default to flex row */
     .ast-mobile-header-wrap,
     .ast-mobile-header-wrap .main-header-bar,
     .ast-mobile-header-wrap .main-header-bar .ast-container,
     .ast-mobile-header-wrap .ast-flex,
     .main-header-bar.main-header-bar-wrap .ast-container {
         display: flex !important;
-        justify-content: space-between !important;
         align-items: center !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         width: 100% !important;
     }
 
-    /* Force site branding (logo container) visible + left-aligned */
+    /* Site branding (logo) visible + left */
     .ast-mobile-header-wrap .site-branding,
     .ast-mobile-header-wrap .ast-site-identity,
     .ast-mobile-header-wrap .site-logo-img,
@@ -279,7 +344,6 @@ add_action('wp_head', function() {
     .ast-site-identity {
         display: flex !important;
         align-items: center !important;
-        order: 1 !important;
         flex: 0 1 auto !important;
         margin: 0 !important;
         padding: 0 !important;
@@ -288,13 +352,13 @@ add_action('wp_head', function() {
         opacity: 1 !important;
     }
 
-    /* Force logo image visible at mobile size */
+    /* Logo image visible at mobile size */
     .ast-mobile-header-wrap .custom-logo-link,
     .ast-mobile-header-wrap .site-logo-img a,
     .custom-logo-link,
     .site-logo-img a {
         display: inline-block !important;
-        max-width: 220px !important;
+        max-width: 200px !important;
         line-height: 1 !important;
     }
     .ast-mobile-header-wrap .custom-logo-link img,
@@ -302,29 +366,67 @@ add_action('wp_head', function() {
     .custom-logo-link img,
     .site-logo-img img {
         display: block !important;
-        max-height: 44px !important;
+        max-height: 42px !important;
         width: auto !important;
         height: auto !important;
         max-width: 100% !important;
     }
 
-    /* Force hamburger to right edge */
+    /* Hamburger to the right edge */
     .ast-mobile-header-wrap .ast-mobile-menu-buttons,
     .ast-mobile-header-wrap .ast-button-wrap,
     .main-header-bar .ast-mobile-menu-buttons,
     .ast-mobile-menu-buttons,
     .ast-button-wrap {
-        order: 2 !important;
-        margin-left: auto !important;
-        margin-right: 0 !important;
         flex: 0 0 auto !important;
+        margin-right: 0 !important;
         text-align: right !important;
     }
 
-    /* Header inner padding (avoid edge crowding) */
+    /* Header inner padding */
     .ast-mobile-header-wrap .main-header-bar,
     .main-header-bar.main-header-bar-wrap {
         padding: 8px 16px !important;
+    }
+
+    /* ========================================================== */
+    /* === RATING CHIP (★ 4.8 / 220+ reviews) ================== */
+    /* ========================================================== */
+    .caspian-mobile-rating-chip {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        flex: 0 0 auto !important;
+        background: #EBF1FA !important;
+        border: 1px solid #d6e2f3 !important;
+        border-radius: 22px !important;
+        padding: 5px 12px 5px 11px !important;
+        margin: 0 auto !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+    }
+    .caspian-mobile-rating-chip .cmr-star {
+        color: #F4B942 !important;
+        font-size: 16px !important;
+        line-height: 1 !important;
+    }
+    .caspian-mobile-rating-chip .cmr-text {
+        display: inline-flex !important;
+        align-items: baseline !important;
+        gap: 5px !important;
+        line-height: 1 !important;
+    }
+    .caspian-mobile-rating-chip .cmr-score {
+        color: #062963 !important;
+        font-weight: 800 !important;
+        font-size: 14px !important;
+        line-height: 1 !important;
+    }
+    .caspian-mobile-rating-chip .cmr-count {
+        color: #5a7299 !important;
+        font-weight: 600 !important;
+        font-size: 11px !important;
+        line-height: 1 !important;
     }
 
     /* ========================================================== */
@@ -361,40 +463,27 @@ add_action('wp_head', function() {
         box-sizing: border-box !important;
         transition: background 0.18s ease;
     }
-    .caspian-mobile-cta-icon {
-        width: 20px !important;
-        height: 20px !important;
-        flex-shrink: 0;
-    }
+    .caspian-mobile-cta-icon { width: 20px !important; height: 20px !important; flex-shrink: 0; }
 
     /* BOOK ONLINE — left, red (Caspian locked colour) */
-    .caspian-mobile-book {
-        background: #D52B1E !important;
-        color: #ffffff !important;
-    }
+    .caspian-mobile-book { background: #D52B1E !important; color: #ffffff !important; }
     .caspian-mobile-book:hover,
     .caspian-mobile-book:focus,
-    .caspian-mobile-book:active {
-        background: #B82319 !important;
-        color: #ffffff !important;
-    }
+    .caspian-mobile-book:active { background: #B82319 !important; color: #ffffff !important; }
 
     /* CALL NOW — right, green (Caspian locked colour, easier thumb reach) */
-    .caspian-mobile-call {
-        background: #16a34a !important;
-        color: #ffffff !important;
-    }
+    .caspian-mobile-call { background: #16a34a !important; color: #ffffff !important; }
     .caspian-mobile-call:hover,
     .caspian-mobile-call:focus,
-    .caspian-mobile-call:active {
-        background: #15803d !important;
-        color: #ffffff !important;
-    }
+    .caspian-mobile-call:active { background: #15803d !important; color: #ffffff !important; }
 
-    /* Push page content up so sticky bar doesn't cover footer */
-    body {
-        padding-bottom: 72px !important;
-    }
+    /* Push content up so sticky bar doesn't cover footer */
+    body { padding-bottom: 72px !important; }
+}
+
+/* Very narrow phones: drop the review count, keep "★ 4.8" */
+@media (max-width: 359px) {
+    .caspian-mobile-rating-chip .cmr-count { display: none !important; }
 }
 
 /* iOS safe area (iPhone notch / home indicator) */
