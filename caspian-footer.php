@@ -2,7 +2,13 @@
 /**
  * Plugin Name: Caspian Site Footer
  * Description: Block 12 - Site-wide dark sapphire footer with 4 columns, trust strip, copyright, payment badges
- * Version: 1.1
+ * Version: 1.2
+ * Changes in v1.2:
+ *   - Added official BBB Accredited Business DYNAMIC SEAL (clickable, links to the live
+ *     BBB profile, shows live "A" rating), centered below the text trust strip.
+ *     The seal markup is left EXACTLY as issued by BBB (compliance requirement) and is
+ *     only wrapped in a centered container. Scales down proportionally on narrow phones.
+ *     A reserved slot is left next to it for a future HomeStars badge.
  * Changes in v1.1:
  *   - Mobile (<=640px): payment block tidied. "We Accept:" sits on its own centered
  *     line; the four badges (Visa / Mastercard / Interac / Cash) form one centered row
@@ -68,6 +74,14 @@ add_action('astra_footer_after', function() {
     .caspian-footer-badge {
         color:#fff; font-size:13px; font-weight:600; padding:6px 12px;
     }
+    /* v1.2 - official verification seals row (BBB now; HomeStars reserved) */
+    .caspian-footer-seals {
+        max-width:1200px; margin:22px auto 0;
+        display:flex; justify-content:center; align-items:center;
+        gap:24px; flex-wrap:wrap;
+    }
+    .caspian-footer-seals a { display:inline-block; line-height:0; }
+    .caspian-footer-seals img { display:block; max-width:100%; height:auto; }
     .caspian-footer-bottom {
         background:rgba(0, 0, 0, 0.3); padding:20px 24px;
         border-top:1px solid rgba(123, 196, 240, 0.1);
@@ -92,6 +106,7 @@ add_action('astra_footer_after', function() {
         .caspian-footer-main { padding:48px 16px 28px; }
         .caspian-footer-grid { grid-template-columns:1fr; gap:32px; }
         .caspian-footer-trust-inner { grid-template-columns:1fr 1fr; gap:12px; }
+        .caspian-footer-seals { margin-top:18px; gap:16px; }
 
         /* Bottom bar: stacked + centered on mobile */
         .caspian-footer-bottom-inner {
@@ -153,7 +168,7 @@ add_action('astra_footer_after', function() {
                         <li><a href="/niagara-falls-appliance-repair/">Niagara Falls</a></li>
                         <li><a href="/oakville-appliance-repair/">Oakville</a></li>
                     </ul>
-                    <a href="/service-areas/" class="caspian-footer-viewall">View all 30+ areas →</a>
+                    <a href="/service-areas/" class="caspian-footer-viewall">View all 30+ areas &rarr;</a>
                 </div>
 
                 <div class="caspian-footer-col col-company">
@@ -178,16 +193,20 @@ add_action('astra_footer_after', function() {
 
         <div class="caspian-footer-trust">
             <div class="caspian-footer-trust-inner">
-                <div class="caspian-footer-badge">★4.8 / 220+ Google Reviews</div>
+                <div class="caspian-footer-badge">&#9733;4.8 / 220+ Google Reviews</div>
                 <div class="caspian-footer-badge">BBB A Accredited</div>
                 <div class="caspian-footer-badge">TSSA-Licensed Partners</div>
                 <div class="caspian-footer-badge">90-Day Parts &amp; Labour Warranty</div>
+            </div>
+            <div class="caspian-footer-seals">
+                <a href="https://www.bbb.org/ca/on/hamilton/profile/appliance-repair/caspian-appliance-repair-inc-0107-1413484/#sealclick" target="_blank" rel="nofollow"><img src="https://seal-mwco.bbb.org/seals/blue-seal-250-52-whitetxt-bbb-1413484.png" style="border: 0;" alt="Caspian Appliance Repair Inc BBB Business Review" /></a>
+                <!-- HomeStars badge slot: add official HomeStars badge/widget here once verified status is confirmed -->
             </div>
         </div>
 
         <div class="caspian-footer-bottom">
             <div class="caspian-footer-bottom-inner">
-                <div class="caspian-footer-copy">© 2009–2026 Caspian Appliance Repair Inc. All rights reserved.</div>
+                <div class="caspian-footer-copy">&copy; 2009&ndash;2026 Caspian Appliance Repair Inc. All rights reserved.</div>
                 <div class="caspian-footer-pay">
                     <span>We Accept:</span>
                     <span class="pay-badge">Visa</span>
