@@ -1,17 +1,20 @@
 <?php
 /**
  * Plugin Name: Caspian Header CTA + Search + Sticky + Mobile Bottom Bar
- * Version: 2.2
+ * Version: 2.3
  * Date: 2026-05-19
  * Build history:
  *   v1.9 - Desktop 3-column sticky header (logo | postal+menu | Call/Book stack)
  *   v2.0 - Mobile sticky bottom CTA bar (Book Online left red + Call Now right green)
- *   v2.1 - Mobile rating chip (REMOVED in v2.2 - felt annoying / layout stacked wrong)
- *   v2.2 - Mobile header: LIVE AVAILABILITY indicator between logo and hamburger.
- *          Pulsing green dot + "Technicians available / in your area now" during open
- *          hours; calm amber dot + "Book online anytime / live agents from 7 AM" when
- *          closed (time-aware, America/Toronto). Hamburger forced to right edge; all
- *          three items (logo | indicator | hamburger) on one inline flex row.
+ *   v2.1 - Mobile rating chip (REMOVED v2.2)
+ *   v2.2 - Inline live indicator injected into header row (REMOVED v2.3 - Astra's
+ *          mobile hamburger is absolutely/grid positioned, so the injected element
+ *          overlapped the hamburger bars, looking like strikethrough text)
+ *   v2.3 - ROBUST: live indicator is now a full-width RIBBON rendered BELOW the header
+ *          (astra_header_after, priority 1). Zero conflict with Astra's hamburger.
+ *          Header itself is fixed by CSS only: logo left, hamburger right (no DOM
+ *          injection). Ribbon: pulsing green dot + "Technicians available in your
+ *          area now". Mobile only.
  *   Desktop (>=922px) behaviour is 100% unchanged across all versions.
  */
 if (!defined('ABSPATH')) exit;
@@ -36,14 +39,23 @@ add_filter('wp_nav_menu_items', function($items, $args) {
 }, 10, 2);
 
 // ========================================================================
-// JS: v1.9 desktop restructure + v2.2 mobile live indicator
-//     + v2.0 mobile sticky bottom bar HTML
+// v2.3 NEW: Live availability ribbon, rendered right below the header (mobile)
+// ========================================================================
+add_action('astra_header_after', function() {
+    if (is_admin()) return;
+    echo '<div class="caspian-live-ribbon" role="status" aria-label="Technicians available in your area now">'
+       . '<span class="clr-dot" aria-hidden="true"></span>'
+       . '<span class="clr-text">Technicians available in your area now</span>'
+       . '</div>';
+}, 1);
+
+// ========================================================================
+// v1.9 PRESERVED desktop restructure JS + v2.0 mobile sticky bottom bar HTML
 // ========================================================================
 add_action('wp_footer', function() {
     ?>
     <script>
     (function() {
-
         /* --- v1.9 DESKTOP: restructure menu into center column (>=922px) --- */
         function restructureHeader() {
             if (window.innerWidth < 922) return;
@@ -73,108 +85,15 @@ add_action('wp_footer', function() {
                 menuUl.appendChild(centerCol);
             }
         }
-
-        /* --- Time-aware open/closed test (America/Toronto) ---
-           Hours: Mon-Sat 07:00-23:00, Sun 09:00-17:00 --- */
-        function caspianIsOpen() {
-            try {
-                var parts = new Intl.DateTimeFormat('en-US', {
-                    timeZone: 'America/Toronto',
-                    weekday: 'short',
-                    hour: 'numeric',
-                    hour12: false
-                }).formatToParts(new Date());
-                var wd = '', hr = 0;
-                parts.forEach(function(p) {
-                    if (p.type === 'weekday') wd = p.value;
-                    if (p.type === 'hour') hr = parseInt(p.value, 10);
-                });
-                if (hr === 24) hr = 0;
-                if (wd === 'Sun') return hr >= 9 && hr < 17;
-                return hr >= 7 && hr < 23;
-            } catch (e) {
-                return true; /* fail open */
-            }
-        }
-
-        /* --- v2.2 MOBILE (<922px): live indicator between logo + hamburger --- */
-        function setupMobileHeader() {
-            if (window.innerWidth >= 922) return;
-
-            var toggle = document.querySelector('.ast-mobile-header-wrap .ast-mobile-menu-buttons')
-                      || document.querySelector('.main-header-bar .ast-mobile-menu-buttons')
-                      || document.querySelector('.ast-mobile-menu-buttons')
-                      || document.querySelector('.menu-toggle');
-            var branding = document.querySelector('.ast-mobile-header-wrap .site-branding')
-                        || document.querySelector('.site-branding')
-                        || document.querySelector('.ast-site-identity');
-            if (!toggle || !branding) return;
-
-            /* Find the row element that contains BOTH branding and toggle */
-            var row = toggle.parentElement;
-            var guard = 0;
-            while (row && !row.contains(branding) && guard++ < 10) {
-                row = row.parentElement;
-            }
-            if (!row) return;
-
-            /* Force that row to one inline flex line (logo | indicator | hamburger) */
-            row.style.setProperty('display', 'flex', 'important');
-            row.style.setProperty('flex-direction', 'row', 'important');
-            row.style.setProperty('align-items', 'center', 'important');
-            row.style.setProperty('justify-content', 'space-between', 'important');
-            row.style.setProperty('flex-wrap', 'nowrap', 'important');
-            row.style.setProperty('width', '100%', 'important');
-
-            /* Inject indicator once, as a DIRECT child of row, before the toggle's branch */
-            if (!document.querySelector('.caspian-live-indicator')) {
-                /* climb from toggle up to the direct child of row */
-                var toggleBranch = toggle;
-                while (toggleBranch.parentElement && toggleBranch.parentElement !== row) {
-                    toggleBranch = toggleBranch.parentElement;
-                }
-
-                var open = caspianIsOpen();
-                var ind = document.createElement('div');
-                ind.className = 'caspian-live-indicator ' + (open ? 'is-open' : 'is-closed');
-                ind.setAttribute('role', 'status');
-                if (open) {
-                    ind.setAttribute('aria-label', 'Technicians available in your area now');
-                    ind.innerHTML =
-                        '<span class="cli-dot" aria-hidden="true"></span>'
-                      + '<span class="cli-text">'
-                      + '<span class="cli-line1">Technicians available</span>'
-                      + '<span class="cli-line2">in your area now</span>'
-                      + '</span>';
-                } else {
-                    ind.setAttribute('aria-label', 'Book online anytime, live agents from 7 AM');
-                    ind.innerHTML =
-                        '<span class="cli-dot" aria-hidden="true"></span>'
-                      + '<span class="cli-text">'
-                      + '<span class="cli-line1">Book online anytime</span>'
-                      + '<span class="cli-line2">live agents from 7 AM</span>'
-                      + '</span>';
-                }
-                row.insertBefore(ind, toggleBranch);
-            }
-        }
-
-        function initCaspianHeader() {
-            restructureHeader();
-            setupMobileHeader();
-        }
-
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initCaspianHeader);
+            document.addEventListener('DOMContentLoaded', restructureHeader);
         } else {
-            initCaspianHeader();
+            restructureHeader();
         }
-
-        /* Re-run on orientation change / resize (debounced) */
         var caspianResizeTimer;
         window.addEventListener('resize', function() {
             clearTimeout(caspianResizeTimer);
-            caspianResizeTimer = setTimeout(initCaspianHeader, 200);
+            caspianResizeTimer = setTimeout(restructureHeader, 200);
         });
     })();
     </script>
@@ -198,7 +117,7 @@ add_action('wp_footer', function() {
 });
 
 // ========================================================================
-// CSS: v1.9 desktop preserved + v2.2 mobile live indicator + v2.0 sticky bar
+// CSS: v1.9 desktop preserved + v2.3 mobile header fix + ribbon + sticky bar
 // ========================================================================
 add_action('wp_head', function() {
     ?>
@@ -222,8 +141,6 @@ add_action('wp_head', function() {
     align-items: center !important; width: 100%;
     gap: 16px; list-style: none; padding: 0; margin: 0;
 }
-
-/* CENTER COLUMN: 2 stacked rows (postal top, menu bottom) */
 .caspian-center-column {
     list-style: none !important;
     display: flex !important; flex-direction: column !important;
@@ -232,8 +149,6 @@ add_action('wp_head', function() {
     gap: 6px !important;
     margin: 0 !important; padding: 0 !important;
 }
-
-/* TOP row: postal */
 .caspian-header-postal-item {
     list-style: none !important;
     display: block !important;
@@ -256,8 +171,6 @@ add_action('wp_head', function() {
     white-space: nowrap; transition: background 0.18s ease; flex-shrink: 0;
 }
 .caspian-header-postal-btn:hover { background: #062963; }
-
-/* BOTTOM row: menu items horizontal */
 .caspian-menu-items-row {
     list-style: none !important;
     display: flex !important;
@@ -283,8 +196,6 @@ add_action('wp_head', function() {
 .caspian-menu-items-row > li.menu-item.current-menu-parent > a {
     background: #EBF1FA; color: #0B3D91 !important;
 }
-
-/* Submenu hover */
 .caspian-menu-items-row .sub-menu {
     display: none !important;
     position: absolute; top: 100%; left: 0;
@@ -309,8 +220,6 @@ add_action('wp_head', function() {
 .caspian-menu-items-row .sub-menu a:hover {
     background: #EBF1FA; color: #0B3D91 !important;
 }
-
-/* RIGHT column: CTA stack */
 .caspian-cta-stack {
     list-style: none !important;
     display: flex !important; flex-direction: column !important;
@@ -330,7 +239,6 @@ add_action('wp_head', function() {
 .caspian-cta-call:hover, .caspian-cta-call:focus { background: #15803d !important; color: #ffffff !important; }
 .caspian-cta-book { background: #D52B1E !important; color: #ffffff !important; }
 .caspian-cta-book:hover, .caspian-cta-book:focus { background: #B82319 !important; color: #ffffff !important; }
-
 .caspian-bottom-cta {
     background: #062963; color: #ffffff; padding: 40px 24px;
     text-align: center; border-radius: 8px; margin: 48px 0 0 0;
@@ -346,9 +254,9 @@ add_action('wp_head', function() {
 }
 
 /* ============================================================== */
-/* === v2.2 MOBILE LIVE INDICATOR (hidden on desktop) ========= */
+/* === v2.3 LIVE RIBBON (hidden on desktop) =================== */
 /* ============================================================== */
-.caspian-live-indicator { display: none; }
+.caspian-live-ribbon { display: none; }
 
 /* ============================================================== */
 /* === v2.0 MOBILE STICKY BOTTOM CTA BAR (hidden on desktop) === */
@@ -362,31 +270,36 @@ add_action('wp_head', function() {
     .caspian-cta-large { min-width: 100%; }
 
     /* ========================================================== */
-    /* === MOBILE HEADER: Logo left | indicator | burger right    */
+    /* === MOBILE HEADER: Logo LEFT, Hamburger RIGHT (CSS only) = */
+    /* === No DOM injection -> no conflict with the hamburger === */
     /* ========================================================== */
-    .ast-mobile-header-wrap,
-    .ast-mobile-header-wrap .main-header-bar,
+
+    /* Break any Astra grid on the mobile header row, force flex space-between */
+    .ast-mobile-header-wrap .main-header-container,
+    .ast-mobile-header-wrap .ast-flex.main-header-container,
     .ast-mobile-header-wrap .main-header-bar .ast-container,
-    .ast-mobile-header-wrap .ast-flex,
-    .main-header-bar.main-header-bar-wrap .ast-container {
+    .main-header-container.ast-grid-3,
+    .ast-grid-3 {
         display: flex !important;
+        grid-template-columns: none !important;
+        grid-template: none !important;
+        justify-content: space-between !important;
         align-items: center !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         width: 100% !important;
     }
 
-    /* Site branding (logo) visible + left */
+    /* Logo: visible, left */
     .ast-mobile-header-wrap .site-branding,
     .ast-mobile-header-wrap .ast-site-identity,
-    .ast-mobile-header-wrap .site-logo-img,
     .main-header-bar .site-branding,
-    .main-header-bar .ast-site-identity,
     .site-branding,
     .ast-site-identity {
         display: flex !important;
         align-items: center !important;
         flex: 0 1 auto !important;
+        order: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
         text-align: left !important;
@@ -394,87 +307,72 @@ add_action('wp_head', function() {
         opacity: 1 !important;
         min-width: 0 !important;
     }
-
-    /* Logo image visible at mobile size */
     .ast-mobile-header-wrap .custom-logo-link,
-    .ast-mobile-header-wrap .site-logo-img a,
     .custom-logo-link,
     .site-logo-img a {
         display: inline-block !important;
-        max-width: 170px !important;
+        max-width: 220px !important;
         line-height: 1 !important;
     }
     .ast-mobile-header-wrap .custom-logo-link img,
-    .ast-mobile-header-wrap .site-logo-img img,
     .custom-logo-link img,
     .site-logo-img img {
         display: block !important;
-        max-height: 42px !important;
+        max-height: 44px !important;
         width: auto !important;
         height: auto !important;
         max-width: 100% !important;
     }
 
-    /* Hamburger to the right edge */
+    /* Hamburger: pushed to the right edge */
     .ast-mobile-header-wrap .ast-mobile-menu-buttons,
-    .ast-mobile-header-wrap .ast-button-wrap,
     .main-header-bar .ast-mobile-menu-buttons,
-    .ast-mobile-menu-buttons,
-    .ast-button-wrap {
+    .ast-mobile-menu-buttons {
         flex: 0 0 auto !important;
+        order: 99 !important;
+        margin-left: auto !important;
         margin-right: 0 !important;
-        text-align: right !important;
+        position: static !important;
     }
 
     /* Header inner padding */
     .ast-mobile-header-wrap .main-header-bar,
     .main-header-bar.main-header-bar-wrap {
-        padding: 8px 14px !important;
+        padding: 8px 16px !important;
     }
 
     /* ========================================================== */
-    /* === LIVE AVAILABILITY INDICATOR ========================= */
+    /* === LIVE RIBBON (full-width strip below the header) ====== */
     /* ========================================================== */
-    .caspian-live-indicator {
-        display: inline-flex !important;
+    .caspian-live-ribbon {
+        display: flex !important;
         align-items: center !important;
-        gap: 7px !important;
-        flex: 0 1 auto !important;
-        margin: 0 8px !important;
-        min-width: 0 !important;
+        justify-content: center !important;
+        gap: 9px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 9px 14px !important;
+        background: #EBF1FA !important;
+        border-bottom: 1px solid #d6e2f3 !important;
+        box-sizing: border-box !important;
     }
-    .caspian-live-indicator .cli-dot {
+    .caspian-live-ribbon .clr-dot {
         width: 9px !important;
         height: 9px !important;
         border-radius: 50% !important;
-        flex-shrink: 0 !important;
-    }
-    .caspian-live-indicator.is-open .cli-dot {
         background: #16a34a !important;
+        flex-shrink: 0 !important;
         animation: caspianPulse 1.5s infinite !important;
     }
-    .caspian-live-indicator.is-closed .cli-dot {
-        background: #F4B942 !important;
-    }
-    .caspian-live-indicator .cli-text {
-        display: flex !important;
-        flex-direction: column !important;
-        line-height: 1.15 !important;
-        min-width: 0 !important;
-    }
-    .caspian-live-indicator .cli-line1 {
+    .caspian-live-ribbon .clr-text {
         color: #062963 !important;
         font-weight: 700 !important;
-        font-size: 12px !important;
+        font-size: 13.5px !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.1px !important;
+        text-decoration: none !important;
         white-space: nowrap !important;
     }
-    .caspian-live-indicator .cli-line2 {
-        font-weight: 600 !important;
-        font-size: 11px !important;
-        white-space: nowrap !important;
-    }
-    .caspian-live-indicator.is-open .cli-line2 { color: #16a34a !important; }
-    .caspian-live-indicator.is-closed .cli-line2 { color: #9a7b2e !important; }
 
     /* ========================================================== */
     /* === MOBILE STICKY BOTTOM CTA BAR ======================== */
@@ -511,30 +409,22 @@ add_action('wp_head', function() {
         transition: background 0.18s ease;
     }
     .caspian-mobile-cta-icon { width: 20px !important; height: 20px !important; flex-shrink: 0; }
-
-    /* BOOK ONLINE — left, red (Caspian locked colour) */
     .caspian-mobile-book { background: #D52B1E !important; color: #ffffff !important; }
     .caspian-mobile-book:hover,
     .caspian-mobile-book:focus,
     .caspian-mobile-book:active { background: #B82319 !important; color: #ffffff !important; }
-
-    /* CALL NOW — right, green (Caspian locked colour, easier thumb reach) */
     .caspian-mobile-call { background: #16a34a !important; color: #ffffff !important; }
     .caspian-mobile-call:hover,
     .caspian-mobile-call:focus,
     .caspian-mobile-call:active { background: #15803d !important; color: #ffffff !important; }
 
-    /* Push content up so sticky bar doesn't cover footer */
     body { padding-bottom: 72px !important; }
 }
 
-/* Very narrow phones: shrink indicator text so nothing clips */
-@media (max-width: 374px) {
-    .caspian-live-indicator { margin: 0 5px !important; gap: 5px !important; }
-    .caspian-live-indicator .cli-line1 { font-size: 11px !important; }
-    .caspian-live-indicator .cli-line2 { font-size: 10px !important; }
-    .ast-mobile-header-wrap .custom-logo-link,
-    .custom-logo-link { max-width: 140px !important; }
+/* Very narrow phones: shrink ribbon text so it stays on one line */
+@media (max-width: 360px) {
+    .caspian-live-ribbon .clr-text { font-size: 12px !important; }
+    .caspian-live-ribbon { gap: 7px !important; padding: 8px 10px !important; }
 }
 
 /* Pulsing ring animation for the live dot */
@@ -543,10 +433,8 @@ add_action('wp_head', function() {
     70%  { box-shadow: 0 0 0 9px rgba(22, 163, 74, 0); }
     100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
 }
-
-/* Respect reduced-motion preference */
 @media (prefers-reduced-motion: reduce) {
-    .caspian-live-indicator.is-open .cli-dot { animation: none !important; }
+    .caspian-live-ribbon .clr-dot { animation: none !important; }
 }
 
 /* iOS safe area (iPhone notch / home indicator) */
