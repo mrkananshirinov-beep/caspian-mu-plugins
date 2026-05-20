@@ -2,7 +2,13 @@
 /**
  * Plugin Name: Caspian Site Footer
  * Description: Block 12 - Site-wide dark sapphire footer with 4 columns, trust strip, copyright, payment badges
- * Version: 1.2
+ * Version: 1.3
+ * Changes in v1.3:
+ *   - Added a "Verified by HomeStars" badge beside the BBB seal in the trust strip.
+ *     Links to the live HomeStars profile (homestars.com/profile/caspian-appliance-repair)
+ *     and shows the real rating (4.9/5). Lightweight CSS badge, no third-party script.
+ *     "Verified" wording reflects the genuine "Verified by HomeStars" status on the
+ *     profile - revisit if that status ever lapses.
  * Changes in v1.2:
  *   - Added official BBB Accredited Business DYNAMIC SEAL (clickable, links to the live
  *     BBB profile, shows live "A" rating), centered below the text trust strip.
@@ -82,6 +88,28 @@ add_action('astra_footer_after', function() {
     }
     .caspian-footer-seals a { display:inline-block; line-height:0; }
     .caspian-footer-seals img { display:block; max-width:100%; height:auto; }
+    /* HomeStars verified badge (CSS-built, links to live profile) */
+    .caspian-footer-seals a.caspian-hs-badge {
+        display:flex; align-items:center; gap:11px;
+        height:52px; padding:0 18px; box-sizing:border-box;
+        background:rgba(255, 255, 255, 0.06);
+        border:1px solid rgba(123, 196, 240, 0.25);
+        border-radius:8px; text-decoration:none; line-height:1.2;
+        transition:background 0.2s ease, border-color 0.2s ease;
+    }
+    .caspian-footer-seals a.caspian-hs-badge:hover {
+        background:rgba(255, 255, 255, 0.1); border-color:rgba(123, 196, 240, 0.5);
+    }
+    .caspian-hs-check {
+        width:22px; height:22px; flex-shrink:0; border-radius:50%;
+        background:#7AC943; color:#fff; font-size:13px; font-weight:700;
+        display:flex; align-items:center; justify-content:center;
+    }
+    .caspian-hs-txt { display:flex; flex-direction:column; }
+    .caspian-hs-l1 { color:#fff; font-size:12px; font-weight:600; letter-spacing:0.2px; }
+    .caspian-hs-l1 b { color:#7AC943; font-weight:700; }
+    .caspian-hs-l2 { color:#cce2f5; font-size:11px; margin-top:2px; }
+    .caspian-hs-l2 .star { color:#F4B942; }
     .caspian-footer-bottom {
         background:rgba(0, 0, 0, 0.3); padding:20px 24px;
         border-top:1px solid rgba(123, 196, 240, 0.1);
@@ -200,7 +228,13 @@ add_action('astra_footer_after', function() {
             </div>
             <div class="caspian-footer-seals">
                 <a href="https://www.bbb.org/ca/on/hamilton/profile/appliance-repair/caspian-appliance-repair-inc-0107-1413484/#sealclick" target="_blank" rel="nofollow"><img src="https://seal-mwco.bbb.org/seals/blue-seal-250-52-whitetxt-bbb-1413484.png" style="border: 0;" alt="Caspian Appliance Repair Inc BBB Business Review" /></a>
-                <!-- HomeStars badge slot: add official HomeStars badge/widget here once verified status is confirmed -->
+                <a class="caspian-hs-badge" href="https://homestars.com/profile/caspian-appliance-repair" target="_blank" rel="nofollow" aria-label="Verified by HomeStars, rated 4.9 out of 5">
+                    <span class="caspian-hs-check">&#10003;</span>
+                    <span class="caspian-hs-txt">
+                        <span class="caspian-hs-l1">Verified by <b>HomeStars</b></span>
+                        <span class="caspian-hs-l2"><span class="star">&#9733;</span> 4.9 / 5</span>
+                    </span>
+                </a>
             </div>
         </div>
 
