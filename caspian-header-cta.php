@@ -1,20 +1,21 @@
 <?php
 /**
  * Plugin Name: Caspian Header CTA + Search + Sticky + Mobile Bottom Bar
- * Version: 2.4
+ * Version: 2.5
  * Date: 2026-05-19
  * Build history:
  *   v1.9 - Desktop 3-column sticky header (logo | postal+menu | Call/Book stack)
  *   v2.0 - Mobile sticky bottom CTA bar (Book Online left red + Call Now right green)
  *   v2.3 - Live ribbon BELOW the header (no hamburger conflict)
- *   v2.4 - Ribbon moved to the VERY TOP and made STICKY (stays visible while scrolling,
- *          like a top announcement bar). Time-aware text:
- *            open hours  -> green pulsing dot + "Technicians available in your area now"
- *            closed      -> amber dot + "Closed now - call from 7 AM [tomorrow] to book
- *                           your technician" (next-open hour auto-computed; Sun = 9 AM,
- *                           Mon-Sat = 7 AM; America/Toronto)
- *          Header tweaks: hamburger absolutely pinned to the right edge + larger/bolder
- *          icon; logo enlarged. JS keeps the sticky header offset = ribbon height.
+ *   v2.4 - Ribbon moved to the VERY TOP and made STICKY + time-aware text
+ *   v2.5 - HAMBURGER FIX: this site uses Astra Header Builder (HFB), not classic
+ *          Astra. Previous CSS targeted .ast-mobile-menu-buttons / .main-header-container
+ *          which DO NOT EXIST here, so the hamburger never moved. Correct targets:
+ *          .ast-builder-grid-row-has-sides (forced to flex space-between),
+ *          .ast-grid-right-section (margin-left:auto -> right edge), and the trigger
+ *          icon .ast-mobile-svg (enlarged to 30px, sapphire). Time-aware ribbon: open
+ *          hours -> green pulse "Technicians available in your area now"; closed ->
+ *          amber "Closed now - call from 7 AM [tomorrow] to book your technician".
  *   Desktop (>=922px) behaviour is 100% unchanged across all versions.
  */
 if (!defined('ABSPATH')) exit;
@@ -393,39 +394,62 @@ add_action('wp_head', function() {
     }
 
     /* ========================================================== */
-    /* === MOBILE HEADER: Logo LEFT, Hamburger pinned RIGHT ===== */
+    /* === MOBILE HEADER (Astra Header Builder / HFB) =========== */
+    /* === Logo LEFT  |  Hamburger pushed to RIGHT edge ========= */
     /* ========================================================== */
-    .ast-mobile-header-wrap .main-header-container,
-    .ast-mobile-header-wrap .ast-flex.main-header-container,
-    .ast-mobile-header-wrap .main-header-bar .ast-container,
-    .main-header-container.ast-grid-3,
-    .ast-grid-3 {
+
+    /* The HFB builder grid row (logo section | hamburger section).
+       Astra centres the right section, leaving the hamburger mid-screen.
+       Force the row to flex space-between so the sections split L/R. */
+    .ast-primary-header-bar .ast-builder-grid-row,
+    .ast-builder-grid-row.ast-builder-grid-row-has-sides {
         display: flex !important;
         grid-template-columns: none !important;
         grid-template: none !important;
-        justify-content: flex-start !important;
+        justify-content: space-between !important;
         align-items: center !important;
-        flex-direction: row !important;
         flex-wrap: nowrap !important;
         width: 100% !important;
+        gap: 8px !important;
     }
 
-    /* Header bar relative so the hamburger can pin to its right edge */
-    .ast-mobile-header-wrap .main-header-bar,
-    .main-header-bar.main-header-bar-wrap {
-        position: relative !important;
-        padding: 10px 14px !important;
+    /* Logo section hugs the left */
+    .site-header-primary-section-left {
+        justify-content: flex-start !important;
+        flex: 0 1 auto !important;
+        margin: 0 !important;
+        min-width: 0 !important;
+    }
+
+    /* Hamburger section hugs the right edge */
+    .site-header-primary-section-right,
+    .ast-grid-right-section {
+        justify-content: flex-end !important;
+        flex: 0 0 auto !important;
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+    [data-section="section-header-mobile-trigger"],
+    [data-section="section-header-mobile-trigger"] .ast-button-wrap,
+    .ast-mobile-menu-trigger-minimal {
+        margin-left: auto !important;
+        margin-right: 0 !important;
+    }
+
+    /* Tighten the bar padding so the hamburger sits close to the edge */
+    .ast-primary-header-bar,
+    .ast-primary-header-bar .ast-container,
+    .site-primary-header-wrap {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
     }
 
     /* Logo: visible, left, ENLARGED */
-    .ast-mobile-header-wrap .site-branding,
-    .ast-mobile-header-wrap .ast-site-identity,
-    .main-header-bar .site-branding,
     .site-branding,
-    .ast-site-identity {
+    .ast-site-identity,
+    .ast-builder-layout-element[data-section="title_tagline"] {
         display: flex !important;
         align-items: center !important;
-        flex: 0 1 auto !important;
         margin: 0 !important;
         padding: 0 !important;
         text-align: left !important;
@@ -433,46 +457,37 @@ add_action('wp_head', function() {
         opacity: 1 !important;
         min-width: 0 !important;
     }
-    .ast-mobile-header-wrap .custom-logo-link,
     .custom-logo-link,
+    .custom-mobile-logo-link,
     .site-logo-img a {
         display: inline-block !important;
         max-width: 250px !important;
         line-height: 1 !important;
     }
-    .ast-mobile-header-wrap .custom-logo-link img,
+    .ast-header-break-point .custom-logo-link img,
+    .ast-header-break-point .custom-mobile-logo-link img,
     .custom-logo-link img,
+    .custom-mobile-logo-link img,
     .site-logo-img img {
         display: block !important;
         max-height: 52px !important;
+        max-width: 250px !important;
         width: auto !important;
         height: auto !important;
-        max-width: 100% !important;
     }
 
-    /* Hamburger: absolutely pinned to the right edge + larger/bolder icon */
-    .ast-mobile-header-wrap .ast-mobile-menu-buttons,
-    .main-header-bar .ast-mobile-menu-buttons,
-    .ast-mobile-menu-buttons {
-        position: absolute !important;
-        right: 12px !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-        margin: 0 !important;
-        flex: 0 0 auto !important;
-        z-index: 5 !important;
+    /* Hamburger icon: larger + bolder, sapphire */
+    [data-section="section-header-mobile-trigger"] .ast-mobile-svg,
+    .ast-mobile-menu-trigger-minimal .ast-mobile-svg,
+    .mobile-menu-toggle-icon .ast-mobile-svg,
+    .ast-button-wrap .ast-mobile-svg {
+        width: 30px !important;
+        height: 30px !important;
+        fill: #062963 !important;
     }
-    .ast-mobile-header-wrap .menu-toggle,
-    .menu-toggle {
+    [data-section="section-header-mobile-trigger"] .ast-mobile-menu-trigger-minimal {
         color: #062963 !important;
         padding: 4px !important;
-    }
-    .ast-mobile-menu-buttons svg,
-    .menu-toggle svg,
-    .menu-toggle .ast-mobile-svg {
-        width: 32px !important;
-        height: 32px !important;
-        fill: #062963 !important;
     }
 
     /* ========================================================== */
