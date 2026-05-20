@@ -2,8 +2,20 @@
 /**
  * Plugin Name: Caspian — Service: Refrigerator Repair
  * Description: Renders /refrigerator-repair/ page content + FAQPage JSON-LD schema
- * Version: 1.0
+ * Version: 1.1
  * Author: Caspian Appliance Repair
+ *
+ * Changes in v1.1 (owner review 2026-05-20):
+ *   - H1 -> "Local Refrigerator Repair in 30+ Ontario Cities" (dropped the Hamilton lead)
+ *   - Hero subtitle: "since 2009" -> "for over 15 years"
+ *   - Hero trust line: BBB A (not A+); gold "Since 2009" removed; kept "15+ Years"
+ *   - Brands grid: added "+ More Brands" card linking to /all-brands/
+ *   - Why section body: rewritten to keep one Hamilton-HQ mention + local-technician emphasis; BBB A
+ *   - Why stat boxes: "A+" -> "A"; "Serving Hamilton since" -> "Serving Ontario since"
+ *   - FAQ Q1 (visible + schema): same-day cutoff 2pm -> 5pm; dropped "Hamilton-area"; added local-technician line
+ *   - CTA heading: "in Hamilton" -> "in your city"
+ *   - Sealed System intro: city list kept + added GTA and Waterloo region
+ *   - Defrost intro: removed "in Hamilton homes"
  */
 
 if (!defined('ABSPATH')) exit;
@@ -106,6 +118,8 @@ function caspian_fridge_render($content) {
 .csf-brands { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 30px 0 0; }
 .csf-brand { background: #fff; border: 1.5px solid #d8e3f2; border-radius: 10px; padding: 22px 16px; text-align: center; text-decoration: none; color: #062963; font-weight: 600; font-size: 17px; transition: all 0.2s; }
 .csf-brand:hover { border-color: #2E80D1; box-shadow: 0 10px 24px rgba(11,61,145,0.14); transform: translateY(-2px); color: #0B3D91; }
+.csf-brand-more { grid-column: 1 / -1; background: #EBF1FA; border-style: dashed; color: #0B3D91; }
+.csf-brand-more:hover { background: #e0ebfa; }
 
 /* TRUST grid */
 .csf-trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 32px 0; }
@@ -158,16 +172,16 @@ function caspian_fridge_render($content) {
 <section class="csf-hero">
     <div class="csf-hero-inner">
         <div class="csf-hero-text">
-            <h1>Refrigerator Repair in Hamilton &amp; 20+ Ontario Cities</h1>
-            <p class="lead">Same-day service since 2009. 90-day parts &amp; labour warranty. Live agents 7am–11pm, never voicemail.</p>
+            <h1>Local Refrigerator Repair in 30+ Ontario Cities</h1>
+            <p class="lead">Same-day service for over 15 years. 90-day parts &amp; labour warranty. Live agents 7am–11pm, never voicemail.</p>
             <div class="csf-hero-trust">
                 <span><strong>★4.8</strong> / 220+ Reviews</span>
-                <span><strong>BBB A+</strong> Accredited</span>
-                <span><strong>Since 2009</strong> · 15+ years</span>
+                <span><strong>BBB A</strong> Accredited</span>
+                <span><strong>15+</strong> Years</span>
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
             <div class="csf-hero-cta">
-                <a href="tel:+14167325905" class="csf-btn-call">Call (416) 732-5905</a>
+                <a href="tel:+14167325905" class="csf-btn-call">Call Now</a>
                 <a href="#book" class="csf-btn-book">Book Online</a>
             </div>
         </div>
@@ -182,7 +196,7 @@ function caspian_fridge_render($content) {
     <div class="csf-section-inner">
         <p class="kicker">Refrigerator specialty #1</p>
         <h2>Sealed System &amp; Compressor Repairs</h2>
-        <p class="intro">A failed sealed system is one of the most commonly misdiagnosed refrigerator problems we see across Hamilton, Burlington, Stoney Creek, and the wider Niagara region. It requires certified refrigerant handling, professional manifold gauges, and a vacuum pump to diagnose and repair correctly.</p>
+        <p class="intro">A failed sealed system is one of the most commonly misdiagnosed refrigerator problems we see across Hamilton, Burlington, Stoney Creek, the Niagara region, the GTA, and the Waterloo region. It requires certified refrigerant handling, professional manifold gauges, and a vacuum pump to diagnose and repair correctly.</p>
 
         <div class="csf-problem-grid">
             <?php echo caspian_fridge_pic('refrigerator-sealed-system-vacuum-pump-hamilton'); ?>
@@ -210,7 +224,7 @@ function caspian_fridge_render($content) {
     <div class="csf-section-inner">
         <p class="kicker">Refrigerator specialty #2</p>
         <h2>Defrost System &amp; Thermostat Failures</h2>
-        <p class="intro">If your fridge has stopped cooling but the freezer still works, or you see ice building up on the back wall of your freezer, the defrost system is almost certainly the cause. This is the single most common refrigerator failure we repair in Hamilton homes.</p>
+        <p class="intro">If your fridge has stopped cooling but the freezer still works, or you see ice building up on the back wall of your freezer, the defrost system is almost certainly the cause. This is the single most common refrigerator failure we repair.</p>
 
         <div class="csf-problem-grid">
             <?php echo caspian_fridge_pic('refrigerator-defrost-system-ice-buildup-hamilton'); ?>
@@ -249,6 +263,7 @@ function caspian_fridge_render($content) {
             <a href="/maytag-appliance-repair/" class="csf-brand">Maytag</a>
             <a href="/frigidaire-appliance-repair/" class="csf-brand">Frigidaire</a>
             <a href="/ge-appliance-repair/" class="csf-brand">GE</a>
+            <a href="/all-brands/" class="csf-brand csf-brand-more">+ More Brands</a>
         </div>
     </div>
 </section>
@@ -258,12 +273,12 @@ function caspian_fridge_render($content) {
     <div class="csf-section-inner">
         <p class="kicker">Why Caspian</p>
         <h2>15+ Years of Refrigerator Repair Across Ontario</h2>
-        <p class="intro">Hamilton-headquartered since September 2009. BBB A+ Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail when your food is at risk.</p>
+        <p class="intro">Headquartered in Hamilton, we serve 30+ Ontario cities — with local technicians who live and work in your area. BBB A Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail when your food is at risk.</p>
 
         <div class="csf-trust-grid">
             <div class="csf-trust-card"><span class="num">★4.8</span><span class="lbl">220+ Google Reviews</span></div>
-            <div class="csf-trust-card"><span class="num">A+</span><span class="lbl">BBB Accredited</span></div>
-            <div class="csf-trust-card"><span class="num">2009</span><span class="lbl">Serving Hamilton since</span></div>
+            <div class="csf-trust-card"><span class="num">A</span><span class="lbl">BBB Accredited</span></div>
+            <div class="csf-trust-card"><span class="num">2009</span><span class="lbl">Serving Ontario since</span></div>
             <div class="csf-trust-card"><span class="num">90-Day</span><span class="lbl">Parts &amp; Labour Warranty</span></div>
         </div>
 
@@ -282,7 +297,7 @@ function caspian_fridge_render($content) {
         <div class="csf-faq-list">
             <div class="csf-faq-item">
                 <button class="csf-faq-q" type="button">How fast can a technician come out to repair my fridge?</button>
-                <div class="csf-faq-a"><p>For most Hamilton-area calls placed before 2pm, we offer same-day service. After 2pm or for outlying cities, we typically book the next morning. When you call, our live agent will give you a 5–30 minute callback window so you do not have to wait by the phone.</p></div>
+                <div class="csf-faq-a"><p>For most calls placed before 5pm, we offer same-day service. After 5pm or for outlying areas, we typically book the next morning. A local technician who works in your area handles the visit, and our live agent gives you a 5–30 minute callback window so you do not have to wait by the phone.</p></div>
             </div>
             <div class="csf-faq-item">
                 <button class="csf-faq-q" type="button">Do you repair all refrigerator brands?</button>
@@ -310,10 +325,10 @@ function caspian_fridge_render($content) {
 
 <!-- CTA -->
 <section class="csf-cta" id="book">
-    <h2>Get same-day refrigerator repair in Hamilton</h2>
+    <h2>Get same-day refrigerator repair in your city</h2>
     <p>Serving Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and more across Ontario.</p>
     <div class="csf-cta-btns">
-        <a href="tel:+14167325905" class="csf-btn-call">Call (416) 732-5905</a>
+        <a href="tel:+14167325905" class="csf-btn-call">Call Now</a>
         <a href="/contact/" class="csf-btn-book">Book Online</a>
     </div>
 </section>
@@ -343,7 +358,7 @@ function caspian_fridge_schema() {
     if (!is_page('refrigerator-repair')) return;
 
     $faq = [
-        ['How fast can a technician come out to repair my fridge?', 'For most Hamilton-area calls placed before 2pm, we offer same-day service. After 2pm or for outlying cities, we typically book the next morning. When you call, our live agent will give you a 5 to 30 minute callback window so you do not have to wait by the phone.'],
+        ['How fast can a technician come out to repair my fridge?', 'For most calls placed before 5pm, we offer same-day service. After 5pm or for outlying areas, we typically book the next morning. A local technician who works in your area handles the visit, and our live agent gives you a 5 to 30 minute callback window so you do not have to wait by the phone.'],
         ['Do you repair all refrigerator brands?', 'Yes. We service Samsung, LG, Whirlpool, KitchenAid, Bosch, Maytag, Frigidaire, GE, Kenmore, Amana, Electrolux, Inglis, Miele, Sub-Zero, Viking, and others. If your brand is not listed, call us — we almost certainly service it.'],
         ['What does a refrigerator repair cost?', 'We do not quote repair costs by phone or online because every problem is different. A thermostat replacement costs nothing close to what a sealed-system repair does. After the technician diagnoses your fridge on-site, you receive a clear, written repair quote. You approve the quote before any work begins.'],
         ['My fridge is warm but the freezer still works — what is wrong?', 'That is the classic defrost system failure pattern. Ice builds up on the evaporator coil behind the freezer back wall until airflow to the fridge is blocked. The freezer keeps working because the coil is right there; the fridge starves of cold air. We diagnose the failed component, replace it, and clear the ice, usually in a single visit.'],
