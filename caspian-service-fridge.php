@@ -2,8 +2,11 @@
 /**
  * Plugin Name: Caspian — Service: Refrigerator Repair
  * Description: Renders /refrigerator-repair/ page content + FAQPage JSON-LD schema
- * Version: 1.1
+ * Version: 1.2
  * Author: Caspian Appliance Repair
+ *
+ * Changes in v1.2 (owner review 2026-05-20):
+ *   - Why stat box: "Serving Ontario since" -> "In appliance repair market since" (2009)
  *
  * Changes in v1.1 (owner review 2026-05-20):
  *   - H1 -> "Local Refrigerator Repair in 30+ Ontario Cities" (dropped the Hamilton lead)
@@ -278,7 +281,7 @@ function caspian_fridge_render($content) {
         <div class="csf-trust-grid">
             <div class="csf-trust-card"><span class="num">★4.8</span><span class="lbl">220+ Google Reviews</span></div>
             <div class="csf-trust-card"><span class="num">A</span><span class="lbl">BBB Accredited</span></div>
-            <div class="csf-trust-card"><span class="num">2009</span><span class="lbl">Serving Ontario since</span></div>
+            <div class="csf-trust-card"><span class="num">2009</span><span class="lbl">In appliance repair market since</span></div>
             <div class="csf-trust-card"><span class="num">90-Day</span><span class="lbl">Parts &amp; Labour Warranty</span></div>
         </div>
 
