@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian Service - Oven Repair
  * Description: Renders /oven-repair/ page (ID 53) with TSSA disclosure, FAQ schema, locked design system.
- * Version: 1.1
+ * Version: 1.2
  * Author: Caspian Build
  */
 
@@ -292,57 +292,65 @@ add_filter( 'the_content', function( $content ) {
 	}
 	.co-brand-more:hover { background: #dbe7f8; }
 
-	/* WHY — dark trust banner */
-	.co-why { background: linear-gradient(135deg, #0B3D91 0%, #062963 100%); }
-	.co-why h2 { color: #fff !important; }
+	/* WHY — dark trust banner (matches established service-page design) */
+	.co-why { background: linear-gradient(135deg, #062963 0%, #041d44 100%); }
+	.co-why .co-kicker {
+		color: #7BC4F0;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+		font-size: 13px;
+		margin: 0 0 10px;
+	}
+	.co-why h2 {
+		color: #fff !important;
+		text-align: left;
+		margin-bottom: 14px;
+	}
 	.co-why-lead {
-		text-align: center;
-		max-width: 800px;
-		margin: 0 auto 36px;
-		color: #cfe0f5 !important;
-		font-size: 17px;
+		text-align: left;
+		max-width: 900px;
+		margin: 0 0 28px;
+		color: rgba(255,255,255,0.92) !important;
+		font-size: 16px;
+		line-height: 1.7;
 	}
 	.co-why-stats {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
 		gap: 18px;
-		max-width: 920px;
-		margin: 0 auto 28px;
+		margin: 0 0 28px;
 	}
 	.co-why-stat {
-		flex: 1 1 180px;
-		min-width: 160px;
-		background: rgba(255,255,255,0.07);
-		border: 1px solid rgba(255,255,255,0.16);
-		border-radius: 10px;
-		padding: 22px 14px;
+		background: rgba(255,255,255,0.06);
+		border: 1px solid rgba(123,196,240,0.28);
+		border-radius: 12px;
+		padding: 24px 18px;
 		text-align: center;
 	}
 	.co-why-stat .value {
 		display: block;
-		color: #fff;
-		font-size: 30px;
-		font-weight: 800;
-		line-height: 1.1;
+		color: #F4B942;
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 1;
 		margin-bottom: 6px;
 	}
 	.co-why-stat .label {
 		display: block;
-		color: #b8d0eb;
-		font-size: 13px;
-		font-weight: 600;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
+		color: rgba(255,255,255,0.88);
+		font-size: 14px;
 	}
-	.co-why-disclaimer {
-		max-width: 800px;
-		margin: 0 auto;
-		text-align: center;
-		font-size: 13px;
-		color: #9fb8d8 !important;
-		font-style: italic;
+	.co-why-note {
+		background: rgba(244,185,66,0.08);
+		border-left: 3px solid #F4B942;
+		padding: 18px 22px;
+		border-radius: 4px;
+		font-size: 14.5px;
+		line-height: 1.6;
+		color: rgba(255,255,255,0.92);
 	}
+	.co-why-note strong { color: #F4B942; }
 
 	/* FAQ */
 	.co-faq-list { max-width: 860px; margin: 0 auto; }
@@ -417,6 +425,7 @@ add_filter( 'the_content', function( $content ) {
 		.co-gallery-grid { grid-template-columns: 1fr; }
 		.co-gallery-item img { height: auto; max-height: 360px; }
 		.co-brand-grid { grid-template-columns: repeat(2, 1fr); }
+		.co-why-stats { grid-template-columns: repeat(2, 1fr); }
 	}
 	@media (max-width: 520px) {
 		.co-hero { padding: 48px 18px 56px; }
@@ -594,6 +603,7 @@ add_filter( 'the_content', function( $content ) {
 		<!-- ============ WHY (dark trust banner) ============ -->
 		<section class="co-section co-why">
 			<div class="co-inner">
+				<p class="co-kicker">Why Caspian</p>
 				<h2>15+ Years of Oven Repair Across Ontario</h2>
 				<p class="co-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area — with technicians who live and work in the areas they serve. Book an oven repair and you get an experienced technician from your region, a live call center seven days a week, and a 90-day parts and labour warranty on the work.</p>
 				<div class="co-why-stats">
@@ -614,7 +624,9 @@ add_filter( 'the_content', function( $content ) {
 						<span class="label">Parts &amp; Labour Warranty</span>
 					</div>
 				</div>
-				<p class="co-why-disclaimer">Caspian Appliance Repair is independent and not affiliated with any manufacturer. We are not factory-authorized for warranty work — we provide quality out-of-warranty repairs across Hamilton and 30+ Ontario cities.</p>
+				<div class="co-why-note">
+					<strong>Service note:</strong> Caspian Appliance Repair is independent and not factory-authorized for in-warranty repairs. We specialize in high-quality out-of-warranty oven service across Hamilton and surrounding Ontario cities. If your oven is still covered by the manufacturer's warranty, contact the brand directly first — we are happy to help once that warranty has expired.
+				</div>
 			</div>
 		</section>
 
