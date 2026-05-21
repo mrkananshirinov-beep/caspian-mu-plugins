@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian Service - Stove & Cooktop Repair
  * Description: Renders /stove-cooktop-repair/ page (ID 54) with TSSA disclosure, FAQ schema, locked design system.
- * Version: 1.1
+ * Version: 1.2
  * Author: Caspian Build
  *
  * CHANGELOG:
@@ -20,9 +20,59 @@
  *   - /gas-appliance-repair/ link added in gas TSSA notice. Region phrase GTA/Waterloo/Brant in why-body.
  *   - Render guard hardened with in_the_loop() + is_main_query() (matches sibling pages).
  *   - TSSA disclosures KEPT (mandatory). Buttons already Call Now / Book Online.
+ * v1.2 (2026-05-21) — REAL PHOTOS added (3 real Caspian repair photos):
+ *   - 2-col hero (text + Frigidaire gas range photo, eager/fetchpriority high) — matches oven hero.
+ *   - New "Real Stove & Cooktop Repairs" 2-up gallery: control board replacement + KitchenAid electric range.
+ *   - Photo helpers (attachment-by-slug lookup + alt map + pic renderer) mirror the oven pattern.
+ *   - Photos serve WebP via WebP Express; gallery lazy-loaded.
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+/* ------------------------------------------------------------------
+ * PHOTO HELPERS (real Caspian repair photos from WP Media by slug)
+ * ------------------------------------------------------------------ */
+function caspian_stove_attachment( $slug ) {
+        static $cache = array();
+        if ( isset( $cache[ $slug ] ) ) { return $cache[ $slug ]; }
+        $a = get_posts( array(
+                'name'        => $slug,
+                'post_type'   => 'attachment',
+                'numberposts' => 1,
+                'post_status' => 'inherit',
+        ) );
+        $cache[ $slug ] = $a ? $a[0]->ID : 0;
+        return $cache[ $slug ];
+}
+
+function caspian_stove_alt_map() {
+        return array(
+                'frigidaire-gas-range-cooktop-repair-hamilton'      => 'Frigidaire Gallery gas range with five-burner cooktop, control panel powered on for testing during a repair by Caspian Appliance Repair in Hamilton, Ontario',
+                'stove-control-board-panel-replacement-hamilton'    => 'Range control panel removed with the electronic control board detached during a control board replacement by Caspian Appliance Repair in Hamilton, Ontario',
+                'kitchenaid-electric-cooktop-range-repair-hamilton' => 'KitchenAid slide-in electric range with smooth glass-ceramic cooktop after repair in a Hamilton, Ontario kitchen by Caspian Appliance Repair',
+        );
+}
+
+function caspian_stove_pic( $slug, $class = '', $eager = false ) {
+        $id = caspian_stove_attachment( $slug );
+        if ( ! $id ) {
+                return '<div class="cs-img-missing">[Missing: ' . esc_html( $slug ) . ']</div>';
+        }
+        $map = caspian_stove_alt_map();
+        $alt = isset( $map[ $slug ] ) ? $map[ $slug ] : '';
+        $attr = array(
+                'class'    => 'cs-photo ' . esc_attr( $class ),
+                'alt'      => $alt,
+                'decoding' => 'async',
+        );
+        if ( $eager ) {
+                $attr['loading']       = 'eager';
+                $attr['fetchpriority'] = 'high';
+        } else {
+                $attr['loading'] = 'lazy';
+        }
+        return wp_get_attachment_image( $id, 'full', false, $attr );
+}
 
 /* ------------------------------------------------------------------
  * Render full /stove-cooktop-repair/ content via the_content filter
@@ -116,6 +166,67 @@ add_filter( 'the_content', function( $content ) {
         .cs-btn-call:hover { background: #15803d; }
         .cs-btn-book { background: #D52B1E; }
         .cs-btn-book:hover { background: #b91c1c; }
+
+        /* HERO 2-COL (text + photo) */
+        .cs-hero-inner {
+                max-width: 1100px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: 1.1fr 1fr;
+                gap: 44px;
+                align-items: center;
+                text-align: left;
+        }
+        .cs-hero-inner .cs-hero-text h1 { margin-left: 0; margin-right: 0; max-width: none; }
+        .cs-hero-inner .cs-hero-text .subtitle { margin-left: 0; margin-right: 0; max-width: none; }
+        .cs-hero-inner .cs-hero-bullets { margin-left: 0; margin-right: 0; justify-content: flex-start; }
+        .cs-hero-inner .cs-hero-ctas { justify-content: flex-start; }
+        .cs-hero-photo img {
+                width: 100%;
+                height: 100%;
+                max-height: 460px;
+                object-fit: cover;
+                border-radius: 14px;
+                box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+                display: block;
+        }
+
+        /* PHOTO GALLERY (Real Repairs) */
+        .cs-photos-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 22px;
+                max-width: 960px;
+                margin: 0 auto;
+        }
+        .cs-photo-card {
+                background: #fff;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 4px 14px rgba(11, 61, 145, 0.10);
+        }
+        .cs-photo-card img {
+                width: 100%;
+                height: 300px;
+                object-fit: cover;
+                display: block;
+        }
+        .cs-photo-cap {
+                padding: 14px 18px;
+                font-size: 14px;
+                color: #555;
+                line-height: 1.5;
+        }
+        .cs-photo-cap strong { color: #062963; }
+        .cs-img-missing {
+                background: #fff3cd;
+                border: 1px dashed #F4B942;
+                color: #8a6d3b;
+                padding: 16px;
+                text-align: center;
+                border-radius: 8px;
+                font-size: 14px;
+        }
 
         /* GENERIC SECTION */
         .cs-section { padding: 60px 24px; }
@@ -380,11 +491,19 @@ add_filter( 'the_content', function( $content ) {
         @media (max-width: 900px) {
                 .cs-hero h1 { font-size: 32px; }
                 .cs-hero .subtitle { font-size: 17px; }
+                .cs-hero-inner { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+                .cs-hero-inner .cs-hero-text h1,
+                .cs-hero-inner .cs-hero-text .subtitle { margin-left: auto; margin-right: auto; }
+                .cs-hero-inner .cs-hero-bullets { justify-content: center; }
+                .cs-hero-inner .cs-hero-ctas { justify-content: center; }
+                .cs-hero-photo { order: -1; }
+                .cs-hero-photo img { max-height: 320px; }
                 .cs-section h2 { font-size: 26px; }
                 .cs-intro-grid { grid-template-columns: 1fr; }
                 .cs-issue-grid { grid-template-columns: 1fr; }
                 .cs-brand-grid { grid-template-columns: repeat(2, 1fr); }
                 .cs-why-stats { grid-template-columns: repeat(2, 1fr); }
+                .cs-photos-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 520px) {
                 .cs-hero { padding: 50px 18px 60px; }
@@ -398,18 +517,25 @@ add_filter( 'the_content', function( $content ) {
 
                 <!-- ============ HERO ============ -->
                 <section class="cs-hero">
-                        <h1>Same-Day Stove &amp; Cooktop Repair in 30+ Ontario Cities</h1>
-                        <p class="subtitle">Electric coil, ceramic glass, induction, and gas cooktops fixed fast. TSSA-licensed for gas. 90-day warranty.</p>
-                        <ul class="cs-hero-bullets">
-                                <li>★4.8 / 220+ Google Reviews</li>
-                                <li>BBB A Accredited</li>
-                                <li>15+ Years Experience</li>
-                                <li>90-Day Parts &amp; Labour Warranty</li>
-                                <li>TSSA-Licensed Gas Partners</li>
-                        </ul>
-                        <div class="cs-hero-ctas">
-                                <a class="cs-btn cs-btn-call" href="tel:+14167325905">Call Now</a>
-                                <a class="cs-btn cs-btn-book" href="/contact/">Book Online</a>
+                        <div class="cs-hero-inner">
+                                <div class="cs-hero-text">
+                                        <h1>Same-Day Stove &amp; Cooktop Repair in 30+ Ontario Cities</h1>
+                                        <p class="subtitle">Electric coil, ceramic glass, induction, and gas cooktops fixed fast. TSSA-licensed for gas. 90-day warranty.</p>
+                                        <ul class="cs-hero-bullets">
+                                                <li>★4.8 / 220+ Google Reviews</li>
+                                                <li>BBB A Accredited</li>
+                                                <li>15+ Years Experience</li>
+                                                <li>90-Day Parts &amp; Labour Warranty</li>
+                                                <li>TSSA-Licensed Gas Partners</li>
+                                        </ul>
+                                        <div class="cs-hero-ctas">
+                                                <a class="cs-btn cs-btn-call" href="tel:+14167325905">Call Now</a>
+                                                <a class="cs-btn cs-btn-book" href="/contact/">Book Online</a>
+                                        </div>
+                                </div>
+                                <div class="cs-hero-photo">
+                                        <?php echo caspian_stove_pic( 'frigidaire-gas-range-cooktop-repair-hamilton', 'cs-hero-img', true ); ?>
+                                </div>
                         </div>
                 </section>
 
@@ -513,6 +639,24 @@ add_filter( 'the_content', function( $content ) {
                                                 <div class="cs-icon">⚙</div>
                                                 <h3>Control Board Errors</h3>
                                                 <p>Error codes on the display, random shut-offs, or burners that ignore the controls entirely. Control board issues need proper diagnosis — we test before recommending replacement parts.</p>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
+
+                <!-- ============ REAL REPAIRS GALLERY ============ -->
+                <section class="cs-section" style="background:#fff;">
+                        <div class="cs-inner">
+                                <h2>Real Stove &amp; Cooktop Repairs</h2>
+                                <p class="cs-section-lead">Actual jobs handled by Caspian technicians — from gas range diagnostics to full electronic control board replacements.</p>
+                                <div class="cs-photos-grid">
+                                        <div class="cs-photo-card">
+                                                <?php echo caspian_stove_pic( 'stove-control-board-panel-replacement-hamilton', 'cs-gallery-img' ); ?>
+                                                <div class="cs-photo-cap"><strong>Control board replacement.</strong> The control panel removed and the electronic board swapped out — a common fix for error codes, dead displays, and unresponsive controls.</div>
+                                        </div>
+                                        <div class="cs-photo-card">
+                                                <?php echo caspian_stove_pic( 'kitchenaid-electric-cooktop-range-repair-hamilton', 'cs-gallery-img' ); ?>
+                                                <div class="cs-photo-cap"><strong>Electric glass cooktop range.</strong> A KitchenAid slide-in range back in service after a smooth-top element and control repair.</div>
                                         </div>
                                 </div>
                         </div>
