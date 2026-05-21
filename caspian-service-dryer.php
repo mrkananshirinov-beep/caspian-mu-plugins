@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian — Service: Dryer Repair
  * Description: Renders /dryer-repair/ page content + FAQPage JSON-LD schema
- * Version: 1.0
+ * Version: 1.1
  * Author: Caspian Appliance Repair
  */
 
@@ -95,6 +95,7 @@ function caspian_dryer_render($content) {
 .csd-section.dark p.kicker { color: #7BC4F0; }
 .csd-section p.intro { font-size: 17px; max-width: 820px; color: #333; margin: 0 0 32px; }
 .csd-section.dark p.intro { color: rgba(255,255,255,0.92); }
+.csd-section.dark a { color: #7BC4F0; text-decoration: underline; }
 
 /* 2-column grid (Block 1, 2, 3) */
 .csd-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 28px 0 30px; }
@@ -114,11 +115,13 @@ function caspian_dryer_render($content) {
 /* TSSA inline disclosure */
 .csd-tssa-inline { background: #FFF8E5; border-left: 3px solid #F4B942; padding: 14px 16px; border-radius: 4px; font-size: 14px; line-height: 1.55; color: #5a4500; margin: 14px 0 0; }
 .csd-tssa-inline strong { color: #8c6500; }
+.csd-tssa-inline a { color: #0B3D91; text-decoration: underline; }
 
 /* BRANDS grid */
 .csd-brands { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 30px 0 0; }
 .csd-brand { background: #fff; border: 1.5px solid #d8e3f2; border-radius: 10px; padding: 22px 16px; text-align: center; text-decoration: none; color: #062963; font-weight: 600; font-size: 17px; transition: all 0.2s; }
 .csd-brand:hover { border-color: #2E80D1; box-shadow: 0 10px 24px rgba(11,61,145,0.14); transform: translateY(-2px); color: #0B3D91; }
+.csd-brand-more { grid-column: 1 / -1; background: #EBF1FA; }
 
 /* TRUST grid */
 .csd-trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 32px 0; }
@@ -172,12 +175,12 @@ function caspian_dryer_render($content) {
 <section class="csd-hero">
     <div class="csd-hero-inner">
         <div class="csd-hero-text">
-            <h1>Dryer Repair in Hamilton &amp; 20+ Ontario Cities</h1>
+            <h1>Same-Day Dryer Repair in 30+ Ontario Cities</h1>
             <p class="lead">Same-day service for electric and gas dryers. 90-day parts &amp; labour warranty. Live agents 7am&ndash;11pm, never voicemail.</p>
             <div class="csd-hero-trust">
                 <span><strong>&#9733;4.8</strong> / 220+ Reviews</span>
                 <span><strong>BBB A</strong> Accredited</span>
-                <span><strong>Since 2009</strong> &middot; 15+ years</span>
+                <span><strong>15+ Years</strong> Experience</span>
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
             <div class="csd-hero-cta">
@@ -322,7 +325,7 @@ function caspian_dryer_render($content) {
 <section class="csd-section">
     <div class="csd-section-inner">
         <p class="kicker">Brands Serviced</p>
-        <h2>Dryer brands we repair in Hamilton</h2>
+        <h2>Dryer Brands We Repair</h2>
         <p class="intro">Our technicians service every major dryer brand sold in Ontario. We carry common-failure parts in the van for these brands and source the rest same-day when needed.</p>
         <div class="csd-brands">
             <a class="csd-brand" href="/samsung-appliance-repair/">Samsung</a>
@@ -333,6 +336,7 @@ function caspian_dryer_render($content) {
             <a class="csd-brand" href="/maytag-appliance-repair/">Maytag</a>
             <a class="csd-brand" href="/frigidaire-appliance-repair/">Frigidaire</a>
             <a class="csd-brand" href="/ge-appliance-repair/">GE</a>
+            <a class="csd-brand csd-brand-more" href="/all-brands/">+ More Brands</a>
         </div>
     </div>
 </section>
@@ -341,25 +345,25 @@ function caspian_dryer_render($content) {
 <section class="csd-section dark">
     <div class="csd-section-inner">
         <p class="kicker">Why Caspian</p>
-        <h2>Local trust, transparent process</h2>
-        <p class="intro">Caspian Appliance Repair has been a trusted name in the appliance repair industry since 2009. We focus on out-of-warranty repair work for homeowners who want their existing appliance fixed properly and quickly.</p>
+        <h2>15+ Years of Dryer Repair Across Ontario</h2>
+        <p class="intro">Caspian has worked in the appliance repair market since 2009, with technicians who live and work in the areas they serve &mdash; so the person fixing your dryer is from your part of Ontario, not dispatched from across the province. We focus on out-of-warranty repairs for homeowners who want their existing dryer fixed properly and quickly. BBB A Accredited. Over 220 verified Google reviews averaging &#9733;4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, the GTA, the Waterloo region, and the Brant area (Brantford). Many of our calls are washer-and-dryer pairs &mdash; we also handle <a href="/washing-machine-repair/">washing machine repair</a> on the same visit.</p>
 
         <div class="csd-trust-grid">
             <div class="csd-trust-card">
-                <span class="num">Since 2009</span>
-                <span class="lbl">15+ years experience</span>
-            </div>
-            <div class="csd-trust-card">
-                <span class="num">BBB A</span>
-                <span class="lbl">Accredited Business</span>
-            </div>
-            <div class="csd-trust-card">
                 <span class="num">&#9733;4.8</span>
-                <span class="lbl">220+ Google reviews</span>
+                <span class="lbl">220+ Google Reviews</span>
+            </div>
+            <div class="csd-trust-card">
+                <span class="num">A</span>
+                <span class="lbl">BBB Accredited</span>
+            </div>
+            <div class="csd-trust-card">
+                <span class="num">2009</span>
+                <span class="lbl">In appliance repair market since</span>
             </div>
             <div class="csd-trust-card">
                 <span class="num">90-Day</span>
-                <span class="lbl">Parts &amp; labour warranty</span>
+                <span class="lbl">Parts &amp; Labour Warranty</span>
             </div>
         </div>
 
@@ -380,6 +384,11 @@ function caspian_dryer_render($content) {
         <h2>Dryer repair questions, answered</h2>
 
         <div class="csd-faq-list">
+            <div class="csd-faq-item">
+                <button class="csd-faq-q">How fast can a technician come out to repair my dryer?</button>
+                <div class="csd-faq-a"><p>For most calls placed before 5pm, we offer same-day dryer service; after 5pm or for outlying cities we usually book the next morning. When you call, our live agent gives you a 5 to 30 minute callback window so you are not stuck waiting by the phone, and the technician we send works out of your area.</p></div>
+            </div>
+
             <div class="csd-faq-item">
                 <button class="csd-faq-q">Do you repair both electric and gas dryers?</button>
                 <div class="csd-faq-a"><p>Yes. Electric dryer repairs are handled by our in-house technicians. Gas dryer repairs are performed by certified TSSA-licensed partner technicians in compliance with Ontario regulations. Either way, you call one number and we coordinate the right technician for your unit.</p></div>
@@ -420,7 +429,7 @@ function caspian_dryer_render($content) {
 
 <!-- CTA -->
 <section class="csd-cta" id="book">
-    <h2>Get same-day dryer repair in Hamilton</h2>
+    <h2>Get same-day dryer repair in your neighbourhood</h2>
     <p>Serving Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and more across Ontario.</p>
     <div class="csd-cta-btns">
         <a href="tel:+14167325905" class="csd-btn-call">Call Now</a>
@@ -453,6 +462,8 @@ function caspian_dryer_schema() {
     if (!is_page('dryer-repair')) return;
 
     $faqs = [
+        ['How fast can a technician come out to repair my dryer?',
+         'For most calls placed before 5pm, we offer same-day dryer service; after 5pm or for outlying cities we usually book the next morning. When you call, our live agent gives you a 5 to 30 minute callback window so you are not stuck waiting by the phone, and the technician we send works out of your area.'],
         ['Do you repair both electric and gas dryers?',
          'Yes. Electric dryer repairs are handled by our in-house technicians. Gas dryer repairs are performed by certified TSSA-licensed partner technicians in compliance with Ontario regulations.'],
         ['My dryer runs but clothes stay damp — what is wrong?',
