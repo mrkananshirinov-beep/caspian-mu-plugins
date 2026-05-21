@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian Dishwasher Repair Page
  * Description: Renders /dishwasher-repair/ page - hero, problems grid, real-repair photos, brands, pricing, FAQ + FAQPage schema
- * Version: 1.2
+ * Version: 1.3
  */
 if (!defined('ABSPATH')) exit;
 
@@ -149,6 +149,18 @@ add_filter('the_content', function($content) {
     a.caspian-svc-brand-more:hover { background:#0B3D91; color:#fff; }
     .caspian-svc-brands-disclaimer { font-size:13px; color:#666; line-height:1.55; margin:8px 0 0; }
 
+    /* WHY CASPIAN (dark trust banner) */
+    .caspian-svc-why { background:linear-gradient(135deg, #062963 0%, #041d44 100%); color:#fff; padding:48px 40px; border-radius:12px; }
+    .caspian-svc-why .kicker { color:#7BC4F0; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; font-size:13px; margin:0 0 10px; }
+    .caspian-svc-why h2 { color:#fff !important; font-size:30px; font-weight:700; margin:0 0 14px; letter-spacing:-0.3px; }
+    .caspian-svc-why p.why-intro { color:rgba(255,255,255,0.92) !important; font-size:16px; line-height:1.7; margin:0 0 28px; max-width:900px; }
+    .caspian-svc-trust-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; margin:0 0 28px; }
+    .caspian-svc-trust-card { background:rgba(255,255,255,0.06); border:1px solid rgba(123,196,240,0.28); border-radius:12px; padding:24px 18px; text-align:center; }
+    .caspian-svc-trust-card .num { font-size:32px; font-weight:700; color:#F4B942; display:block; margin-bottom:6px; line-height:1; }
+    .caspian-svc-trust-card .lbl { font-size:14px; color:rgba(255,255,255,0.88); }
+    .caspian-svc-disclaimer { background:rgba(244,185,66,0.08); border-left:3px solid #F4B942; padding:18px 22px; border-radius:4px; font-size:14.5px; line-height:1.6; color:rgba(255,255,255,0.92); }
+    .caspian-svc-disclaimer strong { color:#F4B942; }
+
     .caspian-svc-pricing-card {
         background:#fff; border:2px solid #F4B942;
         border-radius:10px; padding:32px 28px;
@@ -211,6 +223,9 @@ add_filter('the_content', function($content) {
         .caspian-svc-problems { grid-template-columns:1fr; gap:12px; }
         .caspian-svc-photos { grid-template-columns:1fr; gap:16px; max-width:420px; }
         .caspian-svc-brands-list { grid-template-columns:repeat(2, 1fr); }
+        .caspian-svc-why { padding:36px 22px; }
+        .caspian-svc-why h2 { font-size:24px; }
+        .caspian-svc-trust-grid { grid-template-columns:repeat(2, 1fr); }
         .caspian-svc-cta-final { padding:32px 20px; }
         .caspian-svc-cta-final h3 { font-size:20px; }
         .caspian-svc-cta-final a { width:100%; min-width:0; }
@@ -309,7 +324,23 @@ add_filter('the_content', function($content) {
                     <div class="caspian-svc-brand-item">Amana</div>
                     <a href="/all-brands/" class="caspian-svc-brand-item caspian-svc-brand-more">+ More Brands</a>
                 </div>
-                <p class="caspian-svc-brands-disclaimer">We are not factory-authorized for warranty work. We provide quality out-of-warranty repairs backed by our 90-day parts and labour warranty.</p>
+            </div>
+        </section>
+
+        <section class="caspian-svc-section">
+            <div class="caspian-svc-why">
+                <p class="kicker">Why Caspian</p>
+                <h2>15+ Years of Dishwasher Repair Across Ontario</h2>
+                <p class="why-intro">Headquartered in Hamilton, Caspian serves 30+ Ontario cities through technicians who actually live in the neighbourhoods they cover — so the person diagnosing your dishwasher knows the local hard-water and plumbing conditions first-hand. BBB A Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and the wider Ontario region.</p>
+                <div class="caspian-svc-trust-grid">
+                    <div class="caspian-svc-trust-card"><span class="num">★4.8</span><span class="lbl">220+ Google Reviews</span></div>
+                    <div class="caspian-svc-trust-card"><span class="num">A</span><span class="lbl">BBB Accredited</span></div>
+                    <div class="caspian-svc-trust-card"><span class="num">2009</span><span class="lbl">In appliance repair market since</span></div>
+                    <div class="caspian-svc-trust-card"><span class="num">90-Day</span><span class="lbl">Parts &amp; Labour Warranty</span></div>
+                </div>
+                <div class="caspian-svc-disclaimer">
+                    <strong>Service note:</strong> Caspian is not factory-authorized for in-warranty repairs. We specialize in high-quality out-of-warranty dishwasher service across Hamilton and surrounding Ontario cities. If your dishwasher is still covered by the manufacturer's warranty, contact the brand directly first — we are happy to help once that warranty has expired.
+                </div>
             </div>
         </section>
 
