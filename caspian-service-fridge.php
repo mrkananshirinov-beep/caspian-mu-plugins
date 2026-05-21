@@ -2,8 +2,11 @@
 /**
  * Plugin Name: Caspian — Service: Refrigerator Repair
  * Description: Renders /refrigerator-repair/ page content + FAQPage JSON-LD schema
- * Version: 1.3
+ * Version: 1.4
  * Author: Caspian Appliance Repair
+ *
+ * Changes in v1.4 (owner review 2026-05-20):
+ *   - Sealed System intro: added "the Brant area" to the regional list (GTA + Waterloo + Brant)
  *
  * Changes in v1.3 (owner review 2026-05-20):
  *   - Hero photo swapped to french-door-refrigerator-repair-hamilton (clean repair-in-progress
@@ -204,7 +207,7 @@ function caspian_fridge_render($content) {
     <div class="csf-section-inner">
         <p class="kicker">Refrigerator specialty #1</p>
         <h2>Sealed System &amp; Compressor Repairs</h2>
-        <p class="intro">A failed sealed system is one of the most commonly misdiagnosed refrigerator problems we see across Hamilton, Burlington, Stoney Creek, the Niagara region, the GTA, and the Waterloo region. It requires certified refrigerant handling, professional manifold gauges, and a vacuum pump to diagnose and repair correctly.</p>
+        <p class="intro">A failed sealed system is one of the most commonly misdiagnosed refrigerator problems we see across Hamilton, Burlington, Stoney Creek, the Niagara region, the GTA, the Waterloo region, and the Brant area. It requires certified refrigerant handling, professional manifold gauges, and a vacuum pump to diagnose and repair correctly.</p>
 
         <div class="csf-problem-grid">
             <?php echo caspian_fridge_pic('refrigerator-sealed-system-vacuum-pump-hamilton'); ?>
