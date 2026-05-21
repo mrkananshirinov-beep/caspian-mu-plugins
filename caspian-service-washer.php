@@ -125,6 +125,7 @@ function caspian_washer_render($content) {
 .csw-brands { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 30px 0 0; }
 .csw-brand { background: #fff; border: 1.5px solid #d8e3f2; border-radius: 10px; padding: 22px 16px; text-align: center; text-decoration: none; color: #062963; font-weight: 600; font-size: 17px; transition: all 0.2s; }
 .csw-brand:hover { border-color: #2E80D1; box-shadow: 0 10px 24px rgba(11,61,145,0.14); transform: translateY(-2px); color: #0B3D91; }
+.csw-brand-more { grid-column: 1 / -1; background: #EBF1FA; }
 
 /* TRUST grid */
 .csw-trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 32px 0; }
@@ -319,7 +320,7 @@ function caspian_washer_render($content) {
             <a href="/maytag-appliance-repair/" class="csw-brand">Maytag</a>
             <a href="/frigidaire-appliance-repair/" class="csw-brand">Frigidaire</a>
             <a href="/ge-appliance-repair/" class="csw-brand">GE</a>
-            <a href="/all-brands/" class="csw-brand">+ More Brands</a>
+            <a href="/all-brands/" class="csw-brand csw-brand-more">+ More Brands</a>
         </div>
     </div>
 </section>
