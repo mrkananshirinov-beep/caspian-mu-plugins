@@ -1,14 +1,62 @@
 <?php
 /**
  * Plugin Name: Caspian Dishwasher Repair Page
- * Description: Renders /dishwasher-repair/ page - hero, problems grid, brands, pricing, FAQ + FAQPage schema
- * Version: 1.0
+ * Description: Renders /dishwasher-repair/ page - hero, problems grid, real-repair photos, brands, pricing, FAQ + FAQPage schema
+ * Version: 1.1
+ *
+ * CHANGELOG:
+ * v1.0 (2026-05-15) — Initial build (hero icon, 6-problem grid, 12-brand list, pricing, 7 FAQs).
+ * v1.1 (2026-05-21) — Content-pass standard: BBB A (was A+); H1 "Local ... 30+ Ontario Cities";
+ *                     hero subtitle local-tech + "for over 15 years" (dropped "since 2009");
+ *                     "15+ Years" hero bullet (was "Since 2009"); NEW "Real Repairs" photo
+ *                     gallery section (3 real Hamilton repair photos w/ alt + captions);
+ *                     full-width "+ More Brands" card -> /all-brands/; FAQ Q1 before-5pm +
+ *                     local-tech + 5-30 min callback (single array auto-syncs visible + JSON-LD);
+ *                     CTA heading "across your area", dropped "since 2009"; region phrase
+ *                     +GTA/Waterloo/Brant. Buttons already "Call Now"/"Book Online".
  */
 if (!defined('ABSPATH')) exit;
 
+// ============================================================
+// PHOTO HELPERS
+// ============================================================
+
+function caspian_dw_attachment($slug) {
+    static $cache = [];
+    if (isset($cache[$slug])) return $cache[$slug];
+    $a = get_posts([
+        'name' => $slug,
+        'post_type' => 'attachment',
+        'numberposts' => 1,
+        'post_status' => 'inherit',
+    ]);
+    $cache[$slug] = $a ? $a[0]->ID : 0;
+    return $cache[$slug];
+}
+
+function caspian_dw_alt($slug) {
+    $map = [
+        'dishwasher-circulation-pump-repair-hamilton' => 'Built-in dishwasher removed from the cabinet with the circulation pump, wash module, and spray arm assembly exposed on the kitchen floor during repair by Caspian Appliance Repair Hamilton',
+        'dishwasher-leak-repair-bottom-access-hamilton' => 'Built-in dishwasher pulled out and tilted to access the base and bottom panel during a leak repair by a Caspian Appliance Repair technician in Hamilton, Ontario',
+        'dishwasher-control-board-diagnostic-hamilton' => 'Dishwasher inner door panel removed exposing the main control board and wiring harness during electronic diagnostics by Caspian Appliance Repair Hamilton',
+    ];
+    return isset($map[$slug]) ? $map[$slug] : '';
+}
+
+function caspian_dw_pic($slug, $extra = '') {
+    $id = caspian_dw_attachment($slug);
+    if (!$id) return '<div class="caspian-svc-img-missing">[Missing: ' . esc_html($slug) . ']</div>';
+    return wp_get_attachment_image($id, 'full', false, [
+        'class' => 'caspian-svc-photo ' . esc_attr($extra),
+        'alt' => caspian_dw_alt($slug),
+        'loading' => 'lazy',
+        'decoding' => 'async',
+    ]);
+}
+
 function caspian_get_dishwasher_faqs() {
     return [
-        ['q' => 'How quickly can you repair my dishwasher?', 'a' => 'For same-day appointments across Hamilton and surrounding areas, most dishwasher repair calls are dispatched within 5 to 30 minutes of booking. Our 8-agent live call center answers from 7 AM to 11 PM, seven days a week. Same-day availability depends on your location and our technician schedule for that day.'],
+        ['q' => 'How quickly can you repair my dishwasher?', 'a' => 'For most calls placed before 5pm, we offer same-day dishwasher service; after 5pm or for outlying cities we usually book the next morning. The technician who comes to your home is based in your area and knows the local water and plumbing quirks. Our 8-agent live call center answers 7am to 11pm, seven days a week, and gives you a 5 to 30 minute callback window so you are not stuck waiting by the phone.'],
         ['q' => 'Which dishwasher brands do you repair?', 'a' => 'We repair all major dishwasher brands including Bosch, Whirlpool, KitchenAid, Samsung, LG, Maytag, Frigidaire, GE, Kenmore, Miele, Electrolux, and Amana. Both built-in and portable models are serviced. We are not factory-authorized for warranty work, so we focus on quality out-of-warranty repairs.'],
         ['q' => 'Why is my dishwasher not cleaning dishes properly?', 'a' => 'Poor cleaning is usually caused by clogged spray arms, hard water mineral buildup, a failed pump motor, a broken heating element that prevents the wash water from reaching proper temperature, or low water pressure into the unit. Our technician inspects each of these components on-site to identify the cause.'],
         ['q' => 'My dishwasher is leaking water. What could be the problem?', 'a' => 'Leaks typically come from a worn door gasket, a damaged water inlet valve, a cracked pump seal, a faulty float switch, or a loose drain hose connection. Some leaks are visible from the front; others only show during a wash cycle. The technician identifies the exact source during the diagnostic visit.'],
@@ -93,12 +141,24 @@ add_filter('the_content', function($content) {
     .caspian-svc-problem h3 { font-size:17px; font-weight:700; color:#062963; margin:0 0 8px; }
     .caspian-svc-problem p { font-size:14px; color:#555; line-height:1.55; margin:0; }
 
+    /* REAL-REPAIR PHOTOS */
+    .caspian-svc-photos { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+    .caspian-svc-photos figure { margin:0; }
+    .caspian-svc-photos img { width:100%; aspect-ratio:3 / 4; object-fit:cover; border-radius:10px; box-shadow:0 10px 28px rgba(11,61,145,0.18); display:block; }
+    .caspian-svc-photos figcaption { font-size:14px; color:#062963; font-weight:600; margin-top:10px; text-align:center; line-height:1.45; }
+
     .caspian-svc-brands { background:#EBF1FA; padding:32px 28px; border-radius:10px; }
     .caspian-svc-brands-list { display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin:0 0 16px; }
     .caspian-svc-brand-item {
         background:#fff; padding:14px 16px; border-radius:6px;
         text-align:center; font-weight:600; font-size:15px; color:#062963;
     }
+    a.caspian-svc-brand-more {
+        grid-column:1 / -1; background:#fff; color:#0B3D91;
+        border:1.5px solid #0B3D91; text-decoration:none;
+        font-weight:700; transition:all 0.2s ease;
+    }
+    a.caspian-svc-brand-more:hover { background:#0B3D91; color:#fff; }
     .caspian-svc-brands-disclaimer { font-size:13px; color:#666; line-height:1.55; margin:8px 0 0; }
 
     .caspian-svc-pricing-card {
@@ -162,6 +222,7 @@ add_filter('the_content', function($content) {
         .caspian-svc-hero-icon svg { width:60px; height:60px; }
         .caspian-svc-section h2 { font-size:24px; }
         .caspian-svc-problems { grid-template-columns:1fr; gap:12px; }
+        .caspian-svc-photos { grid-template-columns:1fr; gap:16px; max-width:420px; margin:0 auto; }
         .caspian-svc-brands-list { grid-template-columns:repeat(2, 1fr); }
         .caspian-svc-cta-final { padding:32px 20px; }
         .caspian-svc-cta-final h3 { font-size:20px; }
@@ -172,16 +233,16 @@ add_filter('the_content', function($content) {
     <div class="caspian-svc">
         <section class="caspian-svc-hero">
             <div class="caspian-svc-hero-text">
-                <h1>Same-Day Dishwasher Repair in Hamilton and 20+ Ontario Cities</h1>
-                <p class="subtitle">Built-in and portable dishwasher repairs. Trusted by Hamilton families since 2009. 90-day parts and labour warranty.</p>
+                <h1>Local Dishwasher Repair in 30+ Ontario Cities</h1>
+                <p class="subtitle">Built-in and portable dishwasher repairs by local technicians who live and work in your area. Trusted across Ontario for over 15 years. 90-day parts and labour warranty.</p>
                 <div class="caspian-svc-hero-bullets">
                     <span>4.8 / 220+ Google Reviews</span>
-                    <span>BBB A+ Accredited</span>
-                    <span>Since 2009</span>
+                    <span>BBB A Accredited</span>
+                    <span>15+ Years</span>
                     <span>90-Day Warranty</span>
                 </div>
                 <div class="caspian-svc-hero-cta">
-                    <a href="tel:+14167325905" class="call-btn">Call (416) 732-5905</a>
+                    <a href="tel:+14167325905" class="call-btn">Call Now</a>
                     <a href="/contact/" class="book-btn">Book Online</a>
                 </div>
             </div>
@@ -236,6 +297,25 @@ add_filter('the_content', function($content) {
         </section>
 
         <section class="caspian-svc-section">
+            <h2>Real Dishwasher Repairs by Local Caspian Technicians</h2>
+            <p class="caspian-svc-section-sub">These are actual repairs completed in customer homes across Hamilton, Burlington, the Niagara region, the GTA, the Waterloo region, and the Brant area (Brantford) — handled by technicians who live and work in the areas they serve. From pulling the unit to reach a hidden leak, to full electronic diagnostics, we fix the root cause, not just the symptom.</p>
+            <div class="caspian-svc-photos">
+                <figure>
+                    <?php echo caspian_dw_pic('dishwasher-circulation-pump-repair-hamilton'); ?>
+                    <figcaption>Circulation pump &amp; wash module access — poor cleaning and drainage faults</figcaption>
+                </figure>
+                <figure>
+                    <?php echo caspian_dw_pic('dishwasher-leak-repair-bottom-access-hamilton'); ?>
+                    <figcaption>Unit pulled to reach the base — tracing and sealing a hidden leak</figcaption>
+                </figure>
+                <figure>
+                    <?php echo caspian_dw_pic('dishwasher-control-board-diagnostic-hamilton'); ?>
+                    <figcaption>Control board &amp; wiring diagnostics — no-start and mid-cycle faults</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="caspian-svc-section">
             <h2>Dishwasher Brands We Repair</h2>
             <p class="caspian-svc-section-sub">All major dishwasher brands, including built-in, portable, and panel-ready models.</p>
             <div class="caspian-svc-brands">
@@ -252,6 +332,7 @@ add_filter('the_content', function($content) {
                     <div class="caspian-svc-brand-item">Miele</div>
                     <div class="caspian-svc-brand-item">Electrolux</div>
                     <div class="caspian-svc-brand-item">Amana</div>
+                    <a href="/all-brands/" class="caspian-svc-brand-item caspian-svc-brand-more">+ More Brands</a>
                 </div>
                 <p class="caspian-svc-brands-disclaimer">We are not factory-authorized for warranty work. We provide quality out-of-warranty repairs backed by our 90-day parts and labour warranty.</p>
             </div>
@@ -289,10 +370,10 @@ add_filter('the_content', function($content) {
         </section>
 
         <section class="caspian-svc-cta-final">
-            <h3>Dishwasher Acting Up? Call Caspian Today.</h3>
-            <p>Same-day appointments. 90-day parts and labour warranty. Real Caspian technicians serving 20+ Ontario cities since 2009.</p>
+            <h3>Get same-day dishwasher repair across your area</h3>
+            <p>Same-day appointments. 90-day parts and labour warranty. Real Caspian technicians, local to your area, serving 30+ Ontario cities.</p>
             <div class="cta-row">
-                <a href="tel:+14167325905" class="call-btn">Call (416) 732-5905</a>
+                <a href="tel:+14167325905" class="call-btn">Call Now</a>
                 <a href="/contact/" class="book-btn">Book Online</a>
             </div>
         </section>
