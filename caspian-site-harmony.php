@@ -8,9 +8,12 @@
  *      uniform standard (green Call #16a34a / red Book #D52B1E, min-width 180px, 14px 28px,
  *      radius 8px, 700/17px). Header CTA (.caspian-cta-*) and mobile sticky (.caspian-mobile-*)
  *      use different class names, so they are untouched and keep their compact size.
+ *   3) Hero trust-signals on every service page are normalised to the homepage look:
+ *      2-column grid, white text (16px), gold leading icon (star for the reviews item,
+ *      check for the rest). Covers all three markup variants used across the pages.
  *   Loaded as a late wp_head <style> with !important so it overrides each page's inline CSS
  *   WITHOUT editing 17 source files (no GitHub drift, easy revert: delete this one file).
- * Version: 1.1
+ * Version: 1.2
  * Author: Caspian build
  *
  * Scope:  all pages EXCEPT the front page (homepage is the reference design).
@@ -84,6 +87,80 @@ body [class*="btn-call"], body [class*="call-btn"] { background: #16a34a !import
 body [class*="btn-call"]:hover, body [class*="call-btn"]:hover { background: #15803d !important; }
 body [class*="btn-book"], body [class*="book-btn"] { background: #D52B1E !important; }
 body [class*="btn-book"]:hover, body [class*="book-btn"]:hover { background: #b91c1c !important; }
+
+/* ============================================================
+   3) UNIFORM HERO TRUST-SIGNALS (match the homepage)
+   Homepage hero bullets = 2-col grid, white text (16px), gold leading icon
+   (star for the reviews item, check for the rest). Three markup variants exist
+   across the service pages; all are normalised here with !important so they read
+   identically to the homepage — no per-file edits, no drift.
+     A) .csX-hero-trust  > span (+ strong)   fridge / washer / dryer  (inline, gold strong, no icon)
+     B) .caspian-svc-hero-bullets > span      dishwasher               (star ::before on all)
+     C) .cX-hero-bullets > li                 oven / stove / freezer / gas  (check ::before, BLUE text)
+   ============================================================ */
+
+/* containers -> 2-col grid, left-aligned, list reset */
+.csf-hero-trust, .csw-hero-trust, .csd-hero-trust,
+.caspian-svc-hero-bullets,
+.co-hero-bullets, .cs-hero-bullets, .cf-hero-bullets, .cg-hero-bullets {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px 24px !important;
+    max-width: 560px !important;
+    margin: 0 0 28px !important;
+    padding: 0 !important;
+    list-style: none !important;
+    justify-items: start !important;
+}
+
+/* items -> white text, flex row with gold-icon gap */
+.csf-hero-trust span, .csw-hero-trust span, .csd-hero-trust span,
+.caspian-svc-hero-bullets span,
+.co-hero-bullets li, .cs-hero-bullets li, .cf-hero-bullets li, .cg-hero-bullets li {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    white-space: normal !important;
+    opacity: 1 !important;
+    text-align: left !important;
+}
+
+/* whiten every A keyword (drop the inline gold strong) so all text is uniform white */
+.csf-hero-trust strong, .csw-hero-trust strong, .csd-hero-trust strong {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* ONE gold check icon before EVERY item on EVERY page (forces all three markup
+   variants to the identical homepage look: gold ✓ + white text). Pattern A spans
+   have no ::before of their own (added here); B's star ::before and C's check
+   ::before are both overridden to one gold ✓. */
+.csf-hero-trust span::before, .csw-hero-trust span::before, .csd-hero-trust span::before,
+.caspian-svc-hero-bullets span::before,
+.co-hero-bullets li::before, .cs-hero-bullets li::before,
+.cf-hero-bullets li::before, .cg-hero-bullets li::before {
+    content: "\2713" !important;          /* ✓ */
+    color: #F4B942 !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    width: 22px !important;
+    text-align: center !important;
+    flex-shrink: 0 !important;
+    display: inline-block !important;
+    margin: 0 !important;
+}
+
+/* mobile: stack the trust signals to a single column */
+@media (max-width: 600px) {
+    .csf-hero-trust, .csw-hero-trust, .csd-hero-trust,
+    .caspian-svc-hero-bullets,
+    .co-hero-bullets, .cs-hero-bullets, .cf-hero-bullets, .cg-hero-bullets {
+        grid-template-columns: 1fr !important;
+    }
+}
 </style>
     <?php
 }, 999);
