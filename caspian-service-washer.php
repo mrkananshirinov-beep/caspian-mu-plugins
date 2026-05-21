@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian — Service: Washing Machine Repair
  * Description: Renders /washing-machine-repair/ page content + FAQPage JSON-LD schema
- * Version: 1.0
+ * Version: 1.1
  * Author: Caspian Appliance Repair
  */
 
@@ -180,12 +180,12 @@ function caspian_washer_render($content) {
 <section class="csw-hero">
     <div class="csw-hero-inner">
         <div class="csw-hero-text">
-            <h1>Washing Machine Repair in Hamilton &amp; 20+ Ontario Cities</h1>
-            <p class="lead">Same-day washer service since 2009. 90-day parts &amp; labour warranty. Live agents 7am–11pm, never voicemail.</p>
+            <h1>Local Washing Machine Repair in 30+ Ontario Cities</h1>
+            <p class="lead">Same-day washer service for over 15 years. 90-day parts &amp; labour warranty. Live agents 7am–11pm, never voicemail.</p>
             <div class="csw-hero-trust">
                 <span><strong>★4.8</strong> / 220+ Reviews</span>
                 <span><strong>BBB A</strong> Accredited</span>
-                <span><strong>Since 2009</strong> · 15+ years</span>
+                <span><strong>15+ Years</strong> Experience</span>
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
             <div class="csw-hero-cta">
@@ -204,7 +204,7 @@ function caspian_washer_render($content) {
     <div class="csw-section-inner">
         <p class="kicker">Washer specialty #1</p>
         <h2>Water Failures: Leaks, Drainage &amp; Supply</h2>
-        <p class="intro">The majority of washing machine service calls across Hamilton, Burlington, Stoney Creek, Ancaster, and the Niagara region come down to a water-related failure: a torn door boot, a clogged drain pump, or a stuck water inlet valve. Each of these is a distinct repair with its own diagnostic path — and quick fixes that ignore the root cause almost always lead to a second call.</p>
+        <p class="intro">The majority of washing machine service calls across Hamilton, Burlington, Stoney Creek, Ancaster, the Niagara region, the GTA, the Waterloo region, and the Brant area (Brantford) come down to a water-related failure: a torn door boot, a clogged drain pump, or a stuck water inlet valve. Each of these is a distinct repair with its own diagnostic path — and quick fixes that ignore the root cause almost always lead to a second call.</p>
 
         <div class="csw-grid-3">
             <figure>
@@ -234,7 +234,7 @@ function caspian_washer_render($content) {
         </div>
 
         <h3>How we approach water failures</h3>
-        <p>The repair starts with isolating <em>where</em> the water is coming from or going to. We pressure-test the supply, inspect the inlet valve solenoids with a multimeter, manually drain residual water through the service port, then access the drain pump, hose, and door boot from the front (front-load) or top (top-load). Door boot replacements on Whirlpool, Samsung, LG, and Maytag front-loaders are one of our most common single-visit jobs across Hamilton homes.</p>
+        <p>The repair starts with isolating <em>where</em> the water is coming from or going to. We pressure-test the supply, inspect the inlet valve solenoids with a multimeter, manually drain residual water through the service port, then access the drain pump, hose, and door boot from the front (front-load) or top (top-load). Door boot replacements on Whirlpool, Samsung, LG, and Maytag front-loaders are one of our most common single-visit jobs in homes across Hamilton and the surrounding Ontario cities we serve.</p>
     </div>
 </section>
 
@@ -319,6 +319,7 @@ function caspian_washer_render($content) {
             <a href="/maytag-appliance-repair/" class="csw-brand">Maytag</a>
             <a href="/frigidaire-appliance-repair/" class="csw-brand">Frigidaire</a>
             <a href="/ge-appliance-repair/" class="csw-brand">GE</a>
+            <a href="/all-brands/" class="csw-brand">+ More Brands</a>
         </div>
     </div>
 </section>
@@ -328,12 +329,12 @@ function caspian_washer_render($content) {
     <div class="csw-section-inner">
         <p class="kicker">Why Caspian</p>
         <h2>15+ Years of Washing Machine Repair Across Ontario</h2>
-        <p class="intro">Hamilton-headquartered since September 2009. BBB A Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and the wider Ontario region.</p>
+        <p class="intro">Headquartered in Hamilton, Caspian serves 30+ Ontario cities — and the technician who shows up at your laundry room is someone who lives and works in your own area, not a dispatcher passing through. BBB A Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and the wider Ontario region.</p>
 
         <div class="csw-trust-grid">
             <div class="csw-trust-card"><span class="num">★4.8</span><span class="lbl">220+ Google Reviews</span></div>
             <div class="csw-trust-card"><span class="num">A</span><span class="lbl">BBB Accredited</span></div>
-            <div class="csw-trust-card"><span class="num">2009</span><span class="lbl">Serving Hamilton since</span></div>
+            <div class="csw-trust-card"><span class="num">2009</span><span class="lbl">In appliance repair market since</span></div>
             <div class="csw-trust-card"><span class="num">90-Day</span><span class="lbl">Parts &amp; Labour Warranty</span></div>
         </div>
 
@@ -352,7 +353,7 @@ function caspian_washer_render($content) {
         <div class="csw-faq-list">
             <div class="csw-faq-item">
                 <button class="csw-faq-q" type="button">How fast can a technician come out to repair my washer?</button>
-                <div class="csw-faq-a"><p>For most Hamilton-area calls placed before 2pm, we offer same-day service. After 2pm or for outlying cities, we typically book the next morning. When you call, our live agent will give you a 5–30 minute callback window so you do not have to wait by the phone.</p></div>
+                <div class="csw-faq-a"><p>For most calls placed before 5pm, we offer same-day washer service. After 5pm or for outlying cities, we typically book the next morning. Either way, the technician sent to your home is based in your area and knows the neighbourhood. When you call, our live agent will give you a 5–30 minute callback window so you do not have to wait by the phone.</p></div>
             </div>
             <div class="csw-faq-item">
                 <button class="csw-faq-q" type="button">Do you repair all washing machine brands?</button>
@@ -384,7 +385,7 @@ function caspian_washer_render($content) {
 
 <!-- CTA -->
 <section class="csw-cta" id="book">
-    <h2>Get same-day washing machine repair in Hamilton</h2>
+    <h2>Get same-day washing machine repair wherever you are in Ontario</h2>
     <p>Serving Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Flamborough, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and the wider Ontario region.</p>
     <div class="csw-cta-btns">
         <a href="tel:+14167325905" class="csw-btn-call">Call Now</a>
@@ -417,7 +418,7 @@ function caspian_washer_schema() {
     if (!is_page('washing-machine-repair')) return;
 
     $faq = [
-        ['How fast can a technician come out to repair my washer?', 'For most Hamilton-area calls placed before 2pm, we offer same-day service. After 2pm or for outlying cities, we typically book the next morning. When you call, our live agent will give you a 5 to 30 minute callback window so you do not have to wait by the phone.'],
+        ['How fast can a technician come out to repair my washer?', 'For most calls placed before 5pm, we offer same-day washer service. After 5pm or for outlying cities, we typically book the next morning. Either way, the technician sent to your home is based in your area and knows the neighbourhood. When you call, our live agent will give you a 5 to 30 minute callback window so you do not have to wait by the phone.'],
         ['Do you repair all washing machine brands?', 'Yes. We service Samsung, LG, Whirlpool, KitchenAid, Bosch, Maytag, Frigidaire, GE, Kenmore, Amana, Electrolux, Inglis, Speed Queen, Miele, Asko, Roper, Estate, and others. Front-load, top-load, high-efficiency, and washer-dryer combos are all serviced.'],
         ['What does a washing machine repair cost?', 'We do not quote washer repair costs by phone or online because every problem is different. A drain pump replacement costs nothing close to what a transmission replacement does. After the technician diagnoses your washer on-site, you receive a clear, written repair quote. You approve the quote before any work begins.'],
         ['My washer is leaking water, what is causing it?', 'Front-load washers most often leak from the door boot when it tears or develops a crease that holds water. Other common leak sources are the drain pump seal, the drain hose connection, and the water inlet hose at the back. We pressure-test the supply and run a partial cycle on-site to identify the exact leak point.'],
