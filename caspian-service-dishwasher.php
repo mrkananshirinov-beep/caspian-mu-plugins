@@ -2,18 +2,7 @@
 /**
  * Plugin Name: Caspian Dishwasher Repair Page
  * Description: Renders /dishwasher-repair/ page - hero, problems grid, real-repair photos, brands, pricing, FAQ + FAQPage schema
- * Version: 1.1
- *
- * CHANGELOG:
- * v1.0 (2026-05-15) — Initial build (hero icon, 6-problem grid, 12-brand list, pricing, 7 FAQs).
- * v1.1 (2026-05-21) — Content-pass standard: BBB A (was A+); H1 "Local ... 30+ Ontario Cities";
- *                     hero subtitle local-tech + "for over 15 years" (dropped "since 2009");
- *                     "15+ Years" hero bullet (was "Since 2009"); NEW "Real Repairs" photo
- *                     gallery section (3 real Hamilton repair photos w/ alt + captions);
- *                     full-width "+ More Brands" card -> /all-brands/; FAQ Q1 before-5pm +
- *                     local-tech + 5-30 min callback (single array auto-syncs visible + JSON-LD);
- *                     CTA heading "across your area", dropped "since 2009"; region phrase
- *                     +GTA/Waterloo/Brant. Buttons already "Call Now"/"Book Online".
+ * Version: 1.2
  */
 if (!defined('ABSPATH')) exit;
 
@@ -89,7 +78,7 @@ add_filter('the_content', function($content) {
         background:linear-gradient(135deg, #0B3D91 0%, #062963 100%);
         color:#fff !important; padding:64px 32px; border-radius:12px;
         margin-bottom:48px;
-        display:grid; grid-template-columns:1fr auto; gap:40px;
+        display:grid; grid-template-columns:1.1fr 1fr; gap:40px;
         align-items:center;
     }
     .caspian-svc-hero-text h1 {
@@ -118,13 +107,12 @@ add_filter('the_content', function($content) {
     .caspian-svc-hero-cta .call-btn:hover { background:#15803d; transform:translateY(-2px); }
     .caspian-svc-hero-cta .book-btn { background:#D52B1E; color:#fff !important; }
     .caspian-svc-hero-cta .book-btn:hover { background:#b91c1c; transform:translateY(-2px); }
-    .caspian-svc-hero-icon {
-        width:140px; height:140px;
-        display:flex; align-items:center; justify-content:center;
-        color:#7BC4F0; background:rgba(255,255,255,0.06);
-        border-radius:50%; flex-shrink:0;
+    .caspian-svc-hero-photo img {
+        width:100%; height:auto; max-height:520px;
+        object-fit:cover; object-position:center;
+        border-radius:14px; box-shadow:0 22px 60px rgba(0,0,0,0.4);
+        display:block;
     }
-    .caspian-svc-hero-icon svg { width:80px; height:80px; }
 
     /* SECTIONS */
     .caspian-svc-section { margin-bottom:48px; }
@@ -141,8 +129,8 @@ add_filter('the_content', function($content) {
     .caspian-svc-problem h3 { font-size:17px; font-weight:700; color:#062963; margin:0 0 8px; }
     .caspian-svc-problem p { font-size:14px; color:#555; line-height:1.55; margin:0; }
 
-    /* REAL-REPAIR PHOTOS */
-    .caspian-svc-photos { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; }
+    /* REAL-REPAIR PHOTOS (2 up, centered) */
+    .caspian-svc-photos { display:grid; grid-template-columns:repeat(2, 1fr); gap:18px; max-width:780px; margin:0 auto; }
     .caspian-svc-photos figure { margin:0; }
     .caspian-svc-photos img { width:100%; aspect-ratio:3 / 4; object-fit:cover; border-radius:10px; box-shadow:0 10px 28px rgba(11,61,145,0.18); display:block; }
     .caspian-svc-photos figcaption { font-size:14px; color:#062963; font-weight:600; margin-top:10px; text-align:center; line-height:1.45; }
@@ -212,17 +200,16 @@ add_filter('the_content', function($content) {
 
     @media (max-width:768px) {
         .caspian-svc { padding:0 16px 48px; }
-        .caspian-svc-hero { grid-template-columns:1fr; padding:48px 24px; gap:24px; text-align:center; }
+        .caspian-svc-hero { grid-template-columns:1fr; padding:48px 24px; gap:28px; text-align:center; }
         .caspian-svc-hero-text h1 { font-size:30px; }
         .caspian-svc-hero-text .subtitle { font-size:16px; }
         .caspian-svc-hero-bullets { justify-content:center; }
         .caspian-svc-hero-cta { justify-content:center; }
         .caspian-svc-hero-cta a { width:100%; min-width:0; }
-        .caspian-svc-hero-icon { width:100px; height:100px; margin:0 auto; }
-        .caspian-svc-hero-icon svg { width:60px; height:60px; }
+        .caspian-svc-hero-photo { max-width:360px; margin:0 auto; }
         .caspian-svc-section h2 { font-size:24px; }
         .caspian-svc-problems { grid-template-columns:1fr; gap:12px; }
-        .caspian-svc-photos { grid-template-columns:1fr; gap:16px; max-width:420px; margin:0 auto; }
+        .caspian-svc-photos { grid-template-columns:1fr; gap:16px; max-width:420px; }
         .caspian-svc-brands-list { grid-template-columns:repeat(2, 1fr); }
         .caspian-svc-cta-final { padding:32px 20px; }
         .caspian-svc-cta-final h3 { font-size:20px; }
@@ -246,16 +233,8 @@ add_filter('the_content', function($content) {
                     <a href="/contact/" class="book-btn">Book Online</a>
                 </div>
             </div>
-            <div class="caspian-svc-hero-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2"/>
-                    <line x1="3" y1="8" x2="21" y2="8"/>
-                    <circle cx="7" cy="5.5" r="0.7" fill="currentColor"/>
-                    <circle cx="10" cy="5.5" r="0.7" fill="currentColor"/>
-                    <circle cx="13" cy="5.5" r="0.7" fill="currentColor"/>
-                    <line x1="9" y1="14" x2="15" y2="14"/>
-                    <circle cx="12" cy="14" r="0.5" fill="currentColor"/>
-                </svg>
+            <div class="caspian-svc-hero-photo">
+                <?php echo caspian_dw_pic('dishwasher-leak-repair-bottom-access-hamilton'); ?>
             </div>
         </section>
 
@@ -298,15 +277,11 @@ add_filter('the_content', function($content) {
 
         <section class="caspian-svc-section">
             <h2>Real Dishwasher Repairs by Local Caspian Technicians</h2>
-            <p class="caspian-svc-section-sub">These are actual repairs completed in customer homes across Hamilton, Burlington, the Niagara region, the GTA, the Waterloo region, and the Brant area (Brantford) — handled by technicians who live and work in the areas they serve. From pulling the unit to reach a hidden leak, to full electronic diagnostics, we fix the root cause, not just the symptom.</p>
+            <p class="caspian-svc-section-sub">These are actual repairs completed in customer homes across Hamilton, Burlington, the Niagara region, the GTA, the Waterloo region, and the Brant area (Brantford) — handled by technicians who live and work in the areas they serve. We diagnose and fix the root cause, not just the symptom.</p>
             <div class="caspian-svc-photos">
                 <figure>
                     <?php echo caspian_dw_pic('dishwasher-circulation-pump-repair-hamilton'); ?>
                     <figcaption>Circulation pump &amp; wash module access — poor cleaning and drainage faults</figcaption>
-                </figure>
-                <figure>
-                    <?php echo caspian_dw_pic('dishwasher-leak-repair-bottom-access-hamilton'); ?>
-                    <figcaption>Unit pulled to reach the base — tracing and sealing a hidden leak</figcaption>
                 </figure>
                 <figure>
                     <?php echo caspian_dw_pic('dishwasher-control-board-diagnostic-hamilton'); ?>
