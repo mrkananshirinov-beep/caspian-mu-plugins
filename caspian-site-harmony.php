@@ -13,8 +13,12 @@
  *      check for the rest). Covers all three markup variants used across the pages.
  *   Loaded as a late wp_head <style> with !important so it overrides each page's inline CSS
  *   WITHOUT editing 17 source files (no GitHub drift, easy revert: delete this one file).
- * Version: 1.2
+ * Version: 1.3
  * Author: Caspian build
+ *
+ * v1.3: Section 3 selectors gain a "body " prefix so they out-rank each page's
+ *       own ".X-hero-bullets li { color:#7BC4F0 !important }" rule (which lives
+ *       later in the document, in the body). Without this the blue won the tie.
  *
  * Scope:  all pages EXCEPT the front page (homepage is the reference design).
  * Mobile: gradients + 100vw full-bleed + button rules all apply on mobile and desktop.
@@ -100,9 +104,9 @@ body [class*="btn-book"]:hover, body [class*="book-btn"]:hover { background: #b9
    ============================================================ */
 
 /* containers -> 2-col grid, left-aligned, list reset */
-.csf-hero-trust, .csw-hero-trust, .csd-hero-trust,
-.caspian-svc-hero-bullets,
-.co-hero-bullets, .cs-hero-bullets, .cf-hero-bullets, .cg-hero-bullets {
+body .csf-hero-trust, body .csw-hero-trust, body .csd-hero-trust,
+body .caspian-svc-hero-bullets,
+body .co-hero-bullets, body .cs-hero-bullets, body .cf-hero-bullets, body .cg-hero-bullets {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     gap: 12px 24px !important;
@@ -113,10 +117,12 @@ body [class*="btn-book"]:hover, body [class*="book-btn"]:hover { background: #b9
     justify-items: start !important;
 }
 
-/* items -> white text, flex row with gold-icon gap */
-.csf-hero-trust span, .csw-hero-trust span, .csd-hero-trust span,
-.caspian-svc-hero-bullets span,
-.co-hero-bullets li, .cs-hero-bullets li, .cf-hero-bullets li, .cg-hero-bullets li {
+/* items -> white text, flex row with gold-icon gap.
+   The "body " prefix raises specificity above each page's own
+   ".X-hero-bullets li { color:#7BC4F0 !important }" so white wins. */
+body .csf-hero-trust span, body .csw-hero-trust span, body .csd-hero-trust span,
+body .caspian-svc-hero-bullets span,
+body .co-hero-bullets li, body .cs-hero-bullets li, body .cf-hero-bullets li, body .cg-hero-bullets li {
     color: #ffffff !important;
     font-size: 16px !important;
     line-height: 1.4 !important;
@@ -129,7 +135,7 @@ body [class*="btn-book"]:hover, body [class*="book-btn"]:hover { background: #b9
 }
 
 /* whiten every A keyword (drop the inline gold strong) so all text is uniform white */
-.csf-hero-trust strong, .csw-hero-trust strong, .csd-hero-trust strong {
+body .csf-hero-trust strong, body .csw-hero-trust strong, body .csd-hero-trust strong {
     color: #ffffff !important;
     font-weight: 600 !important;
 }
@@ -138,10 +144,10 @@ body [class*="btn-book"]:hover, body [class*="book-btn"]:hover { background: #b9
    variants to the identical homepage look: gold ✓ + white text). Pattern A spans
    have no ::before of their own (added here); B's star ::before and C's check
    ::before are both overridden to one gold ✓. */
-.csf-hero-trust span::before, .csw-hero-trust span::before, .csd-hero-trust span::before,
-.caspian-svc-hero-bullets span::before,
-.co-hero-bullets li::before, .cs-hero-bullets li::before,
-.cf-hero-bullets li::before, .cg-hero-bullets li::before {
+body .csf-hero-trust span::before, body .csw-hero-trust span::before, body .csd-hero-trust span::before,
+body .caspian-svc-hero-bullets span::before,
+body .co-hero-bullets li::before, body .cs-hero-bullets li::before,
+body .cf-hero-bullets li::before, body .cg-hero-bullets li::before {
     content: "\2713" !important;          /* ✓ */
     color: #F4B942 !important;
     font-weight: 700 !important;
@@ -155,9 +161,9 @@ body [class*="btn-book"]:hover, body [class*="book-btn"]:hover { background: #b9
 
 /* mobile: stack the trust signals to a single column */
 @media (max-width: 600px) {
-    .csf-hero-trust, .csw-hero-trust, .csd-hero-trust,
-    .caspian-svc-hero-bullets,
-    .co-hero-bullets, .cs-hero-bullets, .cf-hero-bullets, .cg-hero-bullets {
+    body .csf-hero-trust, body .csw-hero-trust, body .csd-hero-trust,
+    body .caspian-svc-hero-bullets,
+    body .co-hero-bullets, body .cs-hero-bullets, body .cf-hero-bullets, body .cg-hero-bullets {
         grid-template-columns: 1fr !important;
     }
 }
