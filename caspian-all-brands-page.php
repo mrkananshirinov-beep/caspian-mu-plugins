@@ -1,8 +1,14 @@
 <?php
 /**
  * Plugin Name: Caspian All Brands Page
- * Description: Renders content for /all-brands/ page (19 brand listings with descriptions)
- * Version: 1.0
+ * Description: Renders content for /all-brands/ page (19 brand listings with logos + descriptions)
+ * Version: 1.1
+ *
+ * v1.1 changes:
+ *  - Added brand logos to each card (grayscale by default, full colour on hover/anchor target).
+ *    Logo data URIs come from caspian-brand-logos.php (caspian_brand_logos()).
+ *  - Removed Speed Queen; added Thor Kitchen (alphabetical).
+ *  - Trust strip: "BBB Accredited" -> "BBB A Accredited" (locked standard).
  */
 if (!defined('ABSPATH')) exit;
 
@@ -23,7 +29,7 @@ function caspian_all_brands_data() {
         ['name' => 'Electrolux',     'url' => null, 'desc' => 'Electrolux is a Swedish appliance manufacturer offering mid-to-premium refrigerators, washers, dryers, dishwashers, and ranges. Common Electrolux repairs include water inlet valve replacements, drain pump issues on dishwashers, and refrigerator compressor diagnostics.'],
         ['name' => 'Fisher &amp; Paykel', 'url' => null, 'desc' => 'Fisher &amp; Paykel is a premium New Zealand brand known for innovative DishDrawer dishwashers, ActiveSmart refrigerators, and intuitive ranges. Common Fisher &amp; Paykel repairs include DishDrawer drain pump replacement, fridge electronic board diagnostics, and ActiveSmart temperature calibration.'],
         ['name' => 'Frigidaire',     'url' => '/frigidaire-appliance-repair/', 'desc' => 'Frigidaire is an Electrolux-owned American mainstream brand. Caspian repairs all Frigidaire and Frigidaire Professional models. Common repairs include refrigerator defrost system issues, range igniter replacements, and dryer heating element failures.'],
-        ['name' => 'GE',             'url' => '/ge-appliance-repair/', 'desc' => 'GE Appliances offers a full lineup including standard GE, premium GE Profile, sophisticated GE Café, and ultra-luxury GE Monogram lines. Caspian services every GE tier &mdash; from basic top-load washers to Monogram built-in refrigeration. Common GE repairs: water filter housings, dishwasher detergent dispensers, range surface burner failures.'],
+        ['name' => 'GE',             'url' => '/ge-appliance-repair/', 'desc' => 'GE Appliances offers a full lineup including standard GE, premium GE Profile, sophisticated GE Caf&eacute;, and ultra-luxury GE Monogram lines. Caspian services every GE tier &mdash; from basic top-load washers to Monogram built-in refrigeration. Common GE repairs: water filter housings, dishwasher detergent dispensers, range surface burner failures.'],
         ['name' => 'Inglis',         'url' => null, 'desc' => 'Inglis is a Canadian-market Whirlpool brand offering dependable laundry and kitchen appliances. Caspian services all Inglis washer, dryer, dishwasher, and refrigerator models. Common Inglis repairs share parts with Whirlpool &mdash; drain pump issues, dryer drum belts, ice maker failures.'],
         ['name' => 'Jenn-Air',       'url' => null, 'desc' => 'Jenn-Air is a premium American Whirlpool brand specialising in luxury ranges, downdraft cooktops, wall ovens, and built-in refrigeration. Common Jenn-Air repairs: downdraft fan motor replacements, induction cooktop diagnostics, dual-fuel range thermostat calibration. Gas Jenn-Air work performed by certified TSSA-licensed partner technicians.'],
         ['name' => 'Kenmore',        'url' => null, 'desc' => 'Kenmore is a long-established North American brand historically sold through Sears, with units manufactured by Whirlpool, LG, and Frigidaire. Caspian services all Kenmore washers, dryers, refrigerators, dishwashers, and ranges. Common Kenmore repairs: drum bearing replacements, fridge ice maker rebuilds, range igniter swaps.'],
@@ -31,8 +37,8 @@ function caspian_all_brands_data() {
         ['name' => 'LG',             'url' => '/lg-appliance-repair/', 'desc' => 'LG is a leading Korean electronics manufacturer offering smart refrigerators, Direct Drive front-load washers, and InstaView dishwashers. Common LG repairs: linear compressor diagnostics, washer Tub Clean cycle issues, dryer heating element failures.'],
         ['name' => 'Maytag',         'url' => '/maytag-appliance-repair/', 'desc' => 'Maytag is an American mainstream Whirlpool brand known for durable washers, dryers, dishwashers, refrigerators, and ranges. Caspian repairs Maytag Bravos, Centennial, and Performance series. Common repairs: washer drive belts, dryer thermal fuses, refrigerator defrost timers.'],
         ['name' => 'Samsung',        'url' => '/samsung-appliance-repair/', 'desc' => 'Samsung is a leading Korean manufacturer of smart refrigerators (including the Family Hub line), front-load washers, dryers, dishwashers, and ranges. Caspian services every Samsung major appliance. Common Samsung repairs: twin cooling system diagnostics, washer suspension rods, Flex Wash control board issues.'],
-        ['name' => 'Speed Queen',    'url' => null, 'desc' => 'Speed Queen is an American commercial-grade laundry brand built for durability &mdash; favoured by households wanting commercial reliability. Common Speed Queen repairs: drive belt replacements, water valve diagnostics, gas dryer ignition systems. Gas Speed Queen work performed by certified TSSA-licensed partner technicians.'],
         ['name' => 'Thermador',      'url' => null, 'desc' => 'Thermador is a Bosch luxury cooking brand offering professional ranges, wall ovens, cooktops, and warming drawers. Common Thermador repairs: star burner ignition diagnostics, electric oven element replacements, and electronic control board service. Gas Thermador work performed by certified TSSA-licensed partner technicians.'],
+        ['name' => 'Thor Kitchen',   'url' => null, 'desc' => 'Thor Kitchen is an American brand specialising in affordable professional-style ranges, cooktops, wall ovens, and ventilation hoods for the home kitchen. Common Thor Kitchen repairs: gas range igniter diagnostics, oven temperature calibration, and control-knob assembly replacements. Gas Thor Kitchen work performed by certified TSSA-licensed partner technicians.'],
         ['name' => 'Viking',         'url' => null, 'desc' => 'Viking is an American luxury cooking brand known for professional-grade ranges, wall ovens, cooktops, and refrigeration. Common Viking repairs: burner ignition assembly replacements, oven thermostat calibration, and built-in refrigeration compressor diagnostics. Gas Viking work performed by certified TSSA-licensed partner technicians.'],
         ['name' => 'Whirlpool',      'url' => '/whirlpool-appliance-repair/', 'desc' => 'Whirlpool is a major American appliance manufacturer producing the Cabrio, Duet, and Gold series. Caspian services all Whirlpool washers, dryers, refrigerators, dishwashers, and ranges. Common Whirlpool repairs: agitator dogs, water filter housings, dishwasher drain pump failures.'],
         ['name' => 'Wolf',           'url' => null, 'desc' => 'Wolf is an American ultra-luxury cooking brand offering professional dual-fuel ranges, induction cooktops, wall ovens, and warming drawers. Caspian services Wolf M, E, ICBDF, and ICBM series. Common Wolf repairs: sealed burner ignition diagnostics, oven fan motor service, electronic control panel issues. Gas Wolf work performed by certified TSSA-licensed partner technicians.'],
@@ -46,6 +52,7 @@ add_filter('the_content', function($content) {
     if (!is_page('all-brands')) return $content;
 
     $brands = caspian_all_brands_data();
+    $logos  = function_exists('caspian_brand_logos') ? caspian_brand_logos() : [];
     ob_start();
     ?>
     <style>
@@ -80,6 +87,21 @@ add_filter('the_content', function($content) {
     .caspian-allbrands-item:hover {
         border-color:#2E80D1;
         box-shadow:0 6px 18px rgba(11,61,145,0.08);
+    }
+    /* brand logo */
+    .caspian-allbrands-logo {
+        height:46px; margin:0 0 16px;
+        display:flex; align-items:center; justify-content:flex-start;
+    }
+    .caspian-allbrands-logo img {
+        max-height:46px; max-width:160px; width:auto; height:auto;
+        object-fit:contain; object-position:left center;
+        filter:grayscale(100%); opacity:0.8;
+        transition:filter 0.25s ease, opacity 0.25s ease;
+    }
+    .caspian-allbrands-item:hover .caspian-allbrands-logo img,
+    .caspian-allbrands-item:target .caspian-allbrands-logo img {
+        filter:none; opacity:1;
     }
     .caspian-allbrands-item h3 {
         font-size:22px; font-weight:700; color:#062963;
@@ -127,6 +149,8 @@ add_filter('the_content', function($content) {
         .caspian-allbrands-list { grid-template-columns:1fr; gap:18px; }
         .caspian-allbrands-trust { gap:18px; font-size:12px; }
         .caspian-allbrands-item { padding:20px 18px; }
+        .caspian-allbrands-logo { height:40px; margin-bottom:14px; }
+        .caspian-allbrands-logo img { max-height:40px; max-width:140px; }
         .caspian-allbrands-item h3 { font-size:20px; }
         .caspian-allbrands-cta { padding:28px 20px; }
         .caspian-allbrands-btn { min-width:100%; }
@@ -137,7 +161,7 @@ add_filter('the_content', function($content) {
         <div class="caspian-allbrands-intro">
             <p>Caspian Appliance Repair services <strong style="color:#fff;">19+ major brands</strong> across Hamilton and 30+ Ontario cities. Every repair is backed by our 90-day parts and labour warranty, with same-day service available.</p>
             <div class="caspian-allbrands-trust">
-                <span>BBB Accredited</span>
+                <span>BBB A Accredited</span>
                 <span>4.8 / 220+ Google Reviews</span>
                 <span>90-Day Warranty</span>
                 <span>15+ Years</span>
@@ -147,8 +171,12 @@ add_filter('the_content', function($content) {
         <div class="caspian-allbrands-list">
             <?php foreach ($brands as $b):
                 $slug = caspian_brand_slug($b['name']);
+                $logo = isset($logos[$slug]) ? $logos[$slug] : '';
             ?>
             <div class="caspian-allbrands-item" id="<?php echo esc_attr($slug); ?>">
+                <?php if ($logo): ?>
+                <div class="caspian-allbrands-logo"><img src="<?php echo esc_attr($logo); ?>" alt="<?php echo esc_attr(str_replace('&amp;','and',$b['name'])); ?> appliance repair" /></div>
+                <?php endif; ?>
                 <h3><?php echo $b['name']; ?></h3>
                 <p><?php echo $b['desc']; ?></p>
                 <?php if (!empty($b['url'])): ?>
@@ -178,7 +206,7 @@ add_filter('the_content', function($content) {
 // ============================================================
 add_filter('wpseo_metadesc', function($desc) {
     if (is_page('all-brands')) {
-        return 'Caspian Appliance Repair services 19+ major appliance brands across Hamilton and 30+ Ontario cities. Same-day service, BBB Accredited, 90-day warranty.';
+        return 'Caspian Appliance Repair services 19+ major appliance brands across Hamilton and 30+ Ontario cities. Same-day service, BBB A Accredited, 90-day warranty.';
     }
     return $desc;
 });
