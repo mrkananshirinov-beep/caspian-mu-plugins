@@ -2,8 +2,14 @@
 /**
  * Plugin Name: Caspian All Brands Page
  * Description: Renders content for /all-brands/ page (19 brand listings with logos + descriptions)
- * Version: 1.2
+ * Version: 1.3
  *
+ * v1.3 changes (design harmony with homepage caspian-hero):
+ *  - Intro is now a full-bleed gradient hero band (was a contained rounded box).
+ *  - Page H1 "All Brands We Service" moved INTO the gradient, white, 48px (Astra page
+ *    title hidden via body.page-id-177). Matches homepage hero H1.
+ *  - Trust signals restyled to homepage hero bullets: white text + gold star/check icons
+ *    (star for reviews, check for the rest), normal case (was light-blue uppercase).
  * v1.2 changes:
  *  - Brand-name heading hidden visually (sr-only) since the logo already shows the name.
  *    Heading kept in DOM for SEO + screen-reader structure; logo alt also carries the name.
@@ -61,20 +67,40 @@ add_filter('the_content', function($content) {
     <style>
     .caspian-allbrands * { box-sizing: border-box; }
     .caspian-allbrands { font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; color:#222; }
+    /* hide Astra page title; intro hero carries its own white H1 (matches homepage hero) */
+    body.page-id-177 .entry-header,
+    body.page-id-177 .ast-page-title,
+    body.page-id-177 .entry-title { display:none !important; }
+    body.page-id-177 .site-content { padding-top:0 !important; }
+    body.page-id-177 .entry-content { margin-top:0 !important; }
+    /* full-bleed gradient hero band (same gradient/look as homepage caspian-hero) */
     .caspian-allbrands-intro {
         background: linear-gradient(135deg, #0B3D91 0%, #062963 100%);
-        color:#fff; padding:48px 32px; border-radius:12px;
-        margin:0 0 40px; text-align:center;
+        color:#fff;
+        width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+        padding:60px 24px 64px; margin-top:0; margin-bottom:44px;
+        text-align:center; position:relative; overflow:hidden;
+    }
+    .caspian-allbrands-intro-inner { max-width:1180px; margin:0 auto; position:relative; z-index:1; }
+    .caspian-allbrands-h1 {
+        font-size:48px !important; line-height:1.15 !important; font-weight:700 !important;
+        color:#ffffff !important; margin:0 0 18px 0 !important; letter-spacing:-0.01em;
     }
     .caspian-allbrands-intro p {
-        font-size:17px; color:#b8d0eb; margin:0 auto; max-width:680px; line-height:1.6;
+        font-size:17px; color:#cfe0f5; margin:0 auto; max-width:720px; line-height:1.6;
     }
-    .caspian-allbrands-trust {
-        display:flex; justify-content:center; gap:32px; flex-wrap:wrap;
-        margin-top:24px; font-size:13px; color:#7BC4F0;
-        text-transform:uppercase; letter-spacing:0.8px; font-weight:600;
+    /* trust bullets styled exactly like homepage hero bullets (white text + gold star/check) */
+    .caspian-allbrands-herobullets {
+        list-style:none; padding:0; margin:26px 0 0;
+        display:flex; flex-wrap:wrap; justify-content:center; gap:14px 34px;
     }
-    .caspian-allbrands-trust span:before { content:'\2713'; color:#F4B942; margin-right:6px; }
+    .caspian-allbrands-herobullets li {
+        color:#ffffff; font-size:16px; line-height:1.4;
+        display:flex; align-items:center; gap:10px; margin:0;
+    }
+    .caspian-allbrands-herobullets .caspian-hero-bullet-icon {
+        color:#F4B942; font-weight:700; font-size:18px; flex-shrink:0; width:22px; text-align:center;
+    }
     .caspian-allbrands-list { display:grid; grid-template-columns:1fr 1fr; gap:24px 32px; }
     .caspian-allbrands-item {
         background:#fff; border:1px solid #EBF1FA; border-radius:10px;
@@ -153,9 +179,12 @@ add_filter('the_content', function($content) {
         margin:32px auto 0; max-width:760px; text-align:center;
     }
     @media (max-width:768px) {
-        .caspian-allbrands-intro { padding:36px 22px; }
+        .caspian-allbrands-intro { padding:40px 18px 44px; margin-bottom:32px; }
+        .caspian-allbrands-h1 { font-size:30px !important; line-height:1.2 !important; }
+        .caspian-allbrands-intro p { font-size:15px; }
+        .caspian-allbrands-herobullets { gap:10px 22px; margin-top:20px; }
+        .caspian-allbrands-herobullets li { font-size:14px; }
         .caspian-allbrands-list { grid-template-columns:1fr; gap:18px; }
-        .caspian-allbrands-trust { gap:18px; font-size:12px; }
         .caspian-allbrands-item { padding:20px 18px; }
         .caspian-allbrands-logo { height:40px; margin-bottom:14px; }
         .caspian-allbrands-logo img { max-height:40px; max-width:140px; }
@@ -167,12 +196,15 @@ add_filter('the_content', function($content) {
 
     <div class="caspian-allbrands">
         <div class="caspian-allbrands-intro">
-            <p>Caspian Appliance Repair services <strong style="color:#fff;">19+ major brands</strong> across Hamilton and 30+ Ontario cities. Every repair is backed by our 90-day parts and labour warranty, with same-day service available.</p>
-            <div class="caspian-allbrands-trust">
-                <span>BBB A Accredited</span>
-                <span>4.8 / 220+ Google Reviews</span>
-                <span>90-Day Warranty</span>
-                <span>15+ Years</span>
+            <div class="caspian-allbrands-intro-inner">
+                <h1 class="caspian-allbrands-h1">All Brands We Service</h1>
+                <p>Caspian Appliance Repair services <strong style="color:#fff;">19+ major brands</strong> across Hamilton and 30+ Ontario cities. Every repair is backed by our 90-day parts and labour warranty, with same-day service available.</p>
+                <ul class="caspian-allbrands-herobullets">
+                    <li><span class="caspian-hero-bullet-icon">&#9733;</span> 4.8 / 220+ Google Reviews</li>
+                    <li><span class="caspian-hero-bullet-icon">&#10003;</span> BBB A Accredited</li>
+                    <li><span class="caspian-hero-bullet-icon">&#10003;</span> 90-Day Parts &amp; Labour Warranty</li>
+                    <li><span class="caspian-hero-bullet-icon">&#10003;</span> 15+ Years</li>
+                </ul>
             </div>
         </div>
 
