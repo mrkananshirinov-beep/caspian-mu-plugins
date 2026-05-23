@@ -2,8 +2,15 @@
 /**
  * Plugin Name: Caspian All Brands Page
  * Description: Renders content for /all-brands/ page (19 brand listings with logos + descriptions)
- * Version: 1.4
+ * Version: 1.5
  *
+ * v1.5 changes (layout fixes):
+ *  - FIX: CTA band had empty space on the LEFT (band started at the content-column
+ *    edge, not the viewport edge). Cause: the `margin:52px 0 0` shorthand silently
+ *    overwrote the `margin-left/right:calc(50% - 50vw)` full-bleed breakout. Replaced
+ *    with `margin-top:52px` longhand so the negative left/right margins survive.
+ *  - Odd brand count (19): the lone last brand card is now centered (was stuck in the
+ *    left column with the right column empty). Restored to full width on mobile.
  * v1.4 changes (design harmony with service-page CTA-final):
  *  - "Don't see your brand?" CTA is now a full-bleed DARK sapphire gradient band
  *    (was a light #EBF1FA box). White heading, light text, green/red buttons kept.
@@ -106,6 +113,11 @@ add_filter('the_content', function($content) {
         color:#F4B942; font-weight:700; font-size:18px; flex-shrink:0; width:22px; text-align:center;
     }
     .caspian-allbrands-list { display:grid; grid-template-columns:1fr 1fr; gap:24px 32px; }
+    /* odd brand count: center the lone last card so the right column is never left empty */
+    .caspian-allbrands-item:last-child:nth-child(odd) {
+        grid-column: 1 / -1; width: calc(50% - 16px);
+        margin-left: auto; margin-right: auto;
+    }
     .caspian-allbrands-item {
         background:#fff; border:1px solid #EBF1FA; border-radius:10px;
         padding:24px 22px;
@@ -159,7 +171,7 @@ add_filter('the_content', function($content) {
         background: linear-gradient(135deg, #0B3D91 0%, #062963 100%);
         color:#fff;
         width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
-        padding:54px 24px 56px; margin:52px 0 0;
+        padding:54px 24px 56px; margin-top:52px;
         text-align:center; position:relative; overflow:hidden;
     }
     .caspian-allbrands-cta-inner { max-width:760px; margin:0 auto; position:relative; z-index:1; }
@@ -194,6 +206,7 @@ add_filter('the_content', function($content) {
         .caspian-allbrands-herobullets { gap:10px 22px; margin-top:20px; }
         .caspian-allbrands-herobullets li { font-size:14px; }
         .caspian-allbrands-list { grid-template-columns:1fr; gap:18px; }
+        .caspian-allbrands-item:last-child:nth-child(odd) { width:auto; margin-left:0; margin-right:0; }
         .caspian-allbrands-item { padding:20px 18px; }
         .caspian-allbrands-logo { height:40px; margin-bottom:14px; }
         .caspian-allbrands-logo img { max-height:40px; max-width:140px; }
