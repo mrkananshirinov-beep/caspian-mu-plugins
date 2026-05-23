@@ -2,8 +2,11 @@
 /**
  * Plugin Name: Caspian All Brands Page
  * Description: Renders content for /all-brands/ page (19 brand listings with logos + descriptions)
- * Version: 1.1
+ * Version: 1.2
  *
+ * v1.2 changes:
+ *  - Brand-name heading hidden visually (sr-only) since the logo already shows the name.
+ *    Heading kept in DOM for SEO + screen-reader structure; logo alt also carries the name.
  * v1.1 changes:
  *  - Added brand logos to each card (grayscale by default, full colour on hover/anchor target).
  *    Logo data URIs come from caspian-brand-logos.php (caspian_brand_logos()).
@@ -88,9 +91,14 @@ add_filter('the_content', function($content) {
         border-color:#2E80D1;
         box-shadow:0 6px 18px rgba(11,61,145,0.08);
     }
+    /* visually-hidden (kept for SEO + screen readers) */
+    .caspian-allbrands-sronly {
+        position:absolute !important; width:1px; height:1px; padding:0; margin:-1px;
+        overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+    }
     /* brand logo */
     .caspian-allbrands-logo {
-        height:46px; margin:0 0 16px;
+        height:46px; margin:0 0 18px;
         display:flex; align-items:center; justify-content:flex-start;
     }
     .caspian-allbrands-logo img {
@@ -176,8 +184,10 @@ add_filter('the_content', function($content) {
             <div class="caspian-allbrands-item" id="<?php echo esc_attr($slug); ?>">
                 <?php if ($logo): ?>
                 <div class="caspian-allbrands-logo"><img src="<?php echo esc_attr($logo); ?>" alt="<?php echo esc_attr(str_replace('&amp;','and',$b['name'])); ?> appliance repair" /></div>
-                <?php endif; ?>
+                <h3 class="caspian-allbrands-sronly"><?php echo $b['name']; ?></h3>
+                <?php else: ?>
                 <h3><?php echo $b['name']; ?></h3>
+                <?php endif; ?>
                 <p><?php echo $b['desc']; ?></p>
                 <?php if (!empty($b['url'])): ?>
                 <a href="<?php echo esc_url($b['url']); ?>" class="caspian-allbrands-link">See <?php echo $b['name']; ?> repair details &rarr;</a>
