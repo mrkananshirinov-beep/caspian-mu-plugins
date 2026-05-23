@@ -2,8 +2,12 @@
 /**
  * Plugin Name: Caspian All Brands Page
  * Description: Renders content for /all-brands/ page (19 brand listings with logos + descriptions)
- * Version: 1.3
+ * Version: 1.4
  *
+ * v1.4 changes (design harmony with service-page CTA-final):
+ *  - "Don't see your brand?" CTA is now a full-bleed DARK sapphire gradient band
+ *    (was a light #EBF1FA box). White heading, light text, green/red buttons kept.
+ *  - Factory-auth / TSSA disclaimer moved INSIDE the dark CTA band (muted light text).
  * v1.3 changes (design harmony with homepage caspian-hero):
  *  - Intro is now a full-bleed gradient hero band (was a contained rounded box).
  *  - Page H1 "All Brands We Service" moved INTO the gradient, white, 48px (Astra page
@@ -150,16 +154,21 @@ add_filter('the_content', function($content) {
         text-decoration:none; border-bottom:2px solid #F4B942; padding-bottom:1px;
     }
     .caspian-allbrands-link:hover { color:#062963; }
+    /* CTA-final: full-bleed dark sapphire gradient (matches service-page CTA-final) */
     .caspian-allbrands-cta {
-        background:#EBF1FA; border-radius:12px; padding:36px 28px;
-        margin:48px 0 0; text-align:center;
+        background: linear-gradient(135deg, #0B3D91 0%, #062963 100%);
+        color:#fff;
+        width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+        padding:54px 24px 56px; margin:52px 0 0;
+        text-align:center; position:relative; overflow:hidden;
     }
+    .caspian-allbrands-cta-inner { max-width:760px; margin:0 auto; position:relative; z-index:1; }
     .caspian-allbrands-cta h3 {
-        font-size:22px; font-weight:700; color:#062963;
-        margin:0 0 10px;
+        font-size:26px; font-weight:700; color:#ffffff !important;
+        margin:0 0 12px;
     }
     .caspian-allbrands-cta p {
-        font-size:16px; color:#444; margin:0 0 20px; line-height:1.55;
+        font-size:16px; color:#b8d0eb !important; margin:0 0 22px; line-height:1.55;
     }
     .caspian-allbrands-cta-buttons {
         display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
@@ -174,9 +183,9 @@ add_filter('the_content', function($content) {
     .caspian-allbrands-btn-call:hover { background:#15803d; }
     .caspian-allbrands-btn-book { background:#D52B1E; color:#fff !important; }
     .caspian-allbrands-btn-book:hover { background:#B82319; }
-    .caspian-allbrands-disclaimer {
-        font-size:13px; color:#777; line-height:1.55;
-        margin:32px auto 0; max-width:760px; text-align:center;
+    .caspian-allbrands-cta .caspian-allbrands-disclaimer {
+        font-size:13px; color:#7e9bc4 !important; line-height:1.55;
+        margin:30px auto 0; max-width:720px; text-align:center;
     }
     @media (max-width:768px) {
         .caspian-allbrands-intro { padding:40px 18px 44px; margin-bottom:32px; }
@@ -189,7 +198,8 @@ add_filter('the_content', function($content) {
         .caspian-allbrands-logo { height:40px; margin-bottom:14px; }
         .caspian-allbrands-logo img { max-height:40px; max-width:140px; }
         .caspian-allbrands-item h3 { font-size:20px; }
-        .caspian-allbrands-cta { padding:28px 20px; }
+        .caspian-allbrands-cta { padding:40px 18px 44px; margin-top:40px; }
+        .caspian-allbrands-cta h3 { font-size:22px; }
         .caspian-allbrands-btn { min-width:100%; }
     }
     </style>
@@ -229,15 +239,16 @@ add_filter('the_content', function($content) {
         </div>
 
         <div class="caspian-allbrands-cta">
-            <h3>Don&rsquo;t see your brand?</h3>
-            <p>We likely service it. Call our 8-agent live team 7 AM &ndash; 11 PM or book online &mdash; same-day appointments available.</p>
-            <div class="caspian-allbrands-cta-buttons">
-                <a href="tel:+14167325905" class="caspian-allbrands-btn caspian-allbrands-btn-call">Call Now</a>
-                <a href="/contact/" class="caspian-allbrands-btn caspian-allbrands-btn-book">Book Online</a>
+            <div class="caspian-allbrands-cta-inner">
+                <h3>Don&rsquo;t see your brand?</h3>
+                <p>We likely service it. Call our 8-agent live team 7 AM &ndash; 11 PM or book online &mdash; same-day appointments available.</p>
+                <div class="caspian-allbrands-cta-buttons">
+                    <a href="tel:+14167325905" class="caspian-allbrands-btn caspian-allbrands-btn-call">Call Now</a>
+                    <a href="/contact/" class="caspian-allbrands-btn caspian-allbrands-btn-book">Book Online</a>
+                </div>
+                <p class="caspian-allbrands-disclaimer">We are not factory-authorized for warranty work &mdash; we provide quality out-of-warranty repairs with a 90-day parts and labour warranty. Gas appliance work is performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.</p>
             </div>
         </div>
-
-        <p class="caspian-allbrands-disclaimer">We are not factory-authorized for warranty work &mdash; we provide quality out-of-warranty repairs with a 90-day parts and labour warranty. Gas appliance work is performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.</p>
     </div>
     <?php
     return ob_get_clean();
