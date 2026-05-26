@@ -1,326 +1,665 @@
 <?php
 /**
  * Plugin Name: Caspian Brand - Maytag Appliance Repair
- * Description: Renders /maytag-appliance-repair/ page with brand-specific content, factory-not-authorized disclaimer, FAQ schema, locked design system.
+ * Description: Renders /maytag-appliance-repair/ page. Maytag-specific content (Bravos/Centennial washers, lid-lock & F-codes, MDB dishwasher control panel, MVW/MED/MFI models), factory-not-authorized disclosure, FAQ schema, etalon design (full-bleed dark Why banner, WHY CASPIAN kicker, gold-value stat cards, Service-note box).
  * Version: 1.0
  * Author: Caspian Build
+ *
+ * Same design/structure as the approved brand template; content is 100% Maytag-unique
+ * (no duplicate text) for SEO: Maytag lid-lock/F-codes, MDB control-panel issue, Maytag
+ * model lines, Maytag FAQ. No "Hamilton" in headings (30+ Ontario cities).
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 add_filter( 'the_content', function( $content ) {
-	if ( ! is_page( 'maytag-appliance-repair' ) ) {
-		return $content;
-	}
+        if ( ! is_page( 'maytag-appliance-repair' ) ) {
+                return $content;
+        }
 
-	ob_start();
-	?>
-	<style>
-	.caspian-brand-page * { box-sizing: border-box; }
-	.caspian-brand-page { color: #333; line-height: 1.65; font-size: 17px; }
-	.caspian-brand-page h1, .caspian-brand-page h2, .caspian-brand-page h3, .caspian-brand-page h4 { color: #062963; line-height: 1.25; margin-top: 0; }
-	.caspian-brand-page p { margin: 0 0 1em; }
-	.caspian-brand-page a { color: #0B3D91; }
-	.caspian-brand-page ul { padding-left: 22px; margin: 0 0 1em; }
-	.caspian-brand-page ul li { margin-bottom: 6px; }
+        ob_start();
+        ?>
+        <style>
+        .caspian-brand-page * { box-sizing: border-box; }
+        .caspian-brand-page { color: #333; line-height: 1.65; font-size: 17px; }
+        .caspian-brand-page h1,
+        .caspian-brand-page h2,
+        .caspian-brand-page h3,
+        .caspian-brand-page h4 { color: #062963; line-height: 1.25; margin-top: 0; }
+        .caspian-brand-page p { margin: 0 0 1em; }
+        .caspian-brand-page a { color: #0B3D91; }
+        .caspian-brand-page ul { padding-left: 22px; margin: 0 0 1em; }
+        .caspian-brand-page ul li { margin-bottom: 6px; }
 
-	.cb-hero { background: linear-gradient(135deg, #2E80D1 0%, #0B3D91 100%); padding: 70px 24px 80px; text-align: center; color: #fff; }
-	.cb-hero h1 { color: #fff !important; font-size: 42px; font-weight: 800; margin: 0 0 14px; max-width: 880px; margin-left: auto; margin-right: auto; }
-	.cb-hero .subtitle { color: #b8d0eb !important; font-size: 19px; margin: 0 auto 28px; max-width: 740px; }
-	.cb-hero-bullets { list-style: none; padding: 0; margin: 0 auto 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; max-width: 920px; }
-	.cb-hero-bullets li { color: #7BC4F0 !important; font-weight: 600; font-size: 15px; white-space: nowrap; }
-	.cb-hero-bullets li::before { content: "✓ "; color: #F4B942; font-weight: 700; }
-	.cb-hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-	.cb-btn { display: inline-block; min-width: 180px; padding: 14px 28px; font-weight: 700; font-size: 16px; text-align: center; text-decoration: none !important; border-radius: 6px; border: none; cursor: pointer; transition: background 0.18s; color: #fff !important; }
-	.cb-btn-call { background: #16a34a; } .cb-btn-call:hover { background: #15803d; }
-	.cb-btn-book { background: #D52B1E; } .cb-btn-book:hover { background: #b91c1c; }
+        .cb-hero {
+                background: linear-gradient(135deg, #2E80D1 0%, #0B3D91 100%);
+                padding: 70px 24px 80px;
+                text-align: center;
+                color: #fff;
+        }
+        .cb-hero h1 {
+                color: #fff !important;
+                font-size: 42px;
+                font-weight: 800;
+                margin: 0 0 14px;
+                max-width: 880px;
+                margin-left: auto;
+                margin-right: auto;
+        }
+        .cb-hero .subtitle {
+                color: #b8d0eb !important;
+                font-size: 19px;
+                margin: 0 auto 28px;
+                max-width: 740px;
+        }
+        .cb-hero-bullets {
+                list-style: none;
+                padding: 0;
+                margin: 0 auto 32px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px 22px;
+                max-width: 920px;
+        }
+        .cb-hero-bullets li {
+                color: #7BC4F0 !important;
+                font-weight: 600;
+                font-size: 15px;
+                white-space: nowrap;
+        }
+        .cb-hero-bullets li::before {
+                content: "\2713 ";
+                color: #F4B942;
+                font-weight: 700;
+        }
+        .cb-hero-ctas {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 14px;
+        }
+        .cb-btn {
+                display: inline-block;
+                min-width: 180px;
+                padding: 14px 28px;
+                font-weight: 700;
+                font-size: 16px;
+                text-align: center;
+                text-decoration: none !important;
+                border-radius: 6px;
+                border: none;
+                cursor: pointer;
+                transition: background 0.18s;
+                color: #fff !important;
+        }
+        .cb-btn-call { background: #16a34a; }
+        .cb-btn-call:hover { background: #15803d; }
+        .cb-btn-book { background: #D52B1E; }
+        .cb-btn-book:hover { background: #b91c1c; }
 
-	.cb-section { padding: 60px 24px; }
-	.cb-section .cb-inner { max-width: 1100px; margin: 0 auto; }
-	.cb-section h2 { font-size: 30px; text-align: center; margin-bottom: 12px; }
-	.cb-section .cb-section-lead { text-align: center; max-width: 760px; margin: 0 auto 36px; color: #555; font-size: 17px; }
+        .cb-section { padding: 60px 24px; }
+        .cb-section .cb-inner { max-width: 1100px; margin: 0 auto; }
+        .cb-section h2 {
+                font-size: 30px;
+                text-align: center;
+                margin-bottom: 12px;
+        }
+        .cb-section .cb-section-lead {
+                text-align: center;
+                max-width: 760px;
+                margin: 0 auto 36px;
+                color: #555;
+                font-size: 17px;
+        }
 
-	.cb-indep-banner { background: #EBF1FA; border-top: 3px solid #0B3D91; border-bottom: 3px solid #0B3D91; padding: 22px 24px; text-align: center; }
-	.cb-indep-banner-inner { max-width: 1000px; margin: 0 auto; }
-	.cb-indep-banner p { font-size: 15px; color: #444; margin: 0; }
-	.cb-indep-banner strong { color: #062963; }
+        /* INDEPENDENT DISCLOSURE — prominent top */
+        .cb-indep-banner {
+                background: #EBF1FA;
+                border-top: 3px solid #0B3D91;
+                border-bottom: 3px solid #0B3D91;
+                padding: 22px 24px;
+                text-align: center;
+        }
+        .cb-indep-banner-inner {
+                max-width: 1000px;
+                margin: 0 auto;
+        }
+        .cb-indep-banner p {
+                font-size: 15px;
+                color: #444;
+                margin: 0;
+        }
+        .cb-indep-banner strong { color: #062963; }
 
-	.cb-appliance-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 1000px; margin: 0 auto; }
-	.cb-appliance-card { background: #fff; padding: 22px; border-radius: 8px; border: 1px solid #e2e8f0; text-align: center; transition: border-color 0.18s, transform 0.18s; }
-	.cb-appliance-card:hover { border-color: #0B3D91; transform: translateY(-2px); }
-	.cb-appliance-card .cb-emoji { font-size: 32px; display: block; margin-bottom: 10px; }
-	.cb-appliance-card h3 { font-size: 16px; margin-bottom: 4px; }
-	.cb-appliance-card a { display: block; font-weight: 700; color: #0B3D91; text-decoration: none; margin-top: 8px; font-size: 14px; }
-	.cb-appliance-card a:hover { text-decoration: underline; }
+        /* APPLIANCES GRID (no emoji — clean cards like the etalon brand grid) */
+        .cb-appliance-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+                max-width: 1000px;
+                margin: 0 auto;
+        }
+        .cb-appliance-card {
+                background: #fff;
+                padding: 24px 22px;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+                text-align: center;
+                transition: border-color 0.18s, transform 0.18s;
+        }
+        .cb-appliance-card:hover {
+                border-color: #0B3D91;
+                transform: translateY(-2px);
+        }
+        .cb-appliance-card h3 {
+                font-size: 17px;
+                margin-bottom: 4px;
+        }
+        .cb-appliance-card a {
+                display: block;
+                font-weight: 700;
+                color: #0B3D91;
+                text-decoration: none;
+                margin-top: 8px;
+                font-size: 14px;
+        }
+        .cb-appliance-card a:hover { text-decoration: underline; }
 
-	.cb-issue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-	.cb-issue-card { background: #fff; padding: 26px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 2px 6px rgba(11, 61, 145, 0.04); }
-	.cb-issue-card .cb-icon { display: inline-flex; width: 48px; height: 48px; border-radius: 50%; background: #EBF1FA; align-items: center; justify-content: center; margin-bottom: 14px; color: #0B3D91; font-size: 24px; font-weight: 800; }
-	.cb-issue-card h3 { font-size: 18px; margin-bottom: 8px; }
-	.cb-issue-card p { font-size: 15px; color: #555; margin-bottom: 0; }
+        /* ISSUE GRID */
+        .cb-issue-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 22px;
+        }
+        .cb-issue-card {
+                background: #fff;
+                padding: 26px;
+                border-radius: 8px;
+                border: 1px solid #e2e8f0;
+                box-shadow: 0 2px 6px rgba(11, 61, 145, 0.04);
+        }
+        .cb-issue-card .cb-icon {
+                display: inline-flex;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: #EBF1FA;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 14px;
+                color: #0B3D91;
+                font-size: 24px;
+                font-weight: 800;
+        }
+        .cb-issue-card h3 { font-size: 18px; margin-bottom: 8px; }
+        .cb-issue-card p { font-size: 15px; color: #555; margin-bottom: 0; }
 
-	.cb-models { background: #EBF1FA; }
-	.cb-models-box { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 8px; padding: 30px; }
-	.cb-models-box h3 { font-size: 18px; margin-bottom: 10px; }
-	.cb-models-box ul { columns: 2; column-gap: 30px; }
-	.cb-models-box li { break-inside: avoid; font-size: 15px; color: #444; }
+        /* MODELS */
+        .cb-models { background: #EBF1FA; }
+        .cb-models-box {
+                max-width: 900px;
+                margin: 0 auto;
+                background: #fff;
+                border-radius: 8px;
+                padding: 30px;
+        }
+        .cb-models-box h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+        }
+        .cb-models-box ul {
+                columns: 2;
+                column-gap: 30px;
+        }
+        .cb-models-box li {
+                break-inside: avoid;
+                font-size: 15px;
+                color: #444;
+        }
 
-	.cb-trust { background: #fff; text-align: center; }
-	.cb-trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin: 0 auto 28px; }
-	.cb-trust-badge { min-width: 160px; }
-	.cb-trust-badge .label { display: block; color: #0B3D91; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
-	.cb-trust-badge .value { display: block; color: #062963; font-size: 22px; font-weight: 800; }
-	.cb-disclaimer { max-width: 800px; margin: 0 auto; font-size: 14px; color: #555; font-style: italic; }
-	.cb-disclaimer strong { color: #062963; font-style: normal; }
+        /* ============================================================
+           WHY CASPIAN — full-bleed dark banner, LEFT-aligned, matching
+           the homepage / service-page etalon exactly:
+           WHY CASPIAN kicker -> left H2 -> lead paragraph ->
+           4 stat cards (GOLD value on top, light label below) ->
+           gold-left-border "Service note" box.
+           ============================================================ */
+        .cb-why {
+                position: relative;
+                padding: 64px 24px 70px;
+                margin: 0;
+                overflow: hidden;
+                background: transparent;
+        }
+        .cb-why::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: calc(50% - 50vw);
+                width: 100vw;
+                background: linear-gradient(135deg, #062963 0%, #041d44 100%);
+                z-index: 0;
+        }
+        .cb-why-inner {
+                position: relative;
+                z-index: 1;
+                max-width: 1100px;
+                margin: 0 auto;
+        }
+        .cb-why-kicker {
+                color: #7BC4F0;
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+                text-transform: uppercase;
+                margin: 0 0 12px;
+        }
+        .cb-why h2 {
+                color: #ffffff !important;
+                font-size: 32px;
+                font-weight: 800;
+                text-align: left;
+                margin: 0 0 18px;
+                line-height: 1.2;
+        }
+        .cb-why-lead {
+                color: #cfe0f5;
+                font-size: 17px;
+                line-height: 1.7;
+                max-width: 940px;
+                margin: 0 0 34px;
+        }
+        .cb-why-lead .star { color: #F4B942; }
+        .cb-why-stats {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+                margin: 0 0 30px;
+        }
+        .cb-why-stat {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                border-radius: 10px;
+                padding: 26px 18px;
+                text-align: center;
+        }
+        .cb-why-stat .v {
+                display: block;
+                color: #F4B942;
+                font-size: 34px;
+                font-weight: 800;
+                line-height: 1.1;
+                margin-bottom: 8px;
+        }
+        .cb-why-stat .l {
+                display: block;
+                color: #b8d0eb;
+                font-size: 14px;
+                line-height: 1.4;
+        }
+        .cb-why-note {
+                background: rgba(255, 255, 255, 0.04);
+                border-left: 4px solid #F4B942;
+                border-radius: 6px;
+                padding: 20px 24px;
+        }
+        .cb-why-note p { color: #cfe0f5; font-size: 15px; line-height: 1.7; margin: 0; }
+        .cb-why-note strong { color: #F4B942; }
 
-	.cb-faq-list { max-width: 860px; margin: 0 auto; }
-	.cb-faq-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 12px; overflow: hidden; }
-	.cb-faq-q { padding: 18px 22px; font-weight: 700; font-size: 17px; color: #062963; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 14px; }
-	.cb-faq-q::after { content: "+"; font-size: 24px; color: #0B3D91; font-weight: 300; flex-shrink: 0; }
-	.cb-faq-item.open .cb-faq-q::after { content: "−"; }
-	.cb-faq-a { padding: 0 22px 18px; font-size: 16px; color: #444; display: none; }
-	.cb-faq-item.open .cb-faq-a { display: block; }
+        /* FAQ */
+        .cb-faq-list { max-width: 860px; margin: 0 auto; }
+        .cb-faq-item {
+                background: #fff;
+                border: 1px solid #e2e8f0;
+                border-radius: 6px;
+                margin-bottom: 12px;
+                overflow: hidden;
+        }
+        .cb-faq-q {
+                padding: 18px 22px;
+                font-weight: 700;
+                font-size: 17px;
+                color: #062963;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 14px;
+        }
+        .cb-faq-q::after {
+                content: "+";
+                font-size: 24px;
+                color: #0B3D91;
+                font-weight: 300;
+                flex-shrink: 0;
+        }
+        .cb-faq-item.open .cb-faq-q::after { content: "\2212"; }
+        .cb-faq-a {
+                padding: 0 22px 18px;
+                font-size: 16px;
+                color: #444;
+                display: none;
+        }
+        .cb-faq-item.open .cb-faq-a { display: block; }
 
-	.cb-cta-final { background: linear-gradient(135deg, #0B3D91 0%, #062963 100%); padding: 60px 24px; text-align: center; }
-	.cb-cta-final h3 { color: #fff !important; font-size: 28px; margin-bottom: 12px; }
-	.cb-cta-final p { color: #b8d0eb !important; font-size: 17px; margin-bottom: 26px; max-width: 620px; margin-left: auto; margin-right: auto; }
-	.cb-cta-final .cb-cta-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; }
+        /* CTA FINAL */
+        .cb-cta-final {
+                background: linear-gradient(135deg, #0B3D91 0%, #062963 100%);
+                padding: 60px 24px;
+                text-align: center;
+        }
+        .cb-cta-final h3 {
+                color: #fff !important;
+                font-size: 28px;
+                margin-bottom: 12px;
+        }
+        .cb-cta-final p {
+                color: #b8d0eb !important;
+                font-size: 17px;
+                margin-bottom: 26px;
+                max-width: 620px;
+                margin-left: auto;
+                margin-right: auto;
+        }
+        .cb-cta-final .cb-cta-row {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 14px;
+        }
 
-	@media (max-width: 900px) {
-		.cb-hero h1 { font-size: 32px; } .cb-hero .subtitle { font-size: 17px; } .cb-section h2 { font-size: 26px; }
-		.cb-appliance-grid { grid-template-columns: repeat(2, 1fr); } .cb-issue-grid { grid-template-columns: 1fr; }
-		.cb-models-box ul { columns: 1; } .cb-trust-badges { gap: 18px; } .cb-trust-badge { min-width: 130px; }
-	}
-	@media (max-width: 520px) {
-		.cb-hero { padding: 50px 18px 60px; } .cb-section { padding: 44px 18px; }
-		.cb-hero h1 { font-size: 26px; } .cb-btn { width: 100%; } .cb-appliance-grid { grid-template-columns: 1fr; }
-	}
-	</style>
+        @media (max-width: 900px) {
+                .cb-hero h1 { font-size: 32px; }
+                .cb-hero .subtitle { font-size: 17px; }
+                .cb-section h2 { font-size: 26px; }
+                .cb-appliance-grid { grid-template-columns: repeat(2, 1fr); }
+                .cb-issue-grid { grid-template-columns: 1fr; }
+                .cb-models-box ul { columns: 1; }
+                .cb-why-stats { grid-template-columns: repeat(2, 1fr); }
+                .cb-why h2 { font-size: 26px; }
+        }
+        @media (max-width: 520px) {
+                .cb-hero { padding: 50px 18px 60px; }
+                .cb-section { padding: 44px 18px; }
+                .cb-hero h1 { font-size: 26px; }
+                .cb-btn { width: 100%; }
+                .cb-appliance-grid { grid-template-columns: 1fr; }
+                .cb-why { padding: 48px 18px 54px; }
+                .cb-why-stats { grid-template-columns: 1fr; }
+        }
+        </style>
 
-	<div class="caspian-brand-page">
+        <div class="caspian-brand-page">
 
-		<section class="cb-hero">
-			<h1>Maytag Appliance Repair in Hamilton — Same-Day Service</h1>
-			<p class="subtitle">Heavy-duty washers, Bravos top-loads, Centennial line, French door fridges. We've been fixing Maytags in Hamilton since 2009. 90-day warranty.</p>
-			<ul class="cb-hero-bullets">
-				<li>★4.8 / 220+ Google Reviews</li>
-				<li>BBB A Accredited</li>
-				<li>Since 2009 (15+ years)</li>
-				<li>90-Day Parts &amp; Labour Warranty</li>
-				<li>Independent — Not Factory-Authorized</li>
-			</ul>
-			<div class="cb-hero-ctas">
-				<a class="cb-btn cb-btn-call" href="tel:+14167325905">Call Now</a>
-				<a class="cb-btn cb-btn-book" href="/contact/">Book Online</a>
-			</div>
-		</section>
+                <!-- ============ HERO ============ -->
+                <section class="cb-hero">
+                        <h1>Same-Day Maytag Appliance Repair in 30+ Ontario Cities</h1>
+                        <p class="subtitle">Heavy-duty Bravos and Centennial washers, Commercial-grade dryers, and dependable kitchen appliances. We fix the Maytag lid-lock faults and F-codes most shops misdiagnose — local technicians, same-day service, 90-day warranty.</p>
+                        <ul class="cb-hero-bullets">
+                                <li>&#9733;4.8 / 220+ Google Reviews</li>
+                                <li>BBB A Accredited</li>
+                                <li>15+ Years Experience</li>
+                                <li>90-Day Parts &amp; Labour Warranty</li>
+                        </ul>
+                        <div class="cb-hero-ctas">
+                                <a class="cb-btn cb-btn-call" href="tel:+14167325905">Call Now</a>
+                                <a class="cb-btn cb-btn-book" href="/contact/">Book Online</a>
+                        </div>
+                </section>
 
-		<section class="cb-indep-banner">
-			<div class="cb-indep-banner-inner">
-				<p><strong>Important:</strong> Caspian Appliance Repair is an independent service provider, not affiliated with Whirlpool Corporation (the manufacturer of Maytag). We are <strong>not factory-authorized for warranty work</strong> — we provide quality out-of-warranty repairs on Maytag appliances. If your unit is still under manufacturer warranty, contact Maytag Canada directly to preserve coverage.</p>
-			</div>
-		</section>
+                <!-- ============ INDEPENDENT DISCLOSURE ============ -->
+                <section class="cb-indep-banner">
+                        <div class="cb-indep-banner-inner">
+                                <p><strong>Important:</strong> Caspian Appliance Repair is an independent service provider, not affiliated with Maytag or Whirlpool Corporation. We are <strong>not factory-authorized for warranty work</strong> — we provide quality out-of-warranty repairs on Maytag appliances. If your unit is still under manufacturer warranty, contact Maytag directly to preserve coverage.</p>
+                        </div>
+                </section>
 
-		<section class="cb-section">
-			<div class="cb-inner">
-				<h2>Maytag Repairs — Built Tough, Diagnosed Properly</h2>
-				<p class="cb-section-lead">Maytag's heavy-duty positioning isn't marketing — the construction really is reinforced compared to standard Whirlpool models. Underneath, though, many platforms are shared with Whirlpool, KitchenAid, and Amana. That's good news for parts availability and for diagnostic continuity. We know both layers.</p>
-			</div>
-		</section>
+                <!-- ============ INTRO ============ -->
+                <section class="cb-section">
+                        <div class="cb-inner">
+                                <h2>Maytag Repairs — Built to Last, Fixed to Last</h2>
+                                <p class="cb-section-lead">Maytag built its name on heavy-duty dependability — Bravos and Centennial top-loaders, Commercial Technology motors, and rugged dryers. But even the toughest machines develop Maytag-specific faults: lid-lock failures that stop a cycle dead, F-codes, and the well-known MDB dishwasher control-panel issue. We diagnose the real cause at the component level and quote the repair before any work begins.</p>
+                        </div>
+                </section>
 
-		<section class="cb-section" style="background:#EBF1FA;">
-			<div class="cb-inner">
-				<h2>Maytag Appliances We Service</h2>
-				<p class="cb-section-lead">Click any appliance below to see our full repair details for that category.</p>
-				<div class="cb-appliance-grid">
-					<div class="cb-appliance-card"><span class="cb-emoji">🧺</span><h3>Washing Machines</h3><a href="/washing-machine-repair/">Washer Repair →</a></div>
-					<div class="cb-appliance-card"><span class="cb-emoji">🌀</span><h3>Dryers</h3><a href="/dryer-repair/">Dryer Repair →</a></div>
-					<div class="cb-appliance-card"><span class="cb-emoji">🧊</span><h3>Refrigerators</h3><a href="/refrigerator-repair/">Fridge Repair →</a></div>
-					<div class="cb-appliance-card"><span class="cb-emoji">🍽</span><h3>Dishwashers</h3><a href="/dishwasher-repair/">Dishwasher Repair →</a></div>
-					<div class="cb-appliance-card"><span class="cb-emoji">🔥</span><h3>Ovens &amp; Ranges</h3><a href="/oven-repair/">Oven Repair →</a></div>
-					<div class="cb-appliance-card"><span class="cb-emoji">⚡</span><h3>Gas Appliances</h3><a href="/gas-appliance-repair/">Gas Repair →</a></div>
-				</div>
-			</div>
-		</section>
+                <!-- ============ APPLIANCES WE SERVICE ============ -->
+                <section class="cb-section" style="background:#EBF1FA;">
+                        <div class="cb-inner">
+                                <h2>Maytag Appliances We Service</h2>
+                                <p class="cb-section-lead">Click any appliance below to see our full repair details for that category.</p>
+                                <div class="cb-appliance-grid">
+                                        <div class="cb-appliance-card">
+                                                <h3>Washing Machines</h3>
+                                                <a href="/washing-machine-repair/">Maytag Washer Repair &rarr;</a>
+                                        </div>
+                                        <div class="cb-appliance-card">
+                                                <h3>Dryers</h3>
+                                                <a href="/dryer-repair/">Maytag Dryer Repair &rarr;</a>
+                                        </div>
+                                        <div class="cb-appliance-card">
+                                                <h3>Refrigerators</h3>
+                                                <a href="/refrigerator-repair/">Maytag Fridge Repair &rarr;</a>
+                                        </div>
+                                        <div class="cb-appliance-card">
+                                                <h3>Dishwashers</h3>
+                                                <a href="/dishwasher-repair/">Maytag Dishwasher Repair &rarr;</a>
+                                        </div>
+                                        <div class="cb-appliance-card">
+                                                <h3>Ovens &amp; Ranges</h3>
+                                                <a href="/oven-repair/">Maytag Oven Repair &rarr;</a>
+                                        </div>
+                                        <div class="cb-appliance-card">
+                                                <h3>Cooktops</h3>
+                                                <a href="/stove-cooktop-repair/">Maytag Cooktop Repair &rarr;</a>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
 
-		<section class="cb-section" style="background:#fff;">
-			<div class="cb-inner">
-				<h2>Common Maytag Issues We Diagnose Daily</h2>
-				<p class="cb-section-lead">Sixteen years of Maytag repairs gives us pattern recognition. These three failures cover the majority of Maytag service calls in Hamilton.</p>
-				<div class="cb-issue-card-wrap">
-				<div class="cb-issue-grid">
-					<div class="cb-issue-card">
-						<div class="cb-icon">⚙</div>
-						<h3>Agitator &amp; Motor Coupling (Top-Load Washers)</h3>
-						<p>Maytag top-load washers (Bravos, Centennial) commonly develop motor coupling failure — the plastic coupling between the motor and transmission wears out and breaks. Symptoms: washer won't agitate, drum doesn't spin, or grinding noise during cycle. Standard, well-documented repair.</p>
-					</div>
-					<div class="cb-issue-card">
-						<div class="cb-icon">🔧</div>
-						<h3>Drive Belts &amp; Drum Support (Dryers)</h3>
-						<p>Maytag dryer drum won't rotate, makes thumping sounds, or stops mid-cycle. Usually the drive belt has snapped (very common) or the drum support rollers have worn. We test the entire belt path and replace worn rollers preventatively.</p>
-					</div>
-					<div class="cb-issue-card">
-						<div class="cb-icon">⚠</div>
-						<h3>Centennial Control Board &amp; Console</h3>
-						<p>Maytag Centennial-line top-load washers had a known issue with the console electronics — buttons unresponsive, random cycle resets, error codes. We diagnose the actual point of failure (often a single component on the board) before recommending replacement.</p>
-					</div>
-				</div>
-				</div>
-			</div>
-		</section>
+                <!-- ============ COMMON ISSUES ============ -->
+                <section class="cb-section" style="background:#fff;">
+                        <div class="cb-inner">
+                                <h2>Common Maytag Issues We Diagnose Daily</h2>
+                                <p class="cb-section-lead">More than 15 years of Maytag repairs gives us pattern recognition. These three problems account for the majority of the Maytag service calls we handle across the 30+ Ontario cities we serve.</p>
+                                <div class="cb-issue-grid">
+                                        <div class="cb-issue-card">
+                                                <div class="cb-icon">&#128274;</div>
+                                                <h3>Bravos &amp; Centennial Lid-Lock Faults</h3>
+                                                <p>Maytag top-loaders won't start or spin when the lid-lock assembly fails — often showing an F5 E2 code or a flashing lid light. We test whether it's the lock switch, the striker, or the control board, and replace only the failed part so the washer runs again.</p>
+                                        </div>
+                                        <div class="cb-issue-card">
+                                                <div class="cb-icon">&#9888;</div>
+                                                <h3>F-Codes &amp; Drive Faults (F7 E1, uL, oL)</h3>
+                                                <p>F7 E1 points to the Maytag Commercial Technology motor or its connections; uL and oL flag an unbalanced or overloaded drum, sometimes worn bearings. We diagnose the motor, drive, and suspension before condemning an expensive assembly.</p>
+                                        </div>
+                                        <div class="cb-issue-card">
+                                                <div class="cb-icon">&#128268;</div>
+                                                <h3>MDB Dishwasher Control Panel</h3>
+                                                <p>Maytag MDB dishwashers are known for control-panel failures — unresponsive buttons, partial touch response, or a unit that won't start. We confirm whether it's the touchpad/panel or the control board, so you don't replace both.</p>
+                                        </div>
+                                </div>
+                        </div>
+                </section>
 
-		<section class="cb-section cb-models">
-			<div class="cb-inner">
-				<h2>Maytag Model Lines We Service</h2>
-				<p class="cb-section-lead">We repair all current and most legacy Maytag appliance lines. Below is a representative — not exhaustive — sample of models we routinely fix.</p>
-				<div class="cb-models-box">
-					<h3>Laundry</h3>
-					<ul>
-						<li>MVW Bravos / Centennial top-load washers</li>
-						<li>MHW Maxima front-load washers</li>
-						<li>MEDB Bravos electric dryers</li>
-						<li>MGDB Bravos gas dryers (TSSA-licensed)</li>
-					</ul>
-					<h3 style="margin-top:18px;">Refrigerators</h3>
-					<ul>
-						<li>MFI / MFF French door</li>
-						<li>MSS Side-by-side</li>
-						<li>MFT Top-freezer</li>
-						<li>Maytag commercial-grade fridges</li>
-					</ul>
-					<h3 style="margin-top:18px;">Cooking &amp; Dishwashing</h3>
-					<ul>
-						<li>MER / MES Electric ranges</li>
-						<li>MGR / MGS Gas ranges (TSSA-licensed)</li>
-						<li>MDB / MDC dishwashers</li>
-						<li>MEW Wall ovens</li>
-					</ul>
-				</div>
-			</div>
-		</section>
+                <!-- ============ MODELS ============ -->
+                <section class="cb-section cb-models">
+                        <div class="cb-inner">
+                                <h2>Maytag Model Lines We Service</h2>
+                                <p class="cb-section-lead">We repair all current and most legacy Maytag appliance lines. Below is a representative — not exhaustive — sample of models we routinely fix.</p>
+                                <div class="cb-models-box">
+                                        <h3>Laundry</h3>
+                                        <ul>
+                                                <li>MVW Bravos &amp; top-load washers</li>
+                                                <li>MHW front-load washers</li>
+                                                <li>MED Electric dryers</li>
+                                                <li>MGD Gas dryers (TSSA-licensed)</li>
+                                                <li>Centennial MVWC / MEDC</li>
+                                        </ul>
+                                        <h3 style="margin-top:18px;">Refrigeration</h3>
+                                        <ul>
+                                                <li>MFI / MFF French door</li>
+                                                <li>MSS Side-by-side</li>
+                                                <li>MRT Top-freezer</li>
+                                        </ul>
+                                        <h3 style="margin-top:18px;">Cooking &amp; Dishwashing</h3>
+                                        <ul>
+                                                <li>MER Electric ranges</li>
+                                                <li>MGR Gas ranges (TSSA-licensed)</li>
+                                                <li>MDB dishwashers</li>
+                                        </ul>
+                                </div>
+                        </div>
+                </section>
 
-		<section class="cb-section cb-trust">
-			<div class="cb-inner">
-				<h2>Why Hamilton Trusts Caspian for Maytag Repairs</h2>
-				<div class="cb-trust-badges">
-					<div class="cb-trust-badge"><span class="label">Google Reviews</span><span class="value">★4.8 / 220+</span></div>
-					<div class="cb-trust-badge"><span class="label">BBB</span><span class="value">A Accredited</span></div>
-					<div class="cb-trust-badge"><span class="label">Established</span><span class="value">Since 2009</span></div>
-					<div class="cb-trust-badge"><span class="label">Warranty</span><span class="value">90 Days</span></div>
-				</div>
-				<p class="cb-disclaimer"><strong>Independent service provider.</strong> Caspian Appliance Repair is not affiliated with Whirlpool Corporation, Maytag, or any other manufacturer. We are not factory-authorized for warranty work — we provide quality out-of-warranty repairs across Hamilton and 20+ Ontario cities. Gas appliance repairs performed by certified TSSA-licensed partner technicians.</p>
-			</div>
-		</section>
+                <!-- ============ WHY CASPIAN (etalon-matching dark banner) ============ -->
+                <section class="cb-why">
+                        <div class="cb-why-inner">
+                                <p class="cb-why-kicker">Why Caspian</p>
+                                <h2>15+ Years of Maytag Appliance Repair Across Ontario</h2>
+                                <p class="cb-why-lead">Headquartered in Hamilton, we service Maytag appliances across 30+ Ontario cities — with local technicians who live and work in your area, so the person diagnosing your heavy-duty Bravos washer or Maytag fridge is from your part of Ontario, not dispatched hours away. BBB A Accredited. Over 220 verified Google reviews averaging <span class="star">&#9733;</span>4.8. Our 8-person live call centre answers seven days a week from 7am to 11pm, so you reach a real person — never a voicemail — when a Maytag breakdown can't wait.</p>
+                                <div class="cb-why-stats">
+                                        <div class="cb-why-stat"><span class="v">&#9733;4.8</span><span class="l">220+ Google Reviews</span></div>
+                                        <div class="cb-why-stat"><span class="v">A</span><span class="l">BBB Accredited</span></div>
+                                        <div class="cb-why-stat"><span class="v">2009</span><span class="l">In appliance repair market since</span></div>
+                                        <div class="cb-why-stat"><span class="v">90-Day</span><span class="l">Parts &amp; Labour Warranty</span></div>
+                                </div>
+                                <div class="cb-why-note">
+                                        <p><strong>Service note:</strong> Caspian is an independent service provider, not affiliated with Maytag or Whirlpool Corporation, and not factory-authorized for in-warranty work. We specialize in high-quality out-of-warranty Maytag service across Ontario. Note: many Maytag washers and dryers include a 10-year limited parts warranty on the direct-drive motor and stainless wash basket — if yours qualifies, contact Maytag for that part. Gas Maytag dryers and ranges are serviced by certified TSSA-licensed partner technicians.</p>
+                                </div>
+                        </div>
+                </section>
 
-		<section class="cb-section" style="background:#EBF1FA;">
-			<div class="cb-inner">
-				<h2>Maytag Repair — Frequently Asked Questions</h2>
-				<div class="cb-faq-list">
+                <!-- ============ FAQ ============ -->
+                <section class="cb-section" style="background:#EBF1FA;">
+                        <div class="cb-inner">
+                                <h2>Maytag Repair — Frequently Asked Questions</h2>
+                                <div class="cb-faq-list">
 
-					<div class="cb-faq-item">
-						<div class="cb-faq-q">My Maytag washer won't spin or agitate — what's wrong?</div>
-						<div class="cb-faq-a">On top-load Bravos and Centennial models, the most common cause is motor coupling failure — a plastic coupling between the motor and transmission has cracked or worn out. We test the drive system and replace the coupling on-site in most cases.</div>
-					</div>
+                                        <div class="cb-faq-item">
+                                                <div class="cb-faq-q">My Maytag washer won't start or spin and the lid won't lock — what is it?</div>
+                                                <div class="cb-faq-a">On Bravos and Centennial top-loaders this is usually the lid-lock assembly — often shown as an F5 E2 code or a flashing lid light. We test the lock switch, the striker, and the control board to find which part actually failed rather than replacing the whole assembly.</div>
+                                        </div>
 
-					<div class="cb-faq-item">
-						<div class="cb-faq-q">My Maytag dryer drum stopped turning — is it the belt?</div>
-						<div class="cb-faq-a">Most likely yes. Dryer drive belts wear over time and eventually snap. The drum just sits in place when this happens. We replace the belt and inspect drum rollers (which often need replacement at the same time, since they cause belt wear).</div>
-					</div>
+                                        <div class="cb-faq-item">
+                                                <div class="cb-faq-q">What does an F-code like F7 E1 mean on my Maytag Bravos?</div>
+                                                <div class="cb-faq-a">F7 E1 points to the Maytag Commercial Technology motor or its wiring; uL and oL indicate an unbalanced or overloaded drum. We read the exact code and test the motor, drive, and suspension before recommending any part.</div>
+                                        </div>
 
-					<div class="cb-faq-item">
-						<div class="cb-faq-q">Does Maytag share parts with Whirlpool?</div>
-						<div class="cb-faq-a">Yes — Maytag is owned by Whirlpool Corporation and many platforms share parts with Whirlpool, KitchenAid, and Amana. This is good for parts availability and pricing. Maytag-specific reinforced components (heavy-duty suspension, commercial-grade motors) are unique to the Maytag line.</div>
-					</div>
+                                        <div class="cb-faq-item">
+                                                <div class="cb-faq-q">My Maytag dishwasher buttons don't respond — is the whole unit dead?</div>
+                                                <div class="cb-faq-a">Usually not. Maytag MDB dishwashers are known for control-panel/touchpad failures, where buttons stop responding but the machine is otherwise fine. We confirm whether it's the touchpad or the control board so you replace only what's needed.</div>
+                                        </div>
 
-					<div class="cb-faq-item">
-						<div class="cb-faq-q">My Maytag Centennial washer has console issues — can it be fixed?</div>
-						<div class="cb-faq-a">Yes. Centennial-line control boards have known failure patterns. We diagnose the exact failure point (often a specific capacitor or relay on the board) and either repair the existing board or replace it as needed. Sometimes the issue is upstream — a wiring harness or sensor.</div>
-					</div>
+                                        <div class="cb-faq-item">
+                                                <div class="cb-faq-q">My Maytag dryer runs but won't heat — can you fix it?</div>
+                                                <div class="cb-faq-a">Yes. No-heat is usually the heating element (electric) or igniter (gas), plus a tripped thermal fuse or failed thermostat. We test the heat circuit and repair the actual fault; gas dryers are handled by our certified TSSA-licensed partner technicians.</div>
+                                        </div>
 
-					<div class="cb-faq-item">
-						<div class="cb-faq-q">Do you repair Maytag commercial-grade washers and dryers?</div>
-						<div class="cb-faq-a">Yes. Maytag commercial units (used in laundromats, apartment building rooms, and heavy-use residential settings) share many parts with the consumer line but are reinforced for higher cycle counts. Same diagnostic discipline applies.</div>
-					</div>
+                                        <div class="cb-faq-item">
+                                                <div class="cb-faq-q">Does my Maytag repair preserve the manufacturer warranty?</div>
+                                                <div class="cb-faq-a">Maytag is a Whirlpool brand; if your unit is still under warranty, contact Maytag or an authorized centre first to preserve coverage. We are not factory-authorized — we handle out-of-warranty repairs and will tell you honestly if your unit appears to still be covered.</div>
+                                        </div>
 
-					<div class="cb-faq-item">
-						<div class="cb-faq-q">Do you service Maytag gas ranges and gas dryers?</div>
-						<div class="cb-faq-a">Yes — gas appliance repairs are performed by our certified TSSA-licensed partner technicians, in full compliance with Ontario regulations. Every gas repair includes proper leak testing before our technician leaves.</div>
-					</div>
+                                        <div class="cb-faq-item">
+                                                <div class="cb-faq-q">Are Maytag parts easy to source in Ontario?</div>
+                                                <div class="cb-faq-a">Yes — Maytag shares the Whirlpool parts network, one of the most widely stocked in Canada, so most parts arrive within 1–3 days. We give you a clear timeline and never start work without your approval.</div>
+                                        </div>
 
-					<div class="cb-faq-item">
-						<div class="cb-faq-q">Is the repair warrantied? Same-day service?</div>
-						<div class="cb-faq-a">Every Caspian repair comes with a 90-day parts and labour warranty. Same-day service is available in most cases — call during business hours (7AM–11PM, 7 days a week) and our live agents will confirm the earliest available window.</div>
-					</div>
+                                        <div class="cb-faq-item">
+                                                <div class="cb-faq-q">Is the repair warrantied? Do you offer same-day?</div>
+                                                <div class="cb-faq-a">Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM–11PM, 7 days a week, and our live agents confirm the earliest window.</div>
+                                        </div>
 
-				</div>
-			</div>
-		</section>
+                                </div>
+                        </div>
+                </section>
 
-		<section class="cb-cta-final">
-			<h3>Maytag Appliance Repair Across Hamilton &amp; Ontario</h3>
-			<p>Live agents 7AM–11PM. 90-day warranty. TSSA-licensed for gas. Independent service with proven Whirlpool/Maytag platform expertise since 2009.</p>
-			<div class="cb-cta-row">
-				<a class="cb-btn cb-btn-call" href="tel:+14167325905">Call Now</a>
-				<a class="cb-btn cb-btn-book" href="/contact/">Book Online</a>
-			</div>
-		</section>
+                <!-- ============ CTA FINAL ============ -->
+                <section class="cb-cta-final">
+                        <h3>Dependable Maytag Repair, On Your Schedule</h3>
+                        <p>Local technicians, same-day service in most areas, live agents 7AM–11PM, and a 90-day parts &amp; labour warranty on every Maytag repair. Independent service — never inflated repair scopes, never factory-authorized claims.</p>
+                        <div class="cb-cta-row">
+                                <a class="cb-btn cb-btn-call" href="tel:+14167325905">Call Now</a>
+                                <a class="cb-btn cb-btn-book" href="/contact/">Book Online</a>
+                        </div>
+                </section>
 
-	</div>
+        </div>
 
-	<script>
-	(function(){
-		var items = document.querySelectorAll('.caspian-brand-page .cb-faq-item');
-		items.forEach(function(item){
-			var q = item.querySelector('.cb-faq-q');
-			if (!q) return;
-			q.addEventListener('click', function(){ item.classList.toggle('open'); });
-		});
-	})();
-	</script>
-	<?php
-	return ob_get_clean();
+        <script>
+        (function(){
+                var items = document.querySelectorAll('.caspian-brand-page .cb-faq-item');
+                items.forEach(function(item){
+                        var q = item.querySelector('.cb-faq-q');
+                        if (!q) return;
+                        q.addEventListener('click', function(){
+                                item.classList.toggle('open');
+                        });
+                });
+        })();
+        </script>
+        <?php
+
+        return ob_get_clean();
 }, 20 );
 
 add_action( 'wp_head', function() {
-	if ( ! is_page( 'maytag-appliance-repair' ) ) { return; }
+        if ( ! is_page( 'maytag-appliance-repair' ) ) {
+                return;
+        }
 
-	$faqs = array(
-		array(
-			'q' => "My Maytag washer won't spin or agitate — what's wrong?",
-			'a' => 'On top-load Bravos and Centennial models, the most common cause is motor coupling failure — a plastic coupling between the motor and transmission has cracked or worn out. We test the drive system and replace the coupling on-site in most cases.',
-		),
-		array(
-			'q' => 'My Maytag dryer drum stopped turning — is it the belt?',
-			'a' => 'Most likely yes. Dryer drive belts wear over time and eventually snap. The drum just sits in place when this happens. We replace the belt and inspect drum rollers (which often need replacement at the same time, since they cause belt wear).',
-		),
-		array(
-			'q' => 'Does Maytag share parts with Whirlpool?',
-			'a' => 'Yes — Maytag is owned by Whirlpool Corporation and many platforms share parts with Whirlpool, KitchenAid, and Amana. This is good for parts availability and pricing. Maytag-specific reinforced components are unique to the Maytag line.',
-		),
-		array(
-			'q' => 'My Maytag Centennial washer has console issues — can it be fixed?',
-			'a' => 'Yes. Centennial-line control boards have known failure patterns. We diagnose the exact failure point (often a specific capacitor or relay on the board) and either repair the existing board or replace it as needed.',
-		),
-		array(
-			'q' => 'Do you repair Maytag commercial-grade washers and dryers?',
-			'a' => 'Yes. Maytag commercial units (used in laundromats, apartment building rooms, and heavy-use residential settings) share many parts with the consumer line but are reinforced for higher cycle counts. Same diagnostic discipline applies.',
-		),
-		array(
-			'q' => 'Do you service Maytag gas ranges and gas dryers?',
-			'a' => 'Yes — gas appliance repairs are performed by our certified TSSA-licensed partner technicians, in full compliance with Ontario regulations. Every gas repair includes proper leak testing before our technician leaves.',
-		),
-		array(
-			'q' => 'Is the repair warrantied? Same-day service?',
-			'a' => 'Every Caspian repair comes with a 90-day parts and labour warranty. Same-day service is available in most cases — call during business hours (7AM-11PM, 7 days a week) and our live agents will confirm the earliest available window.',
-		),
-	);
+        $faqs = array(
+                array(
+                        'q' => "My Maytag washer won't start or spin and the lid won't lock — what is it?",
+                        'a' => 'On Bravos and Centennial top-loaders this is usually the lid-lock assembly — often shown as an F5 E2 code or a flashing lid light. We test the lock switch, the striker, and the control board to find which part actually failed rather than replacing the whole assembly.',
+                ),
+                array(
+                        'q' => 'What does an F-code like F7 E1 mean on my Maytag Bravos?',
+                        'a' => 'F7 E1 points to the Maytag Commercial Technology motor or its wiring; uL and oL indicate an unbalanced or overloaded drum. We read the exact code and test the motor, drive, and suspension before recommending any part.',
+                ),
+                array(
+                        'q' => "My Maytag dishwasher buttons don't respond — is the whole unit dead?",
+                        'a' => "Usually not. Maytag MDB dishwashers are known for control-panel/touchpad failures, where buttons stop responding but the machine is otherwise fine. We confirm whether it is the touchpad or the control board so you replace only what is needed.",
+                ),
+                array(
+                        'q' => "My Maytag dryer runs but won't heat — can you fix it?",
+                        'a' => 'Yes. No-heat is usually the heating element (electric) or igniter (gas), plus a tripped thermal fuse or failed thermostat. We test the heat circuit and repair the actual fault; gas dryers are handled by our certified TSSA-licensed partner technicians.',
+                ),
+                array(
+                        'q' => 'Does my Maytag repair preserve the manufacturer warranty?',
+                        'a' => 'Maytag is a Whirlpool brand; if your unit is still under warranty, contact Maytag or an authorized centre first to preserve coverage. We are not factory-authorized — we handle out-of-warranty repairs and will tell you honestly if your unit appears to still be covered.',
+                ),
+                array(
+                        'q' => 'Are Maytag parts easy to source in Ontario?',
+                        'a' => 'Yes — Maytag shares the Whirlpool parts network, one of the most widely stocked in Canada, so most parts arrive within 1 to 3 days. We give you a clear timeline and never start work without your approval.',
+                ),
+                array(
+                        'q' => 'Is the repair warrantied? Do you offer same-day?',
+                        'a' => 'Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM-11PM, 7 days a week, and our live agents confirm the earliest window.',
+                ),
+        );
 
-	$main_entity = array();
-	foreach ( $faqs as $f ) {
-		$main_entity[] = array( '@type' => 'Question', 'name' => $f['q'], 'acceptedAnswer' => array( '@type' => 'Answer', 'text' => $f['a'] ) );
-	}
-	$schema = array( '@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => $main_entity );
-	echo "\n<script type=\"application/ld+json\">\n";
-	echo wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
-	echo "\n</script>\n";
+        $main_entity = array();
+        foreach ( $faqs as $f ) {
+                $main_entity[] = array(
+                        '@type'          => 'Question',
+                        'name'           => $f['q'],
+                        'acceptedAnswer' => array(
+                                '@type' => 'Answer',
+                                'text'  => $f['a'],
+                        ),
+                );
+        }
+
+        $schema = array(
+                '@context'   => 'https://schema.org',
+                '@type'      => 'FAQPage',
+                'mainEntity' => $main_entity,
+        );
+
+        echo "\n<script type=\"application/ld+json\">\n";
+        echo wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT );
+        echo "\n</script>\n";
 }, 50 );
