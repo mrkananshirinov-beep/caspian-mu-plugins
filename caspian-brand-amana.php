@@ -615,10 +615,10 @@ add_action( 'wp_head', function() {
                 ),
                 array(
                         'q' => "My Amana washer won't drain or spin — can you fix it?",
-                        'a' => 'Yes. This usually traces to the drain pump, a clogged filter, or a worn drive belt or motor coupler. We confirm the cause on-site and clear or replace exactly what's needed to get it spinning again.',
+                        'a' => "Yes. This usually traces to the drain pump, a clogged filter, or a worn drive belt or motor coupler. We confirm the cause on-site and clear or replace exactly what's needed to get it spinning again.",
                 ),
                 array(
-                        'q' => 'My Amana oven won't heat or hold temperature — what's wrong?',
+                        'q' => "My Amana oven won't heat or hold temperature — what's wrong?",
                         'a' => 'Usually the bake element, the oven thermostat/sensor, or the control. We test the heat circuit and replace the failed part rather than condemning the whole oven.',
                 ),
                 array(

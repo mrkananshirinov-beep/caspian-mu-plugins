@@ -614,8 +614,8 @@ add_action( 'wp_head', function() {
                         'a' => 'Usually the display module or the control board behind it. We test both and replace only the failed part rather than swapping the whole console — important on premium Dacor units where parts are costly.',
                 ),
                 array(
-                        'q' => 'My Dacor oven won't heat or hold temperature — can you fix it?',
-                        'a' => 'Yes. It's usually the bake/broil element, the oven temperature sensor, or the relay control. We diagnose the heat circuit and replace only the component that has actually failed.',
+                        'q' => "My Dacor oven won't heat or hold temperature — can you fix it?",
+                        'a' => "Yes. It's usually the bake/broil element, the oven temperature sensor, or the relay control. We diagnose the heat circuit and replace only the component that has actually failed.",
                 ),
                 array(
                         'q' => 'Do you service Dacor built-in and column refrigeration?',

@@ -617,12 +617,12 @@ add_action( 'wp_head', function() {
                         'a' => 'Usually a failed heating element (electric) or igniter (gas), plus a tripped thermal fuse or thermostat. We test the whole heat circuit and repair the actual fault; gas dryers are handled by our TSSA-licensed partner technicians.',
                 ),
                 array(
-                        'q' => 'My Inglis fridge isn't cooling or making ice — can you fix it?',
+                        'q' => "My Inglis fridge isn't cooling or making ice — can you fix it?",
                         'a' => 'Yes. Inglis fridges usually lose cooling at the defrost system or evaporator fan, and lose ice at the ice-maker assembly or inlet valve. We pinpoint the exact part rather than guessing at the sealed system.',
                 ),
                 array(
                         'q' => 'Are Inglis and Whirlpool parts the same?',
-                        'a' => 'Largely, yes — Inglis is a Whirlpool brand, so many Inglis parts are shared Whirlpool components. That's good news: parts are widely stocked in Canada and the platforms are well understood.',
+                        'a' => "Largely, yes — Inglis is a Whirlpool brand, so many Inglis parts are shared Whirlpool components. That's good news: parts are widely stocked in Canada and the platforms are well understood.",
                 ),
                 array(
                         'q' => 'Does my Inglis repair preserve the manufacturer warranty?',

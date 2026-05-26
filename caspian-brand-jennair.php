@@ -609,18 +609,18 @@ add_action( 'wp_head', function() {
         $faqs = array(
                 array(
                         'q' => "My JennAir downdraft cooktop won't raise or pull air — can you fix it?",
-                        'a' => 'Yes — downdraft is our specialty. Loss of suction or a vent that won't raise is usually the blower motor, the lift motor, or the damper. We diagnose the ventilation assembly and replace only the failed part.',
+                        'a' => "Yes — downdraft is our specialty. Loss of suction or a vent that won't raise is usually the blower motor, the lift motor, or the damper. We diagnose the ventilation assembly and replace only the failed part.",
                 ),
                 array(
                         'q' => "Do you service JennAir built-in and column refrigeration?",
-                        'a' => 'Yes — built-in and column JennAir fridges and freezers are a core part of what we do. We diagnose cooling loss, sealed-system faults, and evaporator issues, and we're careful with these high-value integrated units.',
+                        'a' => "Yes — built-in and column JennAir fridges and freezers are a core part of what we do. We diagnose cooling loss, sealed-system faults, and evaporator issues, and we're careful with these high-value integrated units.",
                 ),
                 array(
-                        'q' => 'My JennAir dual-fuel oven isn't heating — what's wrong?',
-                        'a' => 'On a dual-fuel or gas range it's typically the igniter, oven temperature sensor, or spark module; on electric it's usually the element or control. We diagnose precisely, and the gas portion is handled by our certified TSSA-licensed partner technicians.',
+                        'q' => "My JennAir dual-fuel oven isn't heating — what's wrong?",
+                        'a' => "On a dual-fuel or gas range it's typically the igniter, oven temperature sensor, or spark module; on electric it's usually the element or control. We diagnose precisely, and the gas portion is handled by our certified TSSA-licensed partner technicians.",
                 ),
                 array(
-                        'q' => 'Do you repair JennAir's electronic and smart controls?',
+                        'q' => "Do you repair JennAir's electronic and smart controls?",
                         'a' => 'Yes. We service JennAir touch displays, control boards, and connected features that many shops decline. If a specialty part is needed, we give you a clear timeline first.',
                 ),
                 array(

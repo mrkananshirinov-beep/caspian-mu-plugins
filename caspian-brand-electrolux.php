@@ -617,12 +617,12 @@ add_action( 'wp_head', function() {
                         'a' => 'On Perfect Steam and other Electrolux washers, no-fill is usually the water inlet valve and no-drain is the drain pump or a clogged filter. We confirm the exact cause on-site before replacing any part.',
                 ),
                 array(
-                        'q' => 'My Electrolux fridge isn't cooling — can you fix it?',
-                        'a' => 'Yes. Electrolux French door and counter-depth fridges usually lose cooling at the evaporator fan, sealed system, or main control. We diagnose the exact part so you don't pay for an unnecessary sealed-system repair.',
+                        'q' => "My Electrolux fridge isn't cooling — can you fix it?",
+                        'a' => "Yes. Electrolux French door and counter-depth fridges usually lose cooling at the evaporator fan, sealed system, or main control. We diagnose the exact part so you don't pay for an unnecessary sealed-system repair.",
                 ),
                 array(
                         'q' => 'Do you service Electrolux Perfect Steam laundry?',
-                        'a' => 'Yes — we repair Perfect Steam front-load washers (EFLS) and matching dryers (EFME/EFMG), including steam-valve, door-lock, and control faults that many shops aren't equipped to handle.',
+                        'a' => "Yes — we repair Perfect Steam front-load washers (EFLS) and matching dryers (EFME/EFMG), including steam-valve, door-lock, and control faults that many shops aren't equipped to handle.",
                 ),
                 array(
                         'q' => 'Does my Electrolux repair preserve the manufacturer warranty?',
