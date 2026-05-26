@@ -2,7 +2,17 @@
 /**
  * Plugin Name: Caspian — City Template
  * Description: Dynamic 9-block template for all City CPT posts. ACF-driven. Renders hero, picker, local-tech trust, advantages, reviews, FAQ, per-appliance grid, neighborhoods, nearby cities + map. Locked design system applied site-wide.
- * Version: 1.0
+ * Version: 1.1
+ *
+ * v1.1 changes:
+ *  - Hide duplicate CPT title + author/date byline (theme-level) so the hero H1 is the only H1.
+ *  - Hero: added local-technician kicker above the H1.
+ *  - Picker: folded per-appliance blurbs into the By Appliance cards.
+ *  - Local-tech block: de-duplicated trust pills (now local-only: no repeat of Same-Day/90-Day/BBB).
+ *  - Removed Block 7 (per-appliance grid) — it duplicated the picker and linked to the same generic pages.
+ *  - FAQ + schema: removed Miele & Sub-Zero (brands we do not service).
+ *  - Nearby section: now lists the city's OWN belonging communities (same municipality), linked to their
+ *    real pages — never an independent separate city. Hamilton cluster curated; serves "30+" cities.
  * Author: Caspian Build
  */
 
@@ -33,18 +43,19 @@ if ( ! function_exists( 'caspian_city_nearby_fallback' ) ) {
      * Once Phase E2/E3 cities exist, owner fills the ACF and links activate automatically.
      */
     function caspian_city_nearby_fallback( $slug ) {
+        /*
+         * Belonging-area map: each city links ONLY to communities of the SAME municipality
+         * (never a separate independent city). Each entry is array( DisplayName, slug ) and the
+         * slug must have a real /{slug}-appliance-repair/ page so the link is never a 404.
+         * Hamilton + its amalgamated communities cross-link among themselves.
+         */
         $map = array(
-            'hamilton'       => array( 'Burlington', 'Stoney Creek', 'Ancaster', 'Dundas', 'Waterdown', 'Grimsby' ),
-            'burlington'     => array( 'Hamilton', 'Oakville', 'Waterdown', 'Stoney Creek' ),
-            'stoney-creek'   => array( 'Hamilton', 'Grimsby', 'Burlington', 'Ancaster' ),
-            'ancaster'       => array( 'Hamilton', 'Dundas', 'Waterdown', 'Burlington' ),
-            'dundas'         => array( 'Hamilton', 'Ancaster', 'Waterdown', 'Burlington' ),
-            'waterdown'      => array( 'Hamilton', 'Burlington', 'Dundas', 'Ancaster' ),
-            'grimsby'        => array( 'Stoney Creek', 'Hamilton', 'St. Catharines', 'Beamsville' ),
-            'st-catharines'  => array( 'Niagara Falls', 'Welland', 'Grimsby', 'Hamilton' ),
-            'niagara-falls'  => array( 'St. Catharines', 'Welland', 'Grimsby', 'Hamilton' ),
-            'welland'        => array( 'Niagara Falls', 'St. Catharines', 'Grimsby' ),
-            'oakville'       => array( 'Burlington', 'Hamilton', 'Waterdown' ),
+            'hamilton'     => array( array( 'Stoney Creek', 'stoney-creek' ), array( 'Ancaster', 'ancaster' ), array( 'Dundas', 'dundas' ), array( 'Waterdown', 'waterdown' ), array( 'Flamborough', 'flamborough' ) ),
+            'stoney-creek' => array( array( 'Hamilton', 'hamilton' ), array( 'Ancaster', 'ancaster' ), array( 'Dundas', 'dundas' ), array( 'Waterdown', 'waterdown' ) ),
+            'ancaster'     => array( array( 'Hamilton', 'hamilton' ), array( 'Dundas', 'dundas' ), array( 'Stoney Creek', 'stoney-creek' ), array( 'Waterdown', 'waterdown' ) ),
+            'dundas'       => array( array( 'Hamilton', 'hamilton' ), array( 'Ancaster', 'ancaster' ), array( 'Waterdown', 'waterdown' ), array( 'Stoney Creek', 'stoney-creek' ) ),
+            'waterdown'    => array( array( 'Hamilton', 'hamilton' ), array( 'Dundas', 'dundas' ), array( 'Flamborough', 'flamborough' ), array( 'Ancaster', 'ancaster' ) ),
+            'flamborough'  => array( array( 'Hamilton', 'hamilton' ), array( 'Waterdown', 'waterdown' ), array( 'Dundas', 'dundas' ), array( 'Ancaster', 'ancaster' ) ),
         );
         return isset( $map[ $slug ] ) ? $map[ $slug ] : array();
     }
@@ -65,6 +76,16 @@ add_filter( 'wpseo_metadesc', function( $desc ) {
     $override = caspian_city_field( 'meta_description_override' );
     return $override ? $override : $desc;
 }, 20 );
+
+/* ============================================================
+ * HIDE THEME TITLE + BYLINE on City CPT (hero H1 is the only H1)
+ * ============================================================ */
+add_filter( 'astra_the_title_enabled', function( $enabled ) {
+    return is_singular( 'city' ) ? false : $enabled;
+} );
+add_filter( 'astra_single_post_navigation_enabled', function( $enabled ) {
+    return is_singular( 'city' ) ? false : $enabled;
+} );
 
 /* ============================================================
  * SCHEMA INJECTION (FAQPage + HomeAndConstructionBusiness, scoped to city)
@@ -114,7 +135,7 @@ add_action( 'wp_head', function() {
         ),
         array(
             'q' => 'Which appliance brands do you repair in ' . esc_html( $city_name ) . '?',
-            'a' => 'We repair every major brand: Samsung, LG, Whirlpool, KitchenAid, Bosch, Maytag, Frigidaire, GE, Kenmore, Electrolux, Miele, Sub-Zero, Viking, Wolf, Thermador and more.',
+            'a' => 'We repair every major brand: Samsung, LG, Whirlpool, KitchenAid, Bosch, Maytag, Frigidaire, GE, Kenmore, Electrolux, Amana, Jenn-Air, Inglis, Dacor, Viking, Wolf, Thermador, Thor Kitchen and Fisher & Paykel — and more.',
         ),
         array(
             'q' => 'Are your gas appliance repairs in ' . esc_html( $city_name ) . ' TSSA-licensed?',
@@ -517,38 +538,7 @@ add_filter( 'the_content', function( $content ) {
 .caspian-city-faq details[open] summary::after { content: "−"; }
 .caspian-city-faq details p { margin: 14px 0 0; color: #333; font-size: 15px; line-height: 1.65; }
 
-/* ============================================================
-   BLOCK 7: PER-APPLIANCE GRID
-   ============================================================ */
-.caspian-city-services { background: #f7f9fc; }
-.caspian-city-services .svc-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-}
-.caspian-city-services .svc-card {
-    background: #fff;
-    border-radius: 8px;
-    padding: 22px 18px;
-    text-decoration: none;
-    color: #333;
-    border: 1px solid #e1e8f1;
-    transition: all .2s;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.caspian-city-services .svc-card:hover {
-    border-color: #2E80D1;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(11,61,145,.1);
-}
-.caspian-city-services .svc-ico { font-size: 28px; }
-.caspian-city-services .svc-card h3 { font-size: 16px; color: #062963; margin: 0; }
-.caspian-city-services .svc-card p { font-size: 13px; color: #555; margin: 0; line-height: 1.5; }
-.caspian-city-services .svc-link { color: #0B3D91; font-weight: 700; font-size: 13px; margin-top: auto; padding-top: 6px; }
-@media (max-width: 900px) { .caspian-city-services .svc-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 480px) { .caspian-city-services .svc-grid { grid-template-columns: 1fr; } }
+/* BLOCK 7 (per-appliance grid) CSS removed in v1.1 — section deleted. */
 
 /* ============================================================
    BLOCK 8: NEIGHBORHOODS
@@ -634,6 +624,19 @@ add_filter( 'the_content', function( $content ) {
 .caspian-city-cta h2 { color: #fff !important; font-size: 32px; margin: 0 0 12px; }
 .caspian-city-cta p { color: #b8d0eb !important; font-size: 17px; max-width: 720px; margin: 0 auto 24px; }
 @media (max-width: 768px) { .caspian-city-cta h2 { font-size: 24px; } }
+
+/* --- v1.1 additions --- */
+.caspian-city-page .hero-kicker { text-transform:uppercase; letter-spacing:2px; font-size:13px; font-weight:600; color:#7BC4F0; margin:0 0 10px; }
+.caspian-city-page .pick-item-svc { flex-direction:column; align-items:flex-start; gap:6px; }
+.caspian-city-page .pick-item-svc .pick-head { display:flex; align-items:center; gap:10px; font-weight:600; }
+.caspian-city-page .pick-item-svc .pick-label { font-weight:600; }
+.caspian-city-page .pick-item-svc .pick-blurb { font-size:13px; line-height:1.45; color:#555; font-weight:400; }
+/* hide theme CPT title + author/date byline on city pages (hero H1 is the only H1) */
+body.single-city .entry-title,
+body.single-city .ast-single-post-meta,
+body.single-city .entry-meta,
+body.single-city .post-meta,
+body.single-city .ast-single-post-order { display:none !important; }
 </style>
 
 <div class="caspian-city-page">
@@ -643,6 +646,7 @@ add_filter( 'the_content', function( $content ) {
      ===================================================== -->
 <section class="caspian-city-hero">
     <div class="cwrap">
+        <p class="hero-kicker">Local <?php echo esc_html( $city_name ); ?> technicians — living &amp; working here</p>
         <h1><?php echo esc_html( $hero_h1 ); ?></h1>
         <?php if ( $intro ) : ?>
             <p class="hero-intro"><?php echo esc_html( $intro ); ?></p>
@@ -673,10 +677,12 @@ add_filter( 'the_content', function( $content ) {
             <div class="picker-col">
                 <h3>By Appliance</h3>
                 <div class="pick-items">
-                    <?php foreach ( $services as $s ) : ?>
-                        <a class="pick-item" href="/<?php echo esc_attr( $s['slug'] ); ?>/">
-                            <span class="ico"><?php echo $s['icon']; ?></span>
-                            <span><?php echo esc_html( $s['label'] ); ?></span>
+                    <?php foreach ( $services as $s ) :
+                        $pblurb = isset( $service_blurbs[ $s['slug'] ] ) ? $service_blurbs[ $s['slug'] ] : '';
+                    ?>
+                        <a class="pick-item pick-item-svc" href="/<?php echo esc_attr( $s['slug'] ); ?>/">
+                            <span class="pick-head"><span class="ico"><?php echo $s['icon']; ?></span><span class="pick-label"><?php echo esc_html( $s['label'] ); ?></span></span>
+                            <?php if ( $pblurb ) : ?><span class="pick-blurb"><?php echo esc_html( $pblurb ); ?></span><?php endif; ?>
                         </a>
                     <?php endforeach; ?>
                 </div>
@@ -713,16 +719,16 @@ add_filter( 'the_content', function( $content ) {
                     <span>Local to <?php echo esc_html( $city_name ); ?></span>
                 </div>
                 <div class="badge-pill">
-                    <span class="ico">⚡</span>
-                    <span>Same-Day Service Available</span>
+                    <span class="ico">🏠</span>
+                    <span>Technicians Live &amp; Work in <?php echo esc_html( $city_name ); ?></span>
                 </div>
                 <div class="badge-pill">
-                    <span class="ico">🛡️</span>
-                    <span>90-Day Parts &amp; Labour Warranty</span>
+                    <span class="ico">🚚</span>
+                    <span>No Out-of-Town Dispatch</span>
                 </div>
                 <div class="badge-pill">
-                    <span class="ico">★</span>
-                    <span>BBB A Accredited · 220+ Reviews</span>
+                    <span class="ico">🧭</span>
+                    <span>Knows Your Neighbourhoods &amp; Routes</span>
                 </div>
             </div>
         </div>
@@ -825,7 +831,7 @@ add_filter( 'the_content', function( $content ) {
             </details>
             <details>
                 <summary>Which appliance brands do you repair in <?php echo esc_html( $city_name ); ?>?</summary>
-                <p>We repair every major brand: Samsung, LG, Whirlpool, KitchenAid, Bosch, Maytag, Frigidaire, GE, Kenmore, Electrolux, Miele, Sub-Zero, Viking, Wolf, Thermador and more.</p>
+                <p>We repair every major brand: Samsung, LG, Whirlpool, KitchenAid, Bosch, Maytag, Frigidaire, GE, Kenmore, Electrolux, Amana, Jenn-Air, Inglis, Dacor, Viking, Wolf, Thermador, Thor Kitchen and Fisher &amp; Paykel — and more.</p>
             </details>
             <details>
                 <summary>Are your gas appliance repairs in <?php echo esc_html( $city_name ); ?> TSSA-licensed?</summary>
@@ -843,29 +849,7 @@ add_filter( 'the_content', function( $content ) {
     </div>
 </section>
 
-<!-- =====================================================
-     BLOCK 7: PER-APPLIANCE GRID
-     ===================================================== -->
-<section class="caspian-city-services">
-    <div class="cwrap">
-        <div class="section-head">
-            <h2>Appliance Repair Services in <?php echo esc_html( $city_name ); ?></h2>
-            <p class="section-sub">Every major appliance, every major brand. Tap any service for details.</p>
-        </div>
-        <div class="svc-grid">
-            <?php foreach ( $services as $s ) :
-                $blurb = isset( $service_blurbs[ $s['slug'] ] ) ? $service_blurbs[ $s['slug'] ] : '';
-            ?>
-                <a class="svc-card" href="/<?php echo esc_attr( $s['slug'] ); ?>/">
-                    <span class="svc-ico"><?php echo $s['icon']; ?></span>
-                    <h3><?php echo esc_html( $s['label'] ); ?> Repair</h3>
-                    <p><?php echo esc_html( $blurb ); ?></p>
-                    <span class="svc-link">Repair in <?php echo esc_html( $city_name ); ?> →</span>
-                </a>
-            <?php endforeach; ?>
-        </div>
-    </div>
-</section>
+<!-- BLOCK 7 (per-appliance grid) removed in v1.1 — duplicated the picker and linked to the same generic pages. Appliance blurbs now live in the picker. -->
 
 <!-- =====================================================
      BLOCK 8: NEIGHBORHOODS
@@ -893,8 +877,8 @@ add_filter( 'the_content', function( $content ) {
     <div class="cwrap">
         <div class="nearby-grid">
             <div>
-                <h2>Beyond <?php echo esc_html( $city_name ); ?></h2>
-                <p>Caspian Appliance Repair serves 20+ Ontario cities. If you're near <?php echo esc_html( $city_name ); ?>, we likely have local technicians in your area too.</p>
+                <h2>Communities We Serve in <?php echo esc_html( $city_name ); ?></h2>
+                <p>Our local technicians cover communities right across <?php echo esc_html( $city_name ); ?> — part of the 30+ Ontario cities Caspian Appliance Repair serves. Choose your area below.</p>
                 <ul class="nearby-list">
                     <?php if ( ! empty( $nearby_linked ) ) : ?>
                         <?php foreach ( $nearby_linked as $nc ) : ?>
@@ -902,7 +886,7 @@ add_filter( 'the_content', function( $content ) {
                         <?php endforeach; ?>
                     <?php elseif ( ! empty( $nearby_fallback ) ) : ?>
                         <?php foreach ( $nearby_fallback as $nc ) : ?>
-                            <li><span class="plain">Appliance Repair in <?php echo esc_html( $nc ); ?></span></li>
+                            <li><a href="/<?php echo esc_attr( $nc[1] ); ?>-appliance-repair/">Appliance Repair in <?php echo esc_html( $nc[0] ); ?> →</a></li>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </ul>
