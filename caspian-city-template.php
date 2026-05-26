@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian — City Template
  * Description: Dynamic 9-block template for all City CPT posts. ACF-driven. Renders hero, picker, local-tech trust, advantages, reviews, FAQ, per-appliance grid, neighborhoods, nearby cities + map. Locked design system applied site-wide.
- * Version: 1.1
+ * Version: 1.2
  *
  * v1.1 changes:
  *  - Hide duplicate CPT title + author/date byline (theme-level) so the hero H1 is the only H1.
@@ -13,6 +13,10 @@
  *  - FAQ + schema: removed Miele & Sub-Zero (brands we do not service).
  *  - Nearby section: now lists the city's OWN belonging communities (same municipality), linked to their
  *    real pages — never an independent separate city. Hamilton cluster curated; serves "30+" cities.
+ *
+ * v1.2 changes:
+ *  - Picker "By Brand" expanded 8 -> 16 brands so the column height balances the (now taller) By Appliance
+ *    cards. Note: hero city_intro (ACF, per-city) should not repeat BBB/reviews/warranty — trimmed in data.
  * Author: Caspian Build
  */
 
@@ -228,14 +232,22 @@ add_filter( 'the_content', function( $content ) {
     );
 
     $brands = array(
-        array( 'slug' => 'samsung-appliance-repair',     'label' => 'Samsung' ),
-        array( 'slug' => 'lg-appliance-repair',          'label' => 'LG' ),
-        array( 'slug' => 'whirlpool-appliance-repair',   'label' => 'Whirlpool' ),
-        array( 'slug' => 'kitchenaid-appliance-repair',  'label' => 'KitchenAid' ),
-        array( 'slug' => 'bosch-appliance-repair',       'label' => 'Bosch' ),
-        array( 'slug' => 'maytag-appliance-repair',      'label' => 'Maytag' ),
-        array( 'slug' => 'frigidaire-appliance-repair',  'label' => 'Frigidaire' ),
-        array( 'slug' => 'ge-appliance-repair',          'label' => 'GE' ),
+        array( 'slug' => 'samsung-appliance-repair',      'label' => 'Samsung' ),
+        array( 'slug' => 'lg-appliance-repair',           'label' => 'LG' ),
+        array( 'slug' => 'whirlpool-appliance-repair',    'label' => 'Whirlpool' ),
+        array( 'slug' => 'kitchenaid-appliance-repair',   'label' => 'KitchenAid' ),
+        array( 'slug' => 'bosch-appliance-repair',        'label' => 'Bosch' ),
+        array( 'slug' => 'maytag-appliance-repair',       'label' => 'Maytag' ),
+        array( 'slug' => 'frigidaire-appliance-repair',   'label' => 'Frigidaire' ),
+        array( 'slug' => 'ge-appliance-repair',           'label' => 'GE' ),
+        array( 'slug' => 'kenmore-appliance-repair',      'label' => 'Kenmore' ),
+        array( 'slug' => 'electrolux-appliance-repair',   'label' => 'Electrolux' ),
+        array( 'slug' => 'amana-appliance-repair',        'label' => 'Amana' ),
+        array( 'slug' => 'jennair-appliance-repair',      'label' => 'Jenn-Air' ),
+        array( 'slug' => 'thermador-appliance-repair',    'label' => 'Thermador' ),
+        array( 'slug' => 'viking-appliance-repair',       'label' => 'Viking' ),
+        array( 'slug' => 'wolf-appliance-repair',         'label' => 'Wolf' ),
+        array( 'slug' => 'fisher-paykel-appliance-repair','label' => 'Fisher & Paykel' ),
     );
 
     /* Per-appliance short blurbs (used in Block 7) */
