@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian — City Template
  * Description: Dynamic 9-block template for all City CPT posts. ACF-driven. Renders hero, picker, local-tech trust, advantages, reviews, FAQ, per-appliance grid, neighborhoods, nearby cities + map. Locked design system applied site-wide.
- * Version: 1.2
+ * Version: 1.3
  *
  * v1.1 changes:
  *  - Hide duplicate CPT title + author/date byline (theme-level) so the hero H1 is the only H1.
@@ -17,6 +17,13 @@
  * v1.2 changes:
  *  - Picker "By Brand" expanded 8 -> 16 brands so the column height balances the (now taller) By Appliance
  *    cards. Note: hero city_intro (ACF, per-city) should not repeat BBB/reviews/warranty — trimmed in data.
+ *
+ * v1.3 changes:
+ *  - Block 9 (Communities) made graceful: the "Communities We Serve" heading + list show ONLY when the
+ *    city has same-municipality belonging-area pages. Independent cities with no such pages show a map-only
+ *    variant ("Serving All of {City}"), and the whole section is hidden when neither communities nor a map
+ *    exist — so no city ever renders an empty "Communities" promise. Cross-city linking lives in the
+ *    site-wide Service Areas hub / footer, not on each city page.
  * Author: Caspian Build
  */
 
@@ -883,34 +890,48 @@ body.single-city .ast-single-post-order { display:none !important; }
 <?php endif; ?>
 
 <!-- =====================================================
-     BLOCK 9: NEARBY CITIES + GMB MAP
+     BLOCK 9: COMMUNITIES (same-municipality, linked) + GMB MAP
+     Graceful: shows the community list only when belonging-areas exist.
+     Independent cities (no same-municipality sub-pages) show map-only,
+     or the whole section is hidden when neither communities nor map exist.
      ===================================================== -->
+<?php
+$has_comm = ( ! empty( $nearby_linked ) || ! empty( $nearby_fallback ) );
+$has_map  = ! empty( $gmb_embed );
+if ( $has_comm || $has_map ) :
+?>
 <section class="caspian-city-nearby">
     <div class="cwrap">
         <div class="nearby-grid">
             <div>
-                <h2>Communities We Serve in <?php echo esc_html( $city_name ); ?></h2>
-                <p>Our local technicians cover communities right across <?php echo esc_html( $city_name ); ?> — part of the 30+ Ontario cities Caspian Appliance Repair serves. Choose your area below.</p>
-                <ul class="nearby-list">
-                    <?php if ( ! empty( $nearby_linked ) ) : ?>
-                        <?php foreach ( $nearby_linked as $nc ) : ?>
-                            <li><a href="<?php echo esc_url( $nc['url'] ); ?>">Appliance Repair in <?php echo esc_html( $nc['name'] ); ?> →</a></li>
-                        <?php endforeach; ?>
-                    <?php elseif ( ! empty( $nearby_fallback ) ) : ?>
-                        <?php foreach ( $nearby_fallback as $nc ) : ?>
-                            <li><a href="/<?php echo esc_attr( $nc[1] ); ?>-appliance-repair/">Appliance Repair in <?php echo esc_html( $nc[0] ); ?> →</a></li>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </ul>
+                <?php if ( $has_comm ) : ?>
+                    <h2>Communities We Serve in <?php echo esc_html( $city_name ); ?></h2>
+                    <p>Our local technicians cover communities right across <?php echo esc_html( $city_name ); ?> — part of the 30+ Ontario cities Caspian Appliance Repair serves. Choose your area below.</p>
+                    <ul class="nearby-list">
+                        <?php if ( ! empty( $nearby_linked ) ) : ?>
+                            <?php foreach ( $nearby_linked as $nc ) : ?>
+                                <li><a href="<?php echo esc_url( $nc['url'] ); ?>">Appliance Repair in <?php echo esc_html( $nc['name'] ); ?> →</a></li>
+                            <?php endforeach; ?>
+                        <?php elseif ( ! empty( $nearby_fallback ) ) : ?>
+                            <?php foreach ( $nearby_fallback as $nc ) : ?>
+                                <li><a href="/<?php echo esc_attr( $nc[1] ); ?>-appliance-repair/">Appliance Repair in <?php echo esc_html( $nc[0] ); ?> →</a></li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </ul>
+                <?php else : ?>
+                    <h2>Serving All of <?php echo esc_html( $city_name ); ?></h2>
+                    <p>Caspian Appliance Repair covers every part of <?php echo esc_html( $city_name ); ?> — one of the 30+ Ontario cities we serve with local technicians and same-day service. Call our live agents 7 AM–11 PM, 7 days a week.</p>
+                <?php endif; ?>
             </div>
             <div>
-                <?php if ( $gmb_embed ) : ?>
+                <?php if ( $has_map ) : ?>
                     <div class="map-wrap"><?php echo $gmb_embed; /* trusted ACF input — raw iframe by design */ ?></div>
                 <?php endif; ?>
             </div>
         </div>
     </div>
 </section>
+<?php endif; ?>
 
 <!-- =====================================================
      BLOCK 10: FINAL CTA
