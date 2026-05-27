@@ -2,7 +2,14 @@
 /**
  * Plugin Name: Caspian Site Footer
  * Description: Block 12 - Site-wide dark sapphire footer with 4 columns, trust strip, copyright, payment badges
- * Version: 1.3
+ * Version: 1.4
+ * Changes in v1.4:
+ *   - Service Areas city list rebalanced to a major-market regional spread
+ *     (Hamilton, Burlington, Oakville, Niagara Falls, Kitchener, Markham,
+ *     Toronto, Mississauga) — removed Hamilton sub-areas (Stoney Creek,
+ *     Ancaster, Dundas) since those live on the city page Communities
+ *     section, not in site-wide nav. "View all 30+ areas →" still points
+ *     to the new /service-areas/ hub for the complete list.
  * Changes in v1.3:
  *   - Added a "Verified by HomeStars" badge beside the BBB seal in the trust strip.
  *     Links to the live HomeStars profile (homestars.com/profile/caspian-appliance-repair)
@@ -189,12 +196,12 @@ add_action('astra_footer_after', function() {
                     <ul>
                         <li><a href="/hamilton-appliance-repair/">Hamilton</a></li>
                         <li><a href="/burlington-appliance-repair/">Burlington</a></li>
-                        <li><a href="/stoney-creek-appliance-repair/">Stoney Creek</a></li>
-                        <li><a href="/ancaster-appliance-repair/">Ancaster</a></li>
-                        <li><a href="/dundas-appliance-repair/">Dundas</a></li>
-                        <li><a href="/st-catharines-appliance-repair/">St. Catharines</a></li>
-                        <li><a href="/niagara-falls-appliance-repair/">Niagara Falls</a></li>
                         <li><a href="/oakville-appliance-repair/">Oakville</a></li>
+                        <li><a href="/niagara-falls-appliance-repair/">Niagara Falls</a></li>
+                        <li><a href="/kitchener-appliance-repair/">Kitchener</a></li>
+                        <li><a href="/markham-appliance-repair/">Markham</a></li>
+                        <li><a href="/toronto-appliance-repair/">Toronto</a></li>
+                        <li><a href="/mississauga-appliance-repair/">Mississauga</a></li>
                     </ul>
                     <a href="/service-areas/" class="caspian-footer-viewall">View all 30+ areas &rarr;</a>
                 </div>
