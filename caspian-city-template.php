@@ -2,7 +2,12 @@
 /**
  * Plugin Name: Caspian — City Template
  * Description: Dynamic 9-block template for all City CPT posts. ACF-driven. Renders hero, picker, local-tech trust, advantages, reviews, FAQ, per-appliance grid, neighborhoods, nearby cities + map. Locked design system applied site-wide.
- * Version: 1.3
+ * Version: 1.4
+ *
+ * v1.4 changes:
+ *   - Brand picker: wrench icon replaced with monochrome sapphire (#062963) brand logo via CSS mask-image,
+ *     gold (#F4B942) hover accent. Logos loaded from caspian-brand-logos.php. Label preserved at right
+ *     for accessibility and secondary-brand recognition.
  *
  * v1.1 changes:
  *  - Hide duplicate CPT title + author/date byline (theme-level) so the hero H1 is the only H1.
@@ -257,6 +262,9 @@ add_filter( 'the_content', function( $content ) {
         array( 'slug' => 'fisher-paykel-appliance-repair','label' => 'Fisher & Paykel' ),
     );
 
+    /* Load monochrome brand logos (PNG data URIs from caspian-brand-logos.php) */
+    $brand_logos = function_exists( 'caspian_brand_logos' ) ? caspian_brand_logos() : array();
+
     /* Per-appliance short blurbs (used in Block 7) */
     $service_blurbs = array(
         'refrigerator-repair'    => 'Cooling failure, ice maker, water dispenser, compressor, sealed system.',
@@ -399,6 +407,32 @@ add_filter( 'the_content', function( $content ) {
     transform: translateY(-1px);
 }
 .caspian-city-picker .pick-item .ico { font-size: 18px; }
+
+/* Brand picker: monochrome sapphire logo via CSS mask */
+.caspian-city-picker .pick-item-brand { gap: 12px; }
+.caspian-city-picker .pick-item-brand .brand-logo {
+    display: inline-block;
+    width: 80px;
+    height: 24px;
+    flex-shrink: 0;
+    background-color: #062963;
+    -webkit-mask-image: var(--logo);
+            mask-image: var(--logo);
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-position: left center;
+            mask-position: left center;
+    -webkit-mask-size: contain;
+            mask-size: contain;
+    transition: background-color .2s;
+}
+.caspian-city-picker .pick-item-brand:hover .brand-logo {
+    background-color: #F4B942; /* gold accent on hover */
+}
+.caspian-city-picker .pick-item-brand .pick-label {
+    font-weight: 600;
+    font-size: 14px;
+}
 @media (max-width: 768px) {
     .caspian-city-picker .picker-grid { grid-template-columns: 1fr; gap: 30px; }
 }
@@ -709,10 +743,20 @@ body.single-city .ast-single-post-order { display:none !important; }
             <div class="picker-col">
                 <h3>By Brand</h3>
                 <div class="pick-items">
-                    <?php foreach ( $brands as $b ) : ?>
-                        <a class="pick-item" href="/<?php echo esc_attr( $b['slug'] ); ?>/">
-                            <span class="ico">🔧</span>
-                            <span><?php echo esc_html( $b['label'] ); ?></span>
+                    <?php foreach ( $brands as $b ) :
+                        // Derive logo key from label: 'Fisher & Paykel' -> 'fisher-paykel', 'Jenn-Air' -> 'jenn-air'
+                        $logo_key = strtolower( $b['label'] );
+                        $logo_key = str_replace( '&', '', $logo_key );
+                        $logo_key = trim( preg_replace( '/\s+/', '-', $logo_key ), '-' );
+                        $has_logo = isset( $brand_logos[ $logo_key ] );
+                    ?>
+                        <a class="pick-item pick-item-brand" href="/<?php echo esc_attr( $b['slug'] ); ?>/">
+                            <?php if ( $has_logo ) : ?>
+                                <span class="brand-logo" style="--logo:url('<?php echo esc_attr( $brand_logos[ $logo_key ] ); ?>');" aria-hidden="true"></span>
+                            <?php else : ?>
+                                <span class="ico" aria-hidden="true">🔧</span>
+                            <?php endif; ?>
+                            <span class="pick-label"><?php echo esc_html( $b['label'] ); ?></span>
                         </a>
                     <?php endforeach; ?>
                 </div>
