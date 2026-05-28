@@ -164,7 +164,7 @@ add_filter( 'the_content', function( $content ) {
 
         /* ========== BLOCK 1: HERO (full-bleed sapphire) ========== */
         .cabt-hero {
-                background: linear-gradient(135deg, #2E80D1 0%, #0B3D91 100%);
+                background: linear-gradient(135deg, #062963 0%, #041d44 100%);
                 padding: 70px 24px 80px;
                 text-align: center;
                 color: #fff;
