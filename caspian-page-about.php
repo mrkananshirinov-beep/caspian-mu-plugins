@@ -142,6 +142,26 @@ add_filter( 'the_content', function( $content ) {
         .caspian-about-page ul li { margin-bottom: 6px; }
         .caspian-about-page strong { color: #062963; font-weight: 700; }
 
+        /* ========== FULL-BLEED — all sections span the full viewport width ==========
+           (About is a regular WP page; Astra container constrains width, so we break
+           out with the 100vw technique. Each section keeps a centered inner wrapper.) */
+        .caspian-about-page .cabt-hero,
+        .caspian-about-page .cabt-story,
+        .caspian-about-page .cabt-features,
+        .caspian-about-page .cabt-numbers,
+        .caspian-about-page .cabt-team,
+        .caspian-about-page .cabt-process,
+        .caspian-about-page .cabt-area,
+        .caspian-about-page .cabt-why,
+        .caspian-about-page .cabt-faq,
+        .caspian-about-page .cabt-cta {
+                width: 100vw;
+                position: relative;
+                left: 50%;
+                margin-left: -50vw;
+                margin-right: -50vw;
+        }
+
         /* ========== BLOCK 1: HERO (full-bleed sapphire) ========== */
         .cabt-hero {
                 background: linear-gradient(135deg, #2E80D1 0%, #0B3D91 100%);
