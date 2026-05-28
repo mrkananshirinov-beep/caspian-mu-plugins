@@ -152,10 +152,10 @@ add_filter( 'the_content', function( $content ) {
         }
         .cabt-hero-inner { max-width: 920px; margin: 0 auto; }
         .cabt-hero .cabt-kicker {
-                color: #F4B942 !important;
+                color: #7BC4F0 !important;
                 font-size: 13px;
-                font-weight: 700;
-                letter-spacing: 2.4px;
+                font-weight: 600;
+                letter-spacing: 2px;
                 text-transform: uppercase;
                 margin: 0 0 16px;
         }
@@ -203,29 +203,28 @@ add_filter( 'the_content', function( $content ) {
                 gap: 14px;
                 margin-top: 8px;
         }
-        .cabt-btn {
-                display: inline-block;
-                padding: 14px 30px;
-                border-radius: 8px;
+        /* Buttons — locked site-wide (green Call / red Book), matches city + service etalon */
+        .cabt-btn,
+        .cabt-btn-primary,
+        .cabt-btn-secondary {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 180px;
+                padding: 14px 28px;
                 font-weight: 700;
                 font-size: 16px;
                 text-decoration: none !important;
-                transition: transform 0.18s ease, box-shadow 0.18s ease;
-                border: none;
+                border-radius: 6px;
+                transition: background .2s;
+                border: 0;
                 cursor: pointer;
+                text-align: center;
         }
-        .cabt-btn-primary {
-                background: #F4B942;
-                color: #062963 !important;
-                box-shadow: 0 6px 18px rgba(244,185,66,0.34);
-        }
-        .cabt-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(244,185,66,0.42); }
-        .cabt-btn-secondary {
-                background: #fff;
-                color: #0B3D91 !important;
-                box-shadow: 0 6px 18px rgba(0,0,0,0.14);
-        }
-        .cabt-btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.20); }
+        .cabt-btn-primary { background: #16a34a; color: #fff !important; }
+        .cabt-btn-primary:hover { background: #15803d; color: #fff !important; }
+        .cabt-btn-secondary { background: #D52B1E; color: #fff !important; }
+        .cabt-btn-secondary:hover { background: #b91c1c; color: #fff !important; }
 
         /* ========== BLOCK 2: OUR STORY ========== */
         .cabt-story {
