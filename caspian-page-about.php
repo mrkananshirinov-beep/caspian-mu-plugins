@@ -205,7 +205,7 @@ add_filter( 'the_content', function( $content ) {
                 max-width: 940px;
         }
         .cabt-hero-pills li {
-                color: #7BC4F0 !important;
+                color: #ffffff !important;
                 font-weight: 600;
                 font-size: 14.5px;
                 white-space: nowrap;
@@ -694,6 +694,16 @@ add_filter( 'the_content', function( $content ) {
                 gap: 14px;
         }
 
+        /* Lead paragraphs widened to fit on one line at desktop; balance kept as narrow-screen fallback */
+        .caspian-about-page .cabt-features-lead,
+        .caspian-about-page .cabt-numbers-lead,
+        .caspian-about-page .cabt-process-lead,
+        .caspian-about-page .cabt-area-lead,
+        .caspian-about-page .cabt-faq-lead {
+                max-width: 1100px !important;
+                text-wrap: balance;
+        }
+
         /* ========== RESPONSIVE ========== */
         @media (max-width: 980px) {
                 .cabt-hero h1 { font-size: 36px; }
@@ -892,7 +902,7 @@ add_filter( 'the_content', function( $content ) {
                 <section class="cabt-area">
                         <div class="cabt-area-inner">
                                 <h2>Our Service Area</h2>
-                                <p class="cabt-area-lead">Hamilton-headquartered, we cover 30+ Ontario cities through a combination of local technicians, Google Local Services Ads, and TSSA-licensed partner technicians for gas appliances.</p>
+                                <p class="cabt-area-lead">Hamilton-headquartered, serving 30+ Ontario cities through local technicians and licensed partners.</p>
                                 <div class="cabt-area-grid">
 
                                         <div class="cabt-region">
