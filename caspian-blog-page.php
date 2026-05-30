@@ -806,8 +806,18 @@ add_action( 'template_redirect', function() {
 	get_header();
 	?>
 	<style>
-	/* Full-width handled by JS unwrap below (class-name independent). */
-	.caspian-article-page #secondary { display: none !important; }
+	/* Kill Astra container max-width/padding (this style only loads on article pages, so safe to target globally). Exact structure: #content.site-content > .ast-container > .caspian-article */
+	#content,
+	#content > .ast-container {
+		max-width: 100% !important;
+		width: 100% !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
+		overflow: visible !important;
+	}
+	#secondary { display: none !important; }
 
 	.caspian-article * { box-sizing: border-box; }
 	.caspian-article { color: #333; line-height: 1.7; font-size: 17px; width: 100%; }
@@ -840,7 +850,8 @@ add_action( 'template_redirect', function() {
 	/* 2-column wrap: content fills left, widget sticky right (no gap) */
 	.ca-wrap {
 		max-width: 1200px; margin: 0 auto; padding: 56px 24px;
-		display: grid; grid-template-columns: 1fr 256px; gap: 48px; align-items: start;
+		display: grid; grid-template-columns: 1fr 260px; gap: 48px;
+		overflow: visible;
 	}
 	.ca-content { min-width: 0; }
 	.ca-content .ca-intro { font-size: 19px; color: #444; margin-bottom: 32px; line-height: 1.6; }
@@ -924,23 +935,6 @@ add_action( 'template_redirect', function() {
 			</div>
 		</div>
 	</div>
-	<script>
-	(function () {
-		var art = document.querySelector('.caspian-article');
-		if (!art) return;
-		var el = art.parentElement;
-		while (el && el !== document.body) {
-			el.style.maxWidth = 'none';
-			el.style.width = '100%';
-			el.style.paddingLeft = '0';
-			el.style.paddingRight = '0';
-			el.style.marginLeft = '0';
-			el.style.marginRight = '0';
-			el.style.flex = '1 1 100%';
-			el = el.parentElement;
-		}
-	})();
-	</script>
 	<?php
 	get_footer();
 	exit;
