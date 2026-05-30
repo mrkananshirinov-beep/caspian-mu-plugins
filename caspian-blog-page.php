@@ -79,6 +79,8 @@ add_filter( 'the_content', function( $content ) {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
+		align-items: center;
+		text-align: center;
 		gap: 8px 22px;
 		max-width: 920px;
 	}
@@ -798,11 +800,28 @@ add_action( 'template_redirect', function() {
 
 	// Astra layout: full width
 	add_filter( 'astra_page_layout', function() { return 'no-sidebar'; }, 9999 );
+	add_filter( 'body_class', function( $c ) { $c[] = 'caspian-article-page'; return $c; } );
 
 	status_header( 200 );
 	get_header();
 	?>
 	<style>
+	/* Force full-width article (remove Astra sidebar/padding gap) */
+	.caspian-article-page #primary,
+	.caspian-article-page .content-area,
+	.caspian-article-page .site-content > .ast-container,
+	.caspian-article-page .site-content {
+		width: 100% !important;
+		max-width: 100% !important;
+		flex: 0 0 100% !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin: 0 !important;
+	}
+	.caspian-article-page #secondary { display: none !important; }
+	.caspian-article-page .ast-separate-container .ast-article-single { padding: 0 !important; }
+	html { overflow-x: hidden; }
+
 	.caspian-article * { box-sizing: border-box; }
 	.caspian-article { color: #333; line-height: 1.7; font-size: 17px; }
 	.caspian-article h1, .caspian-article h2, .caspian-article h3 { color: #062963; line-height: 1.3; }
@@ -842,9 +861,57 @@ add_action( 'template_redirect', function() {
 	.ca-btn { display: inline-block; min-width: 170px; padding: 14px 26px; font-weight: 700; font-size: 16px; border-radius: 6px; text-decoration: none !important; color: #fff !important; }
 	.ca-btn-call { background: #16a34a; } .ca-btn-call:hover { background: #15803d; }
 	.ca-btn-book { background: #D52B1E; } .ca-btn-book:hover { background: #b91c1c; }
+
+	/* Sticky floating trust + CTA widget (desktop) */
+	.ca-float {
+		position: fixed;
+		top: 50%;
+		right: 22px;
+		transform: translateY(-50%);
+		width: 234px;
+		background: #fff;
+		border: 1px solid #e5e7eb;
+		border-radius: 12px;
+		box-shadow: 0 8px 28px rgba(6,41,99,0.16);
+		padding: 22px 20px;
+		z-index: 990;
+	}
+	.ca-float h4 {
+		font-size: 15px; color: #062963; margin: 0 0 14px; font-weight: 700;
+		text-align: center; letter-spacing: 0.3px;
+	}
+	.ca-float ul { list-style: none; padding: 0; margin: 0 0 18px; }
+	.ca-float li {
+		font-size: 13.5px; color: #333; font-weight: 500;
+		padding: 6px 0; display: flex; align-items: flex-start; gap: 7px; line-height: 1.4;
+	}
+	.ca-float li::before { content: "\2713"; color: #F4B942; font-weight: 700; flex-shrink: 0; }
+	.ca-float .ca-float-btn {
+		display: block; text-align: center; padding: 11px 14px; border-radius: 6px;
+		font-weight: 700; font-size: 14px; text-decoration: none !important; color: #fff !important;
+		margin-bottom: 9px;
+	}
+	.ca-float .ca-float-call { background: #16a34a; }
+	.ca-float .ca-float-call:hover { background: #15803d; }
+	.ca-float .ca-float-book { background: #D52B1E; margin-bottom: 0; }
+	.ca-float .ca-float-book:hover { background: #b91c1c; }
+
+	@media (max-width: 1180px) { .ca-float { display: none; } }
 	@media (max-width: 768px) { .ca-hero h1 { font-size: 28px; } .ca-body h2 { font-size: 22px; } }
 	</style>
 	<div class="caspian-article">
+		<aside class="ca-float">
+			<h4>Caspian Appliance Repair</h4>
+			<ul>
+				<li>Local Technicians</li>
+				<li>BBB A Accredited</li>
+				<li>★4.8 / 220+ Reviews</li>
+				<li>15+ Years Experience</li>
+				<li>90-Day Warranty</li>
+			</ul>
+			<a href="tel:+14167325905" class="ca-float-btn ca-float-call">Call Now</a>
+			<a href="<?php echo home_url( '/contact/' ); ?>" class="ca-float-btn ca-float-book">Book Online</a>
+		</aside>
 		<div class="ca-hero">
 			<span class="ca-cat"><?php echo esc_html( $a['category'] ); ?></span>
 			<h1><?php echo esc_html( $a['title'] ); ?></h1>
