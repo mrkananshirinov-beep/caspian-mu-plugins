@@ -40,6 +40,8 @@ add_filter( 'the_content', function ( $content ) {
 	?>
 	<style>
 	.caspian-legal * { box-sizing: border-box; }
+	/* Hide Astra's duplicate page title — the hero banner has its own H1 */
+	.entry-title { display: none !important; }
 	.caspian-legal { color: #333; line-height: 1.7; font-size: 17px; }
 	.caspian-legal h1, .caspian-legal h2, .caspian-legal h3 { color: #062963; line-height: 1.3; }
 	.caspian-legal a { color: #0B3D91; }
