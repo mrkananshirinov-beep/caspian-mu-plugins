@@ -30,20 +30,25 @@ add_action( 'wp_head', function () {
 	/* 2) Center the page H1 */
 	.entry-title { text-align: center !important; }
 
-	/* 3a) On desktop, shift the 880px FAQ content so content + widget sit as a centered group */
-	@media (min-width: 1200px) {
-		.caspian-faqp {
-			margin-left: calc(50vw - 590px) !important;
-			margin-right: 0 !important;
-		}
+	/* 3) Bottom CTA banner -> full-bleed edge-to-edge (parent .caspian-faqp is centered, so standard breakout works) */
+	.caspian-faqp-cta {
+		width: 100vw !important;
+		max-width: 100vw !important;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw !important;
+		margin-right: -50vw !important;
+		border-radius: 0 !important;
+		padding: 40px 24px !important;
 	}
 
-	/* 3b) Fixed always-visible trust + CTA widget (matches blog article widget) */
+	/* 4) Fixed always-visible trust + CTA widget (right margin, content stays centered) */
 	.caspian-faq-float {
 		position: fixed;
 		top: 50%;
 		transform: translateY(-50%);
-		right: calc(50vw - 590px);
+		right: 24px;
 		width: 256px;
 		background: #fff;
 		border: 1px solid #e5e7eb;
@@ -72,8 +77,8 @@ add_action( 'wp_head', function () {
 	.caspian-faq-float .ff-book { background: #D52B1E; margin-bottom: 0; }
 	.caspian-faq-float .ff-book:hover { background: #b91c1c; }
 
-	/* Below 1200px: hide the widget, FAQ content reverts to its centered 880px default */
-	@media (max-width: 1199px) {
+	/* Show widget only on wide screens where the centered 880px content leaves room (no overlap) */
+	@media (max-width: 1499px) {
 		.caspian-faq-float { display: none; }
 	}
 	</style>
