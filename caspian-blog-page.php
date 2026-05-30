@@ -72,26 +72,29 @@ add_filter( 'the_content', function( $content ) {
 		margin: 0 auto 28px;
 		max-width: 740px;
 	}
-	.cb-blog-hero-pills {
-		list-style: none;
-		padding: 0;
-		width: fit-content;
-		max-width: 100%;
-		margin: 0 auto 32px;
-		display: flex;
+	.caspian-blog .cb-blog-hero-pills {
+		list-style: none !important;
+		padding: 0 !important;
+		width: fit-content !important;
+		max-width: 100% !important;
+		margin: 0 auto 32px !important;
+		display: flex !important;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: center !important;
 		align-items: center;
 		text-align: center;
 		gap: 10px 22px;
 	}
-	.cb-blog-hero-pills li {
+	.caspian-blog .cb-blog-hero-pills li {
 		color: #ffffff !important;
 		font-weight: 600;
 		font-size: 15px;
 		white-space: nowrap;
+		margin: 0 !important;
+		padding: 0 !important;
+		list-style: none !important;
 	}
-	.cb-blog-hero-pills li::before {
+	.caspian-blog .cb-blog-hero-pills li::before {
 		content: "\2713";
 		color: #F4B942;
 		font-weight: 700;
