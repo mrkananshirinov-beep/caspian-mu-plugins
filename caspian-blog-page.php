@@ -865,12 +865,17 @@ add_action( 'template_redirect', function() {
 	.ca-faq-item h3 { font-size: 18px; margin: 0 0 8px; color: #062963; }
 	.ca-faq-item p { margin: 0; color: #555; }
 
-	/* Sticky trust + CTA widget (inside right column) */
+	/* Always-visible fixed trust + CTA widget, aligned to reserved right column */
 	.ca-side { position: relative; }
 	.ca-float {
-		position: sticky; top: 110px;
+		position: fixed;
+		top: 50%;
+		transform: translateY(-50%);
+		right: max(24px, calc(50vw - 576px));
+		width: 256px;
 		background: #fff; border: 1px solid #e5e7eb; border-radius: 12px;
 		box-shadow: 0 8px 28px rgba(6,41,99,0.14); padding: 22px 20px;
+		z-index: 990;
 	}
 	.ca-float h4 { font-size: 15px; color: #062963; margin: 0 0 14px; font-weight: 700; text-align: center; letter-spacing: 0.3px; }
 	.ca-float ul { list-style: none; padding: 0; margin: 0 0 18px; }
