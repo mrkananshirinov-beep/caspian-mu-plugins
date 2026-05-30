@@ -806,42 +806,23 @@ add_action( 'template_redirect', function() {
 	get_header();
 	?>
 	<style>
-	/* Force TRUE full-width article (kill Astra container max-width, sidebar, padding) */
-	.caspian-article-page #content,
-	.caspian-article-page #content > .ast-container,
-	.caspian-article-page #primary,
-	.caspian-article-page .content-area,
-	.caspian-article-page .site-content,
-	.caspian-article-page .site-main,
-	.caspian-article-page .ast-article-single,
-	.caspian-article-page .entry-content {
-		width: 100% !important;
-		max-width: 100% !important;
-		flex: 0 0 100% !important;
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-		margin-left: 0 !important;
-		margin-right: 0 !important;
-	}
+	/* Full-width handled by JS unwrap below (class-name independent). */
 	.caspian-article-page #secondary { display: none !important; }
-	.caspian-article-page .ast-separate-container .ast-article-single,
-	.caspian-article-page .ast-separate-container #primary { padding: 0 !important; }
-	html, body { overflow-x: hidden; }
 
 	.caspian-article * { box-sizing: border-box; }
-	.caspian-article { color: #333; line-height: 1.7; font-size: 17px; }
+	.caspian-article { color: #333; line-height: 1.7; font-size: 17px; width: 100%; }
 	.caspian-article h1, .caspian-article h2, .caspian-article h3 { color: #062963; line-height: 1.3; }
 	.caspian-article a { color: #0B3D91; }
 	.caspian-article a:hover { text-decoration: underline; }
 
-	/* Full-bleed banners */
+	/* Full-bleed banners (parent is full-width after JS unwrap) */
 	.ca-hero, .ca-cta {
-		width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw);
+		width: 100%;
 		background: linear-gradient(135deg, #062963 0%, #041d44 100%);
 		text-align: center; color: #fff;
 	}
 	.ca-hero { padding: 64px 24px 56px; }
-	.ca-cta  { padding: 56px 24px; margin-top: 0; }
+	.ca-cta  { padding: 56px 24px; }
 	.ca-hero .ca-cat {
 		display: inline-block; background: rgba(255,255,255,0.15); color: #7BC4F0;
 		padding: 5px 14px; border-radius: 4px; font-size: 13px; font-weight: 600;
@@ -943,6 +924,23 @@ add_action( 'template_redirect', function() {
 			</div>
 		</div>
 	</div>
+	<script>
+	(function () {
+		var art = document.querySelector('.caspian-article');
+		if (!art) return;
+		var el = art.parentElement;
+		while (el && el !== document.body) {
+			el.style.maxWidth = 'none';
+			el.style.width = '100%';
+			el.style.paddingLeft = '0';
+			el.style.paddingRight = '0';
+			el.style.marginLeft = '0';
+			el.style.marginRight = '0';
+			el.style.flex = '1 1 100%';
+			el = el.parentElement;
+		}
+	})();
+	</script>
 	<?php
 	get_footer();
 	exit;
