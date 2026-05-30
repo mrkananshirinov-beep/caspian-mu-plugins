@@ -75,14 +75,15 @@ add_filter( 'the_content', function( $content ) {
 	.cb-blog-hero-pills {
 		list-style: none;
 		padding: 0;
+		width: fit-content;
+		max-width: 100%;
 		margin: 0 auto 32px;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		gap: 8px 22px;
-		max-width: 920px;
+		gap: 10px 22px;
 	}
 	.cb-blog-hero-pills li {
 		color: #ffffff !important;
