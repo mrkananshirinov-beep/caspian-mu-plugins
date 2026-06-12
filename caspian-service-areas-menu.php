@@ -4,22 +4,28 @@
  * Description: Renders the Service Areas dropdown (parent menu item db_id=94)
  *              as a 3-column grid so the 16-item city list doesn't overflow the
  *              viewport. "All Service Areas →" footer link spans all columns.
- *              Mobile falls back to single column.
- * Version: 1.0
+ *              v1.1 — all grid CSS scoped to desktop (min-width: 922px, Astra's
+ *              own breakpoint). Mobile is left 100% to Astra's native submenu
+ *              toggle (display:none/block via JS) — previous version forced
+ *              display !important on mobile, which kept the submenu permanently
+ *              open and broke the drawer.
+ * Version: 1.1
  * Author: Caspian Appliance Repair
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 add_action( 'wp_head', function() {
-    ?>
+	?>
 <style id="caspian-service-areas-multicol">
 /* ============================================================
-   Service Areas dropdown — 3-column grid (desktop)
+   Service Areas dropdown — 3-column grid (DESKTOP ONLY)
    Parent menu item db_id = 94, sub-menu holds 15 cities +
    1 "All Service Areas →" footer item (total 16).
-   Renders on every page including homepage (no JS dependency).
+   Mobile (<922px): no rules here — Astra native toggle handles it.
    ============================================================ */
+@media (min-width: 922px) {
+
 .main-header-menu .menu-item-94 > .sub-menu,
 .main-navigation .menu-item-94 > .sub-menu,
 .ast-desktop-menu .menu-item-94 > .sub-menu,
@@ -63,31 +69,7 @@ add_action( 'wp_head', function() {
     font-weight: 600 !important;
 }
 
-/* Mobile (drawer menu): revert to single column natural stacking */
-@media (max-width: 920px) {
-    .main-header-menu .menu-item-94 > .sub-menu,
-    .main-navigation .menu-item-94 > .sub-menu,
-    .ast-desktop-menu .menu-item-94 > .sub-menu,
-    .ast-builder-menu .menu-item-94 > .sub-menu,
-    #ast-desktop-header .menu-item-94 > .sub-menu,
-    .site-header .menu-item-94 > .sub-menu {
-        display: block !important;
-        width: auto !important;
-        min-width: 0 !important;
-        max-width: none !important;
-        grid-template-columns: none !important;
-    }
-    .menu-item-94 > .sub-menu > .menu-item:last-child {
-        grid-column: auto !important;
-        border-top: none !important;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-    }
-    .menu-item-94 > .sub-menu > .menu-item:last-child > a {
-        text-align: left !important;
-        font-weight: 400 !important;
-    }
 }
 </style>
-    <?php
+	<?php
 }, 100 );
