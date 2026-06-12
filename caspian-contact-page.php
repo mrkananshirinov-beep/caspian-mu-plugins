@@ -31,7 +31,7 @@ add_filter( 'the_content', function( $content ) {
 					<li><span class="ccp-tick">&#10003;</span> Serving 30+ Ontario Cities</li>
 				</ul>
 				<div class="ccp-hero-btns">
-					<a class="ccp-btn-call" href="tel:+14167325905">Call Now (416) 732-5905</a>
+					<a class="ccp-btn-call" href="tel:+14167325905">Call Now</a>
 					<a class="ccp-btn-book" href="#ccp-form">Book Online</a>
 				</div>
 			</div>
@@ -85,7 +85,7 @@ add_filter( 'the_content', function( $content ) {
 				<h2>Your Appliance Fixed — Often the Same Day</h2>
 				<p>One call connects you with a local technician backed by a 90-day parts and labour warranty.</p>
 				<div class="ccp-hero-btns">
-					<a class="ccp-btn-call" href="tel:+14167325905">Call Now (416) 732-5905</a>
+					<a class="ccp-btn-call" href="tel:+14167325905">Call Now</a>
 					<a class="ccp-btn-book" href="#ccp-form">Book Online</a>
 				</div>
 			</div>

@@ -37,7 +37,7 @@ add_action('wp_head', function () {
     ?>
 <style id="caspian-site-harmony-css">
 /* prevent any horizontal scroll caused by the 100vw full-bleed below */
-html, body { overflow-x: hidden; }
+html, body { overflow-x: clip; }
 
 /* ============================================================
    1) FULL-WIDTH HOMEPAGE-GRADIENT BANDS (hero + CTA-final)

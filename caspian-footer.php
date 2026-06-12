@@ -82,7 +82,7 @@ add_action('astra_footer_after', function() {
     }
     .caspian-footer-trust-inner {
         max-width:1200px; margin:0 auto;
-        display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; text-align:center;
+        display:flex; flex-wrap:wrap; justify-content:center; gap:14px 32px; text-align:center;
     }
     .caspian-footer-badge {
         color:#fff; font-size:13px; font-weight:600; padding:6px 12px;
@@ -140,7 +140,7 @@ add_action('astra_footer_after', function() {
     @media (max-width:640px) {
         .caspian-footer-main { padding:48px 16px 28px; }
         .caspian-footer-grid { grid-template-columns:1fr; gap:32px; }
-        .caspian-footer-trust-inner { grid-template-columns:1fr 1fr; gap:12px; }
+        .caspian-footer-trust-inner { gap:10px 18px; }
         .caspian-footer-seals { margin-top:18px; gap:16px; }
 
         /* Bottom bar: stacked + centered on mobile */
@@ -172,7 +172,7 @@ add_action('astra_footer_after', function() {
                         <span class="wordmark">CASPIAN</span>
                         <span class="subtitle">APPLIANCE REPAIR</span>
                     </div>
-                    <p class="caspian-footer-tagline">Hamilton-headquartered appliance repair. Serving 30+ Ontario cities since 2009.</p>
+                    <p class="caspian-footer-tagline">Hamilton-headquartered appliance repair. Serving 30+ Ontario cities — 15+ years experience.</p>
                     <a href="tel:+14167325905" class="caspian-footer-phone">(416) 732-5905</a>
                     <p class="caspian-footer-hours">Mon to Sat: 7 AM to 11 PM<br>Sun: 9 AM to 5 PM</p>
                 </div>
@@ -231,6 +231,7 @@ add_action('astra_footer_after', function() {
                 <div class="caspian-footer-badge">&#9733;4.8 / 220+ Google Reviews</div>
                 <div class="caspian-footer-badge">BBB A Accredited</div>
                 <div class="caspian-footer-badge">TSSA-Licensed Partners</div>
+                <div class="caspian-footer-badge">WSIB Covered</div>
                 <div class="caspian-footer-badge">90-Day Parts &amp; Labour Warranty</div>
             </div>
             <div class="caspian-footer-seals">

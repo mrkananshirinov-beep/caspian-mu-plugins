@@ -694,16 +694,7 @@ add_filter( 'the_content', function( $content ) {
                 gap: 14px;
         }
 
-        /* Lead paragraphs widened to fit on one line at desktop; balance kept as narrow-screen fallback */
-        .caspian-about-page .cabt-features-lead,
-        .caspian-about-page .cabt-numbers-lead,
-        .caspian-about-page .cabt-process-lead,
-        .caspian-about-page .cabt-area-lead,
-        .caspian-about-page .cabt-faq-lead {
-                max-width: 1100px !important;
-                text-wrap: balance;
-        }
-
+        .caspian-about-page .cabt-features-lead, .caspian-about-page .cabt-numbers-lead, .caspian-about-page .cabt-process-lead, .caspian-about-page .cabt-area-lead, .caspian-about-page .cabt-faq-lead { max-width: 1100px !important; text-wrap: balance; }
         /* ========== RESPONSIVE ========== */
         @media (max-width: 980px) {
                 .cabt-hero h1 { font-size: 36px; }
@@ -966,7 +957,7 @@ add_filter( 'the_content', function( $content ) {
                                                 <div class="cabt-why-stat-label">Parts &amp; Labour Warranty</div>
                                         </div>
                                 </div>
-                                <div class="cabt-why-note">Service note: Caspian Appliance Repair is an independent service company. We are not factory-authorized for manufacturer warranty work. If your appliance is under manufacturer warranty, contact the brand first to preserve coverage. Gas appliance work is performed by TSSA-licensed partner technicians as required by Ontario regulations.</div>
+                                <div class="cabt-why-note">Service note: Caspian Appliance Repair is an independent service company. We are not factory-authorized for manufacturer warranty work. If your appliance is under manufacturer warranty, contact the brand first to preserve coverage. Gas appliance work is performed by TSSA-licensed partner technicians as required by Ontario regulations. Our technicians are covered under WSIB.</div>
                         </div>
                 </section>
 

@@ -89,7 +89,7 @@ function caspian_services_page_render($content) {
 .page-id-58 .entry-title { display:none !important; }
 
 .svp-page * { box-sizing:border-box; }
-body.page-id-58 { overflow-x:hidden; }
+body.page-id-58 { overflow-x:clip; }
 .svp-page { font-family:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif; color:#222; line-height:1.6; width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); }
 
 /* HERO */

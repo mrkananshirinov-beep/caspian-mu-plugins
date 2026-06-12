@@ -445,6 +445,8 @@ add_filter( 'the_content', function( $content ) {
 }
 @media (max-width: 768px) {
     .caspian-city-picker .picker-grid { grid-template-columns: 1fr; gap: 30px; }
+    .caspian-city-picker .pick-items { grid-template-columns: 1fr; }
+    .caspian-city-picker .pick-item { min-width: 0; }
 }
 
 /* ============================================================
