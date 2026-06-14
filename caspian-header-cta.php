@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Caspian Header CTA + Search + Sticky + Mobile Bottom Bar
- * Version: 2.5
+ * Version: 2.6
  * Date: 2026-05-19
  * Build history:
  *   v1.9 - Desktop 3-column sticky header (logo | postal+menu | Call/Book stack)
@@ -16,6 +16,14 @@
  *          icon .ast-mobile-svg (enlarged to 30px, sapphire). Time-aware ribbon: open
  *          hours -> green pulse "Technicians available in your area now"; closed ->
  *          amber "Closed now - call from 7 AM [tomorrow] to book your technician".
+ *   v2.6 - CLS/NO_LCP FIX: the restructure <script> used to run in wp_footer,
+ *          i.e. AFTER first paint — the header changed height post-render and
+ *          shifted the whole page (CLS 0.345) while the heavy DOM mutation
+ *          invalidated Lighthouse's LCP candidate (NO_LCP error). The script
+ *          now prints via astra_header_after (right below the header markup)
+ *          and calls init() immediately, so the final header layout exists
+ *          BEFORE first paint. Mobile bottom bar stays in wp_footer. No markup
+ *          or CSS changes.
  *   Desktop (>=922px) behaviour is 100% unchanged across all versions.
  */
 if (!defined('ABSPATH')) exit;
@@ -53,9 +61,10 @@ add_action('astra_header_before', function() {
 
 // ========================================================================
 // JS: v1.9 desktop restructure + v2.4 ribbon time-aware + sticky offset
-//     + v2.0 mobile sticky bottom bar HTML
+//     v2.6: printed right after the header (astra_header_after) and executed
+//     immediately so the restructure happens BEFORE first paint (no CLS).
 // ========================================================================
-add_action('wp_footer', function() {
+add_action('astra_header_after', function() {
     ?>
     <script>
     (function() {
@@ -167,10 +176,12 @@ add_action('wp_footer', function() {
             syncRibbonOffset();
         }
 
+        /* v2.6: this script is printed right below the header markup, so the
+           menu DOM already exists — run immediately, BEFORE first paint.
+           DOMContentLoaded re-run kept as an idempotent safety net. */
+        init();
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
         }
         window.addEventListener('load', syncRibbonOffset);
         var caspianResizeTimer;
@@ -180,7 +191,14 @@ add_action('wp_footer', function() {
         });
     })();
     </script>
+    <?php
+}, 99);
 
+// ========================================================================
+// v2.0 PRESERVED: Mobile-only sticky bottom CTA bar (stays in wp_footer)
+// ========================================================================
+add_action('wp_footer', function() {
+    ?>
     <?php /* === v2.0: Mobile-only sticky bottom CTA bar (Book left red, Call right green) === */ ?>
     <div class="caspian-mobile-sticky-cta" role="region" aria-label="Quick contact actions">
         <a href="/contact/" class="caspian-mobile-cta caspian-mobile-book" aria-label="Book Online">
