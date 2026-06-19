@@ -509,7 +509,7 @@ add_filter( 'the_content', function( $content ) {
                                         <h1>Same-Day Freezer Repair in 30+ Ontario Cities</h1>
                                         <p class="subtitle">Chest, upright, and garage-ready freezers. Save your food, fast. 90-day warranty on every repair.</p>
                                         <ul class="cf-hero-bullets">
-                                                <li>★4.8 / 220+ Google Reviews</li>
+                                                <li>★4.7 / 220+ Google Reviews</li>
                                                 <li>BBB A Accredited</li>
                                                 <li>15+ Years Experience</li>
                                                 <li>90-Day Parts &amp; Labour Warranty</li>
@@ -681,9 +681,9 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cf-inner">
                                 <p class="cf-kicker">Why Caspian</p>
                                 <h2>15+ Years of Freezer Repair Across Ontario</h2>
-                                <p class="cf-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area (Brantford). Because a failing freezer puts your food on the clock, we keep technicians based across the regions we cover, so a real fix can reach you the same day in most cases — not days later. BBB A Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail while your food is at risk.</p>
+                                <p class="cf-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area (Brantford). Because a failing freezer puts your food on the clock, we keep technicians based across the regions we cover, so a real fix can reach you the same day in most cases — not days later. BBB A Accredited. Over 220 verified Google reviews averaging ★4.7. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail while your food is at risk.</p>
                                 <div class="cf-why-stats">
-                                        <div class="cf-why-stat"><span class="value">★4.8</span><span class="label">220+ Google Reviews</span></div>
+                                        <div class="cf-why-stat"><span class="value">★4.7</span><span class="label">220+ Google Reviews</span></div>
                                         <div class="cf-why-stat"><span class="value">A</span><span class="label">BBB Accredited</span></div>
                                         <div class="cf-why-stat"><span class="value">2009</span><span class="label">In appliance repair market since</span></div>
                                         <div class="cf-why-stat"><span class="value">90-Day</span><span class="label">Parts &amp; Labour Warranty</span></div>

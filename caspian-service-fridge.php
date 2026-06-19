@@ -186,7 +186,7 @@ function caspian_fridge_render($content) {
             <h1>Local Refrigerator Repair in 30+ Ontario Cities</h1>
             <p class="lead">Same-day service for over 15 years. 90-day parts &amp; labour warranty. Live agents 7am–11pm, never voicemail.</p>
             <div class="csf-hero-trust">
-                <span><strong>★4.8</strong> / 220+ Reviews</span>
+                <span><strong>★4.7</strong> / 220+ Reviews</span>
                 <span><strong>BBB A</strong> Accredited</span>
                 <span><strong>15+</strong> Years</span>
                 <span><strong>90-Day</strong> Warranty</span>
@@ -284,10 +284,10 @@ function caspian_fridge_render($content) {
     <div class="csf-section-inner">
         <p class="kicker">Why Caspian</p>
         <h2>15+ Years of Refrigerator Repair Across Ontario</h2>
-        <p class="intro">Headquartered in Hamilton, we serve 30+ Ontario cities — with local technicians who live and work in your area. BBB A Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail when your food is at risk.</p>
+        <p class="intro">Headquartered in Hamilton, we serve 30+ Ontario cities — with local technicians who live and work in your area. BBB A Accredited. Over 220 verified Google reviews averaging ★4.7. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail when your food is at risk.</p>
 
         <div class="csf-trust-grid">
-            <div class="csf-trust-card"><span class="num">★4.8</span><span class="lbl">220+ Google Reviews</span></div>
+            <div class="csf-trust-card"><span class="num">★4.7</span><span class="lbl">220+ Google Reviews</span></div>
             <div class="csf-trust-card"><span class="num">A</span><span class="lbl">BBB Accredited</span></div>
             <div class="csf-trust-card"><span class="num">2009</span><span class="lbl">In appliance repair market since</span></div>
             <div class="csf-trust-card"><span class="num">90-Day</span><span class="lbl">Parts &amp; Labour Warranty</span></div>

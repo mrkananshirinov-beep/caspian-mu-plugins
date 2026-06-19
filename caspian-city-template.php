@@ -9,7 +9,7 @@
  *   - NEW BLOCK 5.5: Why Caspian full-bleed dark sapphire banner between Reviews
  *     and FAQ — matches brand-page etalon. Includes WHY CASPIAN kicker, white H2
  *     "15+ Years of Appliance Repair Across Ontario", lead paragraph, 4 gold
- *     stat cards (★4.8/220+, A BBB, 2009 In appliance repair market, 90-Day),
+ *     stat cards (★4.7/220+, A BBB, 2009 In appliance repair market, 90-Day),
  *     and gold-left-border Service-note box containing factory-not-authorized
  *     disclaimer + TSSA-licensed gas mention. Closes the 3 locked-rule gaps
  *     identified in the city-page audit.
@@ -144,7 +144,7 @@ add_action( 'wp_head', function() {
         ),
         'aggregateRating' => array(
             '@type'       => 'AggregateRating',
-            'ratingValue' => '4.8',
+            'ratingValue' => '4.7',
             'reviewCount' => '220',
         ),
     );
@@ -819,7 +819,7 @@ body.single-city .ast-single-post-order { display:none !important; }
         <ul class="hero-bullets">
             <li>Local <?php echo esc_html( $city_name ); ?> technicians</li>
             <li>BBB A Accredited</li>
-            <li>★4.8 / 220+ Google Reviews</li>
+            <li>★4.7 / 220+ Google Reviews</li>
             <li>15+ Years Experience</li>
             <li>90-Day parts &amp; labour warranty</li>
         </ul>
@@ -949,7 +949,7 @@ body.single-city .ast-single-post-order { display:none !important; }
             <div class="adv-card">
                 <div class="adv-ico">⭐</div>
                 <h3>BBB A Accredited</h3>
-                <p>Verified by the Better Business Bureau. ★4.8 / 220+ Google Reviews from Ontario customers.</p>
+                <p>Verified by the Better Business Bureau. ★4.7 / 220+ Google Reviews from Ontario customers.</p>
             </div>
         </div>
     </div>
@@ -994,9 +994,9 @@ body.single-city .ast-single-post-order { display:none !important; }
     <div class="caspian-city-why-inner">
         <p class="caspian-city-why-kicker">Why Caspian</p>
         <h2>15+ Years of Appliance Repair Across Ontario</h2>
-        <p class="caspian-city-why-lead">Headquartered in Hamilton, Caspian Appliance Repair serves <?php echo esc_html( $city_name ); ?> and 30+ other Ontario cities — with local technicians who live and work in the area, so the person diagnosing your appliance is from your part of Ontario, not dispatched hours away. BBB A Accredited. Over 220 verified Google reviews averaging <span class="star">★</span>4.8. Our 8-person live call centre answers seven days a week from 7am to 11pm, so you reach a real person — never a voicemail.</p>
+        <p class="caspian-city-why-lead">Headquartered in Hamilton, Caspian Appliance Repair serves <?php echo esc_html( $city_name ); ?> and 30+ other Ontario cities — with local technicians who live and work in the area, so the person diagnosing your appliance is from your part of Ontario, not dispatched hours away. BBB A Accredited. Over 220 verified Google reviews averaging <span class="star">★</span>4.7. Our 8-person live call centre answers seven days a week from 7am to 11pm, so you reach a real person — never a voicemail.</p>
         <div class="caspian-city-why-stats">
-            <div class="caspian-city-why-stat"><span class="v">★4.8</span><span class="l">220+ Google Reviews</span></div>
+            <div class="caspian-city-why-stat"><span class="v">★4.7</span><span class="l">220+ Google Reviews</span></div>
             <div class="caspian-city-why-stat"><span class="v">A</span><span class="l">BBB Accredited</span></div>
             <div class="caspian-city-why-stat"><span class="v">2009</span><span class="l">In appliance repair market since</span></div>
             <div class="caspian-city-why-stat"><span class="v">90-Day</span><span class="l">Parts &amp; Labour Warranty</span></div>

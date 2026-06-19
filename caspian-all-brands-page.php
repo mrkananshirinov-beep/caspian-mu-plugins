@@ -226,7 +226,7 @@ add_filter('the_content', function($content) {
                 <h1 class="caspian-allbrands-h1">All Brands We Service</h1>
                 <p>Caspian Appliance Repair services <strong style="color:#fff;">19+ major brands</strong> across Hamilton and 30+ Ontario cities. Every repair is backed by our 90-day parts and labour warranty, with same-day service available.</p>
                 <ul class="caspian-allbrands-herobullets">
-                    <li><span class="caspian-hero-bullet-icon">&#9733;</span> 4.8 / 220+ Google Reviews</li>
+                    <li><span class="caspian-hero-bullet-icon">&#9733;</span> 4.7 / 220+ Google Reviews</li>
                     <li><span class="caspian-hero-bullet-icon">&#10003;</span> BBB A Accredited</li>
                     <li><span class="caspian-hero-bullet-icon">&#10003;</span> 90-Day Parts &amp; Labour Warranty</li>
                     <li><span class="caspian-hero-bullet-icon">&#10003;</span> 15+ Years</li>

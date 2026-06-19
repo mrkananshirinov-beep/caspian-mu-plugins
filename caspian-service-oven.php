@@ -444,7 +444,7 @@ add_filter( 'the_content', function( $content ) {
 					<h1>Same-Day Oven Repair in 30+ Ontario Cities</h1>
 					<p class="subtitle">Gas and electric ovens fixed fast. TSSA-licensed for gas. 90-day warranty on every repair.</p>
 					<ul class="co-hero-bullets">
-						<li>★4.8 / 220+ Google Reviews</li>
+						<li>★4.7 / 220+ Google Reviews</li>
 						<li>BBB A Accredited</li>
 						<li>15+ Years Experience</li>
 						<li>90-Day Parts &amp; Labour Warranty</li>
@@ -608,7 +608,7 @@ add_filter( 'the_content', function( $content ) {
 				<p class="co-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area — with technicians who live and work in the areas they serve. Book an oven repair and you get an experienced technician from your region, a live call center seven days a week, and a 90-day parts and labour warranty on the work.</p>
 				<div class="co-why-stats">
 					<div class="co-why-stat">
-						<span class="value">★4.8</span>
+						<span class="value">★4.7</span>
 						<span class="label">220+ Google Reviews</span>
 					</div>
 					<div class="co-why-stat">

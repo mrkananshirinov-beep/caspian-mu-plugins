@@ -522,7 +522,7 @@ add_filter( 'the_content', function( $content ) {
                                         <h1>Same-Day Stove &amp; Cooktop Repair in 30+ Ontario Cities</h1>
                                         <p class="subtitle">Electric coil, ceramic glass, induction, and gas cooktops fixed fast. TSSA-licensed for gas. 90-day warranty.</p>
                                         <ul class="cs-hero-bullets">
-                                                <li>★4.8 / 220+ Google Reviews</li>
+                                                <li>★4.7 / 220+ Google Reviews</li>
                                                 <li>BBB A Accredited</li>
                                                 <li>15+ Years Experience</li>
                                                 <li>90-Day Parts &amp; Labour Warranty</li>
@@ -686,9 +686,9 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cs-inner">
                                 <p class="cs-kicker">Why Caspian</p>
                                 <h2>15+ Years of Stove &amp; Cooktop Repair Across Ontario</h2>
-                                <p class="cs-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area (Brantford). The technician who arrives for your cooktop repair works out of your own region, not a depot across the province, and brings the right diagnostic tools for electric, induction, and gas surfaces. BBB A Accredited. Over 220 verified Google reviews averaging ★4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail.</p>
+                                <p class="cs-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area (Brantford). The technician who arrives for your cooktop repair works out of your own region, not a depot across the province, and brings the right diagnostic tools for electric, induction, and gas surfaces. BBB A Accredited. Over 220 verified Google reviews averaging ★4.7. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail.</p>
                                 <div class="cs-why-stats">
-                                        <div class="cs-why-stat"><span class="value">★4.8</span><span class="label">220+ Google Reviews</span></div>
+                                        <div class="cs-why-stat"><span class="value">★4.7</span><span class="label">220+ Google Reviews</span></div>
                                         <div class="cs-why-stat"><span class="value">A</span><span class="label">BBB Accredited</span></div>
                                         <div class="cs-why-stat"><span class="value">2009</span><span class="label">In appliance repair market since</span></div>
                                         <div class="cs-why-stat"><span class="value">90-Day</span><span class="label">Parts &amp; Labour Warranty</span></div>

@@ -93,7 +93,7 @@ add_action( 'wp_footer', function () {
 		<ul>
 			<li>Local Technicians</li>
 			<li>BBB A Accredited</li>
-			<li>★4.8 / 220+ Reviews</li>
+			<li>★4.7 / 220+ Reviews</li>
 			<li>15+ Years Experience</li>
 			<li>90-Day Warranty</li>
 		</ul>

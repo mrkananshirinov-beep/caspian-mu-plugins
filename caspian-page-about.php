@@ -20,7 +20,7 @@
  * Locked rules compliance:
  *  - NO "Since 2009" in copy (foundingDate in schema only).
  *  - BBB = "A Accredited" (not A+).
- *  - Reviews = "★4.8 / 220+".
+ *  - Reviews = "★4.7 / 220+".
  *  - Phone hidden in button text, visible in tel: href and body copy.
  *  - "15+ Years" tagline standard.
  *  - Factory-not-authorized disclosure + TSSA partner disclosure.
@@ -734,7 +734,7 @@ add_filter( 'the_content', function( $content ) {
                                 <ul class="cabt-hero-pills">
                                         <li>Local Technicians</li>
                                         <li>BBB A Accredited</li>
-                                        <li>★4.8 / 220+ Google Reviews</li>
+                                        <li>★4.7 / 220+ Google Reviews</li>
                                         <li>15+ Years</li>
                                         <li>90-Day Parts &amp; Labour Warranty</li>
                                 </ul>
@@ -816,7 +816,7 @@ add_filter( 'the_content', function( $content ) {
                                                 <div class="cabt-num-label">Verified Google Reviews</div>
                                         </div>
                                         <div class="cabt-num">
-                                                <div class="cabt-num-value">★4.8</div>
+                                                <div class="cabt-num-value">★4.7</div>
                                                 <div class="cabt-num-label">Average Customer Rating</div>
                                         </div>
                                         <div class="cabt-num">
@@ -838,7 +838,7 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cabt-team-inner">
                                 <div class="cabt-team-grid">
                                         <div class="cabt-team-photo">
-                                                <img src="/wp-content/uploads/2026/05/caspian-team-in-front-of-office-hamilton.jpg" alt="Caspian Appliance Repair team in front of office &mdash; Hamilton, Ontario" loading="lazy" decoding="async">
+                                                <?php echo wp_get_attachment_image( 174, "large", false, array( "alt" => "Caspian Appliance Repair team in front of office — Hamilton, Ontario", "loading" => "lazy", "decoding" => "async", "sizes" => "(max-width: 921px) 90vw, 520px" ) ); ?>
                                         </div>
                                         <div class="cabt-team-text">
                                                 <h2>Real Caspian Technicians</h2>
@@ -938,10 +938,10 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cabt-why-inner">
                                 <div class="cabt-why-kicker">Why Caspian</div>
                                 <h2>15+ Years of Honest Appliance Repair Across Ontario</h2>
-                                <p class="cabt-why-lead">Hamilton-headquartered, BBB A Accredited, and rated ★4.8 across 220+ verified Google reviews. Caspian is an independent service provider &mdash; not factory-authorized &mdash; staffed by in-house technicians and supported by a real 8-agent call center that answers 7AM to 11PM, 7 days a week.</p>
+                                <p class="cabt-why-lead">Hamilton-headquartered, BBB A Accredited, and rated ★4.7 across 220+ verified Google reviews. Caspian is an independent service provider &mdash; not factory-authorized &mdash; staffed by in-house technicians and supported by a real 8-agent call center that answers 7AM to 11PM, 7 days a week.</p>
                                 <div class="cabt-why-stats">
                                         <div class="cabt-why-stat">
-                                                <div class="cabt-why-stat-value">★4.8</div>
+                                                <div class="cabt-why-stat-value">★4.7</div>
                                                 <div class="cabt-why-stat-label">220+ Google Reviews</div>
                                         </div>
                                         <div class="cabt-why-stat">

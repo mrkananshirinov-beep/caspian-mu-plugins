@@ -78,7 +78,7 @@ add_action('astra_header_after', function() {
             <div class="caspian-trust-grid">
                 <div class="caspian-trust-badge">
                     <div class="caspian-trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                    <div class="caspian-trust-value">4.8 / 220+</div>
+                    <div class="caspian-trust-value">4.7 / 220+</div>
                     <div class="caspian-trust-label">Google Reviews</div>
                 </div>
                 <div class="caspian-trust-badge">
@@ -102,10 +102,10 @@ add_action('astra_header_after', function() {
 
     <section class="caspian-about">
         <div class="caspian-about-inner">
-            <h2>Trusted Appliance Repair Since 2009</h2>
+            <h2>15+ Years of Trusted Appliance Repair</h2>
             <p>For over <strong>15 years</strong>, Caspian Appliance Repair has been Canadians&rsquo; go-to service for fridges, washers, dryers, dishwashers, ovens, stoves, and gas appliances. From our Hamilton roots, we&rsquo;ve grown to serve <strong>30+ Ontario cities</strong> through our network of TSSA-licensed partner technicians.</p>
             <p>What sets us apart: <strong>real people answer every call from 7 AM to 11 PM</strong> &mdash; no voicemail, no overseas call centers. Our 8-agent live team books your appointment fast, our technicians arrive on time, and every repair carries a <strong>90-day parts and labour warranty</strong>.</p>
-            <p>BBB A Accredited. Rated &#9733;4.8 by 220+ Google reviewers. Trusted by Canadian families since 2009.</p>
+            <p>BBB A Accredited. Rated &#9733;4.7 by 220+ Google reviewers. Trusted by Canadian families for 15+ years.</p>
             <a href="<?php echo esc_url($about_url); ?>" class="caspian-about-cta">Learn More About Caspian &rarr;</a>
         </div>
     </section>

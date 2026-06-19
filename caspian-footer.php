@@ -228,7 +228,7 @@ add_action('astra_footer_after', function() {
 
         <div class="caspian-footer-trust">
             <div class="caspian-footer-trust-inner">
-                <div class="caspian-footer-badge">&#9733;4.8 / 220+ Google Reviews</div>
+                <div class="caspian-footer-badge">&#9733;4.7 / 220+ Google Reviews</div>
                 <div class="caspian-footer-badge">BBB A Accredited</div>
                 <div class="caspian-footer-badge">TSSA-Licensed Partners</div>
                 <div class="caspian-footer-badge">WSIB Covered</div>

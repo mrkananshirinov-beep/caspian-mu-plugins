@@ -323,7 +323,7 @@ add_filter( 'the_content', function( $content ) {
 			<ul class="cb-blog-hero-pills">
 				<li>Local Technicians</li>
 				<li>BBB A Accredited</li>
-				<li>★4.8 / 220+ Google Reviews</li>
+				<li>★4.7 / 220+ Google Reviews</li>
 				<li>15+ Years Experience</li>
 				<li>90-Day Warranty</li>
 			</ul>
@@ -752,7 +752,7 @@ function caspian_blog_get_articles() {
 			'faq'      => [
 				[ 'q' => 'Are local technicians as qualified as national chains?', 'a' => 'Yes. Our technicians are experienced and, for gas work, TSSA-licensed. Local does not mean less qualified, it often means more attentive service.' ],
 				[ 'q' => 'Do local technicians repair all brands?', 'a' => 'Yes. Our team services all major appliance brands, with model-specific expertise across our brand pages.' ],
-				[ 'q' => 'How do I know a local service is trustworthy?', 'a' => 'Look for verified reviews and accreditation. We maintain a 4.8 star rating across 220+ Google reviews and hold BBB A accreditation.' ],
+				[ 'q' => 'How do I know a local service is trustworthy?', 'a' => 'Look for verified reviews and accreditation. We maintain a 4.7 star rating across 220+ Google reviews and hold BBB A accreditation.' ],
 			],
 		],
 	];
@@ -926,7 +926,7 @@ add_action( 'template_redirect', function() {
 					<ul>
 						<li>Local Technicians</li>
 						<li>BBB A Accredited</li>
-						<li>★4.8 / 220+ Reviews</li>
+						<li>★4.7 / 220+ Reviews</li>
 						<li>15+ Years Experience</li>
 						<li>90-Day Warranty</li>
 					</ul>

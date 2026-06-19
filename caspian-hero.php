@@ -13,7 +13,7 @@ add_action('astra_header_after', function() {
         <div class="caspian-hero-content">
             <h1 class="caspian-hero-h1">Same-day appliance repair in Hamilton &mdash; and across 30+ Ontario cities</h1>
             <ul class="caspian-hero-bullets">
-                <li><span class="caspian-hero-bullet-icon">&#9733;</span> 4.8 / 220+ Google Reviews</li>
+                <li><span class="caspian-hero-bullet-icon">&#9733;</span> 4.7 / 220+ Google Reviews</li>
                 <li><span class="caspian-hero-bullet-icon">&#10003;</span> BBB A Accredited</li>
                 <li><span class="caspian-hero-bullet-icon">&#10003;</span> Locally Trusted &mdash; 15+ Years</li>
                 <li><span class="caspian-hero-bullet-icon">&#10003;</span> 90-Day Parts &amp; Labour Warranty</li>

@@ -25,7 +25,7 @@ add_filter( 'the_content', function( $content ) {
 				<h1>Contact Caspian Appliance Repair</h1>
 				<p class="ccp-hero-sub">Real people answer — live agents 7AM&ndash;11PM, no voicemail. Tell us what broke and we&rsquo;ll arrange a technician visit, often the same day.</p>
 				<ul class="ccp-hero-bullets">
-					<li><span class="ccp-tick">&#10003;</span> &#9733; 4.8 / 220+ Google Reviews</li>
+					<li><span class="ccp-tick">&#10003;</span> &#9733; 4.7 / 220+ Google Reviews</li>
 					<li><span class="ccp-tick">&#10003;</span> BBB A Accredited</li>
 					<li><span class="ccp-tick">&#10003;</span> 90-Day Parts &amp; Labour Warranty</li>
 					<li><span class="ccp-tick">&#10003;</span> Serving 30+ Ontario Cities</li>

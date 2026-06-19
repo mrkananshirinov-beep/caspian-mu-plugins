@@ -397,7 +397,7 @@ add_filter( 'the_content', function( $content ) {
                         <h1>Same-Day Fisher &amp; Paykel Appliance Repair in 30+ Ontario Cities</h1>
                         <p class="subtitle">DishDrawer dishwashers, ActiveSmart refrigeration, and intuitive cooking and laundry. We're the Ontario specialists for Fisher &amp; Paykel's unique New Zealand engineering. Local technicians, same-day service, 90-day warranty.</p>
                         <ul class="cb-hero-bullets">
-                                <li>&#9733;4.8 / 220+ Google Reviews</li>
+                                <li>&#9733;4.7 / 220+ Google Reviews</li>
                                 <li>BBB A Accredited</li>
                                 <li>15+ Years Experience</li>
                                 <li>90-Day Parts &amp; Labour Warranty</li>
@@ -514,9 +514,9 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cb-why-inner">
                                 <p class="cb-why-kicker">Why Caspian</p>
                                 <h2>15+ Years of Fisher &amp; Paykel Appliance Repair Across Ontario</h2>
-                                <p class="cb-why-lead">Headquartered in Hamilton, we service Fisher &amp; Paykel appliances across 30+ Ontario cities — with local technicians who live and work in your area, so the person diagnosing your DishDrawer or ActiveSmart fridge is from your part of Ontario, not dispatched hours away. BBB A Accredited. Over 220 verified Google reviews averaging <span class="star">&#9733;</span>4.8. Our 8-person live call centre answers seven days a week from 7am to 11pm, so you reach a real person — never a voicemail — when a Fisher &amp; Paykel breakdown can't wait.</p>
+                                <p class="cb-why-lead">Headquartered in Hamilton, we service Fisher &amp; Paykel appliances across 30+ Ontario cities — with local technicians who live and work in your area, so the person diagnosing your DishDrawer or ActiveSmart fridge is from your part of Ontario, not dispatched hours away. BBB A Accredited. Over 220 verified Google reviews averaging <span class="star">&#9733;</span>4.7. Our 8-person live call centre answers seven days a week from 7am to 11pm, so you reach a real person — never a voicemail — when a Fisher &amp; Paykel breakdown can't wait.</p>
                                 <div class="cb-why-stats">
-                                        <div class="cb-why-stat"><span class="v">&#9733;4.8</span><span class="l">220+ Google Reviews</span></div>
+                                        <div class="cb-why-stat"><span class="v">&#9733;4.7</span><span class="l">220+ Google Reviews</span></div>
                                         <div class="cb-why-stat"><span class="v">A</span><span class="l">BBB Accredited</span></div>
                                         <div class="cb-why-stat"><span class="v">2009</span><span class="l">In appliance repair market since</span></div>
                                         <div class="cb-why-stat"><span class="v">90-Day</span><span class="l">Parts &amp; Labour Warranty</span></div>

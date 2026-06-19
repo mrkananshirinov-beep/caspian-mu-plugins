@@ -400,7 +400,7 @@ add_filter( 'wpseo_metadesc', function( $desc ) {
     global $caspian_matrix_ctx;
     if ( ! $caspian_matrix_ctx ) return $desc;
     return sprintf(
-        'Same-day %s repair in %s by local technicians. All major brands. BBB A Accredited, ★4.8/220+ Google Reviews. 90-day warranty. Call (416) 732-5905.',
+        'Same-day %s repair in %s by local technicians. All major brands. BBB A Accredited, ★4.7/220+ Google Reviews. 90-day warranty. Call (416) 732-5905.',
         strtolower( $caspian_matrix_ctx['svc']['label'] ),
         $caspian_matrix_ctx['city_name']
     );
@@ -923,7 +923,7 @@ function caspian_matrix_render( $ctx ) {
             <p class="cmx-subtitle">Same-day <?php echo esc_html( $applow ); ?> service across <?php echo esc_html( $city_name ); ?> and surrounding areas. All major brands. Quality out-of-warranty repairs by experienced technicians.</p>
             <ul class="cmx-trust-pills">
                 <li>BBB A Accredited</li>
-                <li>★ 4.8 / 220+ Google Reviews</li>
+                <li>★ 4.7 / 220+ Google Reviews</li>
                 <li>15+ Years of Service</li>
                 <li>90-Day Parts &amp; Labour Warranty</li>
             </ul>
@@ -967,7 +967,7 @@ function caspian_matrix_render( $ctx ) {
                 </div>
                 <div class="cmx-stat-card">
                     <p class="cmx-stat-num">220+</p>
-                    <p class="cmx-stat-label">★ 4.8 Google Reviews</p>
+                    <p class="cmx-stat-label">★ 4.7 Google Reviews</p>
                 </div>
                 <div class="cmx-stat-card">
                     <p class="cmx-stat-num">BBB A</p>

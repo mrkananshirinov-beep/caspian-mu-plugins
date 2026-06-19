@@ -76,11 +76,11 @@ function caspian_team_homepage_block() {
         <div class="csteam-block-inner">
             <div class="csteam-grid">
                 <div class="csteam-photo">
-                    <img src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo_alt); ?>" loading="lazy" decoding="async">
+                    <?php echo wp_get_attachment_image( 174, "large", false, array( "alt" => $photo_alt, "loading" => "lazy", "decoding" => "async", "sizes" => "(max-width: 921px) 90vw, 560px" ) ); ?>
                 </div>
                 <div class="csteam-text">
                     <h2>Real Caspian Technicians</h2>
-                    <p class="csteam-intro">The team that shows up at your door &mdash; not a dispatcher, not a subcontractor. Caspian has trained and dispatched its own in-house technicians since 2009, with crews living and working in every Ontario city we serve.</p>
+                    <p class="csteam-intro">The team that shows up at your door &mdash; not a dispatcher, not a subcontractor. Caspian has trained and dispatched its own in-house technicians for 15+ years, with crews living and working in every Ontario city we serve.</p>
                     <ul class="csteam-bullets">
                         <li><span class="csteam-bullet-check">&#10003;</span> Local technicians in every city we serve</li>
                         <li><span class="csteam-bullet-check">&#10003;</span> In-house appliance technicians + TSSA-licensed gas partners</li>
@@ -92,7 +92,7 @@ function caspian_team_homepage_block() {
             <div class="csteam-stats">
                 <div class="csteam-stat">
                     <div class="csteam-stat-icon">&#9733;</div>
-                    <div class="csteam-stat-value">4.8 / 220+</div>
+                    <div class="csteam-stat-value">4.7 / 220+</div>
                     <div class="csteam-stat-label">Google Reviews</div>
                 </div>
                 <div class="csteam-stat">
@@ -140,7 +140,7 @@ function caspian_team_footer_strip() {
     <div class="csteam-fstrip">
         <div class="csteam-fstrip-inner">
             <div class="csteam-fstrip-photo">
-                <img src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo_alt); ?>" loading="lazy" decoding="async">
+                <?php echo wp_get_attachment_image( 174, "large", false, array( "alt" => $photo_alt, "loading" => "lazy", "decoding" => "async", "sizes" => "(max-width: 921px) 90vw, 560px" ) ); ?>
             </div>
             <div class="csteam-fstrip-text">
                 <strong>Real Caspian technicians</strong>

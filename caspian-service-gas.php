@@ -404,9 +404,9 @@ add_filter( 'the_content', function( $content ) {
 			<h1>Gas Appliance Repair in Hamilton — TSSA-Licensed</h1>
 			<p class="subtitle">Gas dryers, gas ovens, gas cooktops, and gas ranges. Performed by certified TSSA-licensed partner technicians, in full compliance with Ontario regulations.</p>
 			<ul class="cg-hero-bullets">
-				<li>★4.8 / 220+ Google Reviews</li>
+				<li>★4.7 / 220+ Google Reviews</li>
 				<li>BBB A Accredited</li>
-				<li>Since 2009 (15+ years)</li>
+				<li>15+ Years Experience</li>
 				<li>90-Day Parts &amp; Labour Warranty</li>
 				<li>TSSA-Licensed Partner Technicians</li>
 			</ul>
@@ -428,7 +428,7 @@ add_filter( 'the_content', function( $content ) {
 		<section class="cg-section cg-types">
 			<div class="cg-inner">
 				<h2>Gas Appliances We Service</h2>
-				<p class="cg-section-lead">Caspian Appliance Repair has been a trusted name in the appliance repair industry since 2009. Every gas appliance below is dispatched to TSSA-licensed partner technicians.</p>
+				<p class="cg-section-lead">Caspian Appliance Repair has been a trusted name in the appliance repair industry for 15+ years. Every gas appliance below is dispatched to TSSA-licensed partner technicians.</p>
 				<div class="cg-types-grid">
 					<div class="cg-type-card">
 						<h3>Gas Dryers</h3>
@@ -553,7 +553,7 @@ add_filter( 'the_content', function( $content ) {
 				<div class="cg-trust-badges">
 					<div class="cg-trust-badge">
 						<span class="label">Google Reviews</span>
-						<span class="value">★4.8 / 220+</span>
+						<span class="value">★4.7 / 220+</span>
 					</div>
 					<div class="cg-trust-badge">
 						<span class="label">BBB</span>
@@ -561,7 +561,7 @@ add_filter( 'the_content', function( $content ) {
 					</div>
 					<div class="cg-trust-badge">
 						<span class="label">Established</span>
-						<span class="value">Since 2009</span>
+						<span class="value">15+ Years</span>
 					</div>
 					<div class="cg-trust-badge">
 						<span class="label">Warranty</span>

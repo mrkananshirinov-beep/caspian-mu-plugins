@@ -94,7 +94,7 @@ add_action('astra_header_after', function() {
                 <h2>What Our Customers Across Ontario Say</h2>
                 <div class="caspian-reviews-rating">
                     <span class="stars">★★★★★</span>
-                    <span>4.8 / 220+ Google Reviews</span>
+                    <span>4.7 / 220+ Google Reviews</span>
                 </div>
             </div>
 

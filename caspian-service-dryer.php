@@ -178,7 +178,7 @@ function caspian_dryer_render($content) {
             <h1>Same-Day Dryer Repair in 30+ Ontario Cities</h1>
             <p class="lead">Same-day service for electric and gas dryers. 90-day parts &amp; labour warranty. Live agents 7am&ndash;11pm, never voicemail.</p>
             <div class="csd-hero-trust">
-                <span><strong>&#9733;4.8</strong> / 220+ Reviews</span>
+                <span><strong>&#9733;4.7</strong> / 220+ Reviews</span>
                 <span><strong>BBB A</strong> Accredited</span>
                 <span><strong>15+ Years</strong> Experience</span>
                 <span><strong>90-Day</strong> Warranty</span>
@@ -346,11 +346,11 @@ function caspian_dryer_render($content) {
     <div class="csd-section-inner">
         <p class="kicker">Why Caspian</p>
         <h2>15+ Years of Dryer Repair Across Ontario</h2>
-        <p class="intro">Caspian has worked in the appliance repair market since 2009, with technicians who live and work in the areas they serve &mdash; so the person fixing your dryer is from your part of Ontario, not dispatched from across the province. We focus on out-of-warranty repairs for homeowners who want their existing dryer fixed properly and quickly. BBB A Accredited. Over 220 verified Google reviews averaging &#9733;4.8. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, the GTA, the Waterloo region, and the Brant area (Brantford). Many of our calls are washer-and-dryer pairs &mdash; we also handle <a href="/washing-machine-repair/">washing machine repair</a> on the same visit.</p>
+        <p class="intro">Caspian has worked in the appliance repair market since 2009, with technicians who live and work in the areas they serve &mdash; so the person fixing your dryer is from your part of Ontario, not dispatched from across the province. We focus on out-of-warranty repairs for homeowners who want their existing dryer fixed properly and quickly. BBB A Accredited. Over 220 verified Google reviews averaging &#9733;4.7. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, the GTA, the Waterloo region, and the Brant area (Brantford). Many of our calls are washer-and-dryer pairs &mdash; we also handle <a href="/washing-machine-repair/">washing machine repair</a> on the same visit.</p>
 
         <div class="csd-trust-grid">
             <div class="csd-trust-card">
-                <span class="num">&#9733;4.8</span>
+                <span class="num">&#9733;4.7</span>
                 <span class="lbl">220+ Google Reviews</span>
             </div>
             <div class="csd-trust-card">

@@ -168,7 +168,7 @@ body.page-id-58 { overflow-x:clip; }
             <h1>Appliance Repair Services in Hamilton &amp; 30+ Ontario Cities</h1>
             <p class="lead">Fast, professional repair for every major appliance &mdash; fridge, washer, dryer, dishwasher, oven, stove, freezer and gas. Local Caspian technicians, same-day diagnosis, and a 90-day parts &amp; labour warranty.</p>
             <div class="svp-hero-trust">
-                <span><strong>★4.8</strong> / 220+ Reviews</span>
+                <span><strong>★4.7</strong> / 220+ Reviews</span>
                 <span><strong>BBB A</strong> Accredited</span>
                 <span><strong>Local Technicians</strong> · 30+ Cities</span>
                 <span><strong>90-Day</strong> Warranty</span>
@@ -217,7 +217,7 @@ body.page-id-58 { overflow-x:clip; }
                 </div>
                 <div class="svp-why-card">
                     <h4>90-Day Warranty</h4>
-                    <p>Every repair is backed by a 90-day parts &amp; labour warranty. BBB A Accredited, ★4.8 / 220+ reviews.</p>
+                    <p>Every repair is backed by a 90-day parts &amp; labour warranty. BBB A Accredited, ★4.7 / 220+ reviews.</p>
                 </div>
             </div>
         </div>
