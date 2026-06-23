@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian Contact Page
  * Description: Renders the full Contact page (ID 12) — hero, contact info cards, callback form, CTA-final.
- * Version: 1.0
+ * Version: 1.1
  */
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -23,7 +23,7 @@ add_filter( 'the_content', function( $content ) {
 		<section class="ccp-hero">
 			<div class="ccp-wrap">
 				<h1>Contact Caspian Appliance Repair</h1>
-				<p class="ccp-hero-sub">Real people answer — live agents 7AM&ndash;11PM, no voicemail. Tell us what broke and we&rsquo;ll arrange a technician visit, often the same day.</p>
+				<p class="ccp-hero-sub">Real people answer — live agents 7AM&ndash;7PM, no voicemail. Tell us what broke and we&rsquo;ll arrange a technician visit, often the same day.</p>
 				<ul class="ccp-hero-bullets">
 					<li><span class="ccp-tick">&#10003;</span> &#9733; 4.7 / 220+ Google Reviews</li>
 					<li><span class="ccp-tick">&#10003;</span> BBB A Accredited</li>
@@ -57,8 +57,8 @@ add_filter( 'the_content', function( $content ) {
 					<div class="ccp-card">
 						<div class="ccp-card-ico">&#128337;</div>
 						<h3>Hours</h3>
-						<p>Mon&ndash;Sat: 7AM&ndash;11PM<br>Sun: 9AM&ndash;5PM</p>
-						<p class="ccp-card-note">Open 7 days a week, including evenings.</p>
+						<p>Mon&ndash;Sat: 7AM&ndash;7PM<br>Sun: 9AM&ndash;5PM</p>
+						<p class="ccp-card-note">Open Monday to Saturday, 7 AM to 7 PM. Closed Sundays.</p>
 					</div>
 					<div class="ccp-card">
 						<div class="ccp-card-ico">&#128205;</div>
@@ -76,6 +76,7 @@ add_filter( 'the_content', function( $content ) {
 				<h2>Request a Callback</h2>
 				<p class="ccp-form-sub">Leave your details and one of our agents will call you back within 5&ndash;30 minutes during business hours.</p>
 				<?php echo $form; ?>
+				<p class="ccp-tssa-note">Gas appliance repairs performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.</p>
 			</div>
 		</section>
 
@@ -115,10 +116,12 @@ add_action( 'wp_head', function() {
 	.ccp-hero-bullets li{color:#ffffff !important;font-weight:600;margin:0 !important;padding:0 !important}
 	.ccp-tick{color:#F4B942;margin-right:6px}
 	.ccp-hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-	.ccp-btn-call,.ccp-btn-book{display:inline-flex;justify-content:center;align-items:center;min-width:180px;padding:14px 26px;border-radius:8px;font-weight:700;font-size:17px;text-decoration:none !important;color:#ffffff !important}
-	.ccp-btn-call{background:#16a34a}
-	.ccp-btn-book{background:#D52B1E}
-	.ccp-btn-call:hover,.ccp-btn-book:hover{opacity:.92;color:#ffffff !important}
+	.ccp-btn-call,.ccp-btn-book{display:inline-flex;justify-content:center;align-items:center;min-width:180px;padding:14px 26px;border-radius:8px;font-weight:700;font-size:17px;text-decoration:none !important}
+	/* Brand CTAs: primary "Book Online" = gold; secondary "Call Now" = white on dark hero */
+	.ccp-btn-book{background:#F4B942;color:#062963 !important}
+	.ccp-btn-book:hover{background:#e9a830;color:#062963 !important}
+	.ccp-btn-call{background:#ffffff;color:#062963 !important;border:2px solid #ffffff}
+	.ccp-btn-call:hover{background:#EBF1FA;color:#062963 !important}
 
 	/* INFO CARDS */
 	.ccp-info{padding:56px 0;background:#ffffff}
@@ -140,14 +143,20 @@ add_action( 'wp_head', function() {
 	.cc-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 	.cc-form-grid p{margin:0}
 	.cc-form-grid .wpcf7-form-control-wrap{display:block}
-	.cc-form-grid input[type=text],.cc-form-grid input[type=tel],.cc-form-grid select,.cc-form-grid textarea{width:100%;padding:13px 14px;border:1px solid #c7d2e3;border-radius:8px;font-size:16px;background:#ffffff;box-sizing:border-box}
+	.cc-form-grid input[type=text],.cc-form-grid input[type=tel],.cc-form-grid input[type=date],.cc-form-grid select,.cc-form-grid textarea{width:100%;padding:13px 14px;border:1px solid #c7d2e3;border-radius:8px;font-size:16px;background:#ffffff;box-sizing:border-box}
 	.cc-form-grid textarea{min-height:110px;grid-column:1/-1}
-	.cc-form-grid input[type=submit]{grid-column:1/-1;background:#16a34a;color:#ffffff;border:none;border-radius:8px;padding:15px 26px;font-size:17px;font-weight:700;cursor:pointer;width:100%}
-	.cc-form-grid input[type=submit]:hover{opacity:.92}
+	/* Optional preferred date/time labels */
+	.cc-form-grid label.cc-flabel{display:block;font-size:13px;font-weight:600;color:#4b5563;margin:0}
+	.cc-form-grid label.cc-flabel span{font-weight:400;color:#8a97a8}
+	.cc-form-grid label.cc-flabel .wpcf7-form-control-wrap{margin-top:6px}
+	/* GOLD brand submit (matches homepage hero submit) */
+	.cc-form-grid input[type=submit]{grid-column:1/-1;background:#F4B942;color:#062963;border:none;border-radius:8px;padding:15px 26px;font-size:17px;font-weight:700;cursor:pointer;width:100%}
+	.cc-form-grid input[type=submit]:hover{background:#e9a830}
 	/* CF7 wraps each field in its own block; make wraps span correctly */
 	.cc-form-grid > .wpcf7-form-control-wrap[data-name="your-message"]{grid-column:1/-1}
 	.ccp-form-sec .wpcf7-response-output{grid-column:1/-1;border-radius:8px;margin:14px 0 0;padding:12px 16px}
 	.ccp-form-sec .wpcf7-not-valid-tip{font-size:13px;color:#D52B1E}
+	.ccp-tssa-note{max-width:760px;margin:18px auto 0;font-size:13px;color:#5b6a82;text-align:center;line-height:1.5}
 
 	/* CTA FINAL */
 	.ccp-cta{background:linear-gradient(135deg,#062963 0%,#041d44 100%);padding:56px 0;text-align:center}
@@ -192,13 +201,7 @@ add_action( 'wp_head', function() {
 					'@type' => 'OpeningHoursSpecification',
 					'dayOfWeek' => array( 'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday' ),
 					'opens' => '07:00',
-					'closes' => '23:00',
-				),
-				array(
-					'@type' => 'OpeningHoursSpecification',
-					'dayOfWeek' => array( 'Sunday' ),
-					'opens' => '09:00',
-					'closes' => '17:00',
+					'closes' => '19:00',
 				),
 			),
 		),
