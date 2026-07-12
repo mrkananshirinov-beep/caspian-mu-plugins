@@ -2,7 +2,12 @@
 /**
  * Plugin Name: Caspian Site Footer
  * Description: Block 12 - Site-wide dark sapphire footer with 4 columns, trust strip, copyright, payment badges
- * Version: 1.4
+ * Version: 1.5
+ * Changes in v1.5:
+ *   - Added a "Housecall Pro" reviews badge beside the HomeStars badge in the seals row.
+ *     Links to the live public HCP reviews page (client.housecallpro.com reviews widget)
+ *     and shows the real rating (4.8/5, 40 reviews at time of adding). Same lightweight
+ *     CSS badge pattern as HomeStars - no third-party script. Revisit rating if it moves.
  * Changes in v1.4:
  *   - Service Areas city list rebalanced to a major-market regional spread
  *     (Hamilton, Burlington, Oakville, Niagara Falls, Kitchener, Markham,
@@ -117,6 +122,9 @@ add_action('astra_footer_after', function() {
     .caspian-hs-l1 b { color:#7AC943; font-weight:700; }
     .caspian-hs-l2 { color:#cce2f5; font-size:11px; margin-top:2px; }
     .caspian-hs-l2 .star { color:#F4B942; }
+    /* v1.5 - Housecall Pro reviews badge (reuses .caspian-hs-badge shell) */
+    .caspian-hcp-mark { background:#2E80D1; font-size:12px; }
+    .caspian-hs-l1 b.caspian-hcp-name { color:#7BC4F0; }
     .caspian-footer-bottom {
         background:rgba(0, 0, 0, 0.3); padding:20px 24px;
         border-top:1px solid rgba(123, 196, 240, 0.1);
@@ -174,7 +182,7 @@ add_action('astra_footer_after', function() {
                     </div>
                     <p class="caspian-footer-tagline">Hamilton-headquartered appliance repair. Serving 30+ Ontario cities — 15+ years experience.</p>
                     <a href="tel:+14167325905" class="caspian-footer-phone">(416) 732-5905</a>
-                    <p class="caspian-footer-hours">Mon to Sat: 7 AM to 11 PM<br>Sun: 9 AM to 5 PM</p>
+                    <p class="caspian-footer-hours">Mon to Sat: 7 AM to 7 PM<br>Sun: Closed</p>
                 </div>
 
                 <div class="caspian-footer-col col-services">
@@ -229,8 +237,8 @@ add_action('astra_footer_after', function() {
         <div class="caspian-footer-trust">
             <div class="caspian-footer-trust-inner">
                 <div class="caspian-footer-badge">&#9733;4.7 / 220+ Google Reviews</div>
-                <div class="caspian-footer-badge">BBB A Accredited</div>
-                <div class="caspian-footer-badge">TSSA-Licensed Partners</div>
+                <div class="caspian-footer-badge">BBB A+ Accredited</div>
+                <div class="caspian-footer-badge">TSSA-Registered FS-R-53597</div>
                 <div class="caspian-footer-badge">WSIB Covered</div>
                 <div class="caspian-footer-badge">90-Day Parts &amp; Labour Warranty</div>
             </div>
@@ -241,6 +249,13 @@ add_action('astra_footer_after', function() {
                     <span class="caspian-hs-txt">
                         <span class="caspian-hs-l1">Verified by <b>HomeStars</b></span>
                         <span class="caspian-hs-l2"><span class="star">&#9733;</span> 4.9 / 5</span>
+                    </span>
+                </a>
+                <a class="caspian-hs-badge" href="https://client.housecallpro.com/reviews/widget/93e5413e-4665-4412-8578-b28454b0b171" target="_blank" rel="nofollow" aria-label="Rated 4.8 out of 5 by customers on Housecall Pro">
+                    <span class="caspian-hs-check caspian-hcp-mark">H</span>
+                    <span class="caspian-hs-txt">
+                        <span class="caspian-hs-l1">Reviews on <b class="caspian-hcp-name">Housecall Pro</b></span>
+                        <span class="caspian-hs-l2"><span class="star">&#9733;</span> 4.8 / 5</span>
                     </span>
                 </a>
             </div>
