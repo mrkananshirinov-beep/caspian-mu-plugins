@@ -2,7 +2,10 @@
 /**
  * Plugin Name: Caspian Site Footer
  * Description: Block 12 - Site-wide dark sapphire footer with 4 columns, trust strip, copyright, payment badges
- * Version: 1.7
+ * Version: 1.8
+ * Changes in v1.8:
+ *   - Facebook icon visibility fix: SVG fill white (was light water blue, too dim on
+ *     the dark footer), circle background raised to 0.14 alpha. Hover stays gold.
  * Changes in v1.7:
  *   - Facebook link updated to the new official "Caspian Appliance Repair" Page
  *     (profile.php?id=61592022714487). Old "Caspian Appliance Service" page is
@@ -78,12 +81,12 @@ add_action('astra_footer_after', function() {
     .caspian-footer-social a {
         display:flex; align-items:center; justify-content:center;
         width:36px; height:36px; border-radius:50%;
-        background:rgba(255, 255, 255, 0.08);
-        border:1px solid rgba(123, 196, 240, 0.3);
+        background:rgba(255, 255, 255, 0.14);
+        border:1px solid rgba(255, 255, 255, 0.35);
         transition:background 0.2s ease, border-color 0.2s ease;
     }
-    .caspian-footer-social a:hover { background:rgba(255, 255, 255, 0.16); border-color:#F4B942; }
-    .caspian-footer-social svg { width:17px; height:17px; fill:#7BC4F0; }
+    .caspian-footer-social a:hover { background:rgba(255, 255, 255, 0.24); border-color:#F4B942; }
+    .caspian-footer-social svg { width:17px; height:17px; fill:#fff; }
     .caspian-footer-social a:hover svg { fill:#F4B942; }
     .caspian-footer-col h4 {
         color:#fff; font-size:14px; font-weight:700;
