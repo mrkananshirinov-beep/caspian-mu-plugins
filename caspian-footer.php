@@ -2,7 +2,15 @@
 /**
  * Plugin Name: Caspian Site Footer
  * Description: Block 12 - Site-wide dark sapphire footer with 4 columns, trust strip, copyright, payment badges
- * Version: 1.5
+ * Version: 1.7
+ * Changes in v1.7:
+ *   - Facebook link updated to the new official "Caspian Appliance Repair" Page
+ *     (profile.php?id=61592022714487). Old "Caspian Appliance Service" page is
+ *     inaccessible/legacy and reported; do not link to it anywhere.
+ * Changes in v1.6:
+ *   - Added a "Follow us" Facebook icon link in the brand column (under hours).
+ *     Links to the live Facebook page. Inline SVG icon, CSS circle button matching
+ *     the seals-row badge style. No third-party script.
  * Changes in v1.5:
  *   - Added a "Housecall Pro" reviews badge beside the HomeStars badge in the seals row.
  *     Links to the live public HCP reviews page (client.housecallpro.com reviews widget)
@@ -65,6 +73,18 @@ add_action('astra_footer_after', function() {
     }
     .caspian-footer-phone:hover { color:#fff; }
     .caspian-footer-hours { color:#b8d0eb; font-size:13px; line-height:1.6; margin:0; }
+    /* v1.6 - social row (Facebook) */
+    .caspian-footer-social { display:flex; align-items:center; gap:10px; margin-top:18px; }
+    .caspian-footer-social a {
+        display:flex; align-items:center; justify-content:center;
+        width:36px; height:36px; border-radius:50%;
+        background:rgba(255, 255, 255, 0.08);
+        border:1px solid rgba(123, 196, 240, 0.3);
+        transition:background 0.2s ease, border-color 0.2s ease;
+    }
+    .caspian-footer-social a:hover { background:rgba(255, 255, 255, 0.16); border-color:#F4B942; }
+    .caspian-footer-social svg { width:17px; height:17px; fill:#7BC4F0; }
+    .caspian-footer-social a:hover svg { fill:#F4B942; }
     .caspian-footer-col h4 {
         color:#fff; font-size:14px; font-weight:700;
         text-transform:uppercase; letter-spacing:1px; margin:0 0 16px;
@@ -183,6 +203,11 @@ add_action('astra_footer_after', function() {
                     <p class="caspian-footer-tagline">Hamilton-headquartered appliance repair. Serving 30+ Ontario cities — 15+ years experience.</p>
                     <a href="tel:+14167325905" class="caspian-footer-phone">(416) 732-5905</a>
                     <p class="caspian-footer-hours">Mon to Sat: 7 AM to 7 PM<br>Sun: Closed</p>
+                    <div class="caspian-footer-social">
+                        <a href="https://www.facebook.com/profile.php?id=61592022714487" target="_blank" rel="nofollow noopener" aria-label="Caspian Appliance Repair on Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.78-3.91 1.09 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.43-4.92 8.43-9.94z"/></svg>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="caspian-footer-col col-services">
