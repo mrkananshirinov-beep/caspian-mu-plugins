@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian Page - Gas Services (TSSA Portfolio)
  * Description: Renders /gas-services/ page (ID 223) — full TSSA gas services portfolio (residential + commercial gas), FAQ schema, locked design.
- * Version: 1.5
+ * Version: 1.6
  * Author: Caspian Build
  */
 
