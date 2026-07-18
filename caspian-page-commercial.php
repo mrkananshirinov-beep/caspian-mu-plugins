@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian Page - Commercial Appliance Repair
  * Description: Renders /commercial-appliance-repair/ page (ID 224) — B2B commercial appliance + commercial gas services, FAQ schema, locked design. Includes top-priority rewrite rule so the city CPT regex does not intercept the slug.
- * Version: 1.5
+ * Version: 1.6
  * Author: Caspian Build
  */
 
