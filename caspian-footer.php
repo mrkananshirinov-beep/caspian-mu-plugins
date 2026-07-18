@@ -2,7 +2,11 @@
 /**
  * Plugin Name: Caspian Site Footer
  * Description: Block 12 - Site-wide dark sapphire footer with 4 columns, trust strip, copyright, payment badges
- * Version: 1.9
+ * Version: 2.0
+ * Changes in v2.0:
+ *   - Google reviews count synced to 230+ (matches site-wide rolling display).
+ *   - Added "Gas Services" link (/gas-services/) under Appliance Services column.
+ *   - Added "Commercial Repair" link (/commercial-appliance-repair/) under Company column.
  * Changes in v1.9:
  *   - Added Instagram icon (instagram.com/caspianappliance) next to the Facebook
  *     icon in the brand-column social row. Same white-on-circle style.
@@ -230,6 +234,7 @@ add_action('astra_footer_after', function() {
                         <li><a href="/stove-cooktop-repair/">Stove &amp; Cooktop Repair</a></li>
                         <li><a href="/freezer-repair/">Freezer Repair</a></li>
                         <li><a href="/gas-appliance-repair/">Gas Appliance Repair</a></li>
+                        <li><a href="/gas-services/">Gas Services</a></li>
                     </ul>
                 </div>
 
@@ -252,6 +257,7 @@ add_action('astra_footer_after', function() {
                     <h4>Company</h4>
                     <ul>
                         <li><a href="/about/">About Caspian</a></li>
+                        <li><a href="/commercial-appliance-repair/">Commercial Repair</a></li>
                         <li><a href="/faq/">FAQ</a></li>
                         <li><a href="/blog/">Blog</a></li>
                         <li><a href="/contact/">Contact</a></li>
@@ -270,7 +276,7 @@ add_action('astra_footer_after', function() {
 
         <div class="caspian-footer-trust">
             <div class="caspian-footer-trust-inner">
-                <div class="caspian-footer-badge">&#9733;4.7 / 220+ Google Reviews</div>
+                <div class="caspian-footer-badge">&#9733;4.7 / 230+ Google Reviews</div>
                 <div class="caspian-footer-badge">BBB A+ Accredited</div>
                 <div class="caspian-footer-badge">TSSA-Registered FS-R-53597</div>
                 <div class="caspian-footer-badge">WSIB Covered</div>
