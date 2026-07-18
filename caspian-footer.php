@@ -2,11 +2,11 @@
 /**
  * Plugin Name: Caspian Site Footer
  * Description: Block 12 - Site-wide dark sapphire footer with 4 columns, trust strip, copyright, payment badges
- * Version: 2.0
+ * Version: 2.1
  * Changes in v2.0:
  *   - Google reviews count synced to 230+ (matches site-wide rolling display).
  *   - Added "Gas Services" link (/gas-services/) under Appliance Services column.
- *   - Added "Commercial Repair" link (/commercial-appliance-repair/) under Company column.
+ *   - v2.1: Commercial Repair moved to Appliance Services column (under Gas Services).
  * Changes in v1.9:
  *   - Added Instagram icon (instagram.com/caspianappliance) next to the Facebook
  *     icon in the brand-column social row. Same white-on-circle style.
@@ -235,6 +235,7 @@ add_action('astra_footer_after', function() {
                         <li><a href="/freezer-repair/">Freezer Repair</a></li>
                         <li><a href="/gas-appliance-repair/">Gas Appliance Repair</a></li>
                         <li><a href="/gas-services/">Gas Services</a></li>
+                        <li><a href="/commercial-appliance-repair/">Commercial Repair</a></li>
                     </ul>
                 </div>
 
@@ -257,7 +258,6 @@ add_action('astra_footer_after', function() {
                     <h4>Company</h4>
                     <ul>
                         <li><a href="/about/">About Caspian</a></li>
-                        <li><a href="/commercial-appliance-repair/">Commercial Repair</a></li>
                         <li><a href="/faq/">FAQ</a></li>
                         <li><a href="/blog/">Blog</a></li>
                         <li><a href="/contact/">Contact</a></li>
