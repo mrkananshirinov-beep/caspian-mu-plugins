@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian Page - Commercial Appliance Repair
  * Description: Renders /commercial-appliance-repair/ page (ID 224) — B2B commercial appliance + commercial gas services, FAQ schema, locked design. Includes top-priority rewrite rule so the city CPT regex does not intercept the slug.
- * Version: 1.0
+ * Version: 1.5
  * Author: Caspian Build
  */
 
@@ -34,11 +34,11 @@ add_filter( 'the_content', function( $content ) {
 	.caspian-comm-page p { margin: 0 0 1em; }
 	.caspian-comm-page a { color: #0B3D91; }
 
-	.cca-hero { background: linear-gradient(135deg, #2E80D1 0%, #0B3D91 100%); padding: 70px 24px 80px; text-align: center; color: #fff; }
+	.cca-hero { background: linear-gradient(135deg, #0B3D91 0%, #062963 100%); padding: 70px 24px 80px; text-align: center; color: #fff; }
 	.cca-hero h1 { color: #fff !important; font-size: 42px; font-weight: 800; margin: 0 auto 14px; max-width: 900px; }
-	.cca-hero .subtitle { color: #b8d0eb !important; font-size: 19px; margin: 0 auto 28px; max-width: 780px; }
-	.cca-hero-bullets { list-style: none; padding: 0; margin: 0 auto 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; max-width: 940px; }
-	.cca-hero-bullets li { color: #7BC4F0 !important; font-weight: 600; font-size: 15px; white-space: nowrap; }
+	.cca-hero .subtitle { color: #ffffff !important; font-size: 18px; margin: 0 auto 28px; max-width: 780px; }
+	.cca-hero-bullets { list-style: none; padding: 0; margin: 0 auto 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; max-width: 1100px; }
+	.cca-hero-bullets li { color: #ffffff !important; font-weight: 600; font-size: 16px; white-space: nowrap; }
 	.cca-hero-bullets li::before { content: "\2713 "; color: #F4B942; font-weight: 700; }
 	.cca-hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 	.cca-btn { display: inline-block; min-width: 180px; padding: 14px 28px; font-weight: 700; font-size: 16px; text-align: center; text-decoration: none !important; border-radius: 6px; transition: background 0.18s; color: #fff !important; }
@@ -75,11 +75,11 @@ add_filter( 'the_content', function( $content ) {
 	.cca-why-card p { font-size: 15px; color: #555; margin-bottom: 0; }
 
 	.cca-trust { background: #fff; text-align: center; }
-	.cca-trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin: 0 auto 28px; }
-	.cca-trust-badge { min-width: 160px; }
+	.cca-trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 22px; margin: 0 auto 28px; }
+	.cca-trust-badge { min-width: 118px; }
 	.cca-trust-badge .label { display: block; color: #0B3D91; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
-	.cca-trust-badge .value { display: block; color: #062963; font-size: 22px; font-weight: 800; }
-	.cca-disclaimer { max-width: 760px; margin: 0 auto; font-size: 14px; color: #555; font-style: italic; }
+	.cca-trust-badge .value { display: block; color: #062963; font-size: 19px; font-weight: 800; }
+	.cca-disclaimer { max-width: 860px; margin: 0 auto; font-size: 14px; color: #444; background: #EBF1FA; border-left: 4px solid #F4B942; padding: 16px 22px; border-radius: 6px; text-align: left; }
 
 	.cca-faq-list { max-width: 860px; margin: 0 auto; }
 	.cca-faq-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 12px; overflow: hidden; }
@@ -102,7 +102,7 @@ add_filter( 'the_content', function( $content ) {
 		.cca-b2b-grid { grid-template-columns: 1fr; }
 		.cca-why-grid { grid-template-columns: 1fr; }
 		.cca-trust-badges { gap: 18px; }
-		.cca-trust-badge { min-width: 130px; }
+		.cca-trust-badge { min-width: 105px; }
 	}
 	@media (max-width: 520px) {
 		.cca-hero { padding: 50px 18px 60px; }
@@ -122,8 +122,7 @@ add_filter( 'the_content', function( $content ) {
 				<li>&#9733;4.7 / 230+ Google Reviews</li>
 				<li>BBB A+ Accredited</li>
 				<li>WSIB Covered &amp; Insured</li>
-				<li>TSSA-Registered Contractor FS-R-53597</li>
-				<li>Live Dispatch 7AM&ndash;11PM</li>
+				<li>Live Dispatch 7 AM&ndash;7 PM</li>
 			</ul>
 			<div class="cca-hero-ctas">
 				<a class="cca-btn cca-btn-call" href="tel:+14167325905">Call Now</a>
@@ -255,7 +254,7 @@ add_filter( 'the_content', function( $content ) {
 					</div>
 					<div class="cca-faq-item">
 						<div class="cca-faq-q">How fast can you respond?</div>
-						<div class="cca-faq-a">Our live dispatch answers 7AM to 11PM, 7 days a week. Same-day or next-day response is available in most service areas — priority scheduling can be arranged for ongoing commercial clients.</div>
+						<div class="cca-faq-a">Our live dispatch answers 7 AM to 7 PM, Monday to Saturday. Same-day or next-day response is available in most service areas — priority scheduling can be arranged for ongoing commercial clients.</div>
 					</div>
 					<div class="cca-faq-item">
 						<div class="cca-faq-q">How is pricing handled?</div>
@@ -272,9 +271,9 @@ add_filter( 'the_content', function( $content ) {
 		<!-- ============ CTA FINAL ============ -->
 		<section class="cca-cta-final">
 			<h3>Get a Reliable Commercial Service Partner</h3>
-			<p>One call for commercial appliances and registered gas work. Live dispatch 7AM&ndash;11PM, 7 days a week.</p>
+			<p>One call for commercial appliances and registered gas work. Live dispatch 7 AM&ndash;7 PM, Monday to Saturday.</p>
 			<div class="cca-cta-row">
-				<a class="cca-btn cca-btn-call" href="tel:+14167325905">Call (416) 732-5905</a>
+				<a class="cca-btn cca-btn-call" href="tel:+14167325905">Call Now</a>
 				<a class="cca-btn cca-btn-book" href="/contact/">Request Service</a>
 			</div>
 		</section>
@@ -318,7 +317,7 @@ add_action( 'wp_head', function() {
 		),
 		array(
 			'q' => 'How fast can you respond?',
-			'a' => 'Our live dispatch answers 7AM to 11PM, 7 days a week. Same-day or next-day response is available in most service areas — priority scheduling can be arranged for ongoing commercial clients.',
+			'a' => 'Our live dispatch answers 7 AM to 7 PM, Monday to Saturday. Same-day or next-day response is available in most service areas — priority scheduling can be arranged for ongoing commercial clients.',
 		),
 		array(
 			'q' => 'How is pricing handled?',

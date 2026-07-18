@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Caspian Page - Gas Services (TSSA Portfolio)
  * Description: Renders /gas-services/ page (ID 223) — full TSSA gas services portfolio (residential + commercial gas), FAQ schema, locked design.
- * Version: 1.0
+ * Version: 1.5
  * Author: Caspian Build
  */
 
@@ -22,11 +22,11 @@ add_filter( 'the_content', function( $content ) {
 	.caspian-gassvc-page p { margin: 0 0 1em; }
 	.caspian-gassvc-page a { color: #0B3D91; }
 
-	.cgs-hero { background: linear-gradient(135deg, #2E80D1 0%, #0B3D91 100%); padding: 70px 24px 80px; text-align: center; color: #fff; }
+	.cgs-hero { background: linear-gradient(135deg, #0B3D91 0%, #062963 100%); padding: 70px 24px 80px; text-align: center; color: #fff; }
 	.cgs-hero h1 { color: #fff !important; font-size: 42px; font-weight: 800; margin: 0 auto 14px; max-width: 880px; }
-	.cgs-hero .subtitle { color: #b8d0eb !important; font-size: 19px; margin: 0 auto 28px; max-width: 760px; }
-	.cgs-hero-bullets { list-style: none; padding: 0; margin: 0 auto 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px; max-width: 920px; }
-	.cgs-hero-bullets li { color: #7BC4F0 !important; font-weight: 600; font-size: 15px; white-space: nowrap; }
+	.cgs-hero .subtitle { color: #ffffff !important; font-size: 18px; margin: 0 auto 28px; max-width: 760px; }
+	.cgs-hero-bullets { list-style: none; padding: 0; margin: 0 auto 32px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; max-width: 1100px; }
+	.cgs-hero-bullets li { color: #ffffff !important; font-weight: 600; font-size: 16px; white-space: nowrap; }
 	.cgs-hero-bullets li::before { content: "\2713 "; color: #F4B942; font-weight: 700; }
 	.cgs-hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 	.cgs-btn { display: inline-block; min-width: 180px; padding: 14px 28px; font-weight: 700; font-size: 16px; text-align: center; text-decoration: none !important; border-radius: 6px; transition: background 0.18s; color: #fff !important; }
@@ -70,11 +70,11 @@ add_filter( 'the_content', function( $content ) {
 	.cgs-why-card p { font-size: 15px; color: #555; margin-bottom: 0; }
 
 	.cgs-trust { background: #fff; text-align: center; }
-	.cgs-trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 28px; margin: 0 auto 28px; }
-	.cgs-trust-badge { min-width: 160px; }
+	.cgs-trust-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 22px; margin: 0 auto 28px; }
+	.cgs-trust-badge { min-width: 118px; }
 	.cgs-trust-badge .label { display: block; color: #0B3D91; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 4px; }
-	.cgs-trust-badge .value { display: block; color: #062963; font-size: 22px; font-weight: 800; }
-	.cgs-disclaimer { max-width: 760px; margin: 0 auto; font-size: 14px; color: #555; font-style: italic; }
+	.cgs-trust-badge .value { display: block; color: #062963; font-size: 19px; font-weight: 800; }
+	.cgs-disclaimer { max-width: 860px; margin: 0 auto; font-size: 14px; color: #444; background: #EBF1FA; border-left: 4px solid #F4B942; padding: 16px 22px; border-radius: 6px; text-align: left; }
 
 	.cgs-faq-list { max-width: 860px; margin: 0 auto; }
 	.cgs-faq-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; margin-bottom: 12px; overflow: hidden; }
@@ -97,7 +97,7 @@ add_filter( 'the_content', function( $content ) {
 		.cgs-why-grid { grid-template-columns: 1fr; }
 		.cgs-safety-list { grid-template-columns: 1fr; }
 		.cgs-trust-badges { gap: 18px; }
-		.cgs-trust-badge { min-width: 130px; }
+		.cgs-trust-badge { min-width: 105px; }
 	}
 	@media (max-width: 520px) {
 		.cgs-hero { padding: 50px 18px 60px; }
@@ -118,7 +118,6 @@ add_filter( 'the_content', function( $content ) {
 				<li>BBB A+ Accredited</li>
 				<li>15+ Years Experience</li>
 				<li>90-Day Parts &amp; Labour Warranty</li>
-				<li>TSSA-Registered Contractor FS-R-53597</li>
 			</ul>
 			<div class="cgs-hero-ctas">
 				<a class="cgs-btn cgs-btn-call" href="tel:+14167325905">Call Now</a>
@@ -312,9 +311,9 @@ add_filter( 'the_content', function( $content ) {
 		<!-- ============ CTA FINAL ============ -->
 		<section class="cgs-cta-final">
 			<h3>Book Your Gas Service Today</h3>
-			<p>Live agents 7AM&ndash;11PM, 7 days a week. Registered contractor FS-R-53597. Leak testing on every job — no shortcuts.</p>
+			<p>Live agents 7 AM&ndash;7 PM, Monday to Saturday. Registered contractor FS-R-53597. Leak testing on every job — no shortcuts.</p>
 			<div class="cgs-cta-row">
-				<a class="cgs-btn cgs-btn-call" href="tel:+14167325905">Call (416) 732-5905</a>
+				<a class="cgs-btn cgs-btn-call" href="tel:+14167325905">Call Now</a>
 				<a class="cgs-btn cgs-btn-book" href="/contact/">Book Online</a>
 			</div>
 		</section>
