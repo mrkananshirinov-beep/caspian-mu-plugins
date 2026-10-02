@@ -4,7 +4,7 @@
  * Description: Renders the Refund Policy page (ID 16, slug "refund-policy"). Same etalon design
  *   as Privacy/Terms: full-bleed dark hero + 820px content + full-bleed dark CTA-final. Astra
  *   title hidden. NO sticky widget. Iron-clad: NO specific dollar amounts / price ranges.
- *   Locked rules: diagnosis-first, 90-day warranty reference, BBB "A", "220+", "15+ Years",
+ *   Locked rules: diagnosis-first, 90-day warranty reference, BBB "A", "300+", "15+ Years",
  *   phone hidden in button / visible in tel:, no "Since 2009".
  * Version: 1.0
  * Author: Caspian Build
@@ -121,7 +121,7 @@ add_filter( 'the_content', function ( $content ) {
 
 		<div class="cl-cta">
 			<h3>Have a Question About a Service?</h3>
-			<p>Our live team is here to help, seven days a week. Reach out and we'll be glad to assist.</p>
+			<p>Our live team is here to help, Monday to Saturday. Reach out and we'll be glad to assist.</p>
 			<div class="cl-cta-btns">
 				<a href="tel:+14167325905" class="cl-btn cl-btn-call">Call Now</a>
 				<a href="<?php echo home_url( '/contact/' ); ?>" class="cl-btn cl-btn-book">Contact Us</a>
