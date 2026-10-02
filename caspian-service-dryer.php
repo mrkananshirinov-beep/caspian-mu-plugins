@@ -29,7 +29,7 @@ function caspian_dryer_alt($slug) {
     $map = [
         'samsung-dryer-repair-hamilton-laundry' => 'Samsung electric dryer with rear access panel removed during professional repair service in a Hamilton, Ontario laundry room by Caspian Appliance Repair',
         'whirlpool-dryer-heating-element-replacement-hamilton' => 'Whirlpool dryer heating element assembly removed for inspection during a no-heat repair by Caspian Appliance Repair technician in Hamilton, Ontario',
-        'frigidaire-gas-dryer-igniter-replacement-hamilton' => 'Frigidaire gas dryer burner assembly with igniter being replaced by a TSSA-licensed partner technician for Caspian Appliance Repair in Hamilton, Ontario',
+        'frigidaire-gas-dryer-igniter-replacement-hamilton' => 'Frigidaire gas dryer burner assembly with igniter being replaced by a G2-certified technician (TSSA FS-R-53597) for Caspian Appliance Repair in Hamilton, Ontario',
         'lg-dryer-idler-pulley-drive-belt-hamilton' => 'LG dryer interior with drive motor, drum belt, and idler pulley exposed for drum rotation repair by Caspian Appliance Repair in Hamilton, Ontario',
         'dryer-motor-blower-wheel-hamilton' => 'Dryer drive motor and blower wheel exposed for diagnostic testing during repair service by Caspian Appliance Repair in Hamilton, Ontario',
         'dryer-blower-wheel-lint-cleaning-hamilton' => 'Dryer blower wheel housing being cleaned of accumulated lint to restore proper airflow by Caspian Appliance Repair in Hamilton, Ontario',
@@ -176,10 +176,10 @@ function caspian_dryer_render($content) {
     <div class="csd-hero-inner">
         <div class="csd-hero-text">
             <h1>Same-Day Dryer Repair in 30+ Ontario Cities</h1>
-            <p class="lead">Same-day service for electric and gas dryers. 90-day parts &amp; labour warranty. Live agents 7am&ndash;11pm, never voicemail.</p>
+            <p class="lead">Same-day service for electric and gas dryers. 90-day parts &amp; labour warranty. Live agents 7am&ndash;7pm, never voicemail.</p>
             <div class="csd-hero-trust">
-                <span><strong>&#9733;4.7</strong> / 220+ Reviews</span>
-                <span><strong>BBB A</strong> Accredited</span>
+                <span><strong>&#9733;4.8</strong> / 290+ Reviews</span>
+                <span><strong>BBB A+</strong> Accredited</span>
                 <span><strong>15+ Years</strong> Experience</span>
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
@@ -230,7 +230,7 @@ function caspian_dryer_render($content) {
                     </ul>
                     <p><strong>What we check:</strong> igniter, gas valve coils (boost and secondary), flame sensor, and sail switch. Each gas component has a specific failure pattern we can read from the ignition sequence.</p>
                     <div class="csd-tssa-inline">
-                        <strong>Gas dryer repairs</strong> performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations. See our <a href="/gas-appliance-repair/">gas appliance repair</a> page for full details.
+                        <strong>Gas dryer repairs</strong> performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations. See our <a href="/gas-appliance-repair/">gas appliance repair</a> page for full details.
                     </div>
                 </div>
             </div>
@@ -346,15 +346,15 @@ function caspian_dryer_render($content) {
     <div class="csd-section-inner">
         <p class="kicker">Why Caspian</p>
         <h2>15+ Years of Dryer Repair Across Ontario</h2>
-        <p class="intro">Caspian has worked in the appliance repair market since 2009, with technicians who live and work in the areas they serve &mdash; so the person fixing your dryer is from your part of Ontario, not dispatched from across the province. We focus on out-of-warranty repairs for homeowners who want their existing dryer fixed properly and quickly. BBB A Accredited. Over 220 verified Google reviews averaging &#9733;4.7. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, the GTA, the Waterloo region, and the Brant area (Brantford). Many of our calls are washer-and-dryer pairs &mdash; we also handle <a href="/washing-machine-repair/">washing machine repair</a> on the same visit.</p>
+        <p class="intro">Caspian has worked in the appliance repair market since 2009, with technicians who live and work in the areas they serve &mdash; so the person fixing your dryer is from your part of Ontario, not dispatched from across the province. We focus on out-of-warranty repairs for homeowners who want their existing dryer fixed properly and quickly. BBB A+ Accredited. Over 290 verified Google reviews averaging &#9733;4.8. Our 8-person live call center answers Monday to Saturday from 7am to 7pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, the GTA, the Waterloo region, and the Brant area (Brantford). Many of our calls are washer-and-dryer pairs &mdash; we also handle <a href="/washing-machine-repair/">washing machine repair</a> on the same visit.</p>
 
         <div class="csd-trust-grid">
             <div class="csd-trust-card">
-                <span class="num">&#9733;4.7</span>
-                <span class="lbl">220+ Google Reviews</span>
+                <span class="num">&#9733;4.8</span>
+                <span class="lbl">290+ Google Reviews</span>
             </div>
             <div class="csd-trust-card">
-                <span class="num">A</span>
+                <span class="num">A+</span>
                 <span class="lbl">BBB Accredited</span>
             </div>
             <div class="csd-trust-card">
@@ -372,7 +372,7 @@ function caspian_dryer_render($content) {
         </div>
 
         <div class="csd-disclaimer">
-            <strong>Gas dryer repairs</strong> are performed by certified TSSA-licensed partner technicians, in compliance with Ontario gas-safety regulations. Electric dryer repairs are handled by our in-house team.
+            <strong>Gas dryer repairs</strong> are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario gas-safety regulations. Electric dryer repairs are handled by our in-house team.
         </div>
     </div>
 </section>
@@ -391,7 +391,7 @@ function caspian_dryer_render($content) {
 
             <div class="csd-faq-item">
                 <button class="csd-faq-q">Do you repair both electric and gas dryers?</button>
-                <div class="csd-faq-a"><p>Yes. Electric dryer repairs are handled by our in-house technicians. Gas dryer repairs are performed by certified TSSA-licensed partner technicians in compliance with Ontario regulations. Either way, you call one number and we coordinate the right technician for your unit.</p></div>
+                <div class="csd-faq-a"><p>Yes. Electric dryer repairs are handled by our in-house technicians. Gas dryer repairs are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597 in compliance with Ontario regulations. Either way, you call one number and we coordinate the right technician for your unit.</p></div>
             </div>
 
             <div class="csd-faq-item">
@@ -465,7 +465,7 @@ function caspian_dryer_schema() {
         ['How fast can a technician come out to repair my dryer?',
          'For most calls placed before 5pm, we offer same-day dryer service; after 5pm or for outlying cities we usually book the next morning. When you call, our live agent gives you a 5 to 30 minute callback window so you are not stuck waiting by the phone, and the technician we send works out of your area.'],
         ['Do you repair both electric and gas dryers?',
-         'Yes. Electric dryer repairs are handled by our in-house technicians. Gas dryer repairs are performed by certified TSSA-licensed partner technicians in compliance with Ontario regulations.'],
+         'Yes. Electric dryer repairs are handled by our in-house technicians. Gas dryer repairs are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597 in compliance with Ontario regulations.'],
         ['My dryer runs but clothes stay damp — what is wrong?',
          'Common causes are a failed heating element (electric), a failed igniter or gas valve coil (gas), a tripped thermal fuse, or a clogged exhaust vent restricting airflow. On-site diagnosis takes about 20 to 30 minutes.'],
         ['Why does my dryer take two or three cycles to dry one load?',
