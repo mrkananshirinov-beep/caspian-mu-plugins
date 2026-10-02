@@ -74,7 +74,7 @@ function caspian_services_page_render($content) {
         ),
         array(
             'title' => 'Gas Appliance Repair',
-            'desc'  => 'TSSA-licensed partner technicians for safe, compliant gas repairs.',
+            'desc'  => 'G2-certified technicians under our TSSA registration FS-R-53597 for safe, compliant gas repairs.',
             'url'   => '/gas-appliance-repair/',
             'icon'  => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>',
         ),
@@ -168,8 +168,8 @@ body.page-id-58 { overflow-x:clip; }
             <h1>Appliance Repair Services in Hamilton &amp; 30+ Ontario Cities</h1>
             <p class="lead">Fast, professional repair for every major appliance &mdash; fridge, washer, dryer, dishwasher, oven, stove, freezer and gas. Local Caspian technicians, same-day diagnosis, and a 90-day parts &amp; labour warranty.</p>
             <div class="svp-hero-trust">
-                <span><strong>★4.7</strong> / 220+ Reviews</span>
-                <span><strong>BBB A</strong> Accredited</span>
+                <span><strong>★4.8</strong> / 300+ Reviews</span>
+                <span><strong>BBB A+</strong> Accredited</span>
                 <span><strong>Local Technicians</strong> · 30+ Cities</span>
                 <span><strong>90-Day</strong> Warranty</span>
             </div>
@@ -209,7 +209,7 @@ body.page-id-58 { overflow-x:clip; }
                 </div>
                 <div class="svp-why-card">
                     <h4>Same-Day Diagnosis</h4>
-                    <p>Live agents answer 7am&ndash;11pm, never voicemail, and book you fast when same-day service is available.</p>
+                    <p>Live agents answer 7am&ndash;7pm, never voicemail, and book you fast when same-day service is available.</p>
                 </div>
                 <div class="svp-why-card">
                     <h4>Upfront Quotes</h4>
@@ -217,7 +217,7 @@ body.page-id-58 { overflow-x:clip; }
                 </div>
                 <div class="svp-why-card">
                     <h4>90-Day Warranty</h4>
-                    <p>Every repair is backed by a 90-day parts &amp; labour warranty. BBB A Accredited, ★4.7 / 220+ reviews.</p>
+                    <p>Every repair is backed by a 90-day parts &amp; labour warranty. BBB A+ Accredited, ★4.8 / 300+ reviews.</p>
                 </div>
             </div>
         </div>
@@ -232,7 +232,7 @@ body.page-id-58 { overflow-x:clip; }
                 <a href="/contact/" class="svp-btn-book">Book Online</a>
             </div>
             <div class="svp-disclaimer">
-                <strong>Please note:</strong> Caspian Appliance Repair is an independent service company and is not factory-authorized for warranty work &mdash; we provide quality out-of-warranty repairs. Gas appliance repairs are performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.
+                <strong>Please note:</strong> Caspian Appliance Repair is an independent service company and is not factory-authorized for warranty work &mdash; we provide quality out-of-warranty repairs. Gas appliance repairs are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations.
             </div>
         </div>
     </section>
