@@ -25,8 +25,8 @@ add_filter( 'the_content', function( $content ) {
 				<h1>Contact Caspian Appliance Repair</h1>
 				<p class="ccp-hero-sub">Real people answer — live agents 7AM&ndash;7PM, no voicemail. Tell us what broke and we&rsquo;ll arrange a technician visit, often the same day.</p>
 				<ul class="ccp-hero-bullets">
-					<li><span class="ccp-tick">&#10003;</span> &#9733; 4.7 / 220+ Google Reviews</li>
-					<li><span class="ccp-tick">&#10003;</span> BBB A Accredited</li>
+					<li><span class="ccp-tick">&#10003;</span> &#9733; 4.8 / 300+ Google Reviews</li>
+					<li><span class="ccp-tick">&#10003;</span> BBB A+ Accredited</li>
 					<li><span class="ccp-tick">&#10003;</span> 90-Day Parts &amp; Labour Warranty</li>
 					<li><span class="ccp-tick">&#10003;</span> Serving 30+ Ontario Cities</li>
 				</ul>
@@ -57,7 +57,7 @@ add_filter( 'the_content', function( $content ) {
 					<div class="ccp-card">
 						<div class="ccp-card-ico">&#128337;</div>
 						<h3>Hours</h3>
-						<p>Mon&ndash;Sat: 7AM&ndash;7PM<br>Sun: 9AM&ndash;5PM</p>
+						<p>Mon&ndash;Sat: 7 AM&ndash;7 PM<br>Sun: Closed</p>
 						<p class="ccp-card-note">Open Monday to Saturday, 7 AM to 7 PM. Closed Sundays.</p>
 					</div>
 					<div class="ccp-card">
@@ -73,10 +73,10 @@ add_filter( 'the_content', function( $content ) {
 		<!-- CALLBACK FORM -->
 		<section class="ccp-form-sec" id="ccp-form">
 			<div class="ccp-wrap ccp-form-wrap">
-				<h2>Request a Callback</h2>
+				<h2>Book Your Appointment</h2>
 				<p class="ccp-form-sub">Leave your details and one of our agents will call you back within 5&ndash;30 minutes during business hours.</p>
 				<?php echo $form; ?>
-				<p class="ccp-tssa-note">Gas appliance repairs performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.</p>
+				<p class="ccp-tssa-note">Gas appliance repairs performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations.</p>
 			</div>
 		</section>
 
@@ -193,7 +193,7 @@ add_action( 'wp_head', function() {
 		'mainEntity' => array(
 			'@type'     => 'HomeAndConstructionBusiness',
 			'name'      => 'Caspian Appliance Repair',
-			'telephone' => '+1-416-732-5905',
+			'telephone' => '+1-(416) 732-5905',
 			'email'     => 'info@caspianappliancerepair.ca',
 			'foundingDate' => '2009',
 			'openingHoursSpecification' => array(
