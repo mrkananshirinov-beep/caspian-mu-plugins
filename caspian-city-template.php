@@ -9,7 +9,7 @@
  *   - NEW BLOCK 5.5: Why Caspian full-bleed dark sapphire banner between Reviews
  *     and FAQ — matches brand-page etalon. Includes WHY CASPIAN kicker, white H2
  *     "15+ Years of Appliance Repair Across Ontario", lead paragraph, 4 gold
- *     stat cards (★4.7/220+, A BBB, 2009 In appliance repair market, 90-Day),
+ *     stat cards (★4.8/300+, A BBB, 2009 In appliance repair market, 90-Day),
  *     and gold-left-border Service-note box containing factory-not-authorized
  *     disclaimer + TSSA-licensed gas mention. Closes the 3 locked-rule gaps
  *     identified in the city-page audit.
@@ -144,8 +144,8 @@ add_action( 'wp_head', function() {
         ),
         'aggregateRating' => array(
             '@type'       => 'AggregateRating',
-            'ratingValue' => '4.7',
-            'reviewCount' => '220',
+            'ratingValue' => '4.8',
+            'reviewCount' => '300',
         ),
     );
 
@@ -157,7 +157,7 @@ add_action( 'wp_head', function() {
         ),
         array(
             'q' => 'How quickly can a technician arrive in ' . esc_html( $city_name ) . '?',
-            'a' => 'For most calls received before 2 PM, we offer same-day service in ' . esc_html( $city_name ) . '. Our live call centre is open 7 AM to 11 PM, 7 days a week — no voicemail.',
+            'a' => 'For most calls received before 2 PM, we offer same-day service in ' . esc_html( $city_name ) . '. Our live call centre is open 7 AM to 7 PM, Monday to Saturday — no voicemail.',
         ),
         array(
             'q' => 'Which appliance brands do you repair in ' . esc_html( $city_name ) . '?',
@@ -165,7 +165,7 @@ add_action( 'wp_head', function() {
         ),
         array(
             'q' => 'Are your gas appliance repairs in ' . esc_html( $city_name ) . ' TSSA-licensed?',
-            'a' => 'Yes. Gas appliance repairs in ' . esc_html( $city_name ) . ' are performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.',
+            'a' => 'Yes. Gas appliance repairs in ' . esc_html( $city_name ) . ' are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations.',
         ),
         array(
             'q' => 'What warranty do you offer on ' . esc_html( $city_name ) . ' appliance repairs?',
@@ -284,7 +284,7 @@ add_filter( 'the_content', function( $content ) {
         'oven-repair'            => 'Won\'t heat, uneven baking, broken element, control panel, self-clean issues.',
         'stove-cooktop-repair'   => 'Burner failures, induction issues, gas surface burner repairs (TSSA-licensed).',
         'freezer-repair'         => 'Not freezing, frost build-up, drawer issues, stand-alone & built-in.',
-        'gas-appliance-repair'   => 'All gas appliance work performed by TSSA-licensed partner technicians.',
+        'gas-appliance-repair'   => 'All gas appliance work performed by G2-certified technicians under our TSSA registration FS-R-53597.',
     );
 
     ob_start();
@@ -818,8 +818,8 @@ body.single-city .ast-single-post-order { display:none !important; }
         <?php endif; ?>
         <ul class="hero-bullets">
             <li>Local <?php echo esc_html( $city_name ); ?> technicians</li>
-            <li>BBB A Accredited</li>
-            <li>★4.7 / 220+ Google Reviews</li>
+            <li>BBB A+ Accredited</li>
+            <li>★4.8 / 300+ Google Reviews</li>
             <li>15+ Years Experience</li>
             <li>90-Day parts &amp; labour warranty</li>
         </ul>
@@ -887,7 +887,7 @@ body.single-city .ast-single-post-order { display:none !important; }
             <div>
                 <h2>Local <?php echo esc_html( $city_name ); ?> Technicians — Not Out-of-Town Dispatch</h2>
                 <p>Our technicians live and work in <?php echo esc_html( $city_name ); ?>. They know the neighborhoods, the routes, and the appliance landscape — and they're already nearby when you call. No two-hour wait for a truck rolling in from another region.</p>
-                <p>In-house electric repair technicians handle all standard appliance work. Gas appliance repairs are performed by certified <strong>TSSA-licensed partner technicians</strong> in compliance with Ontario regulations.</p>
+                <p>In-house electric repair technicians handle all standard appliance work. Gas appliance repairs are performed by certified <strong>G2-certified technicians under our TSSA registration FS-R-53597</strong> in compliance with Ontario regulations.</p>
             </div>
             <div class="badge-stack">
                 <div class="badge-pill">
@@ -918,7 +918,7 @@ body.single-city .ast-single-post-order { display:none !important; }
     <div class="cwrap">
         <div class="section-head">
             <h2>Why <?php echo esc_html( $city_name ); ?> Chooses Caspian</h2>
-            <p class="section-sub">Real local service backed by 220+ five-star Google reviews and BBB A accreditation.</p>
+            <p class="section-sub">Real local service backed by 300+ five-star Google reviews and BBB A+ accreditation.</p>
         </div>
         <div class="adv-grid">
             <div class="adv-card">
@@ -928,7 +928,7 @@ body.single-city .ast-single-post-order { display:none !important; }
             </div>
             <div class="adv-card">
                 <div class="adv-ico">📞</div>
-                <h3>Live Agents, 7 AM–11 PM</h3>
+                <h3>Live Agents, 7 AM–7 PM</h3>
                 <p>Eight live agents answer every call. No voicemail, no overseas call centres.</p>
             </div>
             <div class="adv-card">
@@ -939,7 +939,7 @@ body.single-city .ast-single-post-order { display:none !important; }
             <div class="adv-card">
                 <div class="adv-ico">🔥</div>
                 <h3>TSSA-Licensed Gas Work</h3>
-                <p>Gas appliance repairs by certified TSSA-licensed partner technicians.</p>
+                <p>Gas appliance repairs by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.</p>
             </div>
             <div class="adv-card">
                 <div class="adv-ico">🏭</div>
@@ -948,8 +948,8 @@ body.single-city .ast-single-post-order { display:none !important; }
             </div>
             <div class="adv-card">
                 <div class="adv-ico">⭐</div>
-                <h3>BBB A Accredited</h3>
-                <p>Verified by the Better Business Bureau. ★4.7 / 220+ Google Reviews from Ontario customers.</p>
+                <h3>BBB A+ Accredited</h3>
+                <p>Verified by the Better Business Bureau. ★4.8 / 300+ Google Reviews from Ontario customers.</p>
             </div>
         </div>
     </div>
@@ -962,7 +962,7 @@ body.single-city .ast-single-post-order { display:none !important; }
     <div class="cwrap">
         <div class="section-head">
             <h2>What <?php echo esc_html( $city_name ); ?> Customers Say</h2>
-            <p class="section-sub">A few of our 220+ five-star reviews on Google.</p>
+            <p class="section-sub">A few of our 300+ five-star reviews on Google.</p>
         </div>
         <div class="rev-grid">
             <div class="rev-card">
@@ -994,15 +994,15 @@ body.single-city .ast-single-post-order { display:none !important; }
     <div class="caspian-city-why-inner">
         <p class="caspian-city-why-kicker">Why Caspian</p>
         <h2>15+ Years of Appliance Repair Across Ontario</h2>
-        <p class="caspian-city-why-lead">Headquartered in Hamilton, Caspian Appliance Repair serves <?php echo esc_html( $city_name ); ?> and 30+ other Ontario cities — with local technicians who live and work in the area, so the person diagnosing your appliance is from your part of Ontario, not dispatched hours away. BBB A Accredited. Over 220 verified Google reviews averaging <span class="star">★</span>4.7. Our 8-person live call centre answers seven days a week from 7am to 11pm, so you reach a real person — never a voicemail.</p>
+        <p class="caspian-city-why-lead">Headquartered in Hamilton, Caspian Appliance Repair serves <?php echo esc_html( $city_name ); ?> and 30+ other Ontario cities — with local technicians who live and work in the area, so the person diagnosing your appliance is from your part of Ontario, not dispatched hours away. BBB A+ Accredited. Over 290 verified Google reviews averaging <span class="star">★</span>4.8. Our 8-person live call centre answers Monday to Saturday from 7am to 7pm, so you reach a real person — never a voicemail.</p>
         <div class="caspian-city-why-stats">
-            <div class="caspian-city-why-stat"><span class="v">★4.7</span><span class="l">220+ Google Reviews</span></div>
-            <div class="caspian-city-why-stat"><span class="v">A</span><span class="l">BBB Accredited</span></div>
+            <div class="caspian-city-why-stat"><span class="v">★4.8</span><span class="l">300+ Google Reviews</span></div>
+            <div class="caspian-city-why-stat"><span class="v">A+</span><span class="l">BBB Accredited</span></div>
             <div class="caspian-city-why-stat"><span class="v">2009</span><span class="l">In appliance repair market since</span></div>
             <div class="caspian-city-why-stat"><span class="v">90-Day</span><span class="l">Parts &amp; Labour Warranty</span></div>
         </div>
         <div class="caspian-city-why-note">
-            <p><strong>Service note:</strong> Caspian is an independent service provider and not factory-authorized for in-warranty work. We specialize in high-quality out-of-warranty appliance service across Ontario. If your appliance is still covered by the manufacturer's warranty, contact the brand directly first; we are glad to help once it has expired. Gas appliances are serviced by certified TSSA-licensed partner technicians.</p>
+            <p><strong>Service note:</strong> Caspian is an independent service provider and not factory-authorized for in-warranty work. We specialize in high-quality out-of-warranty appliance service across Ontario. If your appliance is still covered by the manufacturer's warranty, contact the brand directly first; we are glad to help once it has expired. Gas appliances are serviced by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.</p>
         </div>
     </div>
 </section>
@@ -1023,7 +1023,7 @@ body.single-city .ast-single-post-order { display:none !important; }
             </details>
             <details>
                 <summary>How quickly can a technician arrive in <?php echo esc_html( $city_name ); ?>?</summary>
-                <p>For most calls received before 2 PM, we offer same-day service in <?php echo esc_html( $city_name ); ?>. Our live call centre is open 7 AM to 11 PM, 7 days a week — no voicemail.</p>
+                <p>For most calls received before 2 PM, we offer same-day service in <?php echo esc_html( $city_name ); ?>. Our live call centre is open 7 AM to 7 PM, Monday to Saturday — no voicemail.</p>
             </details>
             <details>
                 <summary>Which appliance brands do you repair in <?php echo esc_html( $city_name ); ?>?</summary>
@@ -1031,7 +1031,7 @@ body.single-city .ast-single-post-order { display:none !important; }
             </details>
             <details>
                 <summary>Are your gas appliance repairs in <?php echo esc_html( $city_name ); ?> TSSA-licensed?</summary>
-                <p>Yes. Gas appliance repairs in <?php echo esc_html( $city_name ); ?> are performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.</p>
+                <p>Yes. Gas appliance repairs in <?php echo esc_html( $city_name ); ?> are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations.</p>
             </details>
             <details>
                 <summary>What warranty do you offer on <?php echo esc_html( $city_name ); ?> appliance repairs?</summary>
@@ -1097,7 +1097,7 @@ if ( $has_comm || $has_map ) :
                     </ul>
                 <?php else : ?>
                     <h2>Serving All of <?php echo esc_html( $city_name ); ?></h2>
-                    <p>Caspian Appliance Repair covers every part of <?php echo esc_html( $city_name ); ?> — one of the 30+ Ontario cities we serve with local technicians and same-day service. Call our live agents 7 AM–11 PM, 7 days a week.</p>
+                    <p>Caspian Appliance Repair covers every part of <?php echo esc_html( $city_name ); ?> — one of the 30+ Ontario cities we serve with local technicians and same-day service. Call our live agents 7 AM–7 PM, Monday to Saturday.</p>
                 <?php endif; ?>
             </div>
             <div>
