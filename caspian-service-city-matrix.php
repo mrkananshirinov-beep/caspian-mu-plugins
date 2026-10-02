@@ -139,7 +139,7 @@ function caspian_matrix_services() {
         'stove' => array(
             'label'       => 'Stove',
             'label_short' => 'stove',
-            'parent_url'  => '/stove-repair/',
+            'parent_url'  => '/stove-cooktop-repair/',
             'tssa'        => true,
             'symptoms'    => array(
                 array( 'title' => 'Burner Won\'t Heat',    'desc' => 'Electric coil or surface element failure, switch issues.' ),
@@ -400,7 +400,7 @@ add_filter( 'wpseo_metadesc', function( $desc ) {
     global $caspian_matrix_ctx;
     if ( ! $caspian_matrix_ctx ) return $desc;
     return sprintf(
-        'Same-day %s repair in %s by local technicians. All major brands. BBB A Accredited, ★4.7/220+ Google Reviews. 90-day warranty. Call (416) 732-5905.',
+        'Same-day %s repair in %s by local technicians. All major brands. BBB A+ Accredited, ★4.8/300+ Google Reviews. 90-day warranty. Call (416) 732-5905.',
         strtolower( $caspian_matrix_ctx['svc']['label'] ),
         $caspian_matrix_ctx['city_name']
     );
@@ -473,7 +473,7 @@ function caspian_matrix_faqs( $ctx ) {
         ),
         array(
             'q' => 'Are you BBB Accredited?',
-            'a' => 'Yes, Caspian Appliance Repair is BBB A Accredited (Hamilton, ON). You can view our profile and complaint history on the Better Business Bureau website.',
+            'a' => 'Yes, Caspian Appliance Repair is BBB A+ Accredited (Hamilton, ON). You can view our profile and complaint history on the Better Business Bureau website.',
         ),
         array(
             'q' => sprintf( 'Do you offer a warranty on %s repairs?', $applow ),
@@ -484,7 +484,7 @@ function caspian_matrix_faqs( $ctx ) {
     if ( $is_gas ) {
         $faqs[] = array(
             'q' => sprintf( 'Are your technicians TSSA-licensed for gas %s repair?', $applow ),
-            'a' => sprintf( 'Yes — all gas-line work on %s in %s is performed by TSSA-licensed partner technicians, in compliance with Ontario regulations.', $applow, $city ),
+            'a' => sprintf( 'Yes — all gas-line work on %s in %s is performed by G2-certified technicians under our TSSA registration FS-R-53597, in compliance with Ontario regulations.', $applow, $city ),
         );
     }
 
@@ -922,8 +922,8 @@ function caspian_matrix_render( $ctx ) {
             <h1><?php echo esc_html( $appliance . ' Repair in ' . $city_name ); ?></h1>
             <p class="cmx-subtitle">Same-day <?php echo esc_html( $applow ); ?> service across <?php echo esc_html( $city_name ); ?> and surrounding areas. All major brands. Quality out-of-warranty repairs by experienced technicians.</p>
             <ul class="cmx-trust-pills">
-                <li>BBB A Accredited</li>
-                <li>★ 4.7 / 220+ Google Reviews</li>
+                <li>BBB A+ Accredited</li>
+                <li>★ 4.8 / 300+ Google Reviews</li>
                 <li>15+ Years of Service</li>
                 <li>90-Day Parts &amp; Labour Warranty</li>
             </ul>
@@ -966,11 +966,11 @@ function caspian_matrix_render( $ctx ) {
                     <p class="cmx-stat-label">Years of Experience</p>
                 </div>
                 <div class="cmx-stat-card">
-                    <p class="cmx-stat-num">220+</p>
-                    <p class="cmx-stat-label">★ 4.7 Google Reviews</p>
+                    <p class="cmx-stat-num">300+</p>
+                    <p class="cmx-stat-label">★ 4.8 Google Reviews</p>
                 </div>
                 <div class="cmx-stat-card">
-                    <p class="cmx-stat-num">BBB A</p>
+                    <p class="cmx-stat-num">BBB A+</p>
                     <p class="cmx-stat-label">Accredited Business</p>
                 </div>
                 <div class="cmx-stat-card">
@@ -980,7 +980,7 @@ function caspian_matrix_render( $ctx ) {
             </div>
             <?php if ( $is_gas ) : ?>
             <div class="cmx-service-note">
-                <strong>Gas-line work disclosure:</strong> Gas appliance repairs in <?php echo esc_html( $city_name ); ?> are performed by certified <strong>TSSA-licensed partner technicians</strong>, in compliance with Ontario regulations. We are independent and not factory-authorized for warranty work — we provide quality out-of-warranty repairs.
+                <strong>Gas-line work disclosure:</strong> Gas appliance repairs in <?php echo esc_html( $city_name ); ?> are performed by certified <strong>G2-certified technicians under our TSSA registration FS-R-53597</strong>, in compliance with Ontario regulations. We are independent and not factory-authorized for warranty work — we provide quality out-of-warranty repairs.
             </div>
             <?php else : ?>
             <div class="cmx-service-note">
