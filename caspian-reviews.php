@@ -76,7 +76,7 @@ add_action('astra_header_after', function() {
                 <h2>What Our Customers Across Ontario Say</h2>
                 <div class="caspian-reviews-rating">
                     <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                    <span><strong>4.7 / 5</strong> &middot; 230+ Google Reviews</span>
+                    <span><strong>4.8 / 5</strong> &middot; 300+ Google Reviews</span>
                 </div>
             </div>
             <div class="caspian-reviews-grid">
@@ -92,7 +92,7 @@ add_action('astra_header_after', function() {
                 <?php endforeach; ?>
             </div>
             <div class="caspian-reviews-cta">
-                <a href="https://www.google.com/search?q=Caspian+Appliance+Repair+Hamilton" target="_blank" rel="noopener">Read all 230+ reviews on Google &rarr;</a>
+                <a href="https://www.google.com/search?q=Caspian+Appliance+Repair+Hamilton" target="_blank" rel="noopener">Read all 300+ reviews on Google &rarr;</a>
             </div>
         </div>
     </section>
