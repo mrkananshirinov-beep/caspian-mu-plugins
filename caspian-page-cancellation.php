@@ -3,7 +3,7 @@
  * Plugin Name: Caspian — Cancellation Policy Page
  * Description: Renders the Cancellation Policy page (ID 15, slug "cancellation-policy"). Same
  *   etalon design as Privacy/Terms/Refund. Astra title hidden. NO sticky widget. Iron-clad:
- *   NO specific dollar amounts. Locked rules: diagnosis-first, BBB "A", "220+", "15+ Years",
+ *   NO specific dollar amounts. Locked rules: diagnosis-first, BBB "A", "300+", "15+ Years",
  *   phone hidden in button / visible in tel:, no "Since 2009".
  * Version: 1.0
  * Author: Caspian Build
@@ -76,7 +76,7 @@ add_filter( 'the_content', function ( $content ) {
 			<p class="cl-intro">We understand that plans change. This policy explains how to cancel or reschedule an appointment with Caspian Appliance Repair ("Caspian," "we," "us," or "our"), and what to expect when you do. Our goal is to keep the process simple and fair for everyone.</p>
 
 			<h2>1. How to Cancel or Reschedule</h2>
-			<p>If you need to cancel or reschedule your appointment, please contact our live team as early as possible using the details below. Our team answers seven days a week, so it is easy to reach us and adjust your booking.</p>
+			<p>If you need to cancel or reschedule your appointment, please contact our live team as early as possible using the details below. Our team answers Monday to Saturday, so it is easy to reach us and adjust your booking.</p>
 
 			<h2>2. Giving Us Notice</h2>
 			<p>We appreciate as much advance notice as you can give. Early notice lets us offer your time slot to another customer and helps our technicians plan their day efficiently. Whenever possible, please let us know before the day of your appointment.</p>
@@ -107,7 +107,7 @@ add_filter( 'the_content', function ( $content ) {
 
 		<div class="cl-cta">
 			<h3>Need to Adjust Your Appointment?</h3>
-			<p>Our live team is here seven days a week. Reach out and we'll be glad to help.</p>
+			<p>Our live team is here Monday to Saturday. Reach out and we'll be glad to help.</p>
 			<div class="cl-cta-btns">
 				<a href="tel:+14167325905" class="cl-btn cl-btn-call">Call Now</a>
 				<a href="<?php echo home_url( '/contact/' ); ?>" class="cl-btn cl-btn-book">Contact Us</a>
