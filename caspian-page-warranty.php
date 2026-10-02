@@ -4,7 +4,7 @@
  * Description: Renders the Warranty Policy page (ID 11, slug "warranty-policy"). Same etalon
  *   design as the other legal pages. Astra title hidden. NO sticky widget. Core: 90-day parts
  *   and labour warranty. Locked rules: not factory-authorized disclosure, TSSA partner
- *   disclosure, BBB "A", "220+", "15+ Years", phone hidden in button / visible in tel:,
+ *   disclosure, BBB "A", "300+", "15+ Years", phone hidden in button / visible in tel:,
  *   no "Since 2009", NO specific dollar amounts.
  * Version: 1.0
  * Author: Caspian Build
@@ -103,7 +103,7 @@ add_filter( 'the_content', function ( $content ) {
 			<p>If your appliance is still covered by a manufacturer warranty, repairs may be best handled through the manufacturer's authorized service channels to avoid affecting that coverage. Manufacturer warranties are governed by the terms set by the manufacturer, not by Caspian.</p>
 
 			<h2>6. Gas Appliance Work</h2>
-			<p>Gas appliance repairs are performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations. Warranty service on gas appliances is carried out by appropriately licensed technicians.</p>
+			<p>Gas appliance repairs are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations. Warranty service on gas appliances is carried out by appropriately licensed technicians.</p>
 
 			<h2>7. How to Make a Warranty Claim</h2>
 			<p>If you experience a recurrence of the same issue within the warranty period, contact our team using the details below. Please have your original service date and a description of the issue ready so we can verify coverage and schedule a re-visit promptly.</p>
