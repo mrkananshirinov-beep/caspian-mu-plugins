@@ -398,8 +398,8 @@ add_filter( 'the_content', function( $content ) {
                         <h1>Same-Day Maytag Appliance Repair in 30+ Ontario Cities</h1>
                         <p class="subtitle">Heavy-duty Bravos and Centennial washers, Commercial-grade dryers, and dependable kitchen appliances. We fix the Maytag lid-lock faults and F-codes most shops misdiagnose — local technicians, same-day service, 90-day warranty.</p>
                         <ul class="cb-hero-bullets">
-                                <li>&#9733;4.7 / 220+ Google Reviews</li>
-                                <li>BBB A Accredited</li>
+                                <li>&#9733;4.8 / 300+ Google Reviews</li>
+                                <li>BBB A+ Accredited</li>
                                 <li>15+ Years Experience</li>
                                 <li>90-Day Parts &amp; Labour Warranty</li>
                         </ul>
@@ -518,15 +518,15 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cb-why-inner">
                                 <p class="cb-why-kicker">Why Caspian</p>
                                 <h2>15+ Years of Maytag Appliance Repair Across Ontario</h2>
-                                <p class="cb-why-lead">Headquartered in Hamilton, we service Maytag appliances across 30+ Ontario cities — with local technicians who live and work in your area, so the person diagnosing your heavy-duty Bravos washer or Maytag fridge is from your part of Ontario, not dispatched hours away. BBB A Accredited. Over 220 verified Google reviews averaging <span class="star">&#9733;</span>4.7. Our 8-person live call centre answers seven days a week from 7am to 11pm, so you reach a real person — never a voicemail — when a Maytag breakdown can't wait.</p>
+                                <p class="cb-why-lead">Headquartered in Hamilton, we service Maytag appliances across 30+ Ontario cities — with local technicians who live and work in your area, so the person diagnosing your heavy-duty Bravos washer or Maytag fridge is from your part of Ontario, not dispatched hours away. BBB A+ Accredited. Over 290 verified Google reviews averaging <span class="star">&#9733;</span>4.8. Our 8-person live call centre answers Monday to Saturday from 7am to 7pm, so you reach a real person — never a voicemail — when a Maytag breakdown can't wait.</p>
                                 <div class="cb-why-stats">
-                                        <div class="cb-why-stat"><span class="v">&#9733;4.7</span><span class="l">220+ Google Reviews</span></div>
-                                        <div class="cb-why-stat"><span class="v">A</span><span class="l">BBB Accredited</span></div>
+                                        <div class="cb-why-stat"><span class="v">&#9733;4.8</span><span class="l">300+ Google Reviews</span></div>
+                                        <div class="cb-why-stat"><span class="v">A+</span><span class="l">BBB Accredited</span></div>
                                         <div class="cb-why-stat"><span class="v">2009</span><span class="l">In appliance repair market since</span></div>
                                         <div class="cb-why-stat"><span class="v">90-Day</span><span class="l">Parts &amp; Labour Warranty</span></div>
                                 </div>
                                 <div class="cb-why-note">
-                                        <p><strong>Service note:</strong> Caspian is an independent service provider, not affiliated with Maytag or Whirlpool Corporation, and not factory-authorized for in-warranty work. We specialize in high-quality out-of-warranty Maytag service across Ontario. Note: many Maytag washers and dryers include a 10-year limited parts warranty on the direct-drive motor and stainless wash basket — if yours qualifies, contact Maytag for that part. Gas Maytag dryers and ranges are serviced by certified TSSA-licensed partner technicians.</p>
+                                        <p><strong>Service note:</strong> Caspian is an independent service provider, not affiliated with Maytag or Whirlpool Corporation, and not factory-authorized for in-warranty work. We specialize in high-quality out-of-warranty Maytag service across Ontario. Note: many Maytag washers and dryers include a 10-year limited parts warranty on the direct-drive motor and stainless wash basket — if yours qualifies, contact Maytag for that part. Gas Maytag dryers and ranges are serviced by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.</p>
                                 </div>
                         </div>
                 </section>
@@ -554,7 +554,7 @@ add_filter( 'the_content', function( $content ) {
 
                                         <div class="cb-faq-item">
                                                 <div class="cb-faq-q">My Maytag dryer runs but won't heat — can you fix it?</div>
-                                                <div class="cb-faq-a">Yes. No-heat is usually the heating element (electric) or igniter (gas), plus a tripped thermal fuse or failed thermostat. We test the heat circuit and repair the actual fault; gas dryers are handled by our certified TSSA-licensed partner technicians.</div>
+                                                <div class="cb-faq-a">Yes. No-heat is usually the heating element (electric) or igniter (gas), plus a tripped thermal fuse or failed thermostat. We test the heat circuit and repair the actual fault; gas dryers are handled by our G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.</div>
                                         </div>
 
                                         <div class="cb-faq-item">
@@ -569,7 +569,7 @@ add_filter( 'the_content', function( $content ) {
 
                                         <div class="cb-faq-item">
                                                 <div class="cb-faq-q">Is the repair warrantied? Do you offer same-day?</div>
-                                                <div class="cb-faq-a">Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM–11PM, 7 days a week, and our live agents confirm the earliest window.</div>
+                                                <div class="cb-faq-a">Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM–7PM, Monday to Saturday, and our live agents confirm the earliest window.</div>
                                         </div>
 
                                 </div>
@@ -579,7 +579,7 @@ add_filter( 'the_content', function( $content ) {
                 <!-- ============ CTA FINAL ============ -->
                 <section class="cb-cta-final">
                         <h3>Dependable Maytag Repair, On Your Schedule</h3>
-                        <p>Local technicians, same-day service in most areas, live agents 7AM–11PM, and a 90-day parts &amp; labour warranty on every Maytag repair. Independent service — never inflated repair scopes, never factory-authorized claims.</p>
+                        <p>Local technicians, same-day service in most areas, live agents 7AM–7PM, and a 90-day parts &amp; labour warranty on every Maytag repair. Independent service — never inflated repair scopes, never factory-authorized claims.</p>
                         <div class="cb-cta-row">
                                 <a class="cb-btn cb-btn-call" href="tel:+14167325905">Call Now</a>
                                 <a class="cb-btn cb-btn-book" href="/contact/">Book Online</a>
@@ -625,7 +625,7 @@ add_action( 'wp_head', function() {
                 ),
                 array(
                         'q' => "My Maytag dryer runs but won't heat — can you fix it?",
-                        'a' => 'Yes. No-heat is usually the heating element (electric) or igniter (gas), plus a tripped thermal fuse or failed thermostat. We test the heat circuit and repair the actual fault; gas dryers are handled by our certified TSSA-licensed partner technicians.',
+                        'a' => 'Yes. No-heat is usually the heating element (electric) or igniter (gas), plus a tripped thermal fuse or failed thermostat. We test the heat circuit and repair the actual fault; gas dryers are handled by our G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.',
                 ),
                 array(
                         'q' => 'Does my Maytag repair preserve the manufacturer warranty?',
@@ -637,7 +637,7 @@ add_action( 'wp_head', function() {
                 ),
                 array(
                         'q' => 'Is the repair warrantied? Do you offer same-day?',
-                        'a' => 'Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM-11PM, 7 days a week, and our live agents confirm the earliest window.',
+                        'a' => 'Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM-7PM, Monday to Saturday, and our live agents confirm the earliest window.',
                 ),
         );
 
