@@ -397,8 +397,8 @@ add_filter( 'the_content', function( $content ) {
                         <h1>Same-Day Electrolux Appliance Repair in 30+ Ontario Cities</h1>
                         <p class="subtitle">Swedish-engineered French door fridges, Perfect Steam washers, and Wave-Touch ranges. We fix the Electrolux faults — water valves, drain pumps, control boards — most shops misdiagnose. Local technicians, same-day service, 90-day warranty.</p>
                         <ul class="cb-hero-bullets">
-                                <li>&#9733;4.7 / 220+ Google Reviews</li>
-                                <li>BBB A Accredited</li>
+                                <li>&#9733;4.8 / 300+ Google Reviews</li>
+                                <li>BBB A+ Accredited</li>
                                 <li>15+ Years Experience</li>
                                 <li>90-Day Parts &amp; Labour Warranty</li>
                         </ul>
@@ -515,15 +515,15 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cb-why-inner">
                                 <p class="cb-why-kicker">Why Caspian</p>
                                 <h2>15+ Years of Electrolux Appliance Repair Across Ontario</h2>
-                                <p class="cb-why-lead">Headquartered in Hamilton, we service Electrolux appliances across 30+ Ontario cities — with local technicians who live and work in your area, so the person diagnosing your Perfect Steam washer or counter-depth Electrolux fridge is from your part of Ontario, not dispatched hours away. BBB A Accredited. Over 220 verified Google reviews averaging <span class="star">&#9733;</span>4.7. Our 8-person live call centre answers seven days a week from 7am to 11pm, so you reach a real person — never a voicemail — when an Electrolux breakdown can't wait.</p>
+                                <p class="cb-why-lead">Headquartered in Hamilton, we service Electrolux appliances across 30+ Ontario cities — with local technicians who live and work in your area, so the person diagnosing your Perfect Steam washer or counter-depth Electrolux fridge is from your part of Ontario, not dispatched hours away. BBB A+ Accredited. Over 290 verified Google reviews averaging <span class="star">&#9733;</span>4.8. Our 8-person live call centre answers Monday to Saturday from 7am to 7pm, so you reach a real person — never a voicemail — when an Electrolux breakdown can't wait.</p>
                                 <div class="cb-why-stats">
-                                        <div class="cb-why-stat"><span class="v">&#9733;4.7</span><span class="l">220+ Google Reviews</span></div>
-                                        <div class="cb-why-stat"><span class="v">A</span><span class="l">BBB Accredited</span></div>
+                                        <div class="cb-why-stat"><span class="v">&#9733;4.8</span><span class="l">300+ Google Reviews</span></div>
+                                        <div class="cb-why-stat"><span class="v">A+</span><span class="l">BBB Accredited</span></div>
                                         <div class="cb-why-stat"><span class="v">2009</span><span class="l">In appliance repair market since</span></div>
                                         <div class="cb-why-stat"><span class="v">90-Day</span><span class="l">Parts &amp; Labour Warranty</span></div>
                                 </div>
                                 <div class="cb-why-note">
-                                        <p><strong>Service note:</strong> Caspian is an independent service provider, not affiliated with Electrolux, and not factory-authorized for in-warranty work. We specialize in high-quality out-of-warranty Electrolux service across Ontario — including Perfect Steam laundry and counter-depth refrigeration. If your appliance is still covered by Electrolux's warranty, contact Electrolux directly first; we are glad to help once it has expired. Gas Electrolux ranges and dryers are serviced by certified TSSA-licensed partner technicians.</p>
+                                        <p><strong>Service note:</strong> Caspian is an independent service provider, not affiliated with Electrolux, and not factory-authorized for in-warranty work. We specialize in high-quality out-of-warranty Electrolux service across Ontario — including Perfect Steam laundry and counter-depth refrigeration. If your appliance is still covered by Electrolux's warranty, contact Electrolux directly first; we are glad to help once it has expired. Gas Electrolux ranges and dryers are serviced by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.</p>
                                 </div>
                         </div>
                 </section>
@@ -566,7 +566,7 @@ add_filter( 'the_content', function( $content ) {
 
                                         <div class="cb-faq-item">
                                                 <div class="cb-faq-q">Is the repair warrantied? Do you offer same-day?</div>
-                                                <div class="cb-faq-a">Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM–11PM, 7 days a week, and our live agents confirm the earliest window.</div>
+                                                <div class="cb-faq-a">Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM–7PM, Monday to Saturday, and our live agents confirm the earliest window.</div>
                                         </div>
 
                                 </div>
@@ -576,7 +576,7 @@ add_filter( 'the_content', function( $content ) {
                 <!-- ============ CTA FINAL ============ -->
                 <section class="cb-cta-final">
                         <h3>Trusted Electrolux Repair Across Ontario</h3>
-                        <p>Local technicians, same-day service in most areas, live agents 7AM–11PM, and a 90-day parts &amp; labour warranty on every Electrolux repair. Independent service — never inflated repair scopes, never factory-authorized claims.</p>
+                        <p>Local technicians, same-day service in most areas, live agents 7AM–7PM, and a 90-day parts &amp; labour warranty on every Electrolux repair. Independent service — never inflated repair scopes, never factory-authorized claims.</p>
                         <div class="cb-cta-row">
                                 <a class="cb-btn cb-btn-call" href="tel:+14167325905">Call Now</a>
                                 <a class="cb-btn cb-btn-book" href="/contact/">Book Online</a>
@@ -634,7 +634,7 @@ add_action( 'wp_head', function() {
                 ),
                 array(
                         'q' => 'Is the repair warrantied? Do you offer same-day?',
-                        'a' => 'Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM-11PM, 7 days a week, and our live agents confirm the earliest window.',
+                        'a' => 'Every Caspian repair carries a 90-day parts and labour warranty. Same-day service is available in most areas — call 7AM-7PM, Monday to Saturday, and our live agents confirm the earliest window.',
                 ),
         );
 
