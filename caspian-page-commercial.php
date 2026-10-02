@@ -119,7 +119,7 @@ add_filter( 'the_content', function( $content ) {
 			<h1>Commercial Appliance Repair &amp; Installation</h1>
 			<p class="subtitle">Commercial kitchens, laundry rooms, and facilities across 30+ Ontario cities — repaired and installed by one accountable service partner. TSSA-registered for all commercial gas work (FS-R-53597).</p>
 			<ul class="cca-hero-bullets">
-				<li>&#9733;4.7 / 230+ Google Reviews</li>
+				<li>&#9733;4.8 / 300+ Google Reviews</li>
 				<li>BBB A+ Accredited</li>
 				<li>WSIB Covered &amp; Insured</li>
 				<li>Live Dispatch 7 AM&ndash;7 PM</li>
@@ -225,7 +225,7 @@ add_filter( 'the_content', function( $content ) {
 			<div class="cca-inner">
 				<h2>Trusted Across Ontario</h2>
 				<div class="cca-trust-badges">
-					<div class="cca-trust-badge"><span class="label">Google Reviews</span><span class="value">&#9733;4.7 / 230+</span></div>
+					<div class="cca-trust-badge"><span class="label">Google Reviews</span><span class="value">&#9733;4.8 / 300+</span></div>
 					<div class="cca-trust-badge"><span class="label">BBB</span><span class="value">A+ Accredited</span></div>
 					<div class="cca-trust-badge"><span class="label">TSSA Registration</span><span class="value">FS-R-53597</span></div>
 					<div class="cca-trust-badge"><span class="label">Coverage</span><span class="value">WSIB + Insured</span></div>
