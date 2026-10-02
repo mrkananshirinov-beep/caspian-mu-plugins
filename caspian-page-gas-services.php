@@ -114,7 +114,7 @@ add_filter( 'the_content', function( $content ) {
 			<h1>Gas Services — TSSA-Registered Contractor</h1>
 			<p class="subtitle">Water heaters, furnaces, fireplaces, garage and pool heaters, gas lines, hook-ups, and gas appliances. Every job is performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.</p>
 			<ul class="cgs-hero-bullets">
-				<li>&#9733;4.7 / 230+ Google Reviews</li>
+				<li>&#9733;4.8 / 300+ Google Reviews</li>
 				<li>BBB A+ Accredited</li>
 				<li>15+ Years Experience</li>
 				<li>90-Day Parts &amp; Labour Warranty</li>
@@ -261,7 +261,7 @@ add_filter( 'the_content', function( $content ) {
 			<div class="cgs-inner">
 				<h2>Trusted Across Ontario</h2>
 				<div class="cgs-trust-badges">
-					<div class="cgs-trust-badge"><span class="label">Google Reviews</span><span class="value">&#9733;4.7 / 230+</span></div>
+					<div class="cgs-trust-badge"><span class="label">Google Reviews</span><span class="value">&#9733;4.8 / 300+</span></div>
 					<div class="cgs-trust-badge"><span class="label">BBB</span><span class="value">A+ Accredited</span></div>
 					<div class="cgs-trust-badge"><span class="label">TSSA Registration</span><span class="value">FS-R-53597</span></div>
 					<div class="cgs-trust-badge"><span class="label">Warranty</span><span class="value">90 Days</span></div>
