@@ -402,13 +402,13 @@ add_filter( 'the_content', function( $content ) {
 		<!-- ============ HERO ============ -->
 		<section class="cg-hero">
 			<h1>Gas Appliance Repair in Hamilton — TSSA-Licensed</h1>
-			<p class="subtitle">Gas dryers, gas ovens, gas cooktops, and gas ranges. Performed by certified TSSA-licensed partner technicians, in full compliance with Ontario regulations.</p>
+			<p class="subtitle">Gas dryers, gas ovens, gas cooktops, and gas ranges. Performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in full compliance with Ontario regulations.</p>
 			<ul class="cg-hero-bullets">
-				<li>★4.7 / 220+ Google Reviews</li>
-				<li>BBB A Accredited</li>
+				<li>★4.8 / 300+ Google Reviews</li>
+				<li>BBB A+ Accredited</li>
 				<li>15+ Years Experience</li>
 				<li>90-Day Parts &amp; Labour Warranty</li>
-				<li>TSSA-Licensed Partner Technicians</li>
+				<li>TSSA-Registered Contractor FS-R-53597</li>
 			</ul>
 			<div class="cg-hero-ctas">
 				<a class="cg-btn cg-btn-call" href="tel:+14167325905">Call Now</a>
@@ -420,7 +420,7 @@ add_filter( 'the_content', function( $content ) {
 		<section class="cg-tssa-banner">
 			<div class="cg-tssa-banner-inner">
 				<strong>Ontario Regulated — TSSA-Licensed Work Only</strong>
-				<p>Gas appliance repairs in Ontario must be performed by technicians licensed by the Technical Standards and Safety Authority (TSSA). Every gas repair we dispatch is handled by certified TSSA-licensed partner technicians, with proper leak testing on every visit.</p>
+				<p>Gas appliance repairs in Ontario must be performed by technicians licensed by the Technical Standards and Safety Authority (TSSA). Every gas repair we dispatch is handled by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, with proper leak testing on every visit.</p>
 			</div>
 		</section>
 
@@ -428,7 +428,7 @@ add_filter( 'the_content', function( $content ) {
 		<section class="cg-section cg-types">
 			<div class="cg-inner">
 				<h2>Gas Appliances We Service</h2>
-				<p class="cg-section-lead">Caspian Appliance Repair has been a trusted name in the appliance repair industry for 15+ years. Every gas appliance below is dispatched to TSSA-licensed partner technicians.</p>
+				<p class="cg-section-lead">Caspian Appliance Repair has been a trusted name in the appliance repair industry for 15+ years. Every gas appliance below is dispatched to G2-certified technicians under our TSSA registration FS-R-53597.</p>
 				<div class="cg-types-grid">
 					<div class="cg-type-card">
 						<h3>Gas Dryers</h3>
@@ -468,7 +468,7 @@ add_filter( 'the_content', function( $content ) {
 					<div class="cg-issue-card">
 						<div class="cg-icon">🛡</div>
 						<h3>Gas Valves &amp; Safety Controls</h3>
-						<p>Burner won't stay lit, flame won't open, or gas smell when off. Valve and safety control issues are always handled by TSSA-licensed partners with leak testing after repair.</p>
+						<p>Burner won't stay lit, flame won't open, or gas smell when off. Valve and safety control issues are always handled by G2-certified technicians with leak testing after repair.</p>
 					</div>
 					<div class="cg-issue-card">
 						<div class="cg-icon">📡</div>
@@ -522,7 +522,7 @@ add_filter( 'the_content', function( $content ) {
 					<div class="cg-why-card">
 						<div class="cg-num">3</div>
 						<h3>Leak Testing on Every Visit</h3>
-						<p>After any gas work, our partner technicians perform proper leak testing using approved equipment. No "looks fine, see you later" — verification is part of every repair.</p>
+						<p>After any gas work, our technicians perform proper leak testing using approved equipment. No "looks fine, see you later" — verification is part of every repair.</p>
 					</div>
 				</div>
 			</div>
@@ -553,7 +553,7 @@ add_filter( 'the_content', function( $content ) {
 				<div class="cg-trust-badges">
 					<div class="cg-trust-badge">
 						<span class="label">Google Reviews</span>
-						<span class="value">★4.7 / 220+</span>
+						<span class="value">★4.8 / 300+</span>
 					</div>
 					<div class="cg-trust-badge">
 						<span class="label">BBB</span>
@@ -568,7 +568,7 @@ add_filter( 'the_content', function( $content ) {
 						<span class="value">90 Days</span>
 					</div>
 				</div>
-				<p class="cg-disclaimer">Caspian Appliance Repair is independent and not affiliated with any manufacturer. We are not factory-authorized for warranty work — we provide quality out-of-warranty repairs. All gas appliance work is performed by certified TSSA-licensed partner technicians.</p>
+				<p class="cg-disclaimer">Caspian Appliance Repair is independent and not affiliated with any manufacturer. We are not factory-authorized for warranty work — we provide quality out-of-warranty repairs. All gas appliance work is performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.</p>
 			</div>
 		</section>
 
@@ -580,7 +580,7 @@ add_filter( 'the_content', function( $content ) {
 
 					<div class="cg-faq-item">
 						<div class="cg-faq-q">Are you TSSA-licensed for gas appliance work?</div>
-						<div class="cg-faq-a">Every gas appliance repair we dispatch is performed by certified TSSA-licensed partner technicians, in full compliance with Ontario regulations. We never assign gas work to anyone without proper licensing — it is non-negotiable.</div>
+						<div class="cg-faq-a">Every gas appliance repair we dispatch is performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in full compliance with Ontario regulations. We never assign gas work to anyone without proper licensing — it is non-negotiable.</div>
 					</div>
 
 					<div class="cg-faq-item">
@@ -595,7 +595,7 @@ add_filter( 'the_content', function( $content ) {
 
 					<div class="cg-faq-item">
 						<div class="cg-faq-q">My gas appliance clicks but won't light — what's wrong?</div>
-						<div class="cg-faq-a">The most common causes are a worn igniter, a dirty electrode, a failed spark module, or a misaligned burner cap (on cooktops). Sometimes the gas valve isn't opening because the igniter resistance is out of spec. Our TSSA-licensed partner technicians diagnose precisely before recommending parts.</div>
+						<div class="cg-faq-a">The most common causes are a worn igniter, a dirty electrode, a failed spark module, or a misaligned burner cap (on cooktops). Sometimes the gas valve isn't opening because the igniter resistance is out of spec. Our G2-certified technicians under our TSSA registration FS-R-53597 diagnose precisely before recommending parts.</div>
 					</div>
 
 					<div class="cg-faq-item">
@@ -610,7 +610,7 @@ add_filter( 'the_content', function( $content ) {
 
 					<div class="cg-faq-item">
 						<div class="cg-faq-q">Is the repair warrantied? Same-day service?</div>
-						<div class="cg-faq-a">Every Caspian repair comes with a 90-day parts and labour warranty. Same-day service is available in most cases for non-emergency gas appliance issues — call during business hours (7AM–11PM, 7 days a week) and our live agents will confirm the earliest available window.</div>
+						<div class="cg-faq-a">Every Caspian repair comes with a 90-day parts and labour warranty. Same-day service is available in most cases for non-emergency gas appliance issues — call during business hours (7AM–7PM, Monday to Saturday) and our live agents will confirm the earliest available window.</div>
 					</div>
 
 				</div>
@@ -620,7 +620,7 @@ add_filter( 'the_content', function( $content ) {
 		<!-- ============ CTA FINAL ============ -->
 		<section class="cg-cta-final">
 			<h3>TSSA-Licensed Gas Repair Across Hamilton &amp; Ontario</h3>
-			<p>Live agents 7AM–11PM. 90-day warranty. Leak testing on every visit. Certified TSSA-licensed partner technicians — no shortcuts.</p>
+			<p>Live agents 7AM–7PM. 90-day warranty. Leak testing on every visit. Certified G2-certified technicians under our TSSA registration FS-R-53597 — no shortcuts.</p>
 			<div class="cg-cta-row">
 				<a class="cg-btn cg-btn-call" href="tel:+14167325905">Call Now</a>
 				<a class="cg-btn cg-btn-book" href="/contact/">Book Online</a>
@@ -657,7 +657,7 @@ add_action( 'wp_head', function() {
 	$faqs = array(
 		array(
 			'q' => 'Are you TSSA-licensed for gas appliance work?',
-			'a' => 'Every gas appliance repair we dispatch is performed by certified TSSA-licensed partner technicians, in full compliance with Ontario regulations. We never assign gas work to anyone without proper licensing.',
+			'a' => 'Every gas appliance repair we dispatch is performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in full compliance with Ontario regulations. We never assign gas work to anyone without proper licensing.',
 		),
 		array(
 			'q' => 'What gas appliances do you service?',
@@ -669,7 +669,7 @@ add_action( 'wp_head', function() {
 		),
 		array(
 			'q' => "My gas appliance clicks but won't light — what's wrong?",
-			'a' => 'The most common causes are a worn igniter, a dirty electrode, a failed spark module, or a misaligned burner cap (on cooktops). Sometimes the gas valve is not opening because the igniter resistance is out of spec. Our TSSA-licensed partner technicians diagnose precisely before recommending parts.',
+			'a' => 'The most common causes are a worn igniter, a dirty electrode, a failed spark module, or a misaligned burner cap (on cooktops). Sometimes the gas valve is not opening because the igniter resistance is out of spec. Our G2-certified technicians under our TSSA registration FS-R-53597 diagnose precisely before recommending parts.',
 		),
 		array(
 			'q' => 'How long does a gas appliance repair usually take?',
@@ -681,7 +681,7 @@ add_action( 'wp_head', function() {
 		),
 		array(
 			'q' => 'Is the repair warrantied? Same-day service?',
-			'a' => 'Every Caspian repair comes with a 90-day parts and labour warranty. Same-day service is available in most cases for non-emergency gas appliance issues — call during business hours (7AM-11PM, 7 days a week) and our live agents will confirm the earliest available window.',
+			'a' => 'Every Caspian repair comes with a 90-day parts and labour warranty. Same-day service is available in most cases for non-emergency gas appliance issues — call during business hours (7AM-7PM, Monday to Saturday) and our live agents will confirm the earliest available window.',
 		),
 	);
 
