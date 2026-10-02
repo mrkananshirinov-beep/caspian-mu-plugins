@@ -444,11 +444,11 @@ add_filter( 'the_content', function( $content ) {
 					<h1>Same-Day Oven Repair in 30+ Ontario Cities</h1>
 					<p class="subtitle">Gas and electric ovens fixed fast. TSSA-licensed for gas. 90-day warranty on every repair.</p>
 					<ul class="co-hero-bullets">
-						<li>★4.7 / 220+ Google Reviews</li>
-						<li>BBB A Accredited</li>
+						<li>★4.8 / 290+ Google Reviews</li>
+						<li>BBB A+ Accredited</li>
 						<li>15+ Years Experience</li>
 						<li>90-Day Parts &amp; Labour Warranty</li>
-						<li>TSSA-Licensed Gas Partners</li>
+						<li>TSSA-Registered Gas Contractor FS-R-53597</li>
 					</ul>
 					<div class="co-hero-ctas">
 						<a class="co-btn co-btn-call" href="tel:+14167325905">Call Now</a>
@@ -473,7 +473,7 @@ add_filter( 'the_content', function( $content ) {
 					<div class="co-intro-card gas">
 						<span class="badge">TSSA-Licensed</span>
 						<h3>Gas Oven Repairs</h3>
-						<p>Gas oven repairs are performed by our certified TSSA-licensed partner technicians, in full compliance with Ontario regulations. Igniters, gas valves, and safety controls — all handled with proper certification. See our full <a href="/gas-appliance-repair/">gas appliance repair</a> service for details.</p>
+						<p>Gas oven repairs are performed by our G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in full compliance with Ontario regulations. Igniters, gas valves, and safety controls — all handled with proper certification. See our full <a href="/gas-appliance-repair/">gas appliance repair</a> service for details.</p>
 					</div>
 				</div>
 			</div>
@@ -511,7 +511,7 @@ add_filter( 'the_content', function( $content ) {
 				<p class="co-section-lead">Gas oven problems require proper certification. We never cut corners on safety.</p>
 
 				<div class="co-tssa-notice">
-					<p><strong>Important:</strong> Gas appliance repairs performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations. We do not perform gas work without proper licensing — your safety is non-negotiable.</p>
+					<p><strong>Important:</strong> Gas appliance repairs performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations. We do not perform gas work without proper licensing — your safety is non-negotiable.</p>
 				</div>
 
 				<div class="co-issue-grid">
@@ -523,7 +523,7 @@ add_filter( 'the_content', function( $content ) {
 					<div class="co-issue-card">
 						<div class="co-icon">🛡</div>
 						<h3>Gas Valves &amp; Safety Controls</h3>
-						<p>Burner won't stay lit, intermittent ignition, or gas smell when oven is off. Gas valve issues are safety-critical and always handled by TSSA-licensed partners with proper leak testing.</p>
+						<p>Burner won't stay lit, intermittent ignition, or gas smell when oven is off. Gas valve issues are safety-critical and always handled by G2-certified technicians with proper leak testing.</p>
 					</div>
 					<div class="co-issue-card">
 						<div class="co-icon">📡</div>
@@ -567,7 +567,7 @@ add_filter( 'the_content', function( $content ) {
 				<div class="co-gallery-grid">
 					<figure class="co-gallery-item">
 						<?php echo caspian_oven_pic( 'gas-oven-igniter-burner-repair-hamilton' ); ?>
-						<figcaption>Gas oven igniter &amp; burner tube service — performed by TSSA-licensed partner technicians.</figcaption>
+						<figcaption>Gas oven igniter &amp; burner tube service — performed by G2-certified technicians under our TSSA registration FS-R-53597.</figcaption>
 					</figure>
 					<figure class="co-gallery-item">
 						<?php echo caspian_oven_pic( 'electric-oven-heating-element-replacement-hamilton' ); ?>
@@ -605,14 +605,14 @@ add_filter( 'the_content', function( $content ) {
 			<div class="co-inner">
 				<p class="co-kicker">Why Caspian</p>
 				<h2>15+ Years of Oven Repair Across Ontario</h2>
-				<p class="co-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area — with technicians who live and work in the areas they serve. Book an oven repair and you get an experienced technician from your region, a live call center seven days a week, and a 90-day parts and labour warranty on the work.</p>
+				<p class="co-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area — with technicians who live and work in the areas they serve. Book an oven repair and you get an experienced technician from your region, a live call center Monday to Saturday, and a 90-day parts and labour warranty on the work.</p>
 				<div class="co-why-stats">
 					<div class="co-why-stat">
-						<span class="value">★4.7</span>
-						<span class="label">220+ Google Reviews</span>
+						<span class="value">★4.8</span>
+						<span class="label">290+ Google Reviews</span>
 					</div>
 					<div class="co-why-stat">
-						<span class="value">A</span>
+						<span class="value">A+</span>
 						<span class="label">BBB Accredited</span>
 					</div>
 					<div class="co-why-stat">
@@ -638,7 +638,7 @@ add_filter( 'the_content', function( $content ) {
 
 					<div class="co-faq-item">
 						<div class="co-faq-q">Do you service both gas and electric ovens?</div>
-						<div class="co-faq-a">Yes. Our in-house technicians handle all electric oven repairs. Gas oven work is performed by our certified TSSA-licensed partner technicians, in full compliance with Ontario regulations.</div>
+						<div class="co-faq-a">Yes. Our in-house technicians handle all electric oven repairs. Gas oven work is performed by our G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in full compliance with Ontario regulations.</div>
 					</div>
 
 					<div class="co-faq-item">
@@ -678,7 +678,7 @@ add_filter( 'the_content', function( $content ) {
 		<!-- ============ CTA FINAL ============ -->
 		<section class="co-cta-final">
 			<h3>Same-Day Oven Repair Close to Home</h3>
-			<p>Live agents 7AM–11PM, 7 days a week. 90-day warranty on every repair. TSSA-licensed for gas. No voicemail — real humans answer.</p>
+			<p>Live agents 7AM–7PM, Monday to Saturday. 90-day warranty on every repair. TSSA-licensed for gas. No voicemail — real humans answer.</p>
 			<div class="co-cta-row">
 				<a class="co-btn co-btn-call" href="tel:+14167325905">Call Now</a>
 				<a class="co-btn co-btn-book" href="/contact/">Book Online</a>
@@ -715,7 +715,7 @@ add_action( 'wp_head', function() {
 	$faqs = array(
 		array(
 			'q' => 'Do you service both gas and electric ovens?',
-			'a' => 'Yes. Our in-house technicians handle all electric oven repairs. Gas oven work is performed by our certified TSSA-licensed partner technicians, in full compliance with Ontario regulations.',
+			'a' => 'Yes. Our in-house technicians handle all electric oven repairs. Gas oven work is performed by our G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in full compliance with Ontario regulations.',
 		),
 		array(
 			'q' => "My oven isn't heating — what's the most likely cause?",
