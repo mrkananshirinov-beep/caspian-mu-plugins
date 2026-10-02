@@ -20,7 +20,7 @@
  * Locked rules compliance:
  *  - NO "Since 2009" in copy (foundingDate in schema only).
  *  - BBB = "A Accredited" (not A+).
- *  - Reviews = "★4.8 / 290+".
+ *  - Reviews = "★4.8 / 300+".
  *  - Phone hidden in button text, visible in tel: href and body copy.
  *  - "15+ Years" tagline standard.
  *  - Factory-not-authorized disclosure + TSSA partner disclosure.
@@ -111,7 +111,7 @@ add_filter( 'wpseo_title', function( $title ) {
 
 add_filter( 'wpseo_metadesc', function( $desc ) {
         if ( is_page( CASPIAN_ABOUT_PAGE_ID ) ) {
-                return 'Hamilton-headquartered, BBB A+ Accredited, 290+ verified Google reviews. In-house technicians, transparent diagnosis, 90-day warranty. 15+ years of honest appliance repair across Ontario.';
+                return 'Hamilton-headquartered, BBB A+ Accredited, 300+ verified Google reviews. In-house technicians, transparent diagnosis, 90-day warranty. 15+ years of honest appliance repair across Ontario.';
         }
         return $desc;
 }, 99 );
@@ -734,7 +734,7 @@ add_filter( 'the_content', function( $content ) {
                                 <ul class="cabt-hero-pills">
                                         <li>Local Technicians</li>
                                         <li>BBB A+ Accredited</li>
-                                        <li>★4.8 / 290+ Google Reviews</li>
+                                        <li>★4.8 / 300+ Google Reviews</li>
                                         <li>15+ Years</li>
                                         <li>90-Day Parts &amp; Labour Warranty</li>
                                 </ul>
@@ -801,7 +801,7 @@ add_filter( 'the_content', function( $content ) {
                 <section class="cabt-numbers">
                         <div class="cabt-numbers-inner">
                                 <h2>Numbers That Speak</h2>
-                                <p class="cabt-numbers-lead">Track record built one honest repair at a time &mdash; verified by customers, by BBB, and by 290+ Google reviews.</p>
+                                <p class="cabt-numbers-lead">Track record built one honest repair at a time &mdash; verified by customers, by BBB, and by 300+ Google reviews.</p>
                                 <div class="cabt-numbers-grid">
                                         <div class="cabt-num">
                                                 <div class="cabt-num-value">15+</div>
@@ -812,7 +812,7 @@ add_filter( 'the_content', function( $content ) {
                                                 <div class="cabt-num-label">Ontario Cities Served</div>
                                         </div>
                                         <div class="cabt-num">
-                                                <div class="cabt-num-value">290+</div>
+                                                <div class="cabt-num-value">300+</div>
                                                 <div class="cabt-num-label">Verified Google Reviews</div>
                                         </div>
                                         <div class="cabt-num">
@@ -893,7 +893,7 @@ add_filter( 'the_content', function( $content ) {
                 <section class="cabt-area">
                         <div class="cabt-area-inner">
                                 <h2>Our Service Area</h2>
-                                <p class="cabt-area-lead">Hamilton-headquartered, serving 30+ Ontario cities through local technicians and licensed partners.</p>
+                                <p class="cabt-area-lead">Hamilton-headquartered, serving 30+ Ontario cities with our own local technicians.</p>
                                 <div class="cabt-area-grid">
 
                                         <div class="cabt-region">
@@ -938,11 +938,11 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cabt-why-inner">
                                 <div class="cabt-why-kicker">Why Caspian</div>
                                 <h2>15+ Years of Honest Appliance Repair Across Ontario</h2>
-                                <p class="cabt-why-lead">Hamilton-headquartered, BBB A+ Accredited, and rated ★4.8 across 290+ verified Google reviews. Caspian is an independent service provider &mdash; not factory-authorized &mdash; staffed by in-house technicians and supported by a real 8-agent call center that answers 7AM to 7PM, Monday to Saturday.</p>
+                                <p class="cabt-why-lead">Hamilton-headquartered, BBB A+ Accredited, and rated ★4.8 across 300+ verified Google reviews. Caspian is an independent service provider &mdash; not factory-authorized &mdash; staffed by in-house technicians and supported by a real 8-agent call center that answers 7AM to 7PM, Monday to Saturday.</p>
                                 <div class="cabt-why-stats">
                                         <div class="cabt-why-stat">
                                                 <div class="cabt-why-stat-value">★4.8</div>
-                                                <div class="cabt-why-stat-label">290+ Google Reviews</div>
+                                                <div class="cabt-why-stat-label">300+ Google Reviews</div>
                                         </div>
                                         <div class="cabt-why-stat">
                                                 <div class="cabt-why-stat-value">A+</div>
@@ -971,7 +971,7 @@ add_filter( 'the_content', function( $content ) {
 
                                 <div class="cabt-faq-item">
                                         <div class="cabt-faq-q">How long has Caspian been in business?</div>
-                                        <div class="cabt-faq-a">Over 15 years. We started in Hamilton and expanded steadily across Ontario through local technicians and licensed partner networks.</div>
+                                        <div class="cabt-faq-a">Over 15 years. We started in Hamilton and expanded steadily across Ontario with our own local technicians.</div>
                                 </div>
 
                                 <div class="cabt-faq-item">
@@ -996,7 +996,7 @@ add_filter( 'the_content', function( $content ) {
 
                                 <div class="cabt-faq-item">
                                         <div class="cabt-faq-q">How does your 90-day warranty work?</div>
-                                        <div class="cabt-faq-a">Every Caspian repair carries 90 days of parts and labour warranty. If the original fault returns within 90 days, we return at no charge &mdash; no service-call fee, no labour fee. We stand behind our work, which is how we've earned 290+ five-star Google reviews.</div>
+                                        <div class="cabt-faq-a">Every Caspian repair carries 90 days of parts and labour warranty. If the original fault returns within 90 days, we return at no charge &mdash; no service-call fee, no labour fee. We stand behind our work, which is how we've earned 300+ five-star Google reviews.</div>
                                 </div>
 
                                 <div class="cabt-faq-item">
@@ -1051,7 +1051,7 @@ add_action( 'wp_head', function() {
         $faqs = array(
                 array(
                         'q' => 'How long has Caspian been in business?',
-                        'a' => 'Over 15 years. We started in Hamilton and expanded steadily across Ontario through local technicians and licensed partner networks.',
+                        'a' => 'Over 15 years. We started in Hamilton and expanded steadily across Ontario with our own local technicians.',
                 ),
                 array(
                         'q' => 'Are your technicians employees or subcontractors?',
@@ -1071,7 +1071,7 @@ add_action( 'wp_head', function() {
                 ),
                 array(
                         'q' => 'How does your 90-day warranty work?',
-                        'a' => 'Every Caspian repair carries 90 days of parts and labour warranty. If the original fault returns within 90 days, we return at no charge — no service-call fee, no labour fee. We stand behind our work, which is how we have earned 290+ five-star Google reviews.',
+                        'a' => 'Every Caspian repair carries 90 days of parts and labour warranty. If the original fault returns within 90 days, we return at no charge — no service-call fee, no labour fee. We stand behind our work, which is how we have earned 300+ five-star Google reviews.',
                 ),
                 array(
                         'q' => 'Which Ontario cities do you cover?',
