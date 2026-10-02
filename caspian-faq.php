@@ -10,7 +10,7 @@ function caspian_faq_cities_grid_html() {
     $cities = [
         ['Ancaster', 'ancaster'],
         ['Aurora', 'aurora'],
-        ['Brant County', 'brant-county'],
+        ['Brant County', 'brant'],
         ['Brantford', 'brantford'],
         ['Burlington', 'burlington'],
         ['Cambridge', 'cambridge'],
@@ -20,7 +20,7 @@ function caspian_faq_cities_grid_html() {
         ['Grimsby', 'grimsby'],
         ['Guelph', 'guelph'],
         ['Guelph/Eramosa', 'guelph-eramosa'],
-        ['Haldimand County', 'haldimand-county'],
+        ['Haldimand County', 'haldimand'],
         ['Halton Hills', 'halton-hills'],
         ['Hamilton', 'hamilton'],
         ['Kitchener', 'kitchener'],
@@ -51,22 +51,22 @@ function caspian_faq_cities_grid_html() {
         $html .= '<a href="/' . esc_attr($c[1]) . '-appliance-repair/">' . esc_html($c[0]) . '</a>';
     }
     $html .= '</div>';
-    $html .= '<p>Each city is served by local technicians who live and work in that area. Gas appliance work is performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.</p>';
+    $html .= '<p>Each city is served by local technicians who live and work in that area. Gas appliance work is performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations.</p>';
     return $html;
 }
 
 function caspian_faq_cities_plaintext() {
     $cities = ['Ancaster','Aurora','Brant County','Brantford','Burlington','Cambridge','Dundas','Flamborough','Fort Erie','Grimsby','Guelph','Guelph/Eramosa','Haldimand County','Halton Hills','Hamilton','Kitchener','Markham','Milton','Mississauga','Newmarket','Niagara Falls','Niagara-on-the-Lake','North Dumfries','Oakville','Pelham','Port Colborne','Richmond Hill','St. Catharines','Stoney Creek','Thorold','Toronto','Vaughan','Wainfleet','Waterdown','Waterloo','Welland'];
-    return 'Caspian is Hamilton-headquartered and serves 30+ Ontario cities: ' . implode(', ', $cities) . '. Each city is served by local technicians who live and work in that area. Gas appliance work is performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.';
+    return 'Caspian is Hamilton-headquartered and serves 30+ Ontario cities: ' . implode(', ', $cities) . '. Each city is served by local technicians who live and work in that area. Gas appliance work is performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations.';
 }
 
 function caspian_get_homepage_faqs() {
     return [
-        ['q' => 'How soon can a technician arrive?', 'a' => 'We offer same-day appointments across 30+ Ontario cities, with most calls dispatched within 5 to 30 minutes of booking. Our 8-agent live call center answers from 7 AM to 11 PM, seven days a week, with no voicemail. Evening and weekend service is available.'],
+        ['q' => 'How soon can a technician arrive?', 'a' => 'We offer same-day appointments across 30+ Ontario cities, with most calls dispatched within 5 to 30 minutes of booking. Our 8-agent live call center answers from 7 AM to 7 PM, Monday to Saturday, with no voicemail. Saturday service is available.'],
         ['q' => 'Do you charge for a diagnostic visit?', 'a' => 'Our technician diagnoses the issue on-site. The diagnostic visit is FREE when you proceed with the repair. We never quote a price before seeing the appliance, because proper diagnosis comes first.'],
         ['q' => 'What warranty do you offer?', 'a' => 'Every repair carries a 90-day parts and labour warranty. If the same issue recurs within 90 days, we return at no charge. Warranty paperwork is provided with every completed job.'],
         ['q' => 'Are you factory-authorized for warranty work?', 'a' => 'We are not factory-authorized for warranty work. We provide quality out-of-warranty repairs. For appliances still under manufacturer warranty, please contact your retailer or manufacturer directly. Outside of warranty, our technicians install quality replacement parts and back every job with our 90-day warranty.'],
-        ['q' => 'Do you service gas appliances?', 'a' => 'Yes. Gas appliance repairs are performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations. This includes gas stoves, gas dryers, and gas ranges. We do not perform gas work without TSSA certification, because your safety comes first.'],
+        ['q' => 'Do you service gas appliances?', 'a' => 'Yes. Gas appliance repairs are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations. This includes gas stoves, gas dryers, and gas ranges. We do not perform gas work without TSSA certification, because your safety comes first.'],
         ['q' => 'Which cities do you serve?', 'a' => caspian_faq_cities_grid_html(), 'a_text' => caspian_faq_cities_plaintext(), 'html' => true],
     ];
 }
