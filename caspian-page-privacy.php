@@ -5,7 +5,7 @@
  *   full-bleed dark sapphire hero + readable 820px content + full-bleed dark CTA-final.
  *   Content grounded in Canada's PIPEDA (governs private-sector privacy in Ontario).
  *   NO sticky widget (legal page, read top-to-bottom). SEO meta override.
- *   Locked rules: BBB "A Accredited", "220+" reviews, "15+ Years", phone hidden in button
+ *   Locked rules: BBB "A Accredited", "300+" reviews, "15+ Years", phone hidden in button
  *   text / visible in tel: href, no "Since 2009" in copy.
  * Version: 1.0
  * Author: Caspian Build
@@ -124,10 +124,10 @@ add_filter( 'the_content', function ( $content ) {
 			<p>We do not sell your personal information. We share it only as needed to operate our business and as permitted or required by law, including with:</p>
 			<ul>
 				<li><strong>Service providers</strong> who help us operate, such as scheduling, communication, payment processing, and website hosting providers, who are required to protect your information and use it only for the services they provide to us</li>
-				<li><strong>Partner technicians,</strong> including TSSA-licensed partner technicians for gas appliance work, so they can complete your repair in compliance with Ontario regulations</li>
+				<li><strong>Our technicians,</strong> including G2-certified technicians under our TSSA registration FS-R-53597 for gas appliance work, so they can complete your repair in compliance with Ontario regulations</li>
 				<li><strong>Authorities or third parties</strong> where we are required to do so by law, or to protect our rights, safety, or property</li>
 			</ul>
-			<div class="cl-note">Gas appliance repairs are performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations. Information shared with these technicians is limited to what is necessary to complete your service safely.</div>
+			<div class="cl-note">Gas appliance repairs are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations. Information shared with these technicians is limited to what is necessary to complete your service safely.</div>
 
 			<h2>7. How We Protect Your Information</h2>
 			<p>We use reasonable physical, technical, and organizational safeguards to protect your personal information against loss, theft, and unauthorized access, use, or disclosure. The level of protection reflects the sensitivity of the information. While no method of transmission or storage is completely secure, we work to protect your information appropriately.</p>
