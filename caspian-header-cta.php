@@ -100,7 +100,7 @@ add_action('astra_header_after', function() {
         }
 
         /* --- Time-aware ribbon text (America/Toronto)
-               Hours: Mon-Sat 07:00-23:00, Sun 09:00-17:00 --- */
+               Hours: Mon-Sat 07:00-19:00, Sun closed --- */
         function caspianRibbonState() {
             var openText = 'Technicians available in your area now';
             var map = { Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6 };
@@ -120,27 +120,18 @@ add_action('astra_header_after', function() {
                 var day = map[wd];
                 if (day === undefined) day = 1;
 
-                var openH  = (day === 0) ? 9  : 7;
-                var closeH = (day === 0) ? 17 : 23;
-
-                if (hr >= openH && hr < closeH) {
+                var OPEN = 7, CLOSE = 19;
+                if (day >= 1 && day <= 6 && hr >= OPEN && hr < CLOSE) {
                     return { open: true, text: openText };
                 }
-
-                /* Closed: compute the next opening hour */
-                var nextOpenH, tomorrow;
-                if (hr < openH) {
-                    nextOpenH = openH;          /* opens later the same day */
-                    tomorrow = false;
-                } else {
-                    var nd = (day + 1) % 7;      /* opens next day */
-                    nextOpenH = (nd === 0) ? 9 : 7;
-                    tomorrow = true;
+                if (day >= 1 && day <= 6 && hr < OPEN) {
+                    return { open: false, text: 'Closed now \u2014 call from 7 AM to book your technician' };
                 }
-                var hourLabel = nextOpenH + ' AM';
-                var txt = 'Closed now \u2014 call from ' + hourLabel
-                        + (tomorrow ? ' tomorrow' : '')
-                        + ' to book your technician';
+                var names = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+                var nd = (day + 1) % 7;
+                if (nd === 0) nd = 1;
+                var whenLabel = (((day + 1) % 7) === nd) ? 'tomorrow' : names[nd];
+                var txt = 'Closed now \u2014 call from 7 AM ' + whenLabel + ' to book your technician';
                 return { open: false, text: txt };
             } catch (e) {
                 return { open: true, text: openText };
@@ -565,9 +556,9 @@ add_action('wp_head', function() {
 
 /* Pulsing ring animation for the live dot */
 @keyframes caspianPulse {
-    0%   { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.55); }
-    70%  { box-shadow: 0 0 0 9px rgba(22, 163, 74, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+    0%   { transform: scale(1); opacity: 1; }
+    70%  { transform: scale(1.35); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
     .caspian-live-ribbon .clr-dot { animation: none !important; }
