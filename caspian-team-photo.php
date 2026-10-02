@@ -83,7 +83,7 @@ function caspian_team_homepage_block() {
                     <p class="csteam-intro">The team that shows up at your door &mdash; not a dispatcher, not a subcontractor. Caspian has trained and dispatched its own in-house technicians for 15+ years, with crews living and working in every Ontario city we serve.</p>
                     <ul class="csteam-bullets">
                         <li><span class="csteam-bullet-check">&#10003;</span> Local technicians in every city we serve</li>
-                        <li><span class="csteam-bullet-check">&#10003;</span> In-house appliance technicians + TSSA-licensed gas partners</li>
+                        <li><span class="csteam-bullet-check">&#10003;</span> In-house appliance technicians + G2-certified gas technicians (TSSA FS-R-53597)</li>
                         <li><span class="csteam-bullet-check">&#10003;</span> Hamilton HQ &middot; 15+ years in the market</li>
                     </ul>
                     <p class="csteam-close">Every visit starts with a clear diagnosis and a flat repair quote you approve before any work begins. Our vans carry common parts for Samsung, LG, Whirlpool, KitchenAid, Bosch, GE, Maytag, and Frigidaire &mdash; so most repairs are completed on the same call.</p>
@@ -92,13 +92,13 @@ function caspian_team_homepage_block() {
             <div class="csteam-stats">
                 <div class="csteam-stat">
                     <div class="csteam-stat-icon">&#9733;</div>
-                    <div class="csteam-stat-value">4.7 / 220+</div>
+                    <div class="csteam-stat-value">4.8 / 300+</div>
                     <div class="csteam-stat-label">Google Reviews</div>
                 </div>
                 <div class="csteam-stat">
                     <div class="csteam-stat-icon">&#10003;</div>
                     <div class="csteam-stat-value">BBB Accredited</div>
-                    <div class="csteam-stat-label">A Rating</div>
+                    <div class="csteam-stat-label">A+ Rating</div>
                 </div>
                 <div class="csteam-stat">
                     <div class="csteam-stat-icon">&#128737;</div>
