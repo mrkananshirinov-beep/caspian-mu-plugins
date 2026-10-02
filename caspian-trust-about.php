@@ -78,13 +78,13 @@ add_action('astra_header_after', function() {
             <div class="caspian-trust-grid">
                 <div class="caspian-trust-badge">
                     <div class="caspian-trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-                    <div class="caspian-trust-value">4.7 / 220+</div>
+                    <div class="caspian-trust-value">4.8 / 300+</div>
                     <div class="caspian-trust-label">Google Reviews</div>
                 </div>
                 <div class="caspian-trust-badge">
                     <div class="caspian-trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
                     <div class="caspian-trust-value">BBB Accredited</div>
-                    <div class="caspian-trust-label">A Rating</div>
+                    <div class="caspian-trust-label">A+ Rating</div>
                 </div>
                 <div class="caspian-trust-badge">
                     <div class="caspian-trust-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H5V8h14v13zM7 10h5v5H7z"/></svg></div>
@@ -103,9 +103,9 @@ add_action('astra_header_after', function() {
     <section class="caspian-about">
         <div class="caspian-about-inner">
             <h2>15+ Years of Trusted Appliance Repair</h2>
-            <p>For over <strong>15 years</strong>, Caspian Appliance Repair has been Canadians&rsquo; go-to service for fridges, washers, dryers, dishwashers, ovens, stoves, and gas appliances. From our Hamilton roots, we&rsquo;ve grown to serve <strong>30+ Ontario cities</strong> through our network of TSSA-licensed partner technicians.</p>
-            <p>What sets us apart: <strong>real people answer every call from 7 AM to 11 PM</strong> &mdash; no voicemail, no overseas call centers. Our 8-agent live team books your appointment fast, our technicians arrive on time, and every repair carries a <strong>90-day parts and labour warranty</strong>.</p>
-            <p>BBB A Accredited. Rated &#9733;4.7 by 220+ Google reviewers. Trusted by Canadian families for 15+ years.</p>
+            <p>For over <strong>15 years</strong>, Caspian Appliance Repair has been Canadians&rsquo; go-to service for fridges, washers, dryers, dishwashers, ovens, stoves, and gas appliances. From our Hamilton roots, we&rsquo;ve grown to serve <strong>30+ Ontario cities</strong> through our network of G2-certified technicians under our TSSA registration FS-R-53597.</p>
+            <p>What sets us apart: <strong>real people answer every call from 7 AM to 7 PM</strong> &mdash; no voicemail, no overseas call centers. Our 8-agent live team books your appointment fast, our technicians arrive on time, and every repair carries a <strong>90-day parts and labour warranty</strong>.</p>
+            <p>BBB A+ Accredited. Rated &#9733;4.8 by 300+ Google reviewers. Trusted by Canadian families for 15+ years.</p>
             <a href="<?php echo esc_url($about_url); ?>" class="caspian-about-cta">Learn More About Caspian &rarr;</a>
         </div>
     </section>
