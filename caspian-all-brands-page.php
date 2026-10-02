@@ -31,7 +31,7 @@
  *    Inglis, Jenn-Air, Kenmore, Thermador, Thor Kitchen, Viking, Wolf) to their dedicated pages.
  *    All 19 brand cards now show a "See repair details" link.
  *  - Removed Speed Queen; added Thor Kitchen (alphabetical).
- *  - Trust strip: "BBB Accredited" -> "BBB A Accredited" (locked standard).
+ *  - Trust strip: "BBB Accredited" -> "BBB A+ Accredited" (locked standard).
  */
 if (!defined('ABSPATH')) exit;
 
@@ -48,23 +48,23 @@ function caspian_all_brands_data() {
     return [
         ['name' => 'Amana',          'url' => '/amana-appliance-repair/', 'desc' => 'Amana is a Whirlpool-owned American value brand making refrigerators, washers, dryers, and ranges. Caspian services all Amana models. Common Amana repairs include ice maker failures, drain pump issues, and thermostat replacements.'],
         ['name' => 'Bosch',          'url' => '/bosch-appliance-repair/', 'desc' => 'Bosch is a German premium brand known for ultra-quiet dishwashers and high-end cooking appliances. We repair Bosch 800, 500, and 300 series dishwashers, plus Bosch washers, dryers, and refrigerators. Common Bosch issues: E15 leak errors, drainage problems, and electronic control board diagnostics.'],
-        ['name' => 'Dacor',          'url' => '/dacor-appliance-repair/', 'desc' => 'Dacor is a premium American kitchen brand now owned by Samsung, specialising in luxury ranges, wall ovens, cooktops, and refrigeration. Common Dacor repairs involve gas burner ignition systems, range thermostats, and electronic display panels. Gas Dacor work performed by certified TSSA-licensed partner technicians.'],
+        ['name' => 'Dacor',          'url' => '/dacor-appliance-repair/', 'desc' => 'Dacor is a premium American kitchen brand now owned by Samsung, specialising in luxury ranges, wall ovens, cooktops, and refrigeration. Common Dacor repairs involve gas burner ignition systems, range thermostats, and electronic display panels. Gas Dacor work performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.'],
         ['name' => 'Electrolux',     'url' => '/electrolux-appliance-repair/', 'desc' => 'Electrolux is a Swedish appliance manufacturer offering mid-to-premium refrigerators, washers, dryers, dishwashers, and ranges. Common Electrolux repairs include water inlet valve replacements, drain pump issues on dishwashers, and refrigerator compressor diagnostics.'],
         ['name' => 'Fisher &amp; Paykel', 'url' => '/fisher-paykel-appliance-repair/', 'desc' => 'Fisher &amp; Paykel is a premium New Zealand brand known for innovative DishDrawer dishwashers, ActiveSmart refrigerators, and intuitive ranges. Common Fisher &amp; Paykel repairs include DishDrawer drain pump replacement, fridge electronic board diagnostics, and ActiveSmart temperature calibration.'],
         ['name' => 'Frigidaire',     'url' => '/frigidaire-appliance-repair/', 'desc' => 'Frigidaire is an Electrolux-owned American mainstream brand. Caspian repairs all Frigidaire and Frigidaire Professional models. Common repairs include refrigerator defrost system issues, range igniter replacements, and dryer heating element failures.'],
         ['name' => 'GE',             'url' => '/ge-appliance-repair/', 'desc' => 'GE Appliances offers a full lineup including standard GE, premium GE Profile, sophisticated GE Caf&eacute;, and ultra-luxury GE Monogram lines. Caspian services every GE tier &mdash; from basic top-load washers to Monogram built-in refrigeration. Common GE repairs: water filter housings, dishwasher detergent dispensers, range surface burner failures.'],
         ['name' => 'Inglis',         'url' => '/inglis-appliance-repair/', 'desc' => 'Inglis is a Canadian-market Whirlpool brand offering dependable laundry and kitchen appliances. Caspian services all Inglis washer, dryer, dishwasher, and refrigerator models. Common Inglis repairs share parts with Whirlpool &mdash; drain pump issues, dryer drum belts, ice maker failures.'],
-        ['name' => 'Jenn-Air',       'url' => '/jennair-appliance-repair/', 'desc' => 'Jenn-Air is a premium American Whirlpool brand specialising in luxury ranges, downdraft cooktops, wall ovens, and built-in refrigeration. Common Jenn-Air repairs: downdraft fan motor replacements, induction cooktop diagnostics, dual-fuel range thermostat calibration. Gas Jenn-Air work performed by certified TSSA-licensed partner technicians.'],
+        ['name' => 'Jenn-Air',       'url' => '/jennair-appliance-repair/', 'desc' => 'Jenn-Air is a premium American Whirlpool brand specialising in luxury ranges, downdraft cooktops, wall ovens, and built-in refrigeration. Common Jenn-Air repairs: downdraft fan motor replacements, induction cooktop diagnostics, dual-fuel range thermostat calibration. Gas Jenn-Air work performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.'],
         ['name' => 'Kenmore',        'url' => '/kenmore-appliance-repair/', 'desc' => 'Kenmore is a long-established North American brand historically sold through Sears, with units manufactured by Whirlpool, LG, and Frigidaire. Caspian services all Kenmore washers, dryers, refrigerators, dishwashers, and ranges. Common Kenmore repairs: drum bearing replacements, fridge ice maker rebuilds, range igniter swaps.'],
         ['name' => 'KitchenAid',     'url' => '/kitchenaid-appliance-repair/', 'desc' => 'KitchenAid is a premium American Whirlpool brand recognised for built-in refrigeration, luxury dishwashers, professional ranges, and the iconic stand mixers. Common KitchenAid repairs: dishwasher control board issues, French door refrigerator water dispenser problems, convection oven fan diagnostics.'],
         ['name' => 'LG',             'url' => '/lg-appliance-repair/', 'desc' => 'LG is a leading Korean electronics manufacturer offering smart refrigerators, Direct Drive front-load washers, and InstaView dishwashers. Common LG repairs: linear compressor diagnostics, washer Tub Clean cycle issues, dryer heating element failures.'],
         ['name' => 'Maytag',         'url' => '/maytag-appliance-repair/', 'desc' => 'Maytag is an American mainstream Whirlpool brand known for durable washers, dryers, dishwashers, refrigerators, and ranges. Caspian repairs Maytag Bravos, Centennial, and Performance series. Common repairs: washer drive belts, dryer thermal fuses, refrigerator defrost timers.'],
         ['name' => 'Samsung',        'url' => '/samsung-appliance-repair/', 'desc' => 'Samsung is a leading Korean manufacturer of smart refrigerators (including the Family Hub line), front-load washers, dryers, dishwashers, and ranges. Caspian services every Samsung major appliance. Common Samsung repairs: twin cooling system diagnostics, washer suspension rods, Flex Wash control board issues.'],
-        ['name' => 'Thermador',      'url' => '/thermador-appliance-repair/', 'desc' => 'Thermador is a Bosch luxury cooking brand offering professional ranges, wall ovens, cooktops, and warming drawers. Common Thermador repairs: star burner ignition diagnostics, electric oven element replacements, and electronic control board service. Gas Thermador work performed by certified TSSA-licensed partner technicians.'],
-        ['name' => 'Thor Kitchen',   'url' => '/thor-appliance-repair/', 'desc' => 'Thor Kitchen is an American brand specialising in affordable professional-style ranges, cooktops, wall ovens, and ventilation hoods for the home kitchen. Common Thor Kitchen repairs: gas range igniter diagnostics, oven temperature calibration, and control-knob assembly replacements. Gas Thor Kitchen work performed by certified TSSA-licensed partner technicians.'],
-        ['name' => 'Viking',         'url' => '/viking-appliance-repair/', 'desc' => 'Viking is an American luxury cooking brand known for professional-grade ranges, wall ovens, cooktops, and refrigeration. Common Viking repairs: burner ignition assembly replacements, oven thermostat calibration, and built-in refrigeration compressor diagnostics. Gas Viking work performed by certified TSSA-licensed partner technicians.'],
+        ['name' => 'Thermador',      'url' => '/thermador-appliance-repair/', 'desc' => 'Thermador is a Bosch luxury cooking brand offering professional ranges, wall ovens, cooktops, and warming drawers. Common Thermador repairs: star burner ignition diagnostics, electric oven element replacements, and electronic control board service. Gas Thermador work performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.'],
+        ['name' => 'Thor Kitchen',   'url' => '/thor-appliance-repair/', 'desc' => 'Thor Kitchen is an American brand specialising in affordable professional-style ranges, cooktops, wall ovens, and ventilation hoods for the home kitchen. Common Thor Kitchen repairs: gas range igniter diagnostics, oven temperature calibration, and control-knob assembly replacements. Gas Thor Kitchen work performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.'],
+        ['name' => 'Viking',         'url' => '/viking-appliance-repair/', 'desc' => 'Viking is an American luxury cooking brand known for professional-grade ranges, wall ovens, cooktops, and refrigeration. Common Viking repairs: burner ignition assembly replacements, oven thermostat calibration, and built-in refrigeration compressor diagnostics. Gas Viking work performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.'],
         ['name' => 'Whirlpool',      'url' => '/whirlpool-appliance-repair/', 'desc' => 'Whirlpool is a major American appliance manufacturer producing the Cabrio, Duet, and Gold series. Caspian services all Whirlpool washers, dryers, refrigerators, dishwashers, and ranges. Common Whirlpool repairs: agitator dogs, water filter housings, dishwasher drain pump failures.'],
-        ['name' => 'Wolf',           'url' => '/wolf-appliance-repair/', 'desc' => 'Wolf is an American ultra-luxury cooking brand offering professional dual-fuel ranges, induction cooktops, wall ovens, and warming drawers. Caspian services Wolf M, E, ICBDF, and ICBM series. Common Wolf repairs: sealed burner ignition diagnostics, oven fan motor service, electronic control panel issues. Gas Wolf work performed by certified TSSA-licensed partner technicians.'],
+        ['name' => 'Wolf',           'url' => '/wolf-appliance-repair/', 'desc' => 'Wolf is an American ultra-luxury cooking brand offering professional dual-fuel ranges, induction cooktops, wall ovens, and warming drawers. Caspian services Wolf M, E, ICBDF, and ICBM series. Common Wolf repairs: sealed burner ignition diagnostics, oven fan motor service, electronic control panel issues. Gas Wolf work performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597.'],
     ];
 }
 
@@ -226,8 +226,8 @@ add_filter('the_content', function($content) {
                 <h1 class="caspian-allbrands-h1">All Brands We Service</h1>
                 <p>Caspian Appliance Repair services <strong style="color:#fff;">19+ major brands</strong> across Hamilton and 30+ Ontario cities. Every repair is backed by our 90-day parts and labour warranty, with same-day service available.</p>
                 <ul class="caspian-allbrands-herobullets">
-                    <li><span class="caspian-hero-bullet-icon">&#9733;</span> 4.7 / 220+ Google Reviews</li>
-                    <li><span class="caspian-hero-bullet-icon">&#10003;</span> BBB A Accredited</li>
+                    <li><span class="caspian-hero-bullet-icon">&#9733;</span> 4.8 / 300+ Google Reviews</li>
+                    <li><span class="caspian-hero-bullet-icon">&#10003;</span> BBB A+ Accredited</li>
                     <li><span class="caspian-hero-bullet-icon">&#10003;</span> 90-Day Parts &amp; Labour Warranty</li>
                     <li><span class="caspian-hero-bullet-icon">&#10003;</span> 15+ Years</li>
                 </ul>
@@ -257,12 +257,12 @@ add_filter('the_content', function($content) {
         <div class="caspian-allbrands-cta">
             <div class="caspian-allbrands-cta-inner">
                 <h3>Don&rsquo;t see your brand?</h3>
-                <p>We likely service it. Call our 8-agent live team 7 AM &ndash; 11 PM or book online &mdash; same-day appointments available.</p>
+                <p>We likely service it. Call our 8-agent live team 7 AM &ndash; 7 PM or book online &mdash; same-day appointments available.</p>
                 <div class="caspian-allbrands-cta-buttons">
                     <a href="tel:+14167325905" class="caspian-allbrands-btn caspian-allbrands-btn-call">Call Now</a>
                     <a href="/contact/" class="caspian-allbrands-btn caspian-allbrands-btn-book">Book Online</a>
                 </div>
-                <p class="caspian-allbrands-disclaimer">We are not factory-authorized for warranty work &mdash; we provide quality out-of-warranty repairs with a 90-day parts and labour warranty. Gas appliance work is performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations.</p>
+                <p class="caspian-allbrands-disclaimer">We are not factory-authorized for warranty work &mdash; we provide quality out-of-warranty repairs with a 90-day parts and labour warranty. Gas appliance work is performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations.</p>
             </div>
         </div>
     </div>
@@ -275,7 +275,7 @@ add_filter('the_content', function($content) {
 // ============================================================
 add_filter('wpseo_metadesc', function($desc) {
     if (is_page('all-brands')) {
-        return 'Caspian Appliance Repair services 19+ major appliance brands across Hamilton and 30+ Ontario cities. Same-day service, BBB A Accredited, 90-day warranty.';
+        return 'Caspian Appliance Repair services 19+ major appliance brands across Hamilton and 30+ Ontario cities. Same-day service, BBB A+ Accredited, 90-day warranty.';
     }
     return $desc;
 });
