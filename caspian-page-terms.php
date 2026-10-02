@@ -5,7 +5,7 @@
  *   full-bleed dark hero + 820px readable content + full-bleed dark CTA-final. Astra title
  *   hidden (hero has its own H1). Content grounded in Ontario commercial practice. NO sticky
  *   widget. Locked rules: diagnosis-first (no price ranges), payment methods, 90-day warranty,
- *   TSSA partner disclosure, not factory-authorized, BBB "A", "220+", "15+ Years",
+ *   TSSA partner disclosure, not factory-authorized, BBB "A", "300+", "15+ Years",
  *   phone hidden in button text / visible in tel: href, no "Since 2009".
  * Version: 1.0
  * Author: Caspian Build
@@ -83,7 +83,7 @@ add_filter( 'the_content', function ( $content ) {
 			<p class="cl-intro">These Terms &amp; Conditions govern your use of the services and website of Caspian Appliance Repair ("Caspian," "we," "us," or "our"). By booking a service with us or using our website, you agree to these terms. Please read them carefully.</p>
 
 			<h2>1. Our Services</h2>
-			<p>Caspian provides in-home appliance repair services for residential appliances, including refrigerators, washers, dryers, dishwashers, ovens, stoves, freezers, and related appliances. We are Hamilton-headquartered and serve 30+ Ontario cities through our local technicians and licensed partners. We work on a diagnose-first basis: our technician inspects the appliance, identifies the issue, and provides a quote before any repair work begins.</p>
+			<p>Caspian provides in-home appliance repair services for residential appliances, including refrigerators, washers, dryers, dishwashers, ovens, stoves, freezers, and related appliances. We are Hamilton-headquartered and serve 30+ Ontario cities through our own local technicians. We work on a diagnose-first basis: our technician inspects the appliance, identifies the issue, and provides a quote before any repair work begins.</p>
 
 			<h2>2. Booking and Appointments</h2>
 			<p>When you book a service, our live team helps schedule a convenient appointment and provides an estimated arrival window. We make reasonable efforts to arrive within that window, but timing may be affected by factors outside our control, such as traffic, weather, or earlier jobs running long. If a delay is expected, we aim to keep you informed.</p>
@@ -102,7 +102,7 @@ add_filter( 'the_content', function ( $content ) {
 			<p>If you need to cancel or reschedule, please let us know as early as possible. Cancellations are handled in accordance with our <a href="<?php echo home_url( '/cancellation-policy/' ); ?>">Cancellation Policy</a>, and any refunds are handled in accordance with our <a href="<?php echo home_url( '/refund-policy/' ); ?>">Refund Policy</a>.</p>
 
 			<h2>7. Gas Appliance Work</h2>
-			<p>Gas appliance repairs are performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations. For safety and legal reasons, gas work is carried out only by appropriately licensed technicians.</p>
+			<p>Gas appliance repairs are performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations. For safety and legal reasons, gas work is carried out only by appropriately licensed technicians.</p>
 
 			<h2>8. Your Responsibilities</h2>
 			<p>To help us complete your repair safely and efficiently, you agree to:</p>
@@ -135,7 +135,7 @@ add_filter( 'the_content', function ( $content ) {
 
 		<div class="cl-cta">
 			<h3>Ready to Book a Repair?</h3>
-			<p>Our live team is here to help, seven days a week. Reach out and we'll get you scheduled.</p>
+			<p>Our live team is here to help, Monday to Saturday. Reach out and we'll get you scheduled.</p>
 			<div class="cl-cta-btns">
 				<a href="tel:+14167325905" class="cl-btn cl-btn-call">Call Now</a>
 				<a href="<?php echo home_url( '/contact/' ); ?>" class="cl-btn cl-btn-book">Book Online</a>
