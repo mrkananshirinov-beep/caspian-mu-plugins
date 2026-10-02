@@ -178,7 +178,7 @@ function caspian_dryer_render($content) {
             <h1>Same-Day Dryer Repair in 30+ Ontario Cities</h1>
             <p class="lead">Same-day service for electric and gas dryers. 90-day parts &amp; labour warranty. Live agents 7am&ndash;7pm, never voicemail.</p>
             <div class="csd-hero-trust">
-                <span><strong>&#9733;4.8</strong> / 290+ Reviews</span>
+                <span><strong>&#9733;4.8</strong> / 300+ Reviews</span>
                 <span><strong>BBB A+</strong> Accredited</span>
                 <span><strong>15+ Years</strong> Experience</span>
                 <span><strong>90-Day</strong> Warranty</span>
@@ -351,7 +351,7 @@ function caspian_dryer_render($content) {
         <div class="csd-trust-grid">
             <div class="csd-trust-card">
                 <span class="num">&#9733;4.8</span>
-                <span class="lbl">290+ Google Reviews</span>
+                <span class="lbl">300+ Google Reviews</span>
             </div>
             <div class="csd-trust-card">
                 <span class="num">A+</span>
