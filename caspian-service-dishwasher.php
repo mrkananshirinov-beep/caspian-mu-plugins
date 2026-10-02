@@ -45,7 +45,7 @@ function caspian_dw_pic($slug, $extra = '') {
 
 function caspian_get_dishwasher_faqs() {
     return [
-        ['q' => 'How quickly can you repair my dishwasher?', 'a' => 'For most calls placed before 5pm, we offer same-day dishwasher service; after 5pm or for outlying cities we usually book the next morning. The technician who comes to your home is based in your area and knows the local water and plumbing quirks. Our 8-agent live call center answers 7am to 11pm, seven days a week, and gives you a 5 to 30 minute callback window so you are not stuck waiting by the phone.'],
+        ['q' => 'How quickly can you repair my dishwasher?', 'a' => 'For most calls placed before 5pm, we offer same-day dishwasher service; after 5pm or for outlying cities we usually book the next morning. The technician who comes to your home is based in your area and knows the local water and plumbing quirks. Our 8-agent live call center answers 7am to 7pm, Monday to Saturday, and gives you a 5 to 30 minute callback window so you are not stuck waiting by the phone.'],
         ['q' => 'Which dishwasher brands do you repair?', 'a' => 'We repair all major dishwasher brands including Bosch, Whirlpool, KitchenAid, Samsung, LG, Maytag, Frigidaire, GE, Kenmore, Miele, Electrolux, and Amana. Both built-in and portable models are serviced. We are not factory-authorized for warranty work, so we focus on quality out-of-warranty repairs.'],
         ['q' => 'Why is my dishwasher not cleaning dishes properly?', 'a' => 'Poor cleaning is usually caused by clogged spray arms, hard water mineral buildup, a failed pump motor, a broken heating element that prevents the wash water from reaching proper temperature, or low water pressure into the unit. Our technician inspects each of these components on-site to identify the cause.'],
         ['q' => 'My dishwasher is leaking water. What could be the problem?', 'a' => 'Leaks typically come from a worn door gasket, a damaged water inlet valve, a cracked pump seal, a faulty float switch, or a loose drain hose connection. Some leaks are visible from the front; others only show during a wash cycle. The technician identifies the exact source during the diagnostic visit.'],
@@ -238,8 +238,8 @@ add_filter('the_content', function($content) {
                 <h1>Local Dishwasher Repair in 30+ Ontario Cities</h1>
                 <p class="subtitle">Built-in and portable dishwasher repairs by local technicians who live and work in your area. Trusted across Ontario for over 15 years. 90-day parts and labour warranty.</p>
                 <div class="caspian-svc-hero-bullets">
-                    <span>4.7 / 220+ Google Reviews</span>
-                    <span>BBB A Accredited</span>
+                    <span>4.8 / 300+ Google Reviews</span>
+                    <span>BBB A+ Accredited</span>
                     <span>15+ Years</span>
                     <span>90-Day Warranty</span>
                 </div>
@@ -331,10 +331,10 @@ add_filter('the_content', function($content) {
             <div class="caspian-svc-why">
                 <p class="kicker">Why Caspian</p>
                 <h2>15+ Years of Dishwasher Repair Across Ontario</h2>
-                <p class="why-intro">Headquartered in Hamilton, Caspian serves 30+ Ontario cities through technicians who actually live in the neighbourhoods they cover — so the person diagnosing your dishwasher knows the local hard-water and plumbing conditions first-hand. BBB A Accredited. Over 220 verified Google reviews averaging ★4.7. Our 8-person live call center answers seven days a week from 7am to 11pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and the wider Ontario region.</p>
+                <p class="why-intro">Headquartered in Hamilton, Caspian serves 30+ Ontario cities through technicians who actually live in the neighbourhoods they cover — so the person diagnosing your dishwasher knows the local hard-water and plumbing conditions first-hand. BBB A+ Accredited. Over 290 verified Google reviews averaging ★4.8. Our 8-person live call center answers Monday to Saturday from 7am to 7pm, dispatching technicians across Hamilton, Burlington, Stoney Creek, Ancaster, Dundas, Waterdown, Grimsby, St. Catharines, Niagara Falls, Welland, Oakville, and the wider Ontario region.</p>
                 <div class="caspian-svc-trust-grid">
-                    <div class="caspian-svc-trust-card"><span class="num">★4.7</span><span class="lbl">220+ Google Reviews</span></div>
-                    <div class="caspian-svc-trust-card"><span class="num">A</span><span class="lbl">BBB Accredited</span></div>
+                    <div class="caspian-svc-trust-card"><span class="num">★4.8</span><span class="lbl">300+ Google Reviews</span></div>
+                    <div class="caspian-svc-trust-card"><span class="num">A+</span><span class="lbl">BBB Accredited</span></div>
                     <div class="caspian-svc-trust-card"><span class="num">2009</span><span class="lbl">In appliance repair market since</span></div>
                     <div class="caspian-svc-trust-card"><span class="num">90-Day</span><span class="lbl">Parts &amp; Labour Warranty</span></div>
                 </div>
