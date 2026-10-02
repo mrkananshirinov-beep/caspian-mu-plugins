@@ -4,7 +4,7 @@
  * Description: Block 12 - Site-wide dark sapphire footer with 4 columns, trust strip, copyright, payment badges
  * Version: 2.1
  * Changes in v2.0:
- *   - Google reviews count synced to 230+ (matches site-wide rolling display).
+ *   - Google reviews count synced to 300+ (matches site-wide rolling display).
  *   - Added "Gas Services" link (/gas-services/) under Appliance Services column.
  *   - v2.1: Commercial Repair moved to Appliance Services column (under Gas Services).
  * Changes in v1.9:
@@ -276,7 +276,7 @@ add_action('astra_footer_after', function() {
 
         <div class="caspian-footer-trust">
             <div class="caspian-footer-trust-inner">
-                <div class="caspian-footer-badge">&#9733;4.7 / 230+ Google Reviews</div>
+                <div class="caspian-footer-badge">&#9733;4.8 / 300+ Google Reviews</div>
                 <div class="caspian-footer-badge">BBB A+ Accredited</div>
                 <div class="caspian-footer-badge">TSSA-Registered FS-R-53597</div>
                 <div class="caspian-footer-badge">WSIB Covered</div>
@@ -284,6 +284,7 @@ add_action('astra_footer_after', function() {
             </div>
             <div class="caspian-footer-seals">
                 <a href="https://www.bbb.org/ca/on/hamilton/profile/appliance-repair/caspian-appliance-repair-inc-0107-1413484/#sealclick" target="_blank" rel="nofollow"><img src="https://seal-mwco.bbb.org/seals/blue-seal-250-52-whitetxt-bbb-1413484.png" style="border: 0;" alt="Caspian Appliance Repair Inc BBB Business Review" /></a>
+                <a class="caspian-hs-badge" href="https://www.google.com/search?q=Caspian+Appliance+Repair+Hamilton" target="_blank" rel="nofollow" aria-label="Google rating 4.8 out of 5 from over 290 reviews"><span class="caspian-hs-check" style="background:#4285F4;">G</span><span class="caspian-hs-txt"><span class="caspian-hs-l1"><b>Google</b> Reviews</span><span class="caspian-hs-l2"><span class="star">&#9733;</span> 4.8 &middot; 300+ reviews</span></span></a>
                 <a class="caspian-hs-badge" href="https://homestars.com/profile/caspian-appliance-repair" target="_blank" rel="nofollow" aria-label="Verified by HomeStars, rated 4.9 out of 5">
                     <span class="caspian-hs-check">&#10003;</span>
                     <span class="caspian-hs-txt">
