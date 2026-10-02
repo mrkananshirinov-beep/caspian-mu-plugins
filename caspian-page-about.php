@@ -20,7 +20,7 @@
  * Locked rules compliance:
  *  - NO "Since 2009" in copy (foundingDate in schema only).
  *  - BBB = "A Accredited" (not A+).
- *  - Reviews = "★4.7 / 220+".
+ *  - Reviews = "★4.8 / 290+".
  *  - Phone hidden in button text, visible in tel: href and body copy.
  *  - "15+ Years" tagline standard.
  *  - Factory-not-authorized disclosure + TSSA partner disclosure.
@@ -111,7 +111,7 @@ add_filter( 'wpseo_title', function( $title ) {
 
 add_filter( 'wpseo_metadesc', function( $desc ) {
         if ( is_page( CASPIAN_ABOUT_PAGE_ID ) ) {
-                return 'Hamilton-headquartered, BBB A Accredited, 220+ verified Google reviews. In-house technicians, transparent diagnosis, 90-day warranty. 15+ years of honest appliance repair across Ontario.';
+                return 'Hamilton-headquartered, BBB A+ Accredited, 290+ verified Google reviews. In-house technicians, transparent diagnosis, 90-day warranty. 15+ years of honest appliance repair across Ontario.';
         }
         return $desc;
 }, 99 );
@@ -733,8 +733,8 @@ add_filter( 'the_content', function( $content ) {
                                 <p class="cabt-hero-subtitle">Local technicians, transparent diagnosis, real warranties. For 15+ years, Caspian has done one thing well &mdash; and only that one thing &mdash; across 30+ Ontario cities. No subcontractors, no voicemail, no phone estimates. Just honest appliance repair.</p>
                                 <ul class="cabt-hero-pills">
                                         <li>Local Technicians</li>
-                                        <li>BBB A Accredited</li>
-                                        <li>★4.7 / 220+ Google Reviews</li>
+                                        <li>BBB A+ Accredited</li>
+                                        <li>★4.8 / 290+ Google Reviews</li>
                                         <li>15+ Years</li>
                                         <li>90-Day Parts &amp; Labour Warranty</li>
                                 </ul>
@@ -754,7 +754,7 @@ add_filter( 'the_content', function( $content ) {
                                 <p>When we started, it was one phone, two tools, and a simple rule: tell the customer what's wrong before quoting a price. Sixteen years later, we serve 30+ Ontario cities &mdash; and the rule hasn't changed.</p>
                                 <p class="cabt-story-pullquote">Diagnose first. Quote second. Repair right.</p>
                                 <p>That rule shaped every decision since. When other shops moved to subcontractor networks to scale fast, we doubled down on in-house technicians &mdash; even when it meant slower growth. When the industry made phone estimates standard, we kept refusing to quote sight-unseen. When competitors padded jobs with unnecessary parts, we built our reputation on honest scope.</p>
-                                <p>What started in Hamilton now reaches Burlington, Toronto, Mississauga, Markham, the Niagara region, the Waterloo region, and 25+ more Ontario communities &mdash; through a combination of Google Local Services Ads coverage and TSSA-licensed partner technicians for gas work. The Hamilton headquarters runs dispatch and the call center. The technicians live and work in the regions they serve.</p>
+                                <p>What started in Hamilton now reaches Burlington, Toronto, Mississauga, Markham, the Niagara region, the Waterloo region, and 25+ more Ontario communities &mdash; through a combination of Google Local Services Ads coverage and G2-certified technicians under our TSSA registration FS-R-53597 for gas work. The Hamilton headquarters runs dispatch and the call center. The technicians live and work in the regions they serve.</p>
                         </div>
                 </section>
 
@@ -781,8 +781,8 @@ add_filter( 'the_content', function( $content ) {
 
                                         <div class="cabt-feature">
                                                 <div class="cabt-feature-icon">☎</div>
-                                                <h3>Live Agents 7AM&ndash;11PM</h3>
-                                                <p>Our 8-person call center answers seven days a week from 7AM to 11PM. No voicemail when your freezer dies. No phone tree. A real person picks up, books your service window, and confirms the technician's arrival.</p>
+                                                <h3>Live Agents 7AM&ndash;7PM</h3>
+                                                <p>Our 8-person call center answers Monday to Saturday from 7AM to 7PM. No voicemail when your freezer dies. No phone tree. A real person picks up, books your service window, and confirms the technician's arrival.</p>
                                         </div>
 
                                         <div class="cabt-feature">
@@ -801,7 +801,7 @@ add_filter( 'the_content', function( $content ) {
                 <section class="cabt-numbers">
                         <div class="cabt-numbers-inner">
                                 <h2>Numbers That Speak</h2>
-                                <p class="cabt-numbers-lead">Track record built one honest repair at a time &mdash; verified by customers, by BBB, and by 220+ Google reviews.</p>
+                                <p class="cabt-numbers-lead">Track record built one honest repair at a time &mdash; verified by customers, by BBB, and by 290+ Google reviews.</p>
                                 <div class="cabt-numbers-grid">
                                         <div class="cabt-num">
                                                 <div class="cabt-num-value">15+</div>
@@ -812,20 +812,20 @@ add_filter( 'the_content', function( $content ) {
                                                 <div class="cabt-num-label">Ontario Cities Served</div>
                                         </div>
                                         <div class="cabt-num">
-                                                <div class="cabt-num-value">220+</div>
+                                                <div class="cabt-num-value">290+</div>
                                                 <div class="cabt-num-label">Verified Google Reviews</div>
                                         </div>
                                         <div class="cabt-num">
-                                                <div class="cabt-num-value">★4.7</div>
+                                                <div class="cabt-num-value">★4.8</div>
                                                 <div class="cabt-num-label">Average Customer Rating</div>
                                         </div>
                                         <div class="cabt-num">
-                                                <div class="cabt-num-value">A</div>
+                                                <div class="cabt-num-value">A+</div>
                                                 <div class="cabt-num-label">BBB Accredited</div>
                                         </div>
                                         <div class="cabt-num">
                                                 <div class="cabt-num-value">8</div>
-                                                <div class="cabt-num-label">Live Agents · 7AM&ndash;11PM</div>
+                                                <div class="cabt-num-label">Live Agents · 7AM&ndash;7PM</div>
                                         </div>
                                 </div>
                         </div>
@@ -862,7 +862,7 @@ add_filter( 'the_content', function( $content ) {
                                         <div class="cabt-step">
                                                 <div class="cabt-step-num">1</div>
                                                 <h3>Call or Book</h3>
-                                                <p>Live agent picks up 7AM&ndash;11PM, 7 days. You describe the symptom; we schedule the soonest available service window.</p>
+                                                <p>Live agent picks up 7AM&ndash;7PM, Monday to Saturday. You describe the symptom; we schedule the soonest available service window.</p>
                                         </div>
 
                                         <div class="cabt-step">
@@ -923,11 +923,11 @@ add_filter( 'the_content', function( $content ) {
 
                                         <div class="cabt-region">
                                                 <h3>Coverage Notes</h3>
-                                                <p>Same-day service available in most cities. Call our 7AM&ndash;11PM live agents to confirm the earliest available window for your area.</p>
+                                                <p>Same-day service available in most cities. Call our 7AM&ndash;7PM live agents to confirm the earliest available window for your area.</p>
                                         </div>
 
                                 </div>
-                                <div class="cabt-area-note">Gas appliance work (cooktops, ranges, dryers) is performed by TSSA-licensed partner technicians, in compliance with Ontario regulations.</div>
+                                <div class="cabt-area-note">Gas appliance work (cooktops, ranges, dryers) is performed by G2-certified technicians under our TSSA registration FS-R-53597, in compliance with Ontario regulations.</div>
                         </div>
                 </section>
 
@@ -938,14 +938,14 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cabt-why-inner">
                                 <div class="cabt-why-kicker">Why Caspian</div>
                                 <h2>15+ Years of Honest Appliance Repair Across Ontario</h2>
-                                <p class="cabt-why-lead">Hamilton-headquartered, BBB A Accredited, and rated ★4.7 across 220+ verified Google reviews. Caspian is an independent service provider &mdash; not factory-authorized &mdash; staffed by in-house technicians and supported by a real 8-agent call center that answers 7AM to 11PM, 7 days a week.</p>
+                                <p class="cabt-why-lead">Hamilton-headquartered, BBB A+ Accredited, and rated ★4.8 across 290+ verified Google reviews. Caspian is an independent service provider &mdash; not factory-authorized &mdash; staffed by in-house technicians and supported by a real 8-agent call center that answers 7AM to 7PM, Monday to Saturday.</p>
                                 <div class="cabt-why-stats">
                                         <div class="cabt-why-stat">
-                                                <div class="cabt-why-stat-value">★4.7</div>
-                                                <div class="cabt-why-stat-label">220+ Google Reviews</div>
+                                                <div class="cabt-why-stat-value">★4.8</div>
+                                                <div class="cabt-why-stat-label">290+ Google Reviews</div>
                                         </div>
                                         <div class="cabt-why-stat">
-                                                <div class="cabt-why-stat-value">A</div>
+                                                <div class="cabt-why-stat-value">A+</div>
                                                 <div class="cabt-why-stat-label">BBB Accredited</div>
                                         </div>
                                         <div class="cabt-why-stat">
@@ -957,7 +957,7 @@ add_filter( 'the_content', function( $content ) {
                                                 <div class="cabt-why-stat-label">Parts &amp; Labour Warranty</div>
                                         </div>
                                 </div>
-                                <div class="cabt-why-note">Service note: Caspian Appliance Repair is an independent service company. We are not factory-authorized for manufacturer warranty work. If your appliance is under manufacturer warranty, contact the brand first to preserve coverage. Gas appliance work is performed by TSSA-licensed partner technicians as required by Ontario regulations. Our technicians are covered under WSIB.</div>
+                                <div class="cabt-why-note">Service note: Caspian Appliance Repair is an independent service company. We are not factory-authorized for manufacturer warranty work. If your appliance is under manufacturer warranty, contact the brand first to preserve coverage. Gas appliance work is performed by G2-certified technicians under our TSSA registration FS-R-53597 as required by Ontario regulations. Our technicians are covered under WSIB.</div>
                         </div>
                 </section>
 
@@ -976,12 +976,12 @@ add_filter( 'the_content', function( $content ) {
 
                                 <div class="cabt-faq-item">
                                         <div class="cabt-faq-q">Are your technicians employees or subcontractors?</div>
-                                        <div class="cabt-faq-a">Caspian technicians are Caspian employees &mdash; trained, dispatched, and accountable through one operation. We do not use random subcontractor pools for general repair work. For gas appliances specifically, we partner with TSSA-licensed technicians as required by Ontario regulations.</div>
+                                        <div class="cabt-faq-a">Caspian technicians are Caspian employees &mdash; trained, dispatched, and accountable through one operation. We do not use random subcontractor pools for general repair work. For gas appliances specifically, the work is performed by G2-certified technicians under our TSSA registration FS-R-53597 as required by Ontario regulations.</div>
                                 </div>
 
                                 <div class="cabt-faq-item">
-                                        <div class="cabt-faq-q">Is your call center really staffed 7AM&ndash;11PM?</div>
-                                        <div class="cabt-faq-a">Yes. Our 8-agent call center is staffed by real people seven days a week, 7AM to 11PM. No voicemail, no phone tree, no automated routing &mdash; a live agent picks up.</div>
+                                        <div class="cabt-faq-q">Is your call center really staffed 7AM&ndash;7PM?</div>
+                                        <div class="cabt-faq-a">Yes. Our 8-agent call center is staffed by real people Monday to Saturday, 7AM to 7PM. No voicemail, no phone tree, no automated routing &mdash; a live agent picks up.</div>
                                 </div>
 
                                 <div class="cabt-faq-item">
@@ -996,7 +996,7 @@ add_filter( 'the_content', function( $content ) {
 
                                 <div class="cabt-faq-item">
                                         <div class="cabt-faq-q">How does your 90-day warranty work?</div>
-                                        <div class="cabt-faq-a">Every Caspian repair carries 90 days of parts and labour warranty. If the original fault returns within 90 days, we return at no charge &mdash; no service-call fee, no labour fee. We stand behind our work, which is how we've earned 220+ five-star Google reviews.</div>
+                                        <div class="cabt-faq-a">Every Caspian repair carries 90 days of parts and labour warranty. If the original fault returns within 90 days, we return at no charge &mdash; no service-call fee, no labour fee. We stand behind our work, which is how we've earned 290+ five-star Google reviews.</div>
                                 </div>
 
                                 <div class="cabt-faq-item">
@@ -1055,11 +1055,11 @@ add_action( 'wp_head', function() {
                 ),
                 array(
                         'q' => 'Are your technicians employees or subcontractors?',
-                        'a' => 'Caspian technicians are Caspian employees — trained, dispatched, and accountable through one operation. We do not use random subcontractor pools for general repair work. For gas appliances specifically, we partner with TSSA-licensed technicians as required by Ontario regulations.',
+                        'a' => 'Caspian technicians are Caspian employees — trained, dispatched, and accountable through one operation. We do not use random subcontractor pools for general repair work. For gas appliances specifically, the work is performed by G2-certified technicians under our TSSA registration FS-R-53597 as required by Ontario regulations.',
                 ),
                 array(
-                        'q' => 'Is your call center really staffed 7AM–11PM?',
-                        'a' => 'Yes. Our 8-agent call center is staffed by real people seven days a week, 7AM to 11PM. No voicemail, no phone tree, no automated routing — a live agent picks up.',
+                        'q' => 'Is your call center really staffed 7AM–7PM?',
+                        'a' => 'Yes. Our 8-agent call center is staffed by real people Monday to Saturday, 7AM to 7PM. No voicemail, no phone tree, no automated routing — a live agent picks up.',
                 ),
                 array(
                         'q' => 'What is your relationship with manufacturer warranties?',
@@ -1071,7 +1071,7 @@ add_action( 'wp_head', function() {
                 ),
                 array(
                         'q' => 'How does your 90-day warranty work?',
-                        'a' => 'Every Caspian repair carries 90 days of parts and labour warranty. If the original fault returns within 90 days, we return at no charge — no service-call fee, no labour fee. We stand behind our work, which is how we have earned 220+ five-star Google reviews.',
+                        'a' => 'Every Caspian repair carries 90 days of parts and labour warranty. If the original fault returns within 90 days, we return at no charge — no service-call fee, no labour fee. We stand behind our work, which is how we have earned 290+ five-star Google reviews.',
                 ),
                 array(
                         'q' => 'Which Ontario cities do you cover?',
