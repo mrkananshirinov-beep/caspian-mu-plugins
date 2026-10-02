@@ -322,8 +322,8 @@ add_filter( 'the_content', function( $content ) {
 			<p class="subtitle">Learn how to maintain, troubleshoot, and care for your appliances from Ontario's trusted repair specialists.</p>
 			<ul class="cb-blog-hero-pills">
 				<li>Local Technicians</li>
-				<li>BBB A Accredited</li>
-				<li>★4.7 / 220+ Google Reviews</li>
+				<li>BBB A+ Accredited</li>
+				<li>★4.8 / 300+ Google Reviews</li>
 				<li>15+ Years Experience</li>
 				<li>90-Day Warranty</li>
 			</ul>
@@ -454,7 +454,7 @@ add_filter( 'the_content', function( $content ) {
 					<li><a href="<?php echo home_url( '/washing-machine-repair/' ); ?>">Washing Machine Repair</a></li>
 					<li><a href="<?php echo home_url( '/dryer-repair/' ); ?>">Dryer Repair</a></li>
 					<li><a href="<?php echo home_url( '/oven-repair/' ); ?>">Oven Repair</a></li>
-					<li><a href="<?php echo home_url( '/stove-repair/' ); ?>">Stove & Cooktop Repair</a></li>
+					<li><a href="<?php echo home_url( '/stove-cooktop-repair/' ); ?>">Stove & Cooktop Repair</a></li>
 					<li><a href="<?php echo home_url( '/about/' ); ?>">About Caspian</a></li>
 					<li><a href="<?php echo home_url( '/contact/' ); ?>">Contact Us</a></li>
 				</ul>
@@ -613,7 +613,7 @@ function caspian_blog_get_articles() {
 				[ 'h2' => 'How the Two Types Differ', 'body' => 'Both dryer types use an electric motor to turn the drum and a blower to move air. The key difference is the heat source. Electric dryers use a heating element powered by a 240-volt circuit, while gas dryers use a gas burner and igniter to produce heat, with only a standard outlet for the motor and controls. This difference shapes the most common faults each type develops.' ],
 				[ 'h2' => 'Common Electric Dryer Problems', 'body' => 'Electric dryers most often fail because of a burned-out heating element, a faulty thermal fuse, or a tripped thermostat. A dryer that runs but does not heat usually points to one of these components. These repairs are typically straightforward for a qualified technician.' ],
 				[ 'h2' => 'Common Gas Dryer Problems', 'body' => 'Gas dryers can develop faults with the igniter, the gas valve solenoids, or the flame sensor. A gas dryer that tumbles but does not heat often has a failed igniter. Because these repairs involve a gas supply, they must be handled with extra care and by a properly licensed technician.' ],
-				[ 'h2' => 'Why Licensing Matters for Gas Repairs', 'body' => 'Gas appliance repairs performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations. This is not optional. Improperly repaired gas appliances pose safety risks, which is why we use licensed technicians for all gas dryer work.' ],
+				[ 'h2' => 'Why Licensing Matters for Gas Repairs', 'body' => 'Gas appliance repairs performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations. This is not optional. Improperly repaired gas appliances pose safety risks, which is why we use licensed technicians for all gas dryer work.' ],
 			],
 			'closing'  => 'Whether you have a gas or electric model, our team has the right expertise and licensing to repair it safely. Learn more about our <a href="/dryer-repair/">dryer repair service</a> and our <a href="/gas-appliance-repair/">gas appliance repairs</a>.',
 			'faq'      => [
@@ -668,7 +668,7 @@ function caspian_blog_get_articles() {
 			'intro'    => 'When your fridge stops cooling or your washer floods the laundry room, waiting days for a repair is not an option. Same-day service across a wide area takes more than good intentions, it takes the right structure. Here is how we make rapid response possible across more than 30 Ontario cities.',
 			'sections' => [
 				[ 'h2' => 'Local Technicians in Every Service Area', 'body' => 'The foundation of fast service is having technicians who live and work in the communities we serve. Rather than dispatching from a single central location, our technicians are based across our service area, which means shorter travel times and faster arrivals.' ],
-				[ 'h2' => 'A Live Call Centre, Not Voicemail', 'body' => 'Our agents answer calls in real time, seven days a week, so your repair request is logged and scheduled the moment you reach out. There is no waiting for a callback that may never come. This responsiveness is a big part of how we keep same-day promises.' ],
+				[ 'h2' => 'A Live Call Centre, Not Voicemail', 'body' => 'Our agents answer calls in real time, Monday to Saturday, so your repair request is logged and scheduled the moment you reach out. There is no waiting for a callback that may never come. This responsiveness is a big part of how we keep same-day promises.' ],
 				[ 'h2' => 'Stocked Vehicles and Common Parts', 'body' => 'Many repairs can be completed on the first visit because our technicians carry commonly needed parts. When a specialised part is required, we order it promptly and schedule a quick return rather than leaving you waiting indefinitely.' ],
 				[ 'h2' => 'Transparent Scheduling', 'body' => 'We give a clear arrival window and keep you informed. Same-day service is only valuable if it is reliable, so we focus on accurate timing and honest communication rather than overpromising.' ],
 			],
@@ -745,14 +745,14 @@ function caspian_blog_get_articles() {
 			'sections' => [
 				[ 'h2' => 'Faster Response Times', 'body' => 'Technicians based in your area simply arrive faster. There is no long drive from a distant dispatch centre, which means same-day and next-day appointments are far more achievable. When your fridge or freezer fails, speed matters.' ],
 				[ 'h2' => 'Knowledge of Local Homes and Conditions', 'body' => 'Ontario homes vary, from older houses in established Hamilton neighbourhoods to newer builds across the GTA. Local technicians understand the wiring, plumbing, and appliance setups common in the area, which helps them diagnose issues more quickly and accurately.' ],
-				[ 'h2' => 'Accountability and Reputation', 'body' => 'A local service depends on its reputation within the community. That accountability translates into better care, because word of mouth and repeat customers matter. Our 220+ Google reviews and BBB A accreditation reflect a commitment built on consistent, trustworthy local service.' ],
+				[ 'h2' => 'Accountability and Reputation', 'body' => 'A local service depends on its reputation within the community. That accountability translates into better care, because word of mouth and repeat customers matter. Our 300+ Google reviews and BBB A+ accreditation reflect a commitment built on consistent, trustworthy local service.' ],
 				[ 'h2' => 'Supporting Your Community', 'body' => 'Choosing a local repair service keeps your money in the regional economy and supports skilled tradespeople who live nearby. It is a practical choice that also strengthens the community you live in.' ],
 			],
 			'closing'  => 'Our technicians live and work across the 30+ Ontario cities we serve, bringing local knowledge to every repair. Learn more <a href="/about/">about Caspian</a> or find your <a href="/hamilton-appliance-repair/">city service page</a>.',
 			'faq'      => [
 				[ 'q' => 'Are local technicians as qualified as national chains?', 'a' => 'Yes. Our technicians are experienced and, for gas work, TSSA-licensed. Local does not mean less qualified, it often means more attentive service.' ],
 				[ 'q' => 'Do local technicians repair all brands?', 'a' => 'Yes. Our team services all major appliance brands, with model-specific expertise across our brand pages.' ],
-				[ 'q' => 'How do I know a local service is trustworthy?', 'a' => 'Look for verified reviews and accreditation. We maintain a 4.7 star rating across 220+ Google reviews and hold BBB A accreditation.' ],
+				[ 'q' => 'How do I know a local service is trustworthy?', 'a' => 'Look for verified reviews and accreditation. We maintain a 4.8 star rating across 300+ Google reviews and hold BBB A+ accreditation.' ],
 			],
 		],
 	];
@@ -925,8 +925,8 @@ add_action( 'template_redirect', function() {
 					<h4>Caspian Appliance Repair</h4>
 					<ul>
 						<li>Local Technicians</li>
-						<li>BBB A Accredited</li>
-						<li>★4.7 / 220+ Reviews</li>
+						<li>BBB A+ Accredited</li>
+						<li>★4.8 / 300+ Reviews</li>
 						<li>15+ Years Experience</li>
 						<li>90-Day Warranty</li>
 					</ul>
