@@ -444,7 +444,7 @@ add_filter( 'the_content', function( $content ) {
 					<h1>Same-Day Oven Repair in 30+ Ontario Cities</h1>
 					<p class="subtitle">Gas and electric ovens fixed fast. TSSA-licensed for gas. 90-day warranty on every repair.</p>
 					<ul class="co-hero-bullets">
-						<li>★4.8 / 290+ Google Reviews</li>
+						<li>★4.8 / 300+ Google Reviews</li>
 						<li>BBB A+ Accredited</li>
 						<li>15+ Years Experience</li>
 						<li>90-Day Parts &amp; Labour Warranty</li>
@@ -609,7 +609,7 @@ add_filter( 'the_content', function( $content ) {
 				<div class="co-why-stats">
 					<div class="co-why-stat">
 						<span class="value">★4.8</span>
-						<span class="label">290+ Google Reviews</span>
+						<span class="label">300+ Google Reviews</span>
 					</div>
 					<div class="co-why-stat">
 						<span class="value">A+</span>
