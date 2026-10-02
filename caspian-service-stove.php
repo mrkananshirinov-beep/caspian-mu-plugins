@@ -522,11 +522,11 @@ add_filter( 'the_content', function( $content ) {
                                         <h1>Same-Day Stove &amp; Cooktop Repair in 30+ Ontario Cities</h1>
                                         <p class="subtitle">Electric coil, ceramic glass, induction, and gas cooktops fixed fast. TSSA-licensed for gas. 90-day warranty.</p>
                                         <ul class="cs-hero-bullets">
-                                                <li>★4.7 / 220+ Google Reviews</li>
-                                                <li>BBB A Accredited</li>
+                                                <li>★4.8 / 290+ Google Reviews</li>
+                                                <li>BBB A+ Accredited</li>
                                                 <li>15+ Years Experience</li>
                                                 <li>90-Day Parts &amp; Labour Warranty</li>
-                                                <li>TSSA-Licensed Gas Partners</li>
+                                                <li>TSSA-Registered Gas Contractor FS-R-53597</li>
                                         </ul>
                                         <div class="cs-hero-ctas">
                                                 <a class="cs-btn cs-btn-call" href="tel:+14167325905">Call Now</a>
@@ -543,7 +543,7 @@ add_filter( 'the_content', function( $content ) {
                 <section class="cs-section cs-intro">
                         <div class="cs-inner">
                                 <h2>Every Cooktop Type — Handled Correctly</h2>
-                                <p class="cs-section-lead">Caspian has repaired cooktops and stoves across Ontario for over 15 years, and the right fix depends on the heat source — so we keep both an in-house electric team and TSSA-licensed gas partners. If your range also has an <a href="/oven-repair/">oven fault</a>, we can handle that on the same visit.</p>
+                                <p class="cs-section-lead">Caspian has repaired cooktops and stoves across Ontario for over 15 years, and the right fix depends on the heat source — so we keep both an in-house electric team and G2-certified gas technicians (TSSA FS-R-53597). If your range also has an <a href="/oven-repair/">oven fault</a>, we can handle that on the same visit.</p>
                                 <div class="cs-intro-grid">
                                         <div class="cs-intro-card">
                                                 <span class="badge">In-House Team</span>
@@ -553,7 +553,7 @@ add_filter( 'the_content', function( $content ) {
                                         <div class="cs-intro-card gas">
                                                 <span class="badge">TSSA-Licensed</span>
                                                 <h3>Gas Cooktops &amp; Stoves</h3>
-                                                <p>Gas appliance repairs are performed by our certified TSSA-licensed partner technicians, in full compliance with Ontario regulations. Igniters, gas valves, burner caps, and safety controls — handled with proper certification and leak testing.</p>
+                                                <p>Gas appliance repairs are performed by our G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in full compliance with Ontario regulations. Igniters, gas valves, burner caps, and safety controls — handled with proper certification and leak testing.</p>
                                         </div>
                                 </div>
                         </div>
@@ -591,7 +591,7 @@ add_filter( 'the_content', function( $content ) {
                                 <p class="cs-section-lead">Gas problems are safety problems. We never cut corners on certification.</p>
 
                                 <div class="cs-tssa-notice">
-                                        <p><strong>Important:</strong> Gas appliance repairs performed by certified TSSA-licensed partner technicians, in compliance with Ontario regulations. Every repair includes proper leak testing — your safety is non-negotiable. See our <a href="/gas-appliance-repair/">gas appliance repair</a> page for full details.</p>
+                                        <p><strong>Important:</strong> Gas appliance repairs performed by G2-certified technicians under our TSSA Fuels Safety Contractor registration FS-R-53597, in compliance with Ontario regulations. Every repair includes proper leak testing — your safety is non-negotiable. See our <a href="/gas-appliance-repair/">gas appliance repair</a> page for full details.</p>
                                 </div>
 
                                 <div class="cs-issue-grid">
@@ -603,7 +603,7 @@ add_filter( 'the_content', function( $content ) {
                                         <div class="cs-issue-card">
                                                 <div class="cs-icon">🛡</div>
                                                 <h3>Gas Valves &amp; Safety Controls</h3>
-                                                <p>Flame won't stay lit, gas smell when burners are off, or one burner gets no gas at all. Valve and safety control issues are always handled by TSSA-licensed partners with proper diagnostic equipment.</p>
+                                                <p>Flame won't stay lit, gas smell when burners are off, or one burner gets no gas at all. Valve and safety control issues are always handled by G2-certified technicians with proper diagnostic equipment.</p>
                                         </div>
                                         <div class="cs-issue-card">
                                                 <div class="cs-icon">🔥</div>
@@ -686,10 +686,10 @@ add_filter( 'the_content', function( $content ) {
                         <div class="cs-inner">
                                 <p class="cs-kicker">Why Caspian</p>
                                 <h2>15+ Years of Stove &amp; Cooktop Repair Across Ontario</h2>
-                                <p class="cs-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area (Brantford). The technician who arrives for your cooktop repair works out of your own region, not a depot across the province, and brings the right diagnostic tools for electric, induction, and gas surfaces. BBB A Accredited. Over 220 verified Google reviews averaging ★4.7. Our 8-person live call center answers seven days a week from 7am to 11pm, so you never reach a voicemail.</p>
+                                <p class="cs-why-lead">Headquartered in Hamilton, Caspian has worked in the appliance repair market since 2009 and now serves 30+ Ontario cities — including the GTA, the Waterloo region, and the Brant area (Brantford). The technician who arrives for your cooktop repair works out of your own region, not a depot across the province, and brings the right diagnostic tools for electric, induction, and gas surfaces. BBB A+ Accredited. Over 290 verified Google reviews averaging ★4.8. Our 8-person live call center answers Monday to Saturday from 7am to 7pm, so you never reach a voicemail.</p>
                                 <div class="cs-why-stats">
-                                        <div class="cs-why-stat"><span class="value">★4.7</span><span class="label">220+ Google Reviews</span></div>
-                                        <div class="cs-why-stat"><span class="value">A</span><span class="label">BBB Accredited</span></div>
+                                        <div class="cs-why-stat"><span class="value">★4.8</span><span class="label">290+ Google Reviews</span></div>
+                                        <div class="cs-why-stat"><span class="value">A+</span><span class="label">BBB Accredited</span></div>
                                         <div class="cs-why-stat"><span class="value">2009</span><span class="label">In appliance repair market since</span></div>
                                         <div class="cs-why-stat"><span class="value">90-Day</span><span class="label">Parts &amp; Labour Warranty</span></div>
                                 </div>
@@ -717,7 +717,7 @@ add_filter( 'the_content', function( $content ) {
 
                                         <div class="cs-faq-item">
                                                 <div class="cs-faq-q">My gas burner clicks but won't light — what's wrong?</div>
-                                                <div class="cs-faq-a">The most common causes are a dirty burner cap, a worn igniter electrode, or a failed spark module. Sometimes a misaligned burner cap is the only issue. Gas burner repairs are performed by our TSSA-licensed partner technicians with proper safety procedures.</div>
+                                                <div class="cs-faq-a">The most common causes are a dirty burner cap, a worn igniter electrode, or a failed spark module. Sometimes a misaligned burner cap is the only issue. Gas burner repairs are performed by our G2-certified technicians under our TSSA registration FS-R-53597 with proper safety procedures.</div>
                                         </div>
 
                                         <div class="cs-faq-item">
@@ -742,7 +742,7 @@ add_filter( 'the_content', function( $content ) {
 
                                         <div class="cs-faq-item">
                                                 <div class="cs-faq-q">Do you offer a warranty on stove and cooktop repairs?</div>
-                                                <div class="cs-faq-a">Every Caspian repair comes with a 90-day parts and labour warranty. If the same problem returns within that window, we come back and fix it at no charge. Our live agents answer seven days a week, 7am to 11pm — no voicemail.</div>
+                                                <div class="cs-faq-a">Every Caspian repair comes with a 90-day parts and labour warranty. If the same problem returns within that window, we come back and fix it at no charge. Our live agents answer Monday to Saturday, 7am to 7pm — no voicemail.</div>
                                         </div>
 
                                 </div>
@@ -752,7 +752,7 @@ add_filter( 'the_content', function( $content ) {
                 <!-- ============ CTA FINAL ============ -->
                 <section class="cs-cta-final">
                         <h3>Get same-day stove and cooktop repair wherever you cook in Ontario</h3>
-                        <p>Live agents 7AM–11PM, 7 days a week. 90-day warranty on every repair. TSSA-licensed for gas. No voicemail — real humans answer.</p>
+                        <p>Live agents 7AM–7PM, Monday to Saturday. 90-day warranty on every repair. TSSA-licensed for gas. No voicemail — real humans answer.</p>
                         <div class="cs-cta-row">
                                 <a class="cs-btn cs-btn-call" href="tel:+14167325905">Call Now</a>
                                 <a class="cs-btn cs-btn-book" href="/contact/">Book Online</a>
@@ -797,7 +797,7 @@ add_action( 'wp_head', function() {
                 ),
                 array(
                         'q' => "My gas burner clicks but won't light — what's wrong?",
-                        'a' => 'The most common causes are a dirty burner cap, a worn igniter electrode, or a failed spark module. Sometimes a misaligned burner cap is the only issue. Gas burner repairs are performed by our TSSA-licensed partner technicians with proper safety procedures.',
+                        'a' => 'The most common causes are a dirty burner cap, a worn igniter electrode, or a failed spark module. Sometimes a misaligned burner cap is the only issue. Gas burner repairs are performed by our G2-certified technicians under our TSSA registration FS-R-53597 with proper safety procedures.',
                 ),
                 array(
                         'q' => 'Can a cracked glass cooktop be repaired, or only replaced?',
@@ -817,7 +817,7 @@ add_action( 'wp_head', function() {
                 ),
                 array(
                         'q' => 'Do you offer a warranty on stove and cooktop repairs?',
-                        'a' => 'Every Caspian repair comes with a 90-day parts and labour warranty. If the same problem returns within that window, we come back and fix it at no charge. Our live agents answer seven days a week, 7am to 11pm — no voicemail.',
+                        'a' => 'Every Caspian repair comes with a 90-day parts and labour warranty. If the same problem returns within that window, we come back and fix it at no charge. Our live agents answer Monday to Saturday, 7am to 7pm — no voicemail.',
                 ),
         );
 
