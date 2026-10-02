@@ -74,7 +74,7 @@ add_filter( 'wpseo_title', function( $t ) {
     return is_page( 'service-areas' ) ? 'Service Areas — Caspian Appliance Repair | 30+ Ontario Cities' : $t;
 }, 20 );
 add_filter( 'wpseo_metadesc', function( $d ) {
-    return is_page( 'service-areas' ) ? 'Caspian Appliance Repair serves 30+ Ontario cities across Hamilton, Halton, Niagara, Waterloo Region, Brant, York and the GTA — local technicians, same-day service, BBB A Accredited.' : $d;
+    return is_page( 'service-areas' ) ? 'Caspian Appliance Repair serves 30+ Ontario cities across Hamilton, Halton, Niagara, Waterloo Region, Brant, York and the GTA — local technicians, same-day service, BBB A+ Accredited.' : $d;
 }, 20 );
 
 /* ============================================================
@@ -154,7 +154,7 @@ add_filter( 'the_content', function( $content ) {
 
     <section class="sa-hero">
         <div class="cwrap">
-            <h1>Appliance Repair Across <?php echo (int) $total; ?>+ Ontario Cities</h1>
+            <h1>Appliance Repair Across 30+ Ontario Cities</h1>
             <p>From Hamilton to Toronto, Niagara to Waterloo Region — local Caspian technicians live and work in the communities they serve, with same-day service and a 90-day parts &amp; labour warranty.</p>
             <div class="btn-row">
                 <a class="btn-call" href="tel:<?php echo esc_attr( $phone_tel ); ?>">Call Now</a>
@@ -180,7 +180,7 @@ add_filter( 'the_content', function( $content ) {
     <section class="sa-cta">
         <div class="cwrap">
             <h2>Don't See Your City? Call Us.</h2>
-            <p>We're constantly expanding across Ontario. Our live agents are available 7 AM–11 PM, 7 days a week — no voicemail. Tell us where you are and we'll get a local technician to you.</p>
+            <p>We're constantly expanding across Ontario. Our live agents are available 7 AM–7 PM, Monday to Saturday — no voicemail. Tell us where you are and we'll get a local technician to you.</p>
             <div class="btn-row">
                 <a class="btn-call" href="tel:<?php echo esc_attr( $phone_tel ); ?>">Call Now</a>
                 <a class="btn-book" href="/contact/">Book Online</a>
